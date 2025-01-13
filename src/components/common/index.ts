@@ -1,5 +1,6 @@
 import QDatetimePicker from './QDatetimePicker.vue';
 import QDialog from './QDialog.vue';
+import QMessageDialog from './QMessageDialog.vue';
 import QFence from './QFence.vue';
 import QLoading from './QLoading.vue';
 import QMenu from './QMenu.vue';
@@ -26,6 +27,7 @@ import QPaymentApproachSelect from './QPaymentApproachSelect.vue';
 export {
   QDatetimePicker,
   QDialog,
+  QMessageDialog,
   QFence,
   QLoading,
   QMenu,

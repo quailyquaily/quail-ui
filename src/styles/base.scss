@@ -13,7 +13,7 @@
 
   --vt-c-red: #CB0000;
   --vt-c-red-dark: #920d2a;
-  --vt-c-red-light: #d83c53;
+  --vt-c-red-light: #f44336;
   --vt-c-red-lighter: #e66372;
   --vt-c-red-dimm-1: rgba(244, 63, 94, .05);
   --vt-c-red-dimm-2: rgba(244, 63, 94, .2);
@@ -61,7 +61,7 @@
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: var(--vt-c-white-soft);
   --vt-c-text-dark-3: var(--vt-c-white-mute);
-  
+
   code, code * {
     font-family: "JetBrains Mono", "Roboto Mono", "Source Code Pro", Monaco, Menlo, Consolas, monospace;
   }

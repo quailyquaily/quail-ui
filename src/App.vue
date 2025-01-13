@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import * as icons from "./components/icons";
 import QButton from "./components/common/QButton.vue";
+import QMessageDialog from "./components/common/QMessageDialog.vue";
 
 const toggleValue = ref(false);
 const switchValue1 = ref(true);
@@ -14,6 +15,10 @@ const dialogValue1 = ref(false);
 const dialogValue2 = ref(false);
 const dialogValue3 = ref(false);
 const dialogValue4 = ref(false);
+const dialogValue5 = ref(false);
+const dialogValue6 = ref(false);
+const dialogValue7 = ref(false);
+const dialogValue8 = ref(false);
 const fieldValue = ref("");
 const inputValue = ref("");
 
@@ -627,6 +632,45 @@ function selectSearchResult(val:any) {
           </div>
         </QDialog>
 
+      </div>
+
+      <div class="flow">
+
+        <QButton class="outlined" @click="dialogValue5 = true">
+          Open Message Dialog
+        </QButton>
+
+        <QButton class="outlined" @click="dialogValue6 = true">
+          Open Message Dialog (emoji)
+        </QButton>
+
+        <QButton class="outlined" @click="dialogValue7 = true">
+          Open Message Dialog (warn)
+        </QButton>
+
+        <QMessageDialog v-model="dialogValue5"
+          icon="QIconSun"
+          icon-color="orange"
+          title="Hello!"
+          text="This is a message dialog."
+          :actions="[{label: 'OK', class: 'primary', action: () => { dialogValue5 = false }}]"/>
+
+        <QMessageDialog v-model="dialogValue6"
+          icon-emoji="💎"
+          icon-color="green"
+          title="Treasure!"
+          text="You lucky guy, you found a treasure! 🎉  "
+          :actions="[{label: 'OK', class: 'primary', action: () => { dialogValue6 = false }}]"/>
+
+        <QMessageDialog v-model="dialogValue7"
+          icon="QIconTrash"
+          icon-color="red"
+          title="Are you sure to delete?"
+          text="This is an unrecoverable action, please be careful. Your data [xxx] will be deleted forever, are you really sure?"
+          :actions="[
+            {label: 'Cancel', class: 'outlined', action: () => { dialogValue7 = false }},
+            {label: 'Delete', class: 'primary danger', action: () => { dialogValue7 = false }}
+          ]"/>
       </div>
     </div>
 

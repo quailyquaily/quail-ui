@@ -1,6 +1,6 @@
 <template>
   <div class="q-avatar" :style="sty" :class="cls">
-    <template v-if="props.src === ''">
+    <template v-if="props.src === '' && $slots.default">
       <slot></slot>
     </template>
     <img v-else :src="imgSrc" :alt="alt" @error="handleError" />

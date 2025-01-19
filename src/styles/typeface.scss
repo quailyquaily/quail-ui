@@ -2,10 +2,6 @@
 // <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 // <link href="https://fonts.googleapis.com/css2?family=<NAME>:wght@200..900&display=swap" rel="stylesheet">
 
-@mixin importfont($locale: '') {
-  @import url('https://fonts.googleapis.com/css2?family=' + $locale +':wght@200..900&display=swap');
-}
-
 .noto-serif {
   font-family: "Noto Serif", serif;
   font-optical-sizing: auto;

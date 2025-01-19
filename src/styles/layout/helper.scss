@@ -97,6 +97,10 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
     }
   }
 
+  .#{$prefix}gap-satoshi {
+    gap: 2px;
+  }
+
   // generate mb-1, mb-2 ... mb-20
   @for $i from 1 through 20 {
     .#{$prefix}mb-#{$i} {

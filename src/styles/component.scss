@@ -278,13 +278,21 @@ button.toggle {
 }
 
 .frame {
-  border: 1px solid var(--vt-c-divider-light-1);
-  border-radius: 6px;
+  border-radius: 8px;
+  border: 0.5px solid var(--q-c-dark-4th, rgba(49, 37, 36, 0.20));
+
   &.focus {
-    border: 1px solid rgba(0,0,0,0.16);
+    border: 0.5px solid var(--q-c-dark-3th, rgba(49, 37, 36, 0.20));
   }
   &.shadow {
     box-shadow: 0px 1px 2px 0px #4343431A;
+  }
+}
+
+.divider {
+  border-top: 0.5px solid var(--q-c-dark-4th);
+  &.focus {
+    border-top: 4px solid var(--q-c-dark);
   }
 }
 

@@ -1,0 +1,144 @@
+@use "sass:math";
+// <link rel="preconnect" href="https://fonts.googleapis.com">
+// <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+// <link href="https://fonts.googleapis.com/css2?family=<NAME>:wght@200..900&display=swap" rel="stylesheet">
+
+@mixin importfont($locale: '') {
+  @import url('https://fonts.googleapis.com/css2?family=' + $locale +':wght@200..900&display=swap');
+}
+
+.noto-serif {
+  font-family: "Noto Serif", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.noto-serif-sc {
+  font-family: "Noto Serif SC", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.noto-serif-tc {
+  font-family: "Noto Serif TC", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.noto-serif-jp {
+  font-family: "Noto Serif JP", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.noto-sans {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.noto-sans-sc {
+  font-family: "Noto Sans SC", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.noto-sans-tc {
+  font-family: "Noto Sans TC", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.noto-sans-jp {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.q-text-display-title {
+  font-family: var(--q-font-serif);
+  font-size: math.div(42, 16) + rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: math.div(54, 16) + rem;
+}
+
+.q-text-display-desc {
+  font-family: var(--q-font-serif);
+  font-size: math.div(18, 16) + rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: math.div(28, 16) + rem;
+}
+
+.q-text-display {
+  font-family: var(--q-font-serif);
+  font-size: math.div(32, 16) + rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.q-text-h1 {
+  font-family: var(--q-font-serif);
+  font-size: math.div(26, 16) + rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.q-text-h2 {
+  font-family: var(--q-font-serif);
+  font-size: math.div(18, 16) + rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.q-text-h3 {
+  font-family: var(--q-font-serif);
+  font-size: math.div(16, 16) + rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.q-text-desc {
+  font-family: var(--q-font-serif);
+  font-size: math.div(14, 16) + rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.q-text-body {
+  font-family: var(--q-font-sans);
+  font-size: math.div(18, 16) + rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: math.div(28, 16) + rem;
+}
+
+.q-text-body-title {
+  font-family: var(--q-font-sans);
+  font-size: math.div(14, 16) + rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: normal;
+}
+
+.q-text-caption {
+  font-family: var(--q-font-sans);
+  font-size: math.div(12, 16) + rem;
+  font-style: normal;
+  font-weight: 400;
+  font-size: normal;
+}
+
+.q-text-code {
+  font-family: var(--q-font-mono) "JetBrains Mono, Roboto Mono, Source Code Pro, Monaco, Menlo, Consolas, monospace";
+  font-size: math.div(16, 16) + rem;
+  font-style: normal;
+  font-weight: 400;
+  font-size: normal;
+}

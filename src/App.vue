@@ -4,6 +4,9 @@ import * as icons from "./components/icons";
 import QButton from "./components/common/QButton.vue";
 import QMessageDialog from "./components/common/QMessageDialog.vue";
 
+import SecTypeface from "./app/typeface.vue"
+import SecFrameAndDivider from "./app/frame.vue"
+
 const toggleValue = ref(false);
 const switchValue1 = ref(true);
 const switchValue2 = ref(false);
@@ -18,7 +21,6 @@ const dialogValue4 = ref(false);
 const dialogValue5 = ref(false);
 const dialogValue6 = ref(false);
 const dialogValue7 = ref(false);
-const dialogValue8 = ref(false);
 const fieldValue = ref("");
 const inputValue = ref("");
 
@@ -201,6 +203,11 @@ function selectSearchResult(val:any) {
         >Fork at Github</a
       >
     </div>
+
+    <SecTypeface />
+
+    <SecFrameAndDivider />
+
     <div class="section">
       <h2 class="section-title">Buttons</h2>
       <div class="flow">
@@ -674,20 +681,6 @@ function selectSearchResult(val:any) {
       </div>
     </div>
 
-    <div class="section">
-      <h2 class="section-title">Frame</h2>
-      <div class="grid gap-4 grid-cols-3">
-        <div class="frame">
-          Some content here
-        </div>
-        <div class="frame focus">
-          Some content here, focused
-        </div>
-        <div class="frame shadow">
-          Some content here, with shadow
-        </div>
-      </div>
-    </div>
 
     <div class="section">
       <h2 class="section-title">Pagination</h2>
@@ -821,23 +814,18 @@ function selectSearchResult(val:any) {
 </template>
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900&display=swap');
 
 .container {
   max-width: 1280px;
   padding: 1rem;
   margin: 0 auto;
-  h2 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-  }
+  background-color: var(--q-bg-light);
+  font-family: var(--q-font-sans);
 }
 .section {
   margin: 2rem 0;
-}
-
-.frame {
-  padding: 1rem;
 }
 
 .icon-wrapper {

@@ -1,6 +1,6 @@
 <template>
   <div class="section mb-4">
-    <h2 class="q-text-h2 mb-2">Typeface</h2>
+    <h2 class="q-text-h2 mb-4">Typeface</h2>
     <div class="rows grid gap-satoshi">
       <div class="row">
         <h1 class="q-text-display-title">Display Title: The quick brown fox jumps over the lazy dogs</h1>

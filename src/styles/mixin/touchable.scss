@@ -6,8 +6,8 @@
   &.primary {
     --q-progress-color: rgba(255, 255, 255, 0.1);
     --q-progress-color-light: rgba(255, 255, 255, 0.05);
-    background-color: var(--vt-c-black);
-    border: 1px solid var(--vt-c-black);
+    background-color: var(--q-c-dark);
+    border: 0.5px solid var(--q-c-dark);
     color: white;
     &:hover {
       box-shadow: 0 0 8px rgba(41,30,56,.2);
@@ -26,7 +26,7 @@
     --q-progress-color-light: rgba(255, 255, 255, 0.05);
     background-color: #f44336;
     color: white;
-    border: 1px solid #f44336;
+    border: 0.5px solid #f44336;
     &:hover {
       background-color: #d32f2f;
     }
@@ -41,10 +41,10 @@
     --q-progress-color: rgba(0, 0, 0, 0.0);
     --q-progress-color-light: rgba(0, 0, 0, 0.03);
     background-color: transparent;
-    border: 1px solid var(--vt-c-divider-light-1);
+    border: 0.5px solid var(--q-c-dark-4th);
     box-shadow: inset 0px 1px 10px 0px rgba(0, 0, 0, 0.01), 0px 1px 2px 0px #4343431A;
     &:hover{
-      color: var(--vt-c-black-soft);
+      color: var(--q-c-dark-2rd);
       background-color: rgba(0, 0, 0, 0.02);
       box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.01), 0px 1px 1px 0px #4343431A;
     }
@@ -63,7 +63,7 @@
     }
     &.toggle-on {
       // pushed state
-      background-color: var(--vt-c-white-soft);
+      background-color: rgba(0, 0, 0, 0.04);
       box-shadow: inset 0px 1px 2px #4343431A;
     }
   }
@@ -72,7 +72,7 @@
     --q-progress-color-light: rgba(255, 0, 0, 0.03);
     color: #d32f2f;
     // box-shadow: inset 0 0 0 1px rgba(244,67,54,0.2);
-    border: 1px solid rgba(244,67,54,0.2);
+    border: 0.5px solid rgba(244,67,54,0.2);
     box-shadow: inset 0px 1px 10px 0px rgba(244,67,54,0.01), 0px 1px 1px 0px rgba(244,67,54,0.1);
     &:hover{
       background-color: rgba(244,67,54,0.04);

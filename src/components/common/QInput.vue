@@ -19,7 +19,7 @@
           @focus="() => emit('focus')"
           @blur="() => emit('blur')"
         />
-        <QButton class="clear-btn plain icon" @click="clear">
+        <QButton class="clear-btn plain sm icon" @click="clear">
           <QIconEditorDelete class="icon" />
         </QButton>
         <div class="q-input-append">
@@ -27,7 +27,7 @@
         </div>
       </div>
 
-      <div v-if="hasHint" class="q-text-field-hint">
+      <div v-if="hasHint" class="q-text-field-hint q-text-caption">
         <div class="q-text-field-hint-left">
           <template v-if="hintIcon">
             <component :is="hintIcon" class="q-text-field-hint-icon"></component>
@@ -36,7 +36,7 @@
             {{ hintText }}
           </div>
         </div>
-        <div v-if="max !== -1" class="q-text-field-counter text-xs">
+        <div v-if="max !== -1" class="q-text-field-counter q-text-caption">
           {{ text.length }} / {{ max }}
         </div>
       </div>
@@ -149,13 +149,13 @@ onMounted(() => {
 
   &.exceed, &.error {
     .q-text-field-wrapper {
-      border: 1px solid var(--vt-c-red-dimm-3);
+      border: 0.5px solid var(--q-c-red-dimm-3);
       &:has(input:focus) {
-        border-color: var(--vt-c-red-dimm-3);
+        border-color: var(--q-c-red-dimm-3);
       }
     }
     .q-text-field-hint {
-      background-color: var(--vt-c-red-dimm-1);
+      background-color: var(--q-c-red-dimm-1);
     }
     .q-text-field-counter {
       color: var(--vt-c-red);
@@ -183,14 +183,14 @@ onMounted(() => {
   .q-text-field-wrapper {
     width: 100%;
     min-height: 44px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 0.5px solid var(--q-c-dark-4th);
     border-radius: 6px;
     box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.03), 0px 1px 1px 0px #4343431A;
     transition: border-color 0.2s ease-in-out;
-
+    background-color: var(--q-bg-white);
     // if textarea gets focus, apply border color to .q-textarea by parent pesudo class
     &:has(input:focus) {
-      border-color: var(--vt-c-divider-light-focus);
+      border-color: var(--q-c-dark-3th);
     }
 
     .q-text-field-inner {
@@ -206,14 +206,17 @@ onMounted(() => {
       min-height: 42px;
     }
     .clear-btn {
-      min-height: 42px;
-      color: var(--vt-c-text-light-3);
+      min-height: 32px;
+      max-height: 32px;
+      min-width: 32px;
+      max-width: 32px;
+      margin-right: 4px;
+      color: var(--q-c-dark-3th);
     }
 
 
     .q-text-field-hint {
-      font-size: 0.8rem;
-      color: var(--vt-c-text-light-3);
+      color: var(--q-c-dark-3th);
       padding: 0.2rem 0.5rem;
       margin-left: 0px;
       margin-right: 0px;

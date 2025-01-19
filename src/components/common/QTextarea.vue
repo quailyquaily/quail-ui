@@ -91,16 +91,16 @@ onMounted(() => {
     <textarea class="textarea" v-model="text"
       @change="textChanged" @keyup="keyup"
       :rows="rows" :placeholder="props.placeholder" :disabled="disabled"></textarea>
-    <div v-if="hasHint" class="q-textarea-hint">
+    <div v-if="hasHint" class="q-textarea-hint q-text-caption">
       <div class="q-textarea-hint-left">
         <template v-if="hintIcon">
           <component :is="hintIcon" class="q-textarea-hint-icon"></component>
         </template>
-        <div v-if="hintText" class="q-textarea-hint-text text-xs">
+        <div v-if="hintText" class="q-textarea-hint-text q-text-caption">
           {{ hintText }}
         </div>
       </div>
-      <div v-if="max !== -1" class="q-textarea-counter text-xs">
+      <div v-if="max !== -1" class="q-textarea-counter ">
         {{ text.length }} / {{ max }}
       </div>
     </div>
@@ -108,26 +108,27 @@ onMounted(() => {
 </template>
 <style lang="scss" scoped>
 .q-textarea {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 0.5px solid var(--q-c-dark-4th);
   border-radius: 6px;
   box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.03), 0px 1px 1px 0px #4343431A;
   transition: border-color 0.2s ease-in-out;
+  background-color: var(--q-bg-white);
   &.exceed, &.error {
-    border: 1px solid var(--vt-c-red-dimm-3);
+    border: 0.5px solid var(--q-c-red-dimm-3);
     &:has(textarea:focus) {
-      border-color: var(--vt-c-red-dimm-3);
+      border-color: var(--q-c-red-dimm-3);
     }
     .q-textarea-hint {
-      background-color: var(--vt-c-red-dimm-1);
+      background-color: var(--q-c-red-dimm-1);
     }
     .q-textarea-counter {
-      color: var(--vt-c-red);
+      color: var(--q-c-red);
     }
   }
 
   &.error {
     .q-textarea-hint {
-      color: var(--vt-c-red);
+      color: var(--q-c-red);
     }
   }
 
@@ -139,11 +140,11 @@ onMounted(() => {
 
   // if textarea gets focus, apply border color to .q-textarea by parent pesudo class
   &:has(textarea:focus) {
-    border-color: var(--vt-c-divider-light-focus);
+    border-color: var(--q-c-dark-3th);
   }
 
   .q-textarea-hint {
-    color: var(--vt-c-text-light-3);
+    color: var(--q-c-dark-3th);
     padding: 0.2rem 0.5rem;
     margin-left: 0px;
     margin-right: 0px;

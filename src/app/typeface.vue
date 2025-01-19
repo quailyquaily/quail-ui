@@ -1,7 +1,7 @@
 <template>
   <div class="section mb-4">
     <h2 class="q-text-h2 mb-4">Typeface</h2>
-    <div class="rows grid gap-satoshi">
+    <div class="rows grid gap-satoshi mb-4">
       <div class="row">
         <h1 class="q-text-display-title">Display Title: The quick brown fox jumps over the lazy dogs</h1>
       </div>
@@ -33,6 +33,36 @@
         <div class="q-text-code">code: The quick brown fox jumps over the lazy dogs</div>
       </div>
     </div>
+
+    <div class="rows grid gap-satoshi mb-4">
+      <div class="row">
+        <div class="q-text-body q-c-dark">body: The quick brown fox jumps over the lazy dogs</div>
+      </div>
+      <div class="row">
+        <div class="q-text-body q-c-dark-2rd">body: The quick brown fox jumps over the lazy dogs</div>
+      </div>
+      <div class="row">
+        <div class="q-text-body q-c-dark-3th">body: The quick brown fox jumps over the lazy dogs</div>
+      </div>
+      <div class="row">
+        <div class="q-text-body q-c-dark-4th">body: The quick brown fox jumps over the lazy dogs</div>
+      </div>
+    </div>
+
+    <div class="rows dark grid gap-satoshi">
+      <div class="row">
+        <div class="q-text-body q-c-light">body: The quick brown fox jumps over the lazy dogs</div>
+      </div>
+      <div class="row">
+        <div class="q-text-body q-c-light-2rd">body: The quick brown fox jumps over the lazy dogs</div>
+      </div>
+      <div class="row">
+        <div class="q-text-body q-c-light-3th">body: The quick brown fox jumps over the lazy dogs</div>
+      </div>
+      <div class="row">
+        <div class="q-text-body q-c-light-4th">body: The quick brown fox jumps over the lazy dogs</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -41,6 +71,11 @@
   .row {
     padding: 0.5rem;
     background-color: var(--q-bg-white);
+  }
+  &.dark {
+    .row {
+      background-color: var(--q-bg-dark);
+    }
   }
 }
 </style>

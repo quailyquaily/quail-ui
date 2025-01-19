@@ -122,6 +122,7 @@ onMounted(() => {
   border-radius: 6px;
   box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.03), 0px 1px 1px 0px #4343431A;
   transition: border-color 0.2s ease-in-out;
+  background-color: var(--q-bg-white);
 
   &:has(input:focus) {
     border-color: var(--vt-c-divider-light-focus);

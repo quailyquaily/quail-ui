@@ -39,13 +39,13 @@
         <div class="q-text-body q-c-dark">body: The quick brown fox jumps over the lazy dogs</div>
       </div>
       <div class="row">
-        <div class="q-text-body q-c-dark-2rd">body: The quick brown fox jumps over the lazy dogs</div>
+        <div class="q-text-body q-c-dark-2">body: The quick brown fox jumps over the lazy dogs</div>
       </div>
       <div class="row">
-        <div class="q-text-body q-c-dark-3th">body: The quick brown fox jumps over the lazy dogs</div>
+        <div class="q-text-body q-c-dark-3">body: The quick brown fox jumps over the lazy dogs</div>
       </div>
       <div class="row">
-        <div class="q-text-body q-c-dark-4th">body: The quick brown fox jumps over the lazy dogs</div>
+        <div class="q-text-body q-c-dark-4">body: The quick brown fox jumps over the lazy dogs</div>
       </div>
     </div>
 
@@ -54,13 +54,13 @@
         <div class="q-text-body q-c-light">body: The quick brown fox jumps over the lazy dogs</div>
       </div>
       <div class="row">
-        <div class="q-text-body q-c-light-2rd">body: The quick brown fox jumps over the lazy dogs</div>
+        <div class="q-text-body q-c-light-2">body: The quick brown fox jumps over the lazy dogs</div>
       </div>
       <div class="row">
-        <div class="q-text-body q-c-light-3th">body: The quick brown fox jumps over the lazy dogs</div>
+        <div class="q-text-body q-c-light-3">body: The quick brown fox jumps over the lazy dogs</div>
       </div>
       <div class="row">
-        <div class="q-text-body q-c-light-4th">body: The quick brown fox jumps over the lazy dogs</div>
+        <div class="q-text-body q-c-light-4">body: The quick brown fox jumps over the lazy dogs</div>
       </div>
     </div>
   </div>

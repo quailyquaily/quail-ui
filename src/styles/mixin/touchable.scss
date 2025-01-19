@@ -41,10 +41,10 @@
     --q-progress-color: rgba(0, 0, 0, 0.0);
     --q-progress-color-light: rgba(0, 0, 0, 0.03);
     background-color: transparent;
-    border: 0.5px solid var(--q-c-dark-4th);
+    border: 0.5px solid var(--q-c-dark-4);
     box-shadow: inset 0px 1px 10px 0px rgba(0, 0, 0, 0.01), 0px 1px 2px 0px #4343431A;
     &:hover{
-      color: var(--q-c-dark-2rd);
+      color: var(--q-c-dark-2);
       background-color: rgba(0, 0, 0, 0.02);
       box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.01), 0px 1px 1px 0px #4343431A;
     }

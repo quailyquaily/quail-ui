@@ -108,7 +108,7 @@ onMounted(() => {
 </template>
 <style lang="scss" scoped>
 .q-textarea {
-  border: 0.5px solid var(--q-c-dark-4th);
+  border: 0.5px solid var(--q-c-dark-4);
   border-radius: 6px;
   box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.03), 0px 1px 1px 0px #4343431A;
   transition: border-color 0.2s ease-in-out;
@@ -140,11 +140,11 @@ onMounted(() => {
 
   // if textarea gets focus, apply border color to .q-textarea by parent pesudo class
   &:has(textarea:focus) {
-    border-color: var(--q-c-dark-3th);
+    border-color: var(--q-c-dark-3);
   }
 
   .q-textarea-hint {
-    color: var(--q-c-dark-3th);
+    color: var(--q-c-dark-3);
     padding: 0.2rem 0.5rem;
     margin-left: 0px;
     margin-right: 0px;

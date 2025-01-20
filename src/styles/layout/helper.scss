@@ -239,6 +239,60 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
     font-size: normal;
   }
 
+  .lang-ja {
+    .#{$prefix}q-text-display-title,
+    .#{$prefix}q-text-display-desc,
+    .#{$prefix}q-text-display,
+    .#{$prefix}q-text-h1,
+    .#{$prefix}q-text-h2,
+    .#{$prefix}q-text-h3,
+    .#{$prefix}q-text-desc {
+      font-family: "Noto Serif JP", "Noto Serif", serif;
+    }
+
+    .#{$prefix}q-text-body,
+    .#{$prefix}q-text-body-title,
+    .#{$prefix}q-text-caption {
+      font-family: "Noto Sans JP", "Noto Sans", sans-serif;
+    }
+  }
+
+  .lang-zh {
+    .#{$prefix}q-text-display-title,
+    .#{$prefix}q-text-display-desc,
+    .#{$prefix}q-text-display,
+    .#{$prefix}q-text-h1,
+    .#{$prefix}q-text-h2,
+    .#{$prefix}q-text-h3,
+    .#{$prefix}q-text-desc {
+      font-family: "Noto Serif SC", "Noto Serif", serif;
+    }
+
+    .#{$prefix}q-text-body,
+    .#{$prefix}q-text-body-title,
+    .#{$prefix}q-text-caption {
+      font-family: "Noto Sans SC", "Noto Sans", sans-serif;
+    }
+  }
+
+  .lang-zh-hant {
+    .#{$prefix}q-text-display-title,
+    .#{$prefix}q-text-display-desc,
+    .#{$prefix}q-text-display,
+    .#{$prefix}q-text-h1,
+    .#{$prefix}q-text-h2,
+    .#{$prefix}q-text-h3,
+    .#{$prefix}q-text-desc {
+      font-family: "Noto Serif TC", "Noto Serif", serif;
+    }
+
+    .#{$prefix}q-text-body,
+    .#{$prefix}q-text-body-title,
+    .#{$prefix}q-text-caption {
+      font-family: "Noto Sans TC", "Noto Sans", sans-serif;
+    }
+  }
+
   // foreground color
   .#{$prefix}q-c-dark {
     color: var(--q-c-dark);

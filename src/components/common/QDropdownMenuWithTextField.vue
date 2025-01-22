@@ -23,11 +23,11 @@
       </div>
     </div>
     <div v-if="showBottom" class="q-dropdown-menu-with-text-field-bottom">
-      <div class="fill-action text-xs plain flex" @click="fill">
+      <div class="fill-action q-text-caption q-c-dark-3 plain flex" @click="fill">
         <span v-text="props.fillActionLabel"></span>
         <QIconArrowUpRight class="icon" />
       </div>
-      <div class="text-xs text-hint">
+      <div class="q-text-caption q-c-dark-3 text-hint">
         <span v-text="props.hintText"></span>
       </div>
     </div>
@@ -118,14 +118,14 @@ onMounted(() => {
 <style scoped lang="scss">
 .q-dropdown-menu-with-text-field {
   width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 6px;
+  border: 0.5px solid var(--q-c-dark-4);
   box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.03), 0px 1px 1px 0px #4343431A;
-  transition: border-color 0.2s ease-in-out;
   background-color: var(--q-bg-white);
+  transition: border-color 0.2s ease-in-out;
 
   &:has(input:focus) {
-    border-color: var(--vt-c-divider-light-focus);
+    border-color: var(--q-c-dark-3);
   }
 
   .q-dropdown-menu-with-text-field-top, .q-dropdown-menu-with-text-field-bottom {
@@ -137,7 +137,6 @@ onMounted(() => {
   }
 
   .q-dropdown-menu-with-text-field-bottom {
-    color: var(--vt-c-text-light-3);
     .text-hint {
       padding: 0.1rem 0.75rem 0.4rem .75rem;
     }
@@ -146,7 +145,7 @@ onMounted(() => {
       cursor: default;
       transition: color 0.2s ease-in;
       &:hover {
-        color: var(--vt-c-text-light-2);
+        color: var(--q-c-dark-2);
       }
     }
     .icon {
@@ -162,6 +161,28 @@ onMounted(() => {
       border: none;
       text-align: right;
       box-shadow: none;
+    }
+  }
+}
+.dark {
+  .q-dropdown-menu-with-text-field {
+    border: 0.5px solid var(--q-c-light-4);
+    box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.03), 0px 1px 1px 0px #4343431A;
+    background-color: rgba(255,255,255,0.1);
+    &:has(input:focus) {
+      border-color: var(--q-c-light-3);
+    }
+    .q-dropdown-menu-with-text-field-bottom {
+      .fill-action {
+        &:hover {
+          color: var(--q-c-light-2);
+        }
+      }
+    }
+    .q-text-field-wrapper {
+      &:deep(.q-text-field) {
+        background-color: transparent;
+      }
     }
   }
 }

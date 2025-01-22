@@ -1,7 +1,7 @@
 <template>
   <div class="section mb-4">
     <div class="divider mb-4"></div>
-    <h2 class="q-text-h2 mb-4">Menu and Dropdown Menu</h2>
+    <h2 class="q-text-h2 mb-4">Menu, DropdownMenu & DropdownMenuWithTextField</h2>
     <div class="grid gap-4 grid-cols-3">
       <div class="menu-wrapper" style="width: 300px; height: 400px;">
         <div class="q-text-caption q-c-dark-3 mb-2">Normal</div>
@@ -96,7 +96,7 @@
         />
       </div>
     </div>
-    <div class="">
+    <div class="mb-8">
       <div class="grid gap-4 grid-cols-5">
         <div>
           <div class="q-text-caption q-c-dark-3 mb-2">use dialog</div>
@@ -129,6 +129,23 @@
           />
         </div>
       </div>
+    </div>
+    <div class="grid gap-4 grid-cols-4">
+      <div>
+        <div class="q-text-caption q-c-dark-3 mb-2">normal</div>
+        <QDropdownMenuWithTextField :default-selection="currencies[0]" default-text="1.234" :items="currencies" @change="currencySelected"/>
+      </div>
+      <div>
+        <div class="q-text-caption q-c-dark-3 mb-2">with fill-action and hint-text</div>
+        <QDropdownMenuWithTextField :default-selection="currencies[0]" default-text="1.234"
+          :items="currencies" @change="currencySelected"
+          fill-action-label='Bal: 100' fill-action-value="100" hint-text="$100000"
+        />
+      </div>
+      <div v-if="selectedCurrencyResult" class="frame p-4 q-text-desc">
+        You selected: {{ selectedCurrencyResult.selected?.title }} - {{ selectedCurrencyResult.text }}
+      </div>
+
     </div>
   </div>
 </template>
@@ -193,10 +210,29 @@ const menuItems = computed(() => [
   },
 ]);
 
+const currencies = computed(() => [
+  {
+    title: "BTC",
+    subtitle: "Bitcoin",
+    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
+  },
+  {
+    title: "LTC",
+    subtitle: "Litecoin",
+    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/2.png",
+  },
+]);
+
+const selectedCurrencyResult:any = ref(null);
+
 const selectedMenuItem = ref(menuItems.value[0]);
 
 function dropdownMenuSelectionChanged(item: any) {
   console.log("Dropdown menu selection changed", item);
 }
 
+function currencySelected(item: any) {
+  console.log("Currency selected", item.selected.title, item.text);
+  selectedCurrencyResult.value = { selected: item.selected, text: item.text };
+}
 </script>

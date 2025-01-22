@@ -16,6 +16,7 @@ import SecFence from "./app/fence.vue"
 import SecProgress from "./app/progress.vue"
 import SecSwitch from "./app/switch.vue"
 import SecMenu from "./app/menu.vue"
+import SecSelector from "./app/selector.vue"
 
 const switchTheme = ref(true);
 
@@ -32,83 +33,7 @@ const dialogValue6 = ref(false);
 const dialogValue7 = ref(false);
 const inputValue = ref("");
 
-const menuItems = computed(() => [
-  {
-    title: "Item 1",
-    subtitle: "Item 1: subtitle",
-    icon: "QIconSun",
-    action: () => {
-      console.log("Item 1");
-    },
-  },
-  {
-    title: "Item 2 without icon",
-    action: () => {
-      console.log("Item 2");
-    },
-  },
-  {
-    divider: true,
-  },
-  {
-    title: "Item 3 with image",
-    image: "https://picsum.photos/200",
-    action: () => {
-      console.log("Item 3");
-    },
-  },
-  {
-    title: "Item 3.1 with image and subtitle",
-    subtitle: "Item 3.1: subtitle",
-    image: "https://picsum.photos/200",
-    action: () => {
-      console.log("Item 3");
-    },
-  },
-  {
-    title: "Item 4, disabled",
-    disabled: true,
-    icon: "QIconFileLock",
-    action: () => {
-      console.log("Item 4");
-    },
-  },
-  {
-    title: "Item 5, danger",
-    danger: true,
-    icon: "QIconLogout",
-    action: () => {
-      console.log("Item 5");
-    },
-  },
-  {
-    title: "Item 6, no icon",
-    action: () => {
-      console.log("Item 6");
-    },
-  },
-]);
-
 const currentPage = ref(1);
-
-const selectedMenuItem = ref(menuItems.value[0]);
-
-const selectedLang = ref('en');
-
-const selectedCurrency = ref('USD');
-
-const currencies = computed(() => [
-  {
-    title: "BTC",
-    subtitle: "Bitcoin",
-    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
-  },
-  {
-    title: "LTC",
-    subtitle: "Litecoin",
-    image: "https://s2.coinmarketcap.com/static/img/coins/64x64/2.png",
-  },
-]);
 
 const tabs = computed(() => [
   { id: "tab1", title: "Tab 1", icon: "QIconSun" },
@@ -170,30 +95,6 @@ function selectPaymentApproachItem(item: any) {
   selectedPaymentApproachItem.value = item;
 }
 
-function onLangSelected(item: any) {
-  console.log("Language selected", item);
-  selectedLang.value = item.value;
-}
-
-function onCurrencySelected(item: any) {
-  console.log("Currency selected", item);
-  selectedCurrency.value = item.value;
-}
-
-function dropdownMenuSelectionChanged(item: any) {
-  console.log("Dropdown menu selection changed", item);
-}
-
-const selectedCurrencyResult:any = ref(null);
-function currencySelected(item: any) {
-  console.log("Currency selected", item.selected.title, item.text);
-  selectedCurrencyResult.value = { selected: item.selected, text: item.text };
-}
-
-function submit(val:any) {
-  console.log("submit", val);
-}
-
 function openDialog3(ev:any) {
   dialogValue3.value = true;
 }
@@ -249,41 +150,7 @@ function selectSearchResult(val:any) {
 
     <SecMenu />
 
-    <div class="section">
-      <h2 class="section-title">Language Selector</h2>
-      <div class="flow">
-        <QLanguageSelector :lang="'en'" auto @change="onLangSelected"/>
-        <div style="margin-top: 0.5rem">
-          <QIconArrowRight></QIconArrowRight>
-        </div>
-        <QLanguageSelector :lang="selectedLang" no-flag :presist="true" @change="onLangSelected"/>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2 class="section-title">Currency Selector</h2>
-      <div class="flow">
-        <QCurrencySelector :currency="'USD'" @change="onCurrencySelected"/>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2 class="section-title">Dropdown Menu With Text field</h2>
-      <div class="flow">
-        <div>
-          <QDropdownMenuWithTextField :default-selection="currencies[0]" default-text="1.234" :items="currencies" @change="currencySelected"/>
-          <div v-if="selectedCurrencyResult" class="flow">
-            You selected: {{ selectedCurrencyResult.selected?.title }} - {{ selectedCurrencyResult.text }}
-          </div>
-        </div>
-        <div>
-          <QDropdownMenuWithTextField :default-selection="currencies[0]" default-text="1.234"
-            :items="currencies" @change="currencySelected"
-            fill-action-label='Bal: 100' fill-action-value="100" hint-text="$100000"
-          />
-        </div>
-      </div>
-    </div>
+    <SecSelector />
 
     <div class="section">
       <h2 class="section-title">Datetime Picker</h2>

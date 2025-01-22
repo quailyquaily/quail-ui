@@ -126,7 +126,6 @@ function changed() {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     min-width: 296px;
-    background-color: transparent;
     color: var(--q-c-dark);
   }
   .q-text-button-wrapper {

@@ -23,6 +23,7 @@ import QTextarea from './QTextarea.vue';
 import QCurrencySelector from './QCurrencySelector.vue';
 import QPaymentApproachItem from './QPaymentApproachItem.vue';
 import QPaymentApproachSelect from './QPaymentApproachSelect.vue';
+import QPremiumDecoration from './QPremiumDecoration.vue';
 
 export {
   QDatetimePicker,
@@ -50,4 +51,5 @@ export {
   QCurrencySelector,
   QPaymentApproachItem,
   QPaymentApproachSelect,
+  QPremiumDecoration,
 };

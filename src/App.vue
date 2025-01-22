@@ -6,6 +6,7 @@ import QMessageDialog from "./components/common/QMessageDialog.vue";
 
 import SecTypeface from "./app/typeface.vue"
 import SecFrameAndDivider from "./app/frame.vue"
+import SecPremiumDecoration from "./app/premium.vue"
 
 const toggleValue = ref(false);
 const switchValue1 = ref(true);
@@ -207,6 +208,8 @@ function selectSearchResult(val:any) {
     <SecTypeface />
 
     <SecFrameAndDivider />
+
+    <SecPremiumDecoration />
 
     <div class="section">
       <h2 class="section-title">Buttons</h2>

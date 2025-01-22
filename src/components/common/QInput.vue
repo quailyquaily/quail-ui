@@ -214,7 +214,6 @@ onMounted(() => {
       color: var(--q-c-dark-3);
     }
 
-
     .q-text-field-hint {
       color: var(--q-c-dark-3);
       padding: 0.2rem 0.5rem;
@@ -240,6 +239,56 @@ onMounted(() => {
   &.empty {
     .clear-btn {
       display: none;
+    }
+  }
+}
+
+.dark {
+  .q-input {
+    &.exceed, &.error {
+      .q-text-field-wrapper {
+        border: 0.5px solid var(--q-c-red-dimm-3);
+        &:has(input:focus) {
+          border-color: var(--q-c-red-dimm-3);
+        }
+        .q-text-field-hint {
+          background-color: var(--q-c-red-dimm-1);
+        }
+        .q-text-field-counter {
+          color: var(--vt-c-red-light);
+        }
+      }
+    }
+    &.error {
+      .q-text-field-hint-text {
+        color: var(--vt-c-red-light);
+      }
+    }
+    .q-text-field-wrapper {
+      border-color: var(--q-c-light-4);
+      box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.03), 0px 1px 1px 0px #4343431A;
+      background-color: rgba(255,255,255,0.1);
+      &:has(input:focus) {
+        border-color: var(--q-c-light-3);
+      }
+      &:deep(.q-text-field) {
+        color: var(--q-c-light);
+        background-color: transparent;
+      }
+      .clear-btn {
+        color: var(--q-c-light-3);
+      }
+      .q-text-field-hint {
+        color: var(--q-c-light-3);
+      }
+    }
+    &.disabled {
+      .q-text-field-wrapper {
+        &:deep(.q-text-field) {
+          opacity: 0.5;
+          background-color: var(--q-c-light-4);
+        }
+      }
     }
   }
 }

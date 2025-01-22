@@ -8,7 +8,8 @@ import SecTypeface from "./app/typeface.vue"
 import SecFrameAndDivider from "./app/frame.vue"
 import SecPremiumDecoration from "./app/premium.vue"
 import SecButton from "./app/button.vue"
-import QSwitch from "./components/common/QSwitch.vue";
+import SecInput from "./app/input.vue"
+import SecTextarea from "./app/textarea.vue"
 
 const switchTheme = ref(true);
 
@@ -229,51 +230,10 @@ function selectSearchResult(val:any) {
 
     <SecButton />
 
+    <SecInput />
 
-    <div class="section">
-      <h2 class="section-title">Input</h2>
-      <div class="flow">
-        <QInput v-model="inputValue" type="text" placeholder="type here!" :disabled="true"/>
-        <QInput v-model="inputValue" type="text" placeholder="type here!" />
-        <QInput v-model="inputValue" type="text" placeholder="type here!" :error="true" :hint-text="'Some errors!'"/>
-        <QInput v-model="inputValue" type="text" placeholder="type here!" :hint-text="'Less than 10 charactors'" :max="10"/>
-        <br/>
-        <QInput v-model="inputValue" type="text" placeholder="type here!">
-          <template #prepend-out>
-            <QSwitch class="mr-2" v-model="switchValue1"/>
-          </template>
-          <template #prepend>
-            <QIconSearch class="icon ml-2" />
-          </template>
-          <template #append>
-            <QButton class="outlined xs icon mr-1">
-              <QIconSun class="icon" />
-            </QButton>
-          </template>
-          <template #append-out>
-            <QButton class="primary icon ml-2">
-              <QIconMenu class="icon" />
-            </QButton>
-          </template>
-        </QInput>
-      </div>
-      <div class="flow">
-        <div>inputValue: {{ inputValue }}</div>
-      </div>
-    </div>
+    <SecTextarea />
 
-    <div class="section">
-      <h2 class="section-title">Textarea</h2>
-      <div class="mb-4">
-        <QTextarea v-model="inputValue" placeholder="type here!" />
-      </div>
-      <div class="mb-4">
-        <QTextarea v-model="inputValue" placeholder="type here!" :error='true' :hint-text="'Some errors!'"/>
-      </div>
-      <div>
-        <QTextarea v-model="inputValue" placeholder="type here!" :max="100" :hint-icon="'QIconMarkdown'" :hint-text="'Markdown Enabled.'"/>
-      </div>
-    </div>
 
     <div class="section">
       <h2 class="section-title">Form</h2>

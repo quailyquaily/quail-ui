@@ -136,6 +136,7 @@ onMounted(() => {
     border: none !important;
     box-shadow: none !important;
     outline: none !important;
+    resize: none;
   }
 
   // if textarea gets focus, apply border color to .q-textarea by parent pesudo class
@@ -162,6 +163,51 @@ onMounted(() => {
       max-width: 16px;
       opacity: 0.7;
       margin-right: 0.5rem;
+    }
+  }
+}
+
+.dark {
+  .q-textarea {
+    border-color: var(--q-c-light-4);
+    box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.03), 0px 1px 1px 0px #4343431A;
+    background-color: rgba(255,255,255,0.1);
+
+    &.exceed, &.error {
+      border: 0.5px solid var(--q-c-red-dimm-3);
+      &:has(input:focus) {
+        border-color: var(--q-c-red-dimm-3);
+      }
+      .q-textarea-hint {
+        background-color: var(--q-c-red-dimm-1);
+      }
+      .q-textarea-counter {
+        color: var(--vt-c-red-light);
+      }
+    }
+    &.error {
+      .q-textarea-hint-text {
+        color: var(--vt-c-red-light);
+      }
+    }
+    &:has(textarea:focus) {
+      border-color: var(--q-c-light-3);
+    }
+    &:deep(textarea) {
+      color: var(--q-c-light);
+      background-color: transparent;
+    }
+    .q-textarea-hint {
+      color: var(--q-c-light-3);
+    }
+
+    &.disabled {
+      .q-textarea-wrapper {
+        &:deep(.q-text-field) {
+          opacity: 0.5;
+          background-color: var(--q-c-light-4);
+        }
+      }
     }
   }
 }

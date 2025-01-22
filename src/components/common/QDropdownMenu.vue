@@ -158,6 +158,9 @@ function toggle() {
 }
 
 function menuItemClick(item: any) {
+  if (item.divider) {
+    return ;
+  }
   expanded.value = false;
   selectedItem.value = item;
   emit("change", item);
@@ -206,7 +209,7 @@ onMounted(() => {
             class="icon menu-icon"
             :is="selectedItem.icon"
           ></component>
-          <div v-if="!hideActionLabel" class="menu-title">
+          <div v-if="!hideActionLabel" class="menu-title q-text-body-title">
             {{
               selectedItem
                 ? selectedItem.title
@@ -370,7 +373,7 @@ onMounted(() => {
 .dark {
   .q-menu-popup-body {
     background: var(--q-c-black);
-    border: 1px solid var(--q-c-light-4);
+    border: 0.5px solid var(--q-c-light-4);
     .filter-area {
       input {
       }

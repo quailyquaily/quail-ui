@@ -74,7 +74,7 @@ function genCls(tab:any, ix: number) {
   padding: .25rem;
   &:deep(.q-button) {
     transition: none;
-    border-radius: 3px !important;
+    border-radius: 4px !important;
     &.outlined {
       background-color: white !important;
       border: 1px solid var(--vt-c-divider-light-2);

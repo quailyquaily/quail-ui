@@ -18,7 +18,6 @@ onMounted(() => {
 <style scoped lang="scss">
 .q-premium-decoration-inner {
   position: relative;
-  // padding-left: 10px;
 }
 .q-premium-decoration-image {
   top: 0;

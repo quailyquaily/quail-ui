@@ -8,7 +8,7 @@ import QTextarea from '../components/common/QTextarea.vue';
     <h2 class="q-text-h2 mb-4">Premium Decoration</h2>
     <div class="grid gap-4 grid-cols-3">
       <div class="premium-wrapper">
-        <QPremiumDecoration>
+        <QPremiumDecoration border-radius="6px">
           <div class="image-wrapper">
             <img src="https://quaily.com/portal-images/illustration/stat-0.webp" class="image"/>
           </div>
@@ -29,6 +29,7 @@ import QTextarea from '../components/common/QTextarea.vue';
 .premium-wrapper {
   &:deep(.image-wrapper) {
     width: 100%;
+    border-radius: 8px;
   }
   &:deep(.q-textarea) {
     border-top-left-radius: 0;
@@ -41,5 +42,6 @@ import QTextarea from '../components/common/QTextarea.vue';
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s;
   display: block;
+  border-radius: 6px;
 }
 </style>

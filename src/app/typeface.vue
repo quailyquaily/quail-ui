@@ -49,20 +49,6 @@
       </div>
     </div>
 
-    <div class="rows dark grid gap-satoshi">
-      <div class="row">
-        <div class="q-text-body q-c-light">body: The quick brown fox jumps over the lazy dogs</div>
-      </div>
-      <div class="row">
-        <div class="q-text-body q-c-light-2">body: The quick brown fox jumps over the lazy dogs</div>
-      </div>
-      <div class="row">
-        <div class="q-text-body q-c-light-3">body: The quick brown fox jumps over the lazy dogs</div>
-      </div>
-      <div class="row">
-        <div class="q-text-body q-c-light-4">body: The quick brown fox jumps over the lazy dogs</div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -70,12 +56,6 @@
 .rows {
   .row {
     padding: 0.5rem;
-    background-color: var(--q-bg-white);
-  }
-  &.dark {
-    .row {
-      background-color: var(--q-bg-dark);
-    }
   }
 }
 </style>

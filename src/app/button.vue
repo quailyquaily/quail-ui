@@ -1,0 +1,89 @@
+<template>
+  <div class="section mb-4">
+    <h2 class="q-text-h2 mb-4">Button</h2>
+    <div class="grid gap-4 grid-cols-3">
+      <div class="flow">
+        <QButton class="primary" @click="() => console.log('OK')">Primary</QButton>
+        <QButton class="primary elevated">Primary</QButton>
+        <QButton class="primary" disabled>Primary</QButton>
+        <QButton class="primary" loading>Loading</QButton>
+      </div>
+      <div class="flow">
+        <QButton class="outlined">Outlined</QButton>
+        <QButton class="outlined elevated">Outlined</QButton>
+        <QButton class="outlined" disabled>Outlined</QButton>
+        <QButton class="outlined" loading>Loading</QButton>
+        <QButton class="outlined toggle-on">Toggled</QButton>
+      </div>
+      <div class="flow">
+        <QButton class="plain">Plain</QButton>
+        <QButton class="plain" disabled>Plain</QButton>
+        <QButton class="plain" loading>Loading</QButton>
+      </div>
+      <div class="flow">
+        <QButton class="danger">Danger</QButton>
+        <QButton class="danger elevated">Danger</QButton>
+        <QButton class="danger" disabled>Danger</QButton>
+        <QButton class="danger" loading>Danger</QButton>
+      </div>
+      <div class="flow">
+        <QButton class="outlined danger">Danger</QButton>
+        <QButton class="outlined danger elevated">Danger</QButton>
+        <QButton class="outlined danger" disabled>Danger</QButton>
+        <QButton class="outlined danger" loading>Danger</QButton>
+      </div>
+      <div class="flow">
+        <QButton class="plain danger">Danger</QButton>
+        <QButton class="plain danger" disabled>Danger</QButton>
+        <QButton class="plain danger" loading>Danger</QButton>
+      </div>
+      <div class="flow">
+        <QButton class="highlight">Highlight</QButton>
+        <QButton class="highlight elevated">Highlight</QButton>
+        <QButton class="highlight" disabled>Highlight</QButton>
+        <QButton class="highlight" loading>Highlight</QButton>
+      </div>
+      <div class="flow">
+        <QButton class="outlined">Normal</QButton>
+        <QButton class="sm outlined">Small</QButton>
+        <QButton class="xs outlined">Smaller</QButton>
+        <QButton class="xxs outlined">Smallest</QButton>
+      </div>
+      <div class="flow">
+        <QButton class="icon primary">
+          <QIconPlus class="icon" />
+        </QButton>
+        <QButton class="icon danger">
+          <QIconTrash class="icon" />
+        </QButton>
+        <QButton class="icon outlined danger">
+          <QIconArrowDown class="icon" />
+        </QButton>
+        <QButton class="icon highlight">
+          <QIconBatteryFull class="icon" />
+        </QButton>
+        <QButton class="icon outlined">
+          <QIconSun class="icon" />
+        </QButton>
+        <QButton class="icon plain">
+          <QIconQuail class="icon" />
+        </QButton>
+        <QButton class="primary">
+          <QIconSearch class="icon" />
+          <span class="button-label">Search</span>
+        </QButton>
+      </div>
+      <div class="flow">
+        <QToggleButton v-model="toggleValue">On/Off</QToggleButton>
+        <QToggleButton v-model="toggleValue" class="icon"><QIconMenu /></QToggleButton>
+        <div class="frame q-text-desc q-c-dark-2 p-3">value: {{ toggleValue }}</div>
+        <QButton class="primary" @click="toggleValue = !toggleValue">Toggle</QButton>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed, ref, watch } from "vue";
+const toggleValue = ref(false);
+</script>

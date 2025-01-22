@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import * as icons from "./components/icons";
 import QButton from "./components/common/QButton.vue";
 import QMessageDialog from "./components/common/QMessageDialog.vue";
@@ -7,8 +7,11 @@ import QMessageDialog from "./components/common/QMessageDialog.vue";
 import SecTypeface from "./app/typeface.vue"
 import SecFrameAndDivider from "./app/frame.vue"
 import SecPremiumDecoration from "./app/premium.vue"
+import SecButton from "./app/button.vue"
+import QSwitch from "./components/common/QSwitch.vue";
 
-const toggleValue = ref(false);
+const switchTheme = ref(true);
+
 const switchValue1 = ref(true);
 const switchValue2 = ref(false);
 const switchValue3 = ref(false);
@@ -150,6 +153,14 @@ const paymentApproachArray = computed(() => {
   }]
 })
 
+watch(() => switchTheme.value, (val) => {
+  if (val) {
+    document.body.classList.remove("dark");
+  } else {
+    document.body.classList.add("dark");
+  }
+})
+
 function selectPaymentApproachItem(item: any) {
   console.log("selectPaymentApproachItem", item);
   selectedPaymentApproachItem.value = item;
@@ -196,14 +207,19 @@ function selectSearchResult(val:any) {
 </script>
 
 <template>
-  <div class="container">
-    <h1 class="">Quail UI</h1>
-    <div>
-      👉
-      <a href="https://github.com/quail-ink/quail-ui" target="_blank"
-        >Fork at Github</a
-      >
+  <div class="container" :class="switchTheme ? '' : 'dark'">
+    <div class="grid gap-4 grid-cols-2">
+      <div class="">
+        <h1 class="q-text-display mb-2">Quail UI</h1>
+        <div class="q-text-desc">
+          👉 <a href="https://github.com/quail-ink/quail-ui" target="_blank" class="q-c-dark-2">Fork at Github</a>
+        </div>
+      </div>
+      <div class="text-right">
+        <QSwitch theme="clear-sky" v-model="switchTheme" />
+      </div>
     </div>
+    <div class="divider focus mt-4"></div>
 
     <SecTypeface />
 
@@ -211,77 +227,8 @@ function selectSearchResult(val:any) {
 
     <SecPremiumDecoration />
 
-    <div class="section">
-      <h2 class="section-title">Buttons</h2>
-      <div class="flow">
-        <QButton class="primary" @click="() => console.log('OK')">Primary</QButton>
-        <QButton class="primary elevated">Primary</QButton>
-        <QButton class="primary" disabled>Primary</QButton>
-        <QButton class="primary" loading>Loading</QButton>
-        <QButton class="sm primary">Small</QButton>
-        <QButton class="xs primary">Smaller</QButton>
-        <QButton class="xxs primary">Smallest</QButton>
-      </div>
-      <div class="flow">
-        <QButton class="outlined">Outlined</QButton>
-        <QButton class="outlined elevated">Outlined</QButton>
-        <QButton class="outlined" disabled>Outlined</QButton>
-        <QButton class="outlined" loading>Loading</QButton>
-        <QButton class="outlined toggle-on">Toggled</QButton>
-      </div>
-      <div class="flow">
-        <QButton class="plain">Plain</QButton>
-        <QButton class="plain" disabled>Plain</QButton>
-        <QButton class="plain" loading>Loading</QButton>
-      </div>
-      <div class="flow">
-        <QButton class="danger">Danger</QButton>
-        <QButton class="danger elevated">Danger</QButton>
-        <QButton class="danger" disabled>Danger</QButton>
-        <QButton class="danger" loading>Danger</QButton>
-      </div>
-      <div class="flow">
-        <QButton class="outlined danger">Danger</QButton>
-        <QButton class="outlined danger elevated">Danger</QButton>
-        <QButton class="outlined danger" disabled>Danger</QButton>
-        <QButton class="outlined danger" loading>Danger</QButton>
-      </div>
-      <div class="flow">
-        <QButton class="plain danger">Danger</QButton>
-        <QButton class="plain danger" disabled>Danger</QButton>
-        <QButton class="plain danger" loading>Danger</QButton>
-      </div>
-      <div class="flow">
-        <QButton class="icon primary">
-          <QIconPlus class="icon" />
-        </QButton>
-        <QButton class="icon danger">
-          <QIconTrash class="icon" />
-        </QButton>
-        <QButton class="icon outlined danger">
-          <QIconTrash class="icon" />
-        </QButton>
-        <QButton class="icon outlined">
-          <QIconSun class="icon" />
-        </QButton>
-        <QButton class="icon plain">
-          <QIconQuail class="icon" />
-        </QButton>
-        <QButton class="primary">
-          <QIconSearch class="icon" />
-          <span class="button-label">Search</span>
-        </QButton>
-      </div>
-    </div>
-    <div class="section">
-      <h2 class="section-title">Toggle Button</h2>
-      <div class="flow">
-        <QToggleButton v-model="toggleValue">On/Off</QToggleButton>
-        <QToggleButton v-model="toggleValue" class="icon"><QIconMenu /></QToggleButton>
-        <div>value: {{ toggleValue }}</div>
-        <QButton class="primary" @click="toggleValue = !toggleValue">Toggle</QButton>
-      </div>
-    </div>
+    <SecButton />
+
 
     <div class="section">
       <h2 class="section-title">Input</h2>
@@ -293,7 +240,7 @@ function selectSearchResult(val:any) {
         <br/>
         <QInput v-model="inputValue" type="text" placeholder="type here!">
           <template #prepend-out>
-            <QSwitch class="mr-2"/>
+            <QSwitch class="mr-2" v-model="switchValue1"/>
           </template>
           <template #prepend>
             <QIconSearch class="icon ml-2" />
@@ -816,6 +763,15 @@ function selectSearchResult(val:any) {
   </div>
 </template>
 
+<style lang="scss">
+body {
+  background-color: var(--q-bg-light);
+  &.dark {
+    background-color: var(--q-bg-dark);
+  }
+}
+</style>
+
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900&display=swap');
@@ -824,7 +780,6 @@ function selectSearchResult(val:any) {
   max-width: 1280px;
   padding: 1rem;
   margin: 0 auto;
-  background-color: var(--q-bg-light);
   font-family: var(--q-font-sans);
 }
 .section {

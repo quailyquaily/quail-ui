@@ -1,7 +1,7 @@
 <template>
   <div class="q-premium-decoration">
     <div class="q-premium-decoration-inner">
-      <slot></slot><div class="q-premium-decoration-image"></div>
+      <slot></slot><div class="q-premium-decoration-image" :style="sty"></div>
     </div>
   </div>
 </template>
@@ -9,10 +9,21 @@
 <script lang="ts" setup>
 import { computed, ref, watch, onMounted} from 'vue';
 
-const emit = defineEmits(["update:modelValue", "close"]);
+const props = defineProps({
+  borderRadius: {
+    type: String,
+    default: '0px',
+  },
+});
 
-onMounted(() => {
-})
+const sty = computed(() => {
+  return {
+    borderTopLeftRadius: props.borderRadius,
+    borderBottomLeftRadius: props.borderRadius,
+  };
+});
+
+onMounted(() => {})
 </script>
 
 <style scoped lang="scss">

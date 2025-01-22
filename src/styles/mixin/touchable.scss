@@ -140,6 +140,22 @@
       }
     }
   }
+  &.stripe {
+    --q-progress-color: rgba(0, 0, 0, 0.0);
+    --q-progress-color-light: rgba(0, 0, 0, 0.03);
+    box-shadow: none;
+    border: none;
+    background: transparent url("@/assets/images/button-stripe-bg.webp") repeat 0 0;
+    &:hover{
+      background-color: rgba(0,0,0,0.05);
+    }
+    &[disabled] {
+      opacity: 0.5;
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
 }
 .touchable.loading {
   .ocean {

@@ -88,8 +88,8 @@ function doAction(item: any) {
           :is="item.icon"
         />
         <div class="q-menu-item-content">
-          <div class="q-menu-title">{{ item.title }}</div>
-          <div v-if="item.subtitle" class="q-menu-subtitle">
+          <div class="q-menu-title q-text-body-title">{{ item.title }}</div>
+          <div v-if="item.subtitle" class="q-menu-subtitle q-text-caption q-c-dark-3">
             {{ item.subtitle }}
           </div>
         </div>
@@ -103,9 +103,9 @@ function doAction(item: any) {
   position: absolute;
   width: 100%;
   min-width: 220px;
-  background: white;
+  background: var(--q-c-white);
   transform: translateY(0.5rem);
-  border: 1px solid var(--vt-c-divider-light-1);
+  border: 1px solid var(--q-c-dark-4);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   padding: 0.5rem 0;
   border-radius: 6px;
@@ -148,11 +148,12 @@ function doAction(item: any) {
     }
 
     .q-menu-item-divider {
-      border-top: 1px solid var(--vt-c-divider-light-1);
+      border-top: 1px solid var(--q-c-dark-4);
       margin: 0 1rem;
       height: 0px;
       transform: translateY(-0.5px);
     }
+
     .q-menu-item-inner {
       display: flex;
       justify-items: center;
@@ -165,10 +166,6 @@ function doAction(item: any) {
       }
       .q-menu-item-content {
         margin-left: 0rem;
-      }
-      .q-menu-subtitle {
-        font-size: 0.7rem;
-        opacity: 0.6;
       }
     }
 
@@ -196,6 +193,32 @@ function doAction(item: any) {
     .q-menu-item {
       .q-menu-item-inner {
         min-height: 44px;
+      }
+    }
+  }
+}
+.dark {
+  .q-menu {
+    background: var(--q-bg-dark);
+    border: 0.5px solid var(--q-c-light-4);
+    box-shadow: 0 0 0px 0.5px var(--q-c-light-4);
+    &.no-frame {
+      border: none;
+    }
+    &.no-shadow {
+      box-shadow: none;
+    }
+    .q-menu-item {
+      &.danger {
+        color: var(--vt-c-red-light);
+      }
+      .q-menu-item-divider {
+        border-top: 1px solid var(--q-c-light-4);
+      }
+      .q-menu-item-inner {
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.12);
+        }
       }
     }
   }

@@ -298,6 +298,8 @@ button.toggle {
     border: 0.5px solid var(--q-c-light-4);
     box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.01), 0px 1px 1px 0px #4343431A;
     transition: all 0.2s ease-in-out;
+    color: var(--q-c-light);
+    background-color: rgba(255, 255, 255, 0.1);
     &:focus {
       border: 0.5px solid var(--q-c-light-3);
     }
@@ -307,7 +309,6 @@ button.toggle {
       cursor: default;
     }
   }
-
 
   input.q-checkbox {
     appearance: none;

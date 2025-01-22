@@ -215,6 +215,7 @@ onMounted(() => {
           </div>
         </div>
         <slot></slot>
+        <div v-if="hideSelected || hasSlot" class="empty-block"></div>
         <q-icon-chevron-down class="icon chevron-icon" ></q-icon-chevron-down>
       </div>
       <div v-if="!useDialogFlag" ref="menuWrapper">
@@ -247,19 +248,32 @@ onMounted(() => {
       padding: 0 0.5rem 0 0.8rem;
       height: 38px;
       font-size: 0.875rem;
+      .menu-icon {
+        margin-left: 2px;
+      }
+      .menu-image {
+        transform: translateX(-4px);
+      }
     }
   }
   &.xs {
     .q-dropdown-menu-action {
-      padding: 0 0.5rem 0 0.8rem;
+      padding: 0 0.5rem 0 0.6rem;
       height: 32px;
       font-size: 0.75rem;
+      .menu-icon {
+        margin-left: 4px;
+      }
+      .menu-image {
+        transform: translateX(-6px);
+      }
     }
   }
   .q-dropdown-menu-inner {
     position: relative;
   }
   .q-dropdown-menu-action {
+    overflow: hidden;
     height: 44px;
     padding: 0 0.5rem 0 0.8rem;
     display: flex;
@@ -269,12 +283,15 @@ onMounted(() => {
     transition: all 0.2s ease-in;
 
     &:hover {
-
       .chevron-icon {
         opacity: 1;
       }
     }
+    .empty-block {
+      flex: 1;
+    }
     .menu-icon {
+      margin-left: 4px;
     }
     .menu-title {
       margin-left: 12px;
@@ -325,8 +342,8 @@ onMounted(() => {
   }
 }
 .q-menu-popup-body {
-  background: #fff;
-  border-radius: 6px;
+  background: var(--q-c-white);
+  border-radius: 8px;
   .filter-area {
     padding: 1rem 1rem 0.5rem 1rem;
   }
@@ -335,7 +352,7 @@ onMounted(() => {
     overflow-x: hidden;
     .empty-hint  {
       margin-top: 1rem;
-      color: var(--vt-c-text-light-3)
+      color: var(--q-c-dark-3)
     }
   }
   .scroll-area.scrolled {
@@ -347,6 +364,21 @@ onMounted(() => {
       position: absolute;
       // backdrop-filter: blur(10px);
       background: linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.0) 100%);
+    }
+  }
+}
+.dark {
+  .q-menu-popup-body {
+    background: var(--q-c-black);
+    border: 1px solid var(--q-c-light-4);
+    .filter-area {
+      input {
+      }
+    }
+    .scroll-area {
+      .empty-hint  {
+        color: var(--q-c-light-3)
+      }
     }
   }
 }

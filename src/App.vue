@@ -14,13 +14,11 @@ import SecForm from "./app/form.vue"
 import SecInputWithButton from "./app/input-with-btn.vue"
 import SecFence from "./app/fence.vue"
 import SecProgress from "./app/progress.vue"
-
 import SecSwitch from "./app/switch.vue"
+import SecMenu from "./app/menu.vue"
 
 const switchTheme = ref(true);
 
-const switchValue1 = ref(true);
-const switchValue2 = ref(false);
 const switchValue3 = ref(false);
 const switchValue4 = ref(false);
 
@@ -249,103 +247,7 @@ function selectSearchResult(val:any) {
 
     <SecSwitch />
 
-
-    <div class="section">
-      <h2 class="section-title">Menu</h2>
-      <div class="flow">
-        <div class="menu-wrapper" style="width: 300px; height: 420px;">
-          <strong>Normal</strong>
-          <QMenu :items="menuItems" persistent/>
-        </div>
-        <div class="menu-wrapper" style="width: 300px; height: 420px;">
-          <strong>without frame</strong>
-          <QMenu :items="menuItems" no-frame persistent/>
-        </div>
-        <div class="menu-wrapper" style="width: 300px; height: 420px;">
-          <strong>without frame & shadow</strong>
-          <QMenu :items="menuItems" no-frame no-shadow persistent/>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2 class="section-title">Dropdown Menu</h2>
-      <div class="flow">
-        <QDropdownMenu
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          @change="dropdownMenuSelectionChanged"
-        />
-        <QDropdownMenu
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          hide-selected
-          @change="dropdownMenuSelectionChanged"
-        />
-        <QDropdownMenu
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          @change="dropdownMenuSelectionChanged"
-        >
-          <div class="">Custom content</div>
-        </QDropdownMenu>
-        <QDropdownMenu
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          variant="plain"
-          @change="dropdownMenuSelectionChanged"
-        >
-          <div class="">Custom content</div>
-        </QDropdownMenu>
-        <QDropdownMenu
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          variant="plain"
-          hide-action-label
-          @change="dropdownMenuSelectionChanged"
-        ></QDropdownMenu>
-        <QDropdownMenu
-          class="sm"
-          :loading="true"
-          :disabled="true"
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          @change="dropdownMenuSelectionChanged"
-        />
-        <QButton class="outlined sm">OK</QButton>
-        <QDropdownMenu
-          class="xs"
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          @change="dropdownMenuSelectionChanged"
-        />
-        <QButton class="outlined xs">OK</QButton>
-      </div>
-      <h3 class="mb-2">use dialog</h3>
-      <div class="flow">
-        <QDropdownMenu
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          use-dialog="always"
-          @change="dropdownMenuSelectionChanged"
-        />
-        <QDropdownMenu
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          use-dialog="always"
-          use-filter
-          @change="dropdownMenuSelectionChanged"
-        />
-        <QDropdownMenu
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          use-dialog="always"
-          use-filter
-          scroll-height="200px"
-          @change="dropdownMenuSelectionChanged"
-        />
-      </div>
-    </div>
+    <SecMenu />
 
     <div class="section">
       <h2 class="section-title">Language Selector</h2>

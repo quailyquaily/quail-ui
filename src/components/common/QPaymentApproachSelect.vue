@@ -38,8 +38,8 @@ function selectPaymentApproach(item:any) {
 </script>
 
 <template>
-  <div class="q-payment-approach-select">
-    <div v-for="ch in _channels" :key="`app-${ch.name}`" class="q-payment-approach-item-wrapper mb-1" :class="selectedCls(ch)"
+  <div class="q-payment-approach-select grid gap-satoshi grid-cols-1">
+    <div v-for="ch in _channels" :key="`app-${ch.name}`" class="q-payment-approach-item-wrapper" :class="selectedCls(ch)"
       @click="selectPaymentApproach(ch)">
       <QPaymentApproachItem
         :name="ch.name" :icons="ch.icons" :symbol="ch.symbol" :desc="ch.desc" :disabled="ch.disabled"
@@ -51,13 +51,13 @@ function selectPaymentApproach(item:any) {
 <style lang="scss" scoped>
 .q-payment-approach-item-wrapper {
   border-radius: 6px;
-  border: 1px solid transparent;
+  border: 0.5px solid transparent;
   padding: 0 0.8rem;
   &.selected {
     filter: none;
     opacity: 1;
-    border-color: var(--vt-c-blue);
-    background-color: var(--vt-c-blue-dimm-1);
+    border-color: var(--q-c-blue);
+    background-color: var(--q-c-blue-dimm-1);
   }
   &.disabled {
     filter: grayscale(1);
@@ -67,11 +67,24 @@ function selectPaymentApproach(item:any) {
     }
   }
   &:hover {
-    background-color: var(--vt-c-blue-dimm-1);
+    background-color: var(--q-c-blue-dimm-1);
     &.selected {
-      background-color: var(--vt-c-blue-dimm-1);
+      background-color: var(--q-c-blue-dimm-1);
     }
   }
-
+}
+.dark {
+  .q-payment-approach-item-wrapper {
+    &.selected {
+      border-color: var(--q-c-blue-light);
+      background-color: var(--q-c-blue-dimm-2);
+    }
+    &:hover {
+      background-color: var(--q-c-blue-dimm-2);
+      &.selected {
+        background-color: var(--q-c-blue-dimm-2);
+      }
+    }
+  }
 }
 </style>

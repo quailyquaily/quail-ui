@@ -182,12 +182,12 @@ onMounted(() => {
         background-color: var(--q-c-red-dimm-1);
       }
       .q-textarea-counter {
-        color: var(--vt-c-red-light);
+        color: var(--q-c-red-light);
       }
     }
     &.error {
       .q-textarea-hint-text {
-        color: var(--vt-c-red-light);
+        color: var(--q-c-red-light);
       }
     }
     &:has(textarea:focus) {

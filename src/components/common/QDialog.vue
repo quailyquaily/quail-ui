@@ -190,7 +190,7 @@ onMounted(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: var(--q-bg-overlay);
   z-index: 100;
   &.desktop-mode-popup {
     background-color: transparent;

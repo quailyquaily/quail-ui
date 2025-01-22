@@ -15,8 +15,8 @@
           <img :src="generalDataUrl" alt="QR Code" class="frame shadow"/>
         </div>
         <div class="operations form">
-          <div class="copy-row form-row">
-            <q-button class="outlined block" @click="copyUrl">
+          <div class="copy-row form-row flex center">
+            <q-button class="highlight" @click="copyUrl">
               <q-icon-copy class="icon"></q-icon-copy>
               <span class="button-label">Copy URL</span>
             </q-button>
@@ -249,25 +249,25 @@ function shareToMastodon() {
       transition: all 0.2s ease-in-out;
     }
     &.twitter {
-      border-color: #54b5e6;
+      border-color: #54b5e686;
     }
     &.facebook {
-      border-color: #4E71A8;
+      border-color: #4E71A886;
     }
     &.linkedin {
-      border-color: #1686B0;
+      border-color: #1686B086;
     }
     &.mastodon {
-      border-color: #2B90D9;
+      border-color: #2B90D986;
     }
     &.bluesky {
-      border-color: #388eff;
+      border-color: #388eff86;
     }
     &.hackernews {
-      border-color: #FF6600;
+      border-color: #FF660086;
     }
     &.general {
-      border-color: #bbb;
+      border-color: var(--q-c-dark-4);
     }
   }
 }
@@ -331,6 +331,17 @@ function shareToMastodon() {
   }
   .operations {
     margin-left: 0;
+  }
+}
+.dark {
+  .q-share {
+    .q-share-link {
+      .q-share-link-inner {
+        &.general {
+          border-color: var(--q-c-light-3);
+        }
+      }
+    }
   }
 }
 </style>

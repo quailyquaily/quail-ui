@@ -70,17 +70,17 @@ function genCls(tab:any, ix: number) {
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-  background-color: hsl(240 4.8% 95.9%);
+  background-color: var(--q-bg-dark-2);
   padding: .25rem;
   &:deep(.q-button) {
     transition: none;
     border-radius: 4px !important;
     &.outlined {
       background-color: white !important;
-      border: 1px solid var(--vt-c-divider-light-2);
+      border: 0.5px solid var(--q-c-dark-4);
     }
     &.plain {
-      border: 1px solid transparent !important;
+      border: 0.5px solid transparent !important;
       opacity: 0.6 !important;
       &:hover {
         background-color: transparent !important;
@@ -97,6 +97,18 @@ function genCls(tab:any, ix: number) {
       height: 16px;
       width: 16px;
       max-width: 16px;
+    }
+  }
+}
+.dark {
+  .q-tabs {
+    background-color: var(--q-c-black);
+    box-shadow: inset 0 0 0 1px var(--q-c-light-4);
+    &:deep(.q-button) {
+      &.outlined {
+        background-color: var(--q-c-light-4) !important;
+        border: 0.5px solid var(--q-c-dark-4);
+      }
     }
   }
 }

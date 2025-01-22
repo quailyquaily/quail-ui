@@ -116,6 +116,9 @@ function gotoPage(ix: any, item:any ) {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  .prev, .next {
+    box-shadow: none !important;
+  }
   .prev {
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
@@ -132,7 +135,7 @@ function gotoPage(ix: any, item:any ) {
   }
   .q-page-indicator {
     border-radius: 0 !important;
-    background-color: white !important;
+    background-color: var(--q-bg-light) !important;
     border-right: none !important;
     &:first-child {
       .q-button {
@@ -143,13 +146,15 @@ function gotoPage(ix: any, item:any ) {
       padding-left: 0.6rem;
       padding-right: 0.6rem;
       border-right: none !important;
+      border-left: none !important;
+      box-shadow: none !important;
     }
     .q-button[disabled] {
       padding-left: 0.3rem;
       padding-right: 0.3rem;
     }
     .q-button.active {
-      color: var(--vt-c-blue);
+      color: var(--q-c-blue);
       opacity: 1;
     }
   }
@@ -158,7 +163,25 @@ function gotoPage(ix: any, item:any ) {
     font-size: 0.9rem;
     border-left: none !important;
     border-right: none !important;
-    color: var(--vt-c-blue) !important;
+    color: var(--q-c-blue) !important;
+  }
+}
+.dark {
+  .q-pagination {
+    .q-page-indicator {
+      background-color: var(--q-c-black) !important;
+      .q-button.active {
+        color: var(--q-c-blue-light);
+        opacity: 1;
+      }
+    }
+    .q-page-indicator-simple {
+      padding: 0 1rem;
+      font-size: 0.9rem;
+      border-left: none !important;
+      border-right: none !important;
+      color: var(--q-c-blue-light) !important;
+    }
   }
 }
 </style>

@@ -85,7 +85,7 @@ onMounted(() => {
 
 <style lang="scss">
 .q-datetime-picker {
-  border: 1px solid #ccc;
+  border: 0.5px solid var(--q-c-dark-4);
   border-radius: 6px;
 }
 .q-datetime-picker {
@@ -96,10 +96,20 @@ onMounted(() => {
     border: none;
     outline: none;
     background: transparent;
+    color: var(--q-c-black);
     &:focus {
-      color: black;
+      color: var(--q-c-black);
       border: none !important;
       outline: none !important;
+    }
+  }
+}
+.dark {
+  .q-datetime-picker {
+    border: 0.5px solid var(--q-c-light-4);
+    input[type="date"],
+    input[type="time"] {
+      color: var(--q-c-white);
     }
   }
 }

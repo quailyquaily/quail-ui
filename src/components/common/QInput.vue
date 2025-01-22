@@ -158,13 +158,13 @@ onMounted(() => {
       background-color: var(--q-c-red-dimm-1);
     }
     .q-text-field-counter {
-      color: var(--vt-c-red);
+      color: var(--q-c-red);
     }
   }
 
   &.error {
     .q-text-field-hint-text {
-      color: var(--vt-c-red);
+      color: var(--q-c-red);
     }
   }
   &.disabled {
@@ -255,13 +255,13 @@ onMounted(() => {
           background-color: var(--q-c-red-dimm-1);
         }
         .q-text-field-counter {
-          color: var(--vt-c-red-light);
+          color: var(--q-c-red-light);
         }
       }
     }
     &.error {
       .q-text-field-hint-text {
-        color: var(--vt-c-red-light);
+        color: var(--q-c-red-light);
       }
     }
     .q-text-field-wrapper {

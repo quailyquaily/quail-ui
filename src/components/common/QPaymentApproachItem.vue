@@ -31,11 +31,11 @@ const props = defineProps({
       <div class="approach-icons">
         <div v-for="icon in icons" :key="`icon-${icon}`" class="icon" :class="`icon-${icon}`"></div>
       </div>
-      <div class="approach-desc" v-text="props.desc"></div>
+      <div class="approach-desc q-text-caption q-c-dark-2" v-text="props.desc"></div>
     </div>
     <div class="spacer"></div>
     <slot></slot>
-    <div class="quote-currency text-sm font-bold" v-text="symbol"></div>
+    <div class="quote-currency q-text-caption font-bold q-c-dark-2" v-text="symbol"></div>
   </div>
 </template>
 
@@ -46,13 +46,6 @@ const props = defineProps({
   cursor: default;
   opacity: 0.8;
   display: flex;
-  .approach-desc, .approach-hint {
-    font-size: 0.7rem;
-    color: var(--vt-c-text-light-2);
-  }
-  .approach-hint {
-    color: var(--vt-c-text-light-3);
-  }
   .approach-icons {
     .icon {
       height: 20px;
@@ -92,9 +85,6 @@ const props = defineProps({
       background-position: left;
       background-image: url('@/assets/images/payment-icons/payment-evm.svg');
     }
-  }
-  .quote-currency {
-    color: var(--vt-c-text-light-2);
   }
 }
 </style>

@@ -101,13 +101,24 @@ function handleError(e: Event) {
     }
   }
   &.border-solid {
-    border: 3px solid #fff;
-    box-shadow: 0 0 1px #c4bab9, 0 1px 2px #4343431a;
+    border: 3px solid var(--q-c-white);
+    box-shadow: 0 0 1px var(--q-c-dark-4), 0 1px 2px var(--q-c-dark-4);
   }
   &.border-hollow {
     padding: 2px;
     border-width: 1px;
     border-style: solid;
+  }
+}
+.dark {
+  .q-avatar {
+    &.border-solid {
+      border-color: var(--q-c-light-4);
+      box-shadow: none;
+    }
+    &.border-hollow {
+      border-color: var(--q-c-light-4);
+    }
   }
 }
 </style>

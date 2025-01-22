@@ -124,7 +124,7 @@ function doAction(item: any) {
   .q-menu-item {
     cursor: default;
     &.danger {
-      color: var(--vt-c-red);
+      color: var(--q-c-red);
     }
     &.disabled {
       opacity: 0.5;
@@ -210,7 +210,7 @@ function doAction(item: any) {
     }
     .q-menu-item {
       &.danger {
-        color: var(--vt-c-red-light);
+        color: var(--q-c-red-light);
       }
       .q-menu-item-divider {
         border-top: 1px solid var(--q-c-light-4);

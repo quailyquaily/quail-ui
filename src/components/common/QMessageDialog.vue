@@ -60,10 +60,10 @@ function closeDialog() {
           <component v-else :is="props.icon" class="icon"/>
         </div>
       </div>
-      <div class="text-lg mb-2 text-center font-bold">
+      <div class="q-text-body mb-2 text-center font-bold">
         {{ props.title }}
       </div>
-      <div class="text-sm mb-6 text-center message-dialog-text q-c-dark-2">
+      <div class="q-text-body-title mb-6 text-center message-dialog-text q-c-dark-2">
         {{ props.text }}
       </div>
       <div class="buttons grid gap-4" :class="`grid-cols-${acts.length}`">

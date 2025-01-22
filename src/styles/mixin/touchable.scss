@@ -145,7 +145,7 @@
     --q-progress-color-light: rgba(0, 0, 0, 0.03);
     box-shadow: none;
     border: none;
-    background: transparent url("@/assets/images/button-stripe-bg.webp") repeat 0 0;
+    background: transparent url("/images/button-stripe-bg.webp") repeat 0 0;
     &:hover{
       background-color: rgba(0,0,0,0.05);
     }

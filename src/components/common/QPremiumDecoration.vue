@@ -38,6 +38,6 @@ onMounted(() => {})
   z-index: 1;
   position: absolute;
   background-repeat: repeat-y;
-  background-image: url('@/assets/images/premium-decoration.svg');
+  background-image: url('/images/premium-decoration.svg');
 }
 </style>

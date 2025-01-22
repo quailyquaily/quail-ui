@@ -57,33 +57,33 @@ const props = defineProps({
       margin-right: 0.2rem;
     }
     .icon-visa {
-      background-image: url('@/assets/images/payment-icons/payment-card-visa.svg');
+      background-image: url('/images/payment-icons/payment-card-visa.svg');
     }
     .icon-mastercard {
-      background-image: url('@/assets/images/payment-icons/payment-card-mastercard.svg');
+      background-image: url('/images/payment-icons/payment-card-mastercard.svg');
     }
     .icon-jcb {
-      background-image: url('@/assets/images/payment-icons/payment-card-jcb.svg');
+      background-image: url('/images/payment-icons/payment-card-jcb.svg');
     }
     .icon-amex {
-      background-image: url('@/assets/images/payment-icons/payment-card-amex.svg');
+      background-image: url('/images/payment-icons/payment-card-amex.svg');
     }
     .icon-unionpay {
-      background-image: url('@/assets/images/payment-icons/payment-card-unionpay.svg');
+      background-image: url('/images/payment-icons/payment-card-unionpay.svg');
     }
     .icon-wechat_pay {
-      background-image: url('@/assets/images/payment-icons/payment-wechat.svg');
+      background-image: url('/images/payment-icons/payment-wechat.svg');
     }
     .icon-alipay {
-      background-image: url('@/assets/images/payment-icons/payment-alipay.svg');
+      background-image: url('/images/payment-icons/payment-alipay.svg');
     }
     .icon-paypal {
-      background-image: url('@/assets/images/payment-icons/payment-paypal.svg');
+      background-image: url('/images/payment-icons/payment-paypal.svg');
     }
     .icon-evm {
       width: 200px;
       background-position: left;
-      background-image: url('@/assets/images/payment-icons/payment-evm.svg');
+      background-image: url('/images/payment-icons/payment-evm.svg');
     }
   }
 }

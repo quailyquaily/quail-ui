@@ -15,6 +15,8 @@ import SecInputWithButton from "./app/input-with-btn.vue"
 import SecFence from "./app/fence.vue"
 import SecProgress from "./app/progress.vue"
 
+import SecSwitch from "./app/switch.vue"
+
 const switchTheme = ref(true);
 
 const switchValue1 = ref(true);
@@ -245,15 +247,8 @@ function selectSearchResult(val:any) {
 
     <SecProgress />
 
-    <div class="section">
-      <h2 class="section-title">Switch</h2>
-      <div class="flow">
-        <QSwitch v-model="switchValue1" />
-        <QSwitch v-model="switchValue2" />
-        <QSwitch v-model="switchValue2" theme="clear-sky"/>
-        <QSwitch v-model="switchValue2" theme="plastic"/>
-      </div>
-    </div>
+    <SecSwitch />
+
 
     <div class="section">
       <h2 class="section-title">Menu</h2>

@@ -109,9 +109,45 @@ textarea.textarea {
   padding-bottom: .75rem;
 }
 
-input.checkbox {
-  height: 20px;
-  width: 20px;
+input.q-checkbox {
+  appearance: none;
+  height: 24px;
+  width: 24px;
+  border: 1px solid var(--q-c-dark-4);
+  border-radius: 6px;
+  background-color: transparent;
+  position: relative;
+  &:after, &:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: var(--q-bg-dark-2);
+    border-radius: 2px;
+  }
+  &:before {
+    width: 4px;
+    height: 15px;
+    transform: rotate(45deg);
+    top: 4px;
+    left: 12px;
+  }
+  &:after {
+    width: 4px;
+    height: 10px;
+    transform: rotate(-45deg);
+    top: 9px;
+    left: 5px;
+  }
+  &:checked {
+    border: 1px solid var(--q-c-blue-lighter);
+    &:after, &:before {
+      background-color: var(--q-c-blue-lighter);
+    }
+  }
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
 }
 
 input[type="date"], input[type="time"] {
@@ -269,6 +305,26 @@ button.toggle {
       opacity: 0.5;
       background-color: var(--q-c-light-4);
       cursor: default;
+    }
+  }
+
+
+  input.q-checkbox {
+    appearance: none;
+    height: 24px;
+    width: 24px;
+    border: 1px solid var(--q-c-light-3);
+    border-radius: 6px;
+    background-color: transparent;
+    position: relative;
+    &:after, &:before {
+      background-color: rgb(80, 80, 80);
+    }
+    &:checked {
+      border: 1px solid var(--q-c-blue-lighter);
+      &:after, &:before {
+        background-color: var(--q-c-blue-lighter);
+      }
     }
   }
 

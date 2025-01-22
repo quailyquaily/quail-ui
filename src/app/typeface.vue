@@ -36,16 +36,16 @@
 
     <div class="rows grid gap-satoshi mb-4">
       <div class="row">
-        <div class="q-text-body q-c-dark">body: The quick brown fox jumps over the lazy dogs</div>
+        <div class="q-text-body q-c-dark">dark: The quick brown fox jumps over the lazy dogs</div>
       </div>
       <div class="row">
-        <div class="q-text-body q-c-dark-2">body: The quick brown fox jumps over the lazy dogs</div>
+        <div class="q-text-body q-c-dark-2">dark-2: The quick brown fox jumps over the lazy dogs</div>
       </div>
       <div class="row">
-        <div class="q-text-body q-c-dark-3">body: The quick brown fox jumps over the lazy dogs</div>
+        <div class="q-text-body q-c-dark-3">dark-3: The quick brown fox jumps over the lazy dogs</div>
       </div>
       <div class="row">
-        <div class="q-text-body q-c-dark-4">body: The quick brown fox jumps over the lazy dogs</div>
+        <div class="q-text-body q-c-dark-4">dark-4: The quick brown fox jumps over the lazy dogs</div>
       </div>
     </div>
 
@@ -55,7 +55,7 @@
 <style scoped lang="scss">
 .rows {
   .row {
-    padding: 0.5rem;
+    padding: 0.5rem 0;
   }
 }
 </style>

@@ -63,7 +63,7 @@ function closeDialog() {
       <div class="text-lg mb-2 text-center font-bold">
         {{ props.title }}
       </div>
-      <div class="text-sm mb-6 text-center message-dialog-text">
+      <div class="text-sm mb-6 text-center message-dialog-text q-c-dark-2">
         {{ props.text }}
       </div>
       <div class="buttons grid gap-4" :class="`grid-cols-${acts.length}`">
@@ -85,33 +85,33 @@ function closeDialog() {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: var(--vt-c-blue-dimm-2);
-    box-shadow: 0 0 0 8px var(--vt-c-blue-dimm-1);
+    background-color: var(--q-c-blue-dimm-2);
+    box-shadow: 0 0 0 8px var(--q-c-blue-dimm-1);
     &.orange {
-      background-color: var(--vt-c-orange-dimm-2);
-      box-shadow: 0 0 0 8px var(--vt-c-orange-dimm-1);
+      background-color: var(--q-c-orange-dimm-2);
+      box-shadow: 0 0 0 8px var(--q-c-orange-dimm-1);
       .icon {
-        color: var(--vt-c-orange-light);
+        color: var(--q-c-orange-light);
       }
     }
     &.red {
-      background-color: var(--vt-c-red-dimm-2);
-      box-shadow: 0 0 0 8px var(--vt-c-red-dimm-1);
+      background-color: var(--q-c-red-dimm-2);
+      box-shadow: 0 0 0 8px var(--q-c-red-dimm-1);
       .icon {
-        color: var(--vt-c-red-light);
+        color: var(--q-c-red-light);
       }
     }
     &.green {
-      background-color: var(--vt-c-green-dimm-2);
-      box-shadow: 0 0 0 8px var(--vt-c-green-dimm-1);
+      background-color: var(--q-c-green-dimm-2);
+      box-shadow: 0 0 0 8px var(--q-c-green-dimm-1);
       .icon {
-        color: var(--vt-c-green-light);
+        color: var(--q-c-green-light);
       }
     }
     .icon {
       width: 24px;
       height: 24px;
-      color: var(--vt-c-blue-light);
+      color: var(--q-c-blue-light);
     }
     .icon-emoji {
       height: 24px;
@@ -120,8 +120,31 @@ function closeDialog() {
       line-height: 1;
     }
   }
-  .message-dialog-text {
-    color: var(--vt-c-text-light-2);
+}
+
+.dark {
+  .icon-wrapper {
+    &.orange {
+      background-color: var(--q-c-orange-dimm-3);
+      box-shadow: 0 0 0 8px var(--q-c-orange-dimm-2);
+      .icon {
+        color: var(--q-c-orange-lighter);
+      }
+    }
+    &.red {
+      background-color: var(--q-c-red-dimm-3);
+      box-shadow: 0 0 0 8px var(--q-c-red-dimm-2);
+      .icon {
+        color: var(--q-c-red-lighter);
+      }
+    }
+    &.green {
+      background-color: var(--q-c-green-dimm-3);
+      box-shadow: 0 0 0 8px var(--q-c-green-dimm-2);
+      .icon {
+        color: var(--q-c-green-lighter);
+      }
+    }
   }
 }
 

@@ -199,7 +199,7 @@ onMounted(() => {
 }
 
 .q-dialog {
-  background-color: white;
+  background-color: var(--q-c-white);
   padding: 0rem;
   border-radius: 6px;
   z-index: 101;
@@ -253,7 +253,7 @@ onMounted(() => {
     width: 100%;
     border-radius: 0;
     bottom: 0;
-    background: white;
+    background-color: var(--q-c-white);
     .q-dialog-header {
     }
     .q-dialog-body {
@@ -280,6 +280,13 @@ onMounted(() => {
   }
   100% {
     transform: scale(1);
+  }
+}
+
+.dark {
+  .q-dialog {
+    background-color: var(--q-c-black);
+    border: 0.5px solid var(--q-c-light-4);
   }
 }
 </style>

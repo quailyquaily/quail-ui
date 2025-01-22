@@ -258,6 +258,20 @@ button.toggle {
     }
   }
 
+  input.text-field, textarea.textarea {
+    border: 0.5px solid var(--q-c-light-4);
+    box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.01), 0px 1px 1px 0px #4343431A;
+    transition: all 0.2s ease-in-out;
+    &:focus {
+      border: 0.5px solid var(--q-c-light-3);
+    }
+    &[disabled] {
+      opacity: 0.5;
+      background-color: var(--q-c-light-4);
+      cursor: default;
+    }
+  }
+
   button.button {
     color: white;
     background-color: rgba(180, 233, 65, 0.1529411765);

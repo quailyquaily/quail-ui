@@ -11,6 +11,9 @@ import SecButton from "./app/button.vue"
 import SecInput from "./app/input.vue"
 import SecTextarea from "./app/textarea.vue"
 import SecForm from "./app/form.vue"
+import SecInputWithButton from "./app/input-with-btn.vue"
+import SecFence from "./app/fence.vue"
+import SecProgress from "./app/progress.vue"
 
 const switchTheme = ref(true);
 
@@ -27,7 +30,6 @@ const dialogValue4 = ref(false);
 const dialogValue5 = ref(false);
 const dialogValue6 = ref(false);
 const dialogValue7 = ref(false);
-const fieldValue = ref("");
 const inputValue = ref("");
 
 const menuItems = computed(() => [
@@ -237,55 +239,11 @@ function selectSearchResult(val:any) {
 
     <SecForm />
 
+    <SecInputWithButton />
 
-    <div class="section">
-      <h2 class="section-title">TextField with button</h2>
-      <div class="flow">
-        <QTextFieldWithButton v-model="fieldValue" type="text" placeholder="type here!"  action-label="Go!" @submit="submit"/>
-        <QTextFieldWithButton v-model="fieldValue" type="text" placeholder="type here!"  default-text="some default text" action-label="Go!" @submit="submit"/>
-        <QTextFieldWithButton v-model="fieldValue" type="email" placeholder="your email here!" action-label="Subscribe" @submit="submit"/>
-        <QTextFieldWithButton v-model="fieldValue" type="email" layout="horizontal" placeholder="your email here!" action-label="Subscribe" @submit="submit"/>
-      </div>
-      <div class="flow">
-        <div style="background-color: #111; padding: 1rem;">
-          <QTextFieldWithButton v-model="fieldValue" type="email" layout="horizontal" glow="matrix" placeholder="your email here!" action-label="Subscribe" @submit="submit"/>
-        </div>
-      </div>
-    </div>
+    <SecFence />
 
-    <div class="section">
-      <h2 class="section-title">Fence</h2>
-      <div class="flow">
-        <QFence text="Some text here to tell you something useful." />
-        <QFence text="This will redirect you to an external page" link="https://quail.ink" />
-        <QFence text="Some text here to tell you important information." type="warning" />
-        <QFence text="Some text here to tell you some words of critical." type="error" />
-        <QFence text="Some text here to make you happy." type="success" />
-        <QFence text="Use your favorite icon to replace the default one." icon="QIconSun" />
-        <QFence text="Super long text here, very blah blah bla, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2 class="section-title">Loading</h2>
-      <div class="flow">
-        <div class="loading-wrapper" style="padding: 1rem 0">
-          <QLoading />
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2 class="section-title">Progress</h2>
-      <div class="flow">
-        <QProgress :value="50" :max="100" />
-        <QProgress :value="50" :max="100" color="red" />
-        <QProgress :value="50" :max="100" color="green" />
-        <QProgress :value="50" :max="100" color="orange" />
-        <QProgress :value="100" :max="100" />
-        <QProgress :infinite="true" />
-      </div>
-    </div>
+    <SecProgress />
 
     <div class="section">
       <h2 class="section-title">Switch</h2>

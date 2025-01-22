@@ -44,25 +44,25 @@ const completed = computed(() => {
 .q-progress {
   display: block;
   min-width: 200px;
-  --q-progress-color: var(--vt-c-blue);
-  --q-progress-color-light: var(--vt-c-blue-lighter);
+  --q-progress-color: var(--q-c-blue);
+  --q-progress-color-light: var(--q-c-blue-lighter);
   &.green {
-    --q-progress-color: var(--vt-c-green);
-    --q-progress-color-light: var(--vt-c-green-lighter);
+    --q-progress-color: var(--q-c-green);
+    --q-progress-color-light: var(--q-c-green-lighter);
   }
   &.red {
-    --q-progress-color: var(--vt-c-red);
-    --q-progress-color-light: var(--vt-c-red-lighter);
+    --q-progress-color: var(--q-c-red);
+    --q-progress-color-light: var(--q-c-red-lighter);
   }
   &.orange {
-    --q-progress-color: var(--vt-c-orange);
-    --q-progress-color-light: var(--vt-c-orange-lighter);
+    --q-progress-color: var(--q-c-orange);
+    --q-progress-color-light: var(--q-c-orange-lighter);
   }
   .q-progress-slot {
     position: relative;
     width: 100%;
     height: 8px;
-    background: var(--vt-c-white-soft);
+    background: var(--q-c-dark-4);
     border-radius: 6px;
     overflow: hidden;
     .q-progress-bar {
@@ -102,5 +102,13 @@ const completed = computed(() => {
 	to {
 		transform: translateX(28px);
 	}
+}
+
+.dark {
+  .q-progress {
+    .q-progress-slot {
+      background: var(--q-c-light-4);
+    }
+  }
 }
 </style>

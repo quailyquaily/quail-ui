@@ -2,7 +2,6 @@ import QDatetimePicker from './QDatetimePicker.vue';
 import QDialog from './QDialog.vue';
 import QMessageDialog from './QMessageDialog.vue';
 import QFence from './QFence.vue';
-import QLoading from './QLoading.vue';
 import QMenu from './QMenu.vue';
 import QSwitch from './QSwitch.vue';
 import QTextFieldWithButton from './QTextFieldWithButton.vue';
@@ -30,7 +29,6 @@ export {
   QDialog,
   QMessageDialog,
   QFence,
-  QLoading,
   QMenu,
   QSwitch,
   QTextFieldWithButton,

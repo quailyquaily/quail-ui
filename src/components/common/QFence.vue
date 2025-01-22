@@ -5,7 +5,7 @@
         <component :is="components[icon]" class="icon" />
       </template>
       <q-icon-help v-else class="icon" ></q-icon-help>
-      <div class="q-fence-text text-sm">
+      <div class="q-fence-text q-text-body-title">
         {{ text }}
       </div>
     </a>
@@ -14,7 +14,7 @@
         <component :is="components[icon]" class="icon" />
       </template>
       <q-icon-help v-else class="icon" ></q-icon-help>
-      <div class="q-fence-text text-sm">
+      <div class="q-fence-text q-text-body-title">
         {{ text }}
       </div>
     </div>
@@ -53,9 +53,9 @@ const props = defineProps({
     align-items: flex-start;
     width: 100%;
     padding: 0.5rem 0.8rem;
-    color: var(--vt-c-text-light-1);
+    color: var(--q-c-dark);
     opacity: 0.7;
-    background: var(--vt-c-white-soft);
+    background: var(--q-bg-dark-2);
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     cursor: default;
@@ -67,26 +67,50 @@ const props = defineProps({
     &.with-link:hover {
       opacity: 1;
     }
-    .q-fence-text {
-      margin-top: 2px;
-    }
   }
   &.warning {
     .q-fence-inner {
-      color: var(--vt-c-orange-dark);
-      background-color: var(--vt-c-orange-dimm-2);
+      color: var(--q-c-orange-dark);
+      background-color: var(--q-c-orange-dimm-2);
     }
   }
   &.error {
     .q-fence-inner {
-      color: var(--vt-c-red-dark);
-      background-color: var(--vt-c-red-dimm-2);
+      color: var(--q-c-red-dark);
+      background-color: var(--q-c-red-dimm-2);
     }
   }
   &.success {
     .q-fence-inner {
-      color: var(--vt-c-green-dark);
-      background-color: var(--vt-c-green-dimm-2);
+      color: var(--q-c-green-dark);
+      background-color: var(--q-c-green-dimm-2);
+    }
+  }
+}
+.dark {
+  .q-fence {
+    .q-fence-inner {
+      color: var(--q-c-light-2);
+      background: var(--q-c-light-4);
+      opacity: 1;
+    }
+    &.warning {
+      .q-fence-inner {
+        color: var(--q-c-orange-light);
+        background-color: var(--q-c-orange-dimm-2);
+      }
+    }
+    &.error {
+      .q-fence-inner {
+        color: var(--q-c-red-light);
+        background-color: var(--q-c-red-dimm-2);
+      }
+    }
+    &.success {
+      .q-fence-inner {
+        color: var(--q-c-green-light);
+        background-color: var(--q-c-green-dimm-2);
+      }
     }
   }
 }

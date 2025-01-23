@@ -175,11 +175,11 @@ onMounted(() => {
 
     &.exceed, &.error {
       border: 0.5px solid var(--q-c-red-dimm-3);
-      &:has(input:focus) {
-        border-color: var(--q-c-red-dimm-3);
+      &:has(textarea:focus) {
+        border-color: var(--q-c-red-dimm-3) !important;
       }
       .q-textarea-hint {
-        background-color: var(--q-c-red-dimm-1);
+        background-color: var(--q-c-red-dimm-2);
       }
       .q-textarea-counter {
         color: var(--q-c-red-light);

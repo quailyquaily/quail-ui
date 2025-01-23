@@ -51,7 +51,6 @@ const props = defineProps({
   left: 0;
   width: 100%;
   height: 100%;
-  // border: 1px solid #ccc;
   background: var(--q-c-white);
   box-shadow: 0 0px 2px var(--q-c-dark-4);
   transform: scale(0.97) translateY(5%);

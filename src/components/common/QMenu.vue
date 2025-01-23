@@ -105,7 +105,7 @@ function doAction(item: any) {
   min-width: 220px;
   background: var(--q-c-white);
   transform: translateY(0.5rem);
-  border: 1px solid var(--q-c-dark-4);
+  border: 0.5px solid var(--q-c-dark-4);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   padding: 0.5rem 0;
   border-radius: 6px;

@@ -232,7 +232,7 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
   }
 
   .#{$prefix}q-text-code {
-    font-family: var(--q-font-mono) "JetBrains Mono, Roboto Mono, Source Code Pro, Monaco, Menlo, Consolas, monospace";
+    font-family: var(--q-font-mono), "JetBrains Mono", "Roboto Mono|, "Source Code Pro|, Monaco, Menlo, Consolas, monospace;
     font-size: math.div(16, 16) + rem;
     font-style: normal;
     font-weight: 400;

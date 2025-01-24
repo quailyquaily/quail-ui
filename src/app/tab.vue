@@ -4,8 +4,17 @@
     <h2 class="q-text-h2 mb-4">Tab</h2>
     <div class="grid gap-4 grid-cols-1">
       <div class="flex">
-        <QTabs v-model="selectedTab" :tabs="tabs" />
-        <QButton class="outlined ml-4" @click="selectedTab = tabs[1]">Select Tab 2</QButton>
+        <div>
+          <div class="q-text-caption q-c-dark-3 mb-2">variant: normal</div>
+          <QTabs v-model="selectedTab" :tabs="tabs" class="mr-4"/>
+        </div>
+        <div>
+          <div class="q-text-caption q-c-dark-3 mb-2">variant: plain</div>
+          <QTabs v-model="selectedTab" :tabs="tabs" variant="plain" class="mr-4"/>
+        </div>
+      </div>
+      <div class="flex">
+        <QButton class="outlined" @click="selectedTab = tabs[1]">Select Tab 2</QButton>
         <div class="frame p-3 ml-4 q-text-desc">
           Selected tab id: {{ selectedTab.id }}
         </div>

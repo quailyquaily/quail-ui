@@ -142,7 +142,7 @@
   }
   &.stripe {
     --q-progress-color: rgba(0, 0, 0, 0.0);
-    --q-progress-color-light: rgba(255, 255, 255, 0.03);
+    --q-progress-color-light: rgba(0, 0, 0, 0.03);
     box-shadow: none;
     border: none;
     background: transparent url("@/assets/images/button-stripe-bg.webp") repeat 0 0;
@@ -331,6 +331,9 @@
           background-color: transparent;
         }
       }
+    }
+    &.stripe {
+      --q-progress-color-light: rgba(255, 255, 255, 0.03);
     }
   }
 }

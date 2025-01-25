@@ -216,14 +216,12 @@ onMounted(() => {
 
 .dark {
   .q-textarea {
-    border-color: var(--q-c-light-4);
-    box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.03), 0px 1px 1px 0px #4343431A;
-    background-color: rgba(255,255,255,0.1);
-
     &.exceed, &.error {
-      border: 0.5px solid var(--q-c-red-dimm-3);
-      &:has(textarea:focus) {
-        border-color: var(--q-c-red-dimm-3) !important;
+      .q-textarea-wrapper {
+        border: 0.5px solid var(--q-c-red-dimm-3);
+        &:has(textarea:focus) {
+          border-color: var(--q-c-red-dimm-3) !important;
+        }
       }
       .q-textarea-hint {
         background-color: var(--q-c-red-dimm-2);
@@ -237,15 +235,20 @@ onMounted(() => {
         color: var(--q-c-red-light);
       }
     }
-    &:has(textarea:focus) {
-      border-color: var(--q-c-light-3);
-    }
-    &:deep(textarea) {
-      color: var(--q-c-light);
-      background-color: transparent;
-    }
-    .q-textarea-hint {
-      color: var(--q-c-light-3);
+    .q-textarea-wrapper {
+      border-color: var(--q-c-light-4);
+      box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.03), 0px 1px 1px 0px #4343431A;
+      background-color: rgba(255,255,255,0.1);
+      &:has(textarea:focus) {
+        border-color: var(--q-c-light-3);
+      }
+      &:deep(textarea) {
+        color: var(--q-c-light);
+        background-color: transparent;
+      }
+      .q-textarea-hint {
+        color: var(--q-c-light-3);
+      }
     }
 
     &.disabled {

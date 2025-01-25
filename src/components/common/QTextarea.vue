@@ -155,6 +155,9 @@ onMounted(() => {
     .clear-btn {
       display: none;
     }
+    .q-textarea-wrapper {
+      background-color: transparent;
+    }
   }
 
   .q-textarea-prepend, .q-textarea-append,
@@ -188,6 +191,7 @@ onMounted(() => {
       box-shadow: none !important;
       outline: none !important;
       resize: none;
+      background-color: transparent;
     }
 
     .q-textarea-hint {

@@ -145,7 +145,7 @@ onMounted(() => {
 .q-input {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 
   &.exceed, &.error {
     .q-text-field-wrapper {
@@ -170,6 +170,9 @@ onMounted(() => {
   &.disabled {
     .clear-btn {
       display: none;
+    }
+    .q-text-field-wrapper {
+      background-color: transparent
     }
   }
 
@@ -204,6 +207,7 @@ onMounted(() => {
       box-shadow: none !important;
       outline: none !important;
       min-height: 42px;
+      background-color: transparent;
     }
     .clear-btn {
       min-height: 32px;

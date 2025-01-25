@@ -5,9 +5,10 @@
     <div class="grid gap-4 grid-cols-2 mb-4">
       <QInput v-model="inputValue" type="text" placeholder="type here!" :hint-text="'Less than 10 charactors'" :max="10"/>
       <QInput v-model="inputValue" type="text" placeholder="type here!" :error="true" :hint-text="'Some errors!'"/>
+      <QInput v-model="inputValue" type="text" placeholder="type here!" :disabled="true" :hint-text="'Some errors!'"/>
       <QInput v-model="inputValue" type="text" placeholder="type here!" :disabled="true"/>
       <QInput v-model="inputValue" type="text" placeholder="type here!" />
-      <QInput v-model="inputValue" type="text" placeholder="type here!">
+      <QInput v-model="inputValue" type="text" placeholder="type here!" max="100">
         <template #prepend-out>
           <QSwitch class="mr-2" v-model="switchValue"/>
         </template>

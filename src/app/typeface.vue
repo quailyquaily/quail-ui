@@ -27,6 +27,12 @@
         <div class="q-text-body">body: The quick brown fox jumps over the lazy dogs</div>
       </div>
       <div class="row">
+        <div class="q-text-body-title">body-title: The quick brown fox jumps over the lazy dogs</div>
+      </div>
+      <div class="row">
+        <div class="q-text-body-desc">body-desc: The quick brown fox jumps over the lazy dogs</div>
+      </div>
+      <div class="row">
         <div class="q-text-caption">caption: The quick brown fox jumps over the lazy dogs</div>
       </div>
       <div class="row">

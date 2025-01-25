@@ -220,7 +220,15 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
     font-size: math.div(14, 16) + rem;
     font-style: normal;
     font-weight: 500;
-    font-size: normal;
+    line-height: normal;
+  }
+
+  .#{$prefix}q-text-body-desc {
+    font-family: var(--q-font-sans);
+    font-size: math.div(16, 16) + rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
   }
 
   .#{$prefix}q-text-caption {
@@ -228,7 +236,7 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
     font-size: math.div(12, 16) + rem;
     font-style: normal;
     font-weight: 400;
-    font-size: normal;
+    line-height: normal;
   }
 
   .#{$prefix}q-text-code {
@@ -236,7 +244,7 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
     font-size: math.div(16, 16) + rem;
     font-style: normal;
     font-weight: 400;
-    font-size: normal;
+    line-height: normal;
   }
 
   .lang-ja {

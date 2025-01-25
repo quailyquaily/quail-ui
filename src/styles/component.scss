@@ -113,6 +113,8 @@ input.q-checkbox {
   appearance: none;
   height: 24px;
   width: 24px;
+  min-width: 24px;
+  min-height: 24px;
   border: 1px solid var(--q-c-dark-4);
   border-radius: 6px;
   background-color: transparent;

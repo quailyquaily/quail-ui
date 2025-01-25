@@ -147,7 +147,7 @@
     border: none;
     background: transparent url("@/assets/images/button-stripe-bg.webp") repeat 0 0;
     &:hover{
-      background-color: rgba(255,255,255,0.1);
+      background-color: rgba(0,0,0,0.05);
     }
     &[disabled] {
       opacity: 0.5;
@@ -334,6 +334,9 @@
     }
     &.stripe {
       --q-progress-color-light: rgba(255, 255, 255, 0.03);
+      &:hover{
+        background-color: rgba(255,255,255,0.1);
+      }
     }
   }
 }

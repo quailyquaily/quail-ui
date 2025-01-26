@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 
 const props = defineProps({
   channels: {
     type: Array<any>,
     required: true,
     default: () => [],
+  },
+  defaultChannel: {
+    type: String,
+    default: '',
   },
 });
 
@@ -35,6 +39,17 @@ function selectPaymentApproach(item:any) {
   _channels.value[idx].selected = true;
   emit('select', { name: item.name } );
 }
+
+onMounted(() => {
+  const idx = _channels.value.findIndex((ch) => ch.name === props.defaultChannel);
+  if (idx === -1) {
+    return;
+  }
+  _channels.value.forEach((ch) => {
+    ch.selected = false;
+  });
+  _channels.value[idx].selected = true;
+});
 </script>
 
 <template>
@@ -50,14 +65,14 @@ function selectPaymentApproach(item:any) {
 
 <style lang="scss" scoped>
 .q-payment-approach-item-wrapper {
-  border-radius: 6px;
+  border-radius: 2px;
   border: 0.5px solid transparent;
   padding: 0 0.8rem;
   &.selected {
     filter: none;
     opacity: 1;
-    border-color: var(--q-c-blue);
-    background-color: var(--q-c-blue-dimm-1);
+    border-color: var(--q-c-red);
+    background-color: var(--q-c-red-dimm-1);
   }
   &.disabled {
     filter: grayscale(1);
@@ -67,22 +82,22 @@ function selectPaymentApproach(item:any) {
     }
   }
   &:hover {
-    background-color: var(--q-c-blue-dimm-1);
+    background-color: var(--q-c-red-dimm-1);
     &.selected {
-      background-color: var(--q-c-blue-dimm-1);
+      background-color: var(--q-c-red-dimm-1);
     }
   }
 }
 .dark {
   .q-payment-approach-item-wrapper {
     &.selected {
-      border-color: var(--q-c-blue-light);
-      background-color: var(--q-c-blue-dimm-2);
+      border-color: var(--q-c-red-light);
+      background-color: var(--q-c-red-dimm-2);
     }
     &:hover {
-      background-color: var(--q-c-blue-dimm-2);
+      background-color: var(--q-c-red-dimm-2);
       &.selected {
-        background-color: var(--q-c-blue-dimm-2);
+        background-color: var(--q-c-red-dimm-2);
       }
     }
   }

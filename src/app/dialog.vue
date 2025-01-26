@@ -37,18 +37,14 @@
           style="padding: 1rem; position: relative"
         >
           <div class="dialog-body-frame" style="background-color: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
-            <div class="form-row center">
+            <div class="grid gap-4 grid-cols-1 center">
               <QButton class="primary block">
                 Action
               </QButton>
-            </div>
-            <div class="form-row center">
               <QButton class="danger block">
                 Action
               </QButton>
-            </div>
-            <div class="form-row center">
-              <QButton class="block" @click="dialogValue4 = false">
+              <QButton class="stripe" @click="dialogValue4 = false">
                 Cancel
               </QButton>
             </div>
@@ -59,17 +55,17 @@
       <QDialog v-model="dialogValue1" title="Hello">
         <div class="dialog-body">
           <div class="form-row center">
-            <p style="text-align: center">Some text here</p>
+            <p class="text-center p-4">Some text here!</p>
           </div>
         </div>
       </QDialog>
 
       <QDialog v-model="dialogValue2" title="Hello" :persistent="true">
         <div class="dialog-body">
-          <div class="form-row center">
-            <p style="text-align: center">You must click close button to close me</p>
+          <div class="form-row center mb-4">
+            <p class="text-center p-4">You must click close button to close me</p>
           </div>
-          <div class="form-row center">
+          <div class="flex place-center">
             <QButton class="primary" @click="dialogValue2 = false">
               Close
             </QButton>

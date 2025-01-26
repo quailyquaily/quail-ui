@@ -5,10 +5,7 @@
     <div class="grid gap-4 grid-cols-2">
       <div class="">
         <div class="q-text-caption q-c-dark-3 mb-2">QPaymentApproachSelect</div>
-        <QPaymentApproachSelect :channels="paymentApproachArray" @select="selectPaymentApproachItem"/>
-        <div class="frame p-3 q-text-desc">
-          selected: {{ selectedPaymentApproachItem }}
-        </div>
+        <QPaymentApproachSelect :channels="paymentApproachArray" default-channel="stripe_2" @select="selectPaymentApproachItem"/>
       </div>
       <div class="">
         <div class="q-text-caption q-c-dark-3 mb-2">QPaymentApproachItems</div>
@@ -18,6 +15,9 @@
         <QPaymentApproachItem name="stripe_2" :icons="['wechat_pay', 'alipay']" :selected="true" symbol="" desc="others" >
           <QSwitch v-model="switchValue4" />
         </QPaymentApproachItem>
+      </div>
+      <div class="frame p-3 q-text-desc">
+        selected: {{ selectedPaymentApproachItem }}
       </div>
     </div>
   </div>
@@ -45,14 +45,13 @@ const paymentApproachArray = computed(() => {
     symbol: "JPY",
     desc: "all"
   }, {
-    name: "stripe_3",
+    name: "crypto",
     icons: ['evm' ],
     symbol: "JPY",
     desc: "blockchain",
     disabled: true
   }]
 })
-
 
 function selectPaymentApproachItem(item: any) {
   console.log("selectPaymentApproachItem", item);

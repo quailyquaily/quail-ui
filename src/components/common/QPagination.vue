@@ -154,8 +154,11 @@ function gotoPage(ix: any, item:any ) {
       padding-right: 0.3rem;
     }
     .q-button.active {
-      color: var(--q-c-blue);
+      color: var(--q-c-red);
       opacity: 1;
+      &:hover {
+        color: var(--q-c-red-light);
+      }
     }
   }
   .q-page-indicator-simple {
@@ -163,7 +166,7 @@ function gotoPage(ix: any, item:any ) {
     font-size: 0.9rem;
     border-left: none !important;
     border-right: none !important;
-    color: var(--q-c-blue) !important;
+    color: var(--q-c-red) !important;
   }
 }
 .dark {
@@ -171,8 +174,11 @@ function gotoPage(ix: any, item:any ) {
     .q-page-indicator {
       background-color: var(--q-c-black) !important;
       .q-button.active {
-        color: var(--q-c-blue-light);
+        color: var(--q-c-red-light);
         opacity: 1;
+        &:hover {
+          color: var(--q-c-red-lighter);
+        }
       }
     }
     .q-page-indicator-simple {
@@ -180,7 +186,7 @@ function gotoPage(ix: any, item:any ) {
       font-size: 0.9rem;
       border-left: none !important;
       border-right: none !important;
-      color: var(--q-c-blue-light) !important;
+      color: var(--q-c-red-light) !important;
     }
   }
 }

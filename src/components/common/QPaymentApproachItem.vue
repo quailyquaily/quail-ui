@@ -31,7 +31,7 @@ const props = defineProps({
       <div class="approach-icons">
         <div v-for="icon in icons" :key="`icon-${icon}`" class="icon" :class="`icon-${icon}`"></div>
       </div>
-      <div class="approach-desc q-text-caption q-c-dark-2" v-text="props.desc"></div>
+      <div class="approach-desc q-text-caption q-c-dark" v-text="props.desc"></div>
     </div>
     <div class="spacer"></div>
     <slot></slot>

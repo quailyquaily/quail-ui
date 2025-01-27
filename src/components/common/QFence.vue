@@ -67,6 +67,9 @@ const props = defineProps({
     &.with-link:hover {
       opacity: 1;
     }
+    .q-fence-text {
+      margin-top: 2px;
+    }
   }
   &.warning {
     .q-fence-inner {

@@ -92,6 +92,14 @@ import QIconEmail from './QIconEmail.vue';
 import QIconGrid from './QIconGrid.vue';
 import QIconPasscode from './QIconPasscode.vue';
 import QIconStickerCircle from './QIconStickerCircle.vue';
+import QIconEdit from './QIconEdit.vue';
+import QIconLinkExternal from './QIconLinkExternal.vue';
+import QIconNavigationPointer from './QIconNavigationPointer.vue';
+import QIconNavigationPointerOff from './QIconNavigationPointerOff.vue';
+import QIconRefreshSingle from './QIconRefreshSingle.vue';
+import QIconSend from './QIconSend.vue';
+import QIconShare from './QIconShare.vue';
+import QIconTranslate from './QIconTranslate.vue';
 
 import QIconColorTelegram from './QIconColorTelegram.vue';
 import QIconColorFeed from './QIconColorFeed.vue';
@@ -204,6 +212,14 @@ export {
   QIconGrid,
   QIconPasscode,
   QIconStickerCircle,
+  QIconEdit,
+  QIconLinkExternal,
+  QIconNavigationPointer,
+  QIconNavigationPointerOff,
+  QIconRefreshSingle,
+  QIconSend,
+  QIconShare,
+  QIconTranslate,
 
   QIconColorTelegram,
   QIconColorFeed,

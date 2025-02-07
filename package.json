@@ -26,7 +26,9 @@
   },
   "dependencies": {
     "qrcode": "^1.5.3",
-    "vue": "^3.3.4"
+    "quail-js": "^0.3.18",
+    "vue": "^3.3.4",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@types/node": "^20.5.1",

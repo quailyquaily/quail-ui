@@ -254,7 +254,9 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
     .#{$prefix}q-text-h1,
     .#{$prefix}q-text-h2,
     .#{$prefix}q-text-h3,
-    .#{$prefix}q-text-desc {
+    .#{$prefix}q-text-desc,
+    .q-article h1, .q-article h2, .q-article h3
+    {
       font-family: "Noto Serif JP", "Noto Serif", serif;
     }
 
@@ -272,7 +274,9 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
     .#{$prefix}q-text-h1,
     .#{$prefix}q-text-h2,
     .#{$prefix}q-text-h3,
-    .#{$prefix}q-text-desc {
+    .#{$prefix}q-text-desc,
+    .q-article h1, .q-article h2, .q-article h3
+    {
       font-family: "Noto Serif SC", "Noto Serif", serif;
     }
 
@@ -280,6 +284,13 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
     .#{$prefix}q-text-body-title,
     .#{$prefix}q-text-caption {
       font-family: "Noto Sans SC", "Noto Sans", sans-serif;
+    }
+
+    // text-align: justify; for Chinese text
+    .q-article {
+      p, ul, ol, blockquote {
+        text-align: justify;
+      }
     }
   }
 
@@ -290,7 +301,9 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
     .#{$prefix}q-text-h1,
     .#{$prefix}q-text-h2,
     .#{$prefix}q-text-h3,
-    .#{$prefix}q-text-desc {
+    .#{$prefix}q-text-desc,
+    .q-article h1, .q-article h2, .q-article h3
+    {
       font-family: "Noto Serif TC", "Noto Serif", serif;
     }
 

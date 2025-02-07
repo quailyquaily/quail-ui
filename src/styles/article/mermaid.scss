@@ -1,0 +1,1386 @@
+.q-article {
+  pre.mermaid {
+    font-family: "trebuchet ms",verdana,arial,sans-serif;
+    font-size: 16px;
+    fill: #333;
+
+    .error-icon {
+      fill: #552222;
+    }
+
+    .error-text {
+      fill: #552222;
+      stroke: #552222;
+    }
+
+    .edge-thickness-normal {
+      stroke-width: 2px;
+    }
+
+    .edge-thickness-thick {
+      stroke-width: 3.5px;
+    }
+
+    .edge-pattern-solid {
+      stroke-dasharray: 0;
+    }
+
+    .edge-pattern-dashed {
+      stroke-dasharray: 3;
+    }
+
+    .edge-pattern-dotted {
+      stroke-dasharray: 2;
+    }
+
+    .marker {
+      fill: #333333;
+      stroke: #333333;
+
+      &.cross {
+        stroke: #333333;
+      }
+    }
+
+    svg {
+      font-family: "trebuchet ms",verdana,arial,sans-serif;
+      font-size: 16px;
+    }
+
+    .label {
+      font-family: "trebuchet ms",verdana,arial,sans-serif;
+      color: #333;
+    }
+
+    .cluster-label {
+      text {
+        fill: #333;
+      }
+
+      span {
+        color: #333;
+      }
+    }
+
+    p {
+      color: #333;
+    }
+
+    .label text, span, p {
+      fill: #333;
+      color: #333;
+    }
+
+    .node {
+      rect, circle, ellipse, polygon, path {
+        fill: #ECECFF;
+        stroke: #9370DB;
+        stroke-width: 1px;
+      }
+    }
+
+    .flowchart-label text {
+      text-anchor: middle;
+    }
+
+    .node {
+      .label {
+        text-align: center;
+      }
+
+      &.clickable {
+        cursor: pointer;
+      }
+    }
+
+    .arrowheadPath {
+      fill: #333333;
+    }
+
+    .edgePath .path {
+      stroke: #333333;
+      stroke-width: 2.0px;
+    }
+
+    .flowchart-link {
+      stroke: #333333;
+      fill: none;
+    }
+
+    .edgeLabel {
+      background-color: #e8e8e8;
+      text-align: center;
+
+      rect {
+        opacity: 0.5;
+        background-color: #e8e8e8;
+        fill: #e8e8e8;
+      }
+    }
+
+    .labelBkg {
+      background-color: rgba(232, 232, 232, 0.5);
+    }
+
+    .cluster {
+      rect {
+        fill: #ffffde;
+        stroke: #aaaa33;
+        stroke-width: 1px;
+      }
+
+      text {
+        fill: #333;
+      }
+
+      span {
+        color: #333;
+      }
+    }
+
+    p {
+      color: #333;
+    }
+
+    div.mermaidTooltip {
+      position: absolute;
+      text-align: center;
+      max-width: 200px;
+      padding: 2px;
+      font-family: "trebuchet ms",verdana,arial,sans-serif;
+      font-size: 12px;
+      background: hsl(80, 100%, 96.2745098039%);
+      border: 1px solid #aaaa33;
+      border-radius: 2px;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    .flowchartTitleText {
+      text-anchor: middle;
+      font-size: 18px;
+      fill: #333;
+    }
+
+    :root {
+      --mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;
+    }
+
+    font-family: "trebuchet ms",verdana,arial,sans-serif;
+    font-size: 16px;
+    fill: #333;
+
+    .error-icon {
+      fill: #552222;
+    }
+
+    .error-text {
+      fill: #552222;
+      stroke: #552222;
+    }
+
+    .edge-thickness-normal {
+      stroke-width: 2px;
+    }
+
+    .edge-thickness-thick {
+      stroke-width: 3.5px;
+    }
+
+    .edge-pattern-solid {
+      stroke-dasharray: 0;
+    }
+
+    .edge-pattern-dashed {
+      stroke-dasharray: 3;
+    }
+
+    .edge-pattern-dotted {
+      stroke-dasharray: 2;
+    }
+
+    .marker {
+      fill: #333333;
+      stroke: #333333;
+
+      &.cross {
+        stroke: #333333;
+      }
+    }
+
+    svg {
+      font-family: "trebuchet ms",verdana,arial,sans-serif;
+      font-size: 16px;
+    }
+
+    .actor {
+      stroke: hsl(259.6261682243, 59.7765363128%, 87.9019607843%);
+      fill: #ECECFF;
+    }
+
+    text.actor > tspan {
+      fill: black;
+      stroke: none;
+    }
+
+    .actor-line {
+      stroke: grey;
+    }
+
+    .messageLine0 {
+      stroke-width: 1.5;
+      stroke-dasharray: none;
+      stroke: #333;
+    }
+
+    .messageLine1 {
+      stroke-width: 1.5;
+      stroke-dasharray: 2,2;
+      stroke: #333;
+    }
+
+    #arrowhead path {
+      fill: #333;
+      stroke: #333;
+    }
+
+    .sequenceNumber {
+      fill: white;
+    }
+
+    #sequencenumber {
+      fill: #333;
+    }
+
+    #crosshead path {
+      fill: #333;
+      stroke: #333;
+    }
+
+    .messageText {
+      fill: #333;
+      stroke: none;
+    }
+
+    .labelBox {
+      stroke: hsl(259.6261682243, 59.7765363128%, 87.9019607843%);
+      fill: #ECECFF;
+    }
+
+    .labelText, .loopText {
+      fill: black;
+      stroke: none;
+
+      > tspan {
+        fill: black;
+        stroke: none;
+      }
+    }
+
+    .loopLine {
+      stroke-width: 2px;
+      stroke-dasharray: 2,2;
+      stroke: hsl(259.6261682243, 59.7765363128%, 87.9019607843%);
+      fill: hsl(259.6261682243, 59.7765363128%, 87.9019607843%);
+    }
+
+    .note {
+      stroke: #aaaa33;
+      fill: #fff5ad;
+    }
+
+    .noteText {
+      fill: black;
+      stroke: none;
+
+      > tspan {
+        fill: black;
+        stroke: none;
+      }
+    }
+
+    .activation0, .activation1, .activation2 {
+      fill: #f4f4f4;
+      stroke: #666;
+    }
+
+    .actorPopupMenu {
+      position: absolute;
+    }
+
+    .actorPopupMenuPanel {
+      position: absolute;
+      fill: #ECECFF;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+    }
+
+    .actor-man {
+      line {
+        stroke: hsl(259.6261682243, 59.7765363128%, 87.9019607843%);
+        fill: #ECECFF;
+      }
+
+      circle {
+        stroke: hsl(259.6261682243, 59.7765363128%, 87.9019607843%);
+        fill: #ECECFF;
+        stroke-width: 2px;
+      }
+    }
+
+    line {
+      stroke: hsl(259.6261682243, 59.7765363128%, 87.9019607843%);
+      fill: #ECECFF;
+      stroke-width: 2px;
+    }
+
+    :root {
+      --mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;
+    }
+
+    font-family: "trebuchet ms",verdana,arial,sans-serif;
+    font-size: 16px;
+    fill: #333;
+
+    .error-icon {
+      fill: #552222;
+    }
+
+    .error-text {
+      fill: #552222;
+      stroke: #552222;
+    }
+
+    .edge-thickness-normal {
+      stroke-width: 2px;
+    }
+
+    .edge-thickness-thick {
+      stroke-width: 3.5px;
+    }
+
+    .edge-pattern-solid {
+      stroke-dasharray: 0;
+    }
+
+    .edge-pattern-dashed {
+      stroke-dasharray: 3;
+    }
+
+    .edge-pattern-dotted {
+      stroke-dasharray: 2;
+    }
+
+    .marker {
+      fill: #333333;
+      stroke: #333333;
+
+      &.cross {
+        stroke: #333333;
+      }
+    }
+
+    svg {
+      font-family: "trebuchet ms",verdana,arial,sans-serif;
+      font-size: 16px;
+    }
+
+    .entityBox {
+      fill: #ECECFF;
+      stroke: #9370DB;
+    }
+
+    .attributeBoxOdd {
+      fill: #ffffff;
+      stroke: #9370DB;
+    }
+
+    .attributeBoxEven {
+      fill: #f2f2f2;
+      stroke: #9370DB;
+    }
+
+    .relationshipLabelBox {
+      fill: hsl(80, 100%, 96.2745098039%);
+      opacity: 0.7;
+      background-color: hsl(80, 100%, 96.2745098039%);
+
+      rect {
+        opacity: 0.5;
+      }
+    }
+
+    .relationshipLine {
+      stroke: #333333;
+    }
+
+    .entityTitleText {
+      text-anchor: middle;
+      font-size: 18px;
+      fill: #333;
+    }
+
+    #MD_PARENT_START, #MD_PARENT_END {
+      fill: #f5f5f5 !important;
+      stroke: #333333 !important;
+      stroke-width: 1;
+    }
+
+    :root {
+      --mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;
+    }
+
+    font-family: "trebuchet ms",verdana,arial,sans-serif;
+    font-size: 16px;
+    fill: #333;
+
+    .error-icon {
+      fill: #552222;
+    }
+
+    .error-text {
+      fill: #552222;
+      stroke: #552222;
+    }
+
+    .edge-thickness-normal {
+      stroke-width: 2px;
+    }
+
+    .edge-thickness-thick {
+      stroke-width: 3.5px;
+    }
+
+    .edge-pattern-solid {
+      stroke-dasharray: 0;
+    }
+
+    .edge-pattern-dashed {
+      stroke-dasharray: 3;
+    }
+
+    .edge-pattern-dotted {
+      stroke-dasharray: 2;
+    }
+
+    .marker {
+      fill: #333333;
+      stroke: #333333;
+
+      &.cross {
+        stroke: #333333;
+      }
+    }
+
+    svg {
+      font-family: "trebuchet ms",verdana,arial,sans-serif;
+      font-size: 16px;
+    }
+
+    g.classGroup text {
+      fill: #9370DB;
+      fill: #131300;
+      stroke: none;
+      font-family: "trebuchet ms",verdana,arial,sans-serif;
+      font-size: 10px;
+
+      .title {
+        font-weight: bolder;
+      }
+    }
+
+    .nodeLabel {
+      color: #131300;
+    }
+
+    .edgeLabel {
+      color: #131300;
+
+      .label rect {
+        fill: #ECECFF;
+      }
+    }
+
+    .label text {
+      fill: #131300;
+    }
+
+    .edgeLabel .label span {
+      background: #ECECFF;
+    }
+
+    .classTitle {
+      font-weight: bolder;
+    }
+
+    .node {
+      rect, circle, ellipse, polygon, path {
+        fill: #ECECFF;
+        stroke: #9370DB;
+        stroke-width: 1px;
+      }
+    }
+
+    .divider {
+      stroke: #9370DB;
+      stroke-width: 1;
+    }
+
+    g {
+      &.clickable {
+        cursor: pointer;
+      }
+
+      &.classGroup {
+        rect {
+          fill: #ECECFF;
+          stroke: #9370DB;
+        }
+
+        line {
+          stroke: #9370DB;
+          stroke-width: 1;
+        }
+      }
+    }
+
+    .classLabel {
+      .box {
+        stroke: none;
+        stroke-width: 0;
+        fill: #ECECFF;
+        opacity: 0.5;
+      }
+
+      .label {
+        fill: #9370DB;
+        font-size: 10px;
+      }
+    }
+
+    .relation {
+      stroke: #333333;
+      stroke-width: 1;
+      fill: none;
+    }
+
+    .dashed-line {
+      stroke-dasharray: 3;
+    }
+
+    .dotted-line {
+      stroke-dasharray: 1 2;
+    }
+
+    #compositionStart, .composition, #compositionEnd, .composition, #dependencyStart, .dependency, #dependencyStart, .dependency {
+      fill: #333333 !important;
+      stroke: #333333 !important;
+      stroke-width: 1;
+    }
+
+    #extensionStart, .extension, #extensionEnd, .extension, #aggregationStart, .aggregation, #aggregationEnd, .aggregation, #lollipopStart, .lollipop, #lollipopEnd, .lollipop {
+      fill: #ECECFF !important;
+      stroke: #333333 !important;
+      stroke-width: 1;
+    }
+
+    .edgeTerminals {
+      font-size: 11px;
+    }
+
+    .classTitleText {
+      text-anchor: middle;
+      font-size: 18px;
+      fill: #333;
+    }
+
+    :root {
+      --mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;
+    }
+
+    font-family: "trebuchet ms",verdana,arial,sans-serif;
+    font-size: 16px;
+    fill: #333;
+
+    .error-icon {
+      fill: #552222;
+    }
+
+    .error-text {
+      fill: #552222;
+      stroke: #552222;
+    }
+
+    .edge-thickness-normal {
+      stroke-width: 2px;
+    }
+
+    .edge-thickness-thick {
+      stroke-width: 3.5px;
+    }
+
+    .edge-pattern-solid {
+      stroke-dasharray: 0;
+    }
+
+    .edge-pattern-dashed {
+      stroke-dasharray: 3;
+    }
+
+    .edge-pattern-dotted {
+      stroke-dasharray: 2;
+    }
+
+    .marker {
+      fill: #333333;
+      stroke: #333333;
+
+      &.cross {
+        stroke: #333333;
+      }
+    }
+
+    svg {
+      font-family: "trebuchet ms",verdana,arial,sans-serif;
+      font-size: 16px;
+    }
+
+    defs #statediagram-barbEnd {
+      fill: #333333;
+      stroke: #333333;
+    }
+
+    g.stateGroup {
+      text {
+        fill: #9370DB;
+        stroke: none;
+        font-size: 10px;
+        fill: #333;
+        stroke: none;
+        font-size: 10px;
+      }
+
+      .state-title {
+        font-weight: bolder;
+        fill: #131300;
+      }
+
+      rect {
+        fill: #ECECFF;
+        stroke: #9370DB;
+      }
+
+      line {
+        stroke: #333333;
+        stroke-width: 1;
+      }
+    }
+
+    .transition {
+      stroke: #333333;
+      stroke-width: 1;
+      fill: none;
+    }
+
+    .stateGroup {
+      .composit {
+        fill: white;
+        border-bottom: 1px;
+      }
+
+      .alt-composit {
+        fill: #e0e0e0;
+        border-bottom: 1px;
+      }
+    }
+
+    .state-note {
+      stroke: #aaaa33;
+      fill: #fff5ad;
+
+      text {
+        fill: black;
+        stroke: none;
+        font-size: 10px;
+      }
+    }
+
+    .stateLabel .box {
+      stroke: none;
+      stroke-width: 0;
+      fill: #ECECFF;
+      opacity: 0.5;
+    }
+
+    .edgeLabel .label {
+      rect {
+        fill: #ECECFF;
+        opacity: 0.5;
+      }
+
+      text {
+        fill: #333;
+      }
+    }
+
+    .label div .edgeLabel {
+      color: #333;
+    }
+
+    .stateLabel text {
+      fill: #131300;
+      font-size: 10px;
+      font-weight: bold;
+    }
+
+    .node {
+      circle.state-start, .fork-join {
+        fill: #333333;
+        stroke: #333333;
+      }
+
+      circle.state-end {
+        fill: #9370DB;
+        stroke: white;
+        stroke-width: 1.5;
+      }
+    }
+
+    .end-state-inner {
+      fill: white;
+      stroke-width: 1.5;
+    }
+
+    .node {
+      rect, polygon {
+        fill: #ECECFF;
+        stroke: #9370DB;
+        stroke-width: 1px;
+      }
+    }
+
+    #statediagram-barbEnd {
+      fill: #333333;
+    }
+
+    .statediagram-cluster rect {
+      fill: #ECECFF;
+      stroke: #9370DB;
+      stroke-width: 1px;
+    }
+
+    .cluster-label, .nodeLabel {
+      color: #131300;
+    }
+
+    .statediagram-cluster rect.outer {
+      rx: 5px;
+      ry: 5px;
+    }
+
+    .statediagram-state {
+      .divider {
+        stroke: #9370DB;
+      }
+
+      .title-state {
+        rx: 5px;
+        ry: 5px;
+      }
+    }
+
+    .statediagram-cluster {
+      &.statediagram-cluster .inner {
+        fill: white;
+      }
+
+      &.statediagram-cluster-alt .inner {
+        fill: #f0f0f0;
+      }
+
+      .inner {
+        rx: 0;
+        ry: 0;
+      }
+    }
+
+    .statediagram-state rect {
+      &.basic {
+        rx: 5px;
+        ry: 5px;
+      }
+
+      &.divider {
+        stroke-dasharray: 10,10;
+        fill: #f0f0f0;
+      }
+    }
+
+    .note-edge {
+      stroke-dasharray: 5;
+    }
+
+    .statediagram-note {
+      rect {
+        fill: #fff5ad;
+        stroke: #aaaa33;
+        stroke-width: 1px;
+        rx: 0;
+        ry: 0;
+        fill: #fff5ad;
+        stroke: #aaaa33;
+        stroke-width: 1px;
+        rx: 0;
+        ry: 0;
+      }
+
+      text {
+        fill: black;
+      }
+
+      .nodeLabel {
+        color: black;
+      }
+    }
+
+    .statediagram .edgeLabel {
+      color: red;
+    }
+
+    #dependencyStart, #dependencyEnd {
+      fill: #333333;
+      stroke: #333333;
+      stroke-width: 1;
+    }
+
+    .statediagramTitleText {
+      text-anchor: middle;
+      font-size: 18px;
+      fill: #333;
+    }
+
+    :root {
+      --mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;
+    }
+
+    font-family: "trebuchet ms",verdana,arial,sans-serif;
+    font-size: 16px;
+    fill: #333;
+
+    .error-icon {
+      fill: #552222;
+    }
+
+    .error-text {
+      fill: #552222;
+      stroke: #552222;
+    }
+
+    .edge-thickness-normal {
+      stroke-width: 2px;
+    }
+
+    .edge-thickness-thick {
+      stroke-width: 3.5px;
+    }
+
+    .edge-pattern-solid {
+      stroke-dasharray: 0;
+    }
+
+    .edge-pattern-dashed {
+      stroke-dasharray: 3;
+    }
+
+    .edge-pattern-dotted {
+      stroke-dasharray: 2;
+    }
+
+    .marker {
+      fill: #333333;
+      stroke: #333333;
+
+      &.cross {
+        stroke: #333333;
+      }
+    }
+
+    svg {
+      font-family: "trebuchet ms",verdana,arial,sans-serif;
+      font-size: 16px;
+    }
+
+    .label {
+      font-family: 'trebuchet ms',verdana,arial,sans-serif;
+      font-family: var(--mermaid-font-family);
+      color: #333;
+    }
+
+    .mouth {
+      stroke: #666;
+    }
+
+    line {
+      stroke: #333;
+    }
+
+    .legend {
+      fill: #333;
+    }
+
+    .label {
+      text {
+        fill: #333;
+      }
+
+      color: #333;
+    }
+
+    .face {
+      fill: #FFF8DC;
+      stroke: #999;
+    }
+
+    .node {
+      rect, circle, ellipse, polygon, path {
+        fill: #ECECFF;
+        stroke: #9370DB;
+        stroke-width: 1px;
+      }
+
+      .label {
+        text-align: center;
+      }
+
+      &.clickable {
+        cursor: pointer;
+      }
+    }
+
+    .arrowheadPath {
+      fill: #333333;
+    }
+
+    .edgePath .path {
+      stroke: #333333;
+      stroke-width: 1.5px;
+    }
+
+    .flowchart-link {
+      stroke: #333333;
+      fill: none;
+    }
+
+    .edgeLabel {
+      background-color: #e8e8e8;
+      text-align: center;
+
+      rect {
+        opacity: 0.5;
+      }
+    }
+
+    .cluster text {
+      fill: #333;
+    }
+
+    div.mermaidTooltip {
+      position: absolute;
+      text-align: center;
+      max-width: 200px;
+      padding: 2px;
+      font-family: 'trebuchet ms',verdana,arial,sans-serif;
+      font-family: var(--mermaid-font-family);
+      font-size: 12px;
+      background: hsl(80, 100%, 96.2745098039%);
+      border: 1px solid #aaaa33;
+      border-radius: 2px;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    .task-type-0, .section-type-0 {
+      fill: #ECECFF;
+    }
+
+    .task-type-1, .section-type-1 {
+      fill: #ffffde;
+    }
+
+    .task-type-2, .section-type-2 {
+      fill: hsl(304, 100%, 96.2745098039%);
+    }
+
+    .task-type-3, .section-type-3 {
+      fill: hsl(124, 100%, 93.5294117647%);
+    }
+
+    .task-type-4, .section-type-4 {
+      fill: hsl(176, 100%, 96.2745098039%);
+    }
+
+    .task-type-5, .section-type-5 {
+      fill: hsl(-4, 100%, 93.5294117647%);
+    }
+
+    .task-type-6, .section-type-6 {
+      fill: hsl(8, 100%, 96.2745098039%);
+    }
+
+    .task-type-7, .section-type-7 {
+      fill: hsl(188, 100%, 93.5294117647%);
+    }
+
+    :root {
+      --mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;
+    }
+
+    font-family: "trebuchet ms",verdana,arial,sans-serif;
+    font-size: 16px;
+    fill: #333;
+
+    .error-icon {
+      fill: #552222;
+    }
+
+    .error-text {
+      fill: #552222;
+      stroke: #552222;
+    }
+
+    .edge-thickness-normal {
+      stroke-width: 2px;
+    }
+
+    .edge-thickness-thick {
+      stroke-width: 3.5px;
+    }
+
+    .edge-pattern-solid {
+      stroke-dasharray: 0;
+    }
+
+    .edge-pattern-dashed {
+      stroke-dasharray: 3;
+    }
+
+    .edge-pattern-dotted {
+      stroke-dasharray: 2;
+    }
+
+    .marker {
+      fill: #333333;
+      stroke: #333333;
+
+      &.cross {
+        stroke: #333333;
+      }
+    }
+
+    svg {
+      font-family: "trebuchet ms",verdana,arial,sans-serif;
+      font-size: 16px;
+    }
+
+    .mermaid-main-font {
+      font-family: "trebuchet ms",verdana,arial,sans-serif;
+      font-family: var(--mermaid-font-family);
+    }
+
+    .exclude-range {
+      fill: #eeeeee;
+    }
+
+    .section {
+      stroke: none;
+      opacity: 0.2;
+    }
+
+    .section0 {
+      fill: rgba(102, 102, 255, 0.49);
+    }
+
+    .section2 {
+      fill: #fff400;
+    }
+
+    .section1, .section3 {
+      fill: white;
+      opacity: 0.2;
+    }
+
+    .sectionTitle0, .sectionTitle1, .sectionTitle2, .sectionTitle3 {
+      fill: #333;
+    }
+
+    .sectionTitle {
+      text-anchor: start;
+      font-family: 'trebuchet ms',verdana,arial,sans-serif;
+      font-family: var(--mermaid-font-family);
+    }
+
+    .grid {
+      .tick {
+        stroke: lightgrey;
+        opacity: 0.8;
+        shape-rendering: crispEdges;
+
+        text {
+          font-family: "trebuchet ms",verdana,arial,sans-serif;
+          fill: #333;
+        }
+      }
+
+      path {
+        stroke-width: 0;
+      }
+    }
+
+    .today {
+      fill: none;
+      stroke: red;
+      stroke-width: 2px;
+    }
+
+    .task {
+      stroke-width: 2;
+    }
+
+    .taskText {
+      text-anchor: middle;
+      font-family: 'trebuchet ms',verdana,arial,sans-serif;
+      font-family: var(--mermaid-font-family);
+    }
+
+    .taskTextOutsideRight {
+      fill: black;
+      text-anchor: start;
+      font-family: 'trebuchet ms',verdana,arial,sans-serif;
+      font-family: var(--mermaid-font-family);
+    }
+
+    .taskTextOutsideLeft {
+      fill: black;
+      text-anchor: end;
+    }
+
+    .task.clickable {
+      cursor: pointer;
+    }
+
+    .taskText.clickable, .taskTextOutsideLeft.clickable, .taskTextOutsideRight.clickable {
+      cursor: pointer;
+      fill: #003163 !important;
+      font-weight: bold;
+    }
+
+    .taskText0, .taskText1, .taskText2, .taskText3 {
+      fill: white;
+    }
+
+    .task0, .task1, .task2, .task3 {
+      fill: #8a90dd;
+      stroke: #534fbc;
+    }
+
+    .taskTextOutside0, .taskTextOutside2, .taskTextOutside1, .taskTextOutside3 {
+      fill: black;
+    }
+
+    .active0, .active1, .active2, .active3 {
+      fill: #bfc7ff;
+      stroke: #534fbc;
+    }
+
+    .activeText0, .activeText1, .activeText2, .activeText3 {
+      fill: black !important;
+    }
+
+    .done0, .done1, .done2, .done3 {
+      stroke: grey;
+      fill: lightgrey;
+      stroke-width: 2;
+    }
+
+    .doneText0, .doneText1, .doneText2, .doneText3 {
+      fill: black !important;
+    }
+
+    .crit0, .crit1, .crit2, .crit3 {
+      stroke: #ff8888;
+      fill: red;
+      stroke-width: 2;
+    }
+
+    .activeCrit0, .activeCrit1, .activeCrit2, .activeCrit3 {
+      stroke: #ff8888;
+      fill: #bfc7ff;
+      stroke-width: 2;
+    }
+
+    .doneCrit0, .doneCrit1, .doneCrit2, .doneCrit3 {
+      stroke: #ff8888;
+      fill: lightgrey;
+      stroke-width: 2;
+      cursor: pointer;
+      shape-rendering: crispEdges;
+    }
+
+    .milestone {
+      transform: rotate(45deg) scale(0.8, 0.8);
+    }
+
+    .milestoneText {
+      font-style: italic;
+    }
+
+    .doneCritText0, .doneCritText1, .doneCritText2, .doneCritText3, .activeCritText0, .activeCritText1, .activeCritText2, .activeCritText3 {
+      fill: black !important;
+    }
+
+    .titleText {
+      text-anchor: middle;
+      font-size: 18px;
+      fill: #333;
+      font-family: 'trebuchet ms',verdana,arial,sans-serif;
+      font-family: var(--mermaid-font-family);
+    }
+
+    :root {
+      --mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;
+    }
+
+    font-family: "trebuchet ms",verdana,arial,sans-serif;
+    font-size: 16px;
+    fill: #333;
+
+    .error-icon {
+      fill: #552222;
+    }
+
+    .error-text {
+      fill: #552222;
+      stroke: #552222;
+    }
+
+    .edge-thickness-normal {
+      stroke-width: 2px;
+    }
+
+    .edge-thickness-thick {
+      stroke-width: 3.5px;
+    }
+
+    .edge-pattern-solid {
+      stroke-dasharray: 0;
+    }
+
+    .edge-pattern-dashed {
+      stroke-dasharray: 3;
+    }
+
+    .edge-pattern-dotted {
+      stroke-dasharray: 2;
+    }
+
+    .marker {
+      fill: #333333;
+      stroke: #333333;
+
+      &.cross {
+        stroke: #333333;
+      }
+    }
+
+    svg {
+      font-family: "trebuchet ms",verdana,arial,sans-serif;
+      font-size: 16px;
+    }
+
+    .pieCircle {
+      stroke: black;
+      stroke-width: 2px;
+      opacity: 0.7;
+    }
+
+    .pieOuterCircle {
+      stroke: black;
+      stroke-width: 2px;
+      fill: none;
+    }
+
+    .pieTitleText {
+      text-anchor: middle;
+      font-size: 25px;
+      fill: black;
+      font-family: "trebuchet ms",verdana,arial,sans-serif;
+    }
+
+    .slice {
+      font-family: "trebuchet ms",verdana,arial,sans-serif;
+      fill: #333;
+      font-size: 17px;
+    }
+
+    .legend text {
+      fill: black;
+      font-family: "trebuchet ms",verdana,arial,sans-serif;
+      font-size: 17px;
+    }
+
+    :root {
+      --mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;
+    }
+
+    font-family: "trebuchet ms",verdana,arial,sans-serif;
+    font-size: 16px;
+    fill: #333;
+
+    .error-icon {
+      fill: #552222;
+    }
+
+    .error-text {
+      fill: #552222;
+      stroke: #552222;
+    }
+
+    .edge-thickness-normal {
+      stroke-width: 2px;
+    }
+
+    .edge-thickness-thick {
+      stroke-width: 3.5px;
+    }
+
+    .edge-pattern-solid {
+      stroke-dasharray: 0;
+    }
+
+    .edge-pattern-dashed {
+      stroke-dasharray: 3;
+    }
+
+    .edge-pattern-dotted {
+      stroke-dasharray: 2;
+    }
+
+    .marker {
+      fill: #333333;
+      stroke: #333333;
+
+      &.cross {
+        stroke: #333333;
+      }
+    }
+
+    svg {
+      font-family: "trebuchet ms",verdana,arial,sans-serif;
+      font-size: 16px;
+    }
+
+    :root {
+      --mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;
+    }
+  }
+}

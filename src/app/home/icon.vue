@@ -20,7 +20,7 @@
 </template>
 <script setup lang="ts">
 import { computed } from "vue";
-import * as icons from "../components/icons";
+import * as icons from "../../components/icons";
 const colorIcons = computed(() => {
   const newKeys = Object.keys(icons).filter((k) => {
     return k.startsWith("QIconColor");

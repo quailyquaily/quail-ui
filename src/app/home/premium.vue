@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import QTextarea from '../components/common/QTextarea.vue';
+import QTextarea from '../../components/common/QTextarea.vue';
 
 </script>
 

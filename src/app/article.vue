@@ -210,15 +210,15 @@ for i in range(10):
 
     <h3>Enclave / TradingView</h3>
 
-    <div class="enclave-object-wrapper"><iframe class="enclave-object youtube-enclave-object" width="100%" height="400" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe></div>
+    <div class="enclave-object-wrapper"><iframe class="enclave-object youtube-enclave-object" width="100%" height="400" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe></div>
 
     <h3>Enclave / Quaily</h3>
 
-    <div class="enclave-object-wrapper normal-wrapper"><div class="enclave-object quail-enclave-object normal-object no-border"><iframe src="https://quail.ink/blog/widget?theme=light&amp;layout=&amp;logged=ignore" data-theme="light" width="100%" height="auto" title="Quail Widget" frameborder="0" allow="web-share" allowfullscreen=""></iframe></div></div>
+    <div class="enclave-object-wrapper normal-wrapper"><div class="enclave-object quail-enclave-object normal-object no-border"><iframe src="https://quail.ink/blog/widget?theme=light&amp;layout=&amp;logged=ignore" data-theme="light" width="100%" height="auto" title="Quail Widget" frameborder="0" allow="web-share"></iframe></div></div>
 
-    <div class="enclave-object-wrapper normal-wrapper"><div class="enclave-object quail-enclave-object normal-object no-border"><iframe src="https://quail.ink/blog/p/customize-newsletter-subscription-form-for-your-website/widget?theme=light&amp;layout=&amp;logged=ignore" data-theme="light" width="100%" height="128px" title="Quail Widget" frameborder="0" allow="web-share" allowfullscreen=""></iframe></div></div>
-    
-    <div class="enclave-object-wrapper normal-wrapper"><div class="enclave-object quail-enclave-object normal-object no-border"><iframe src="https://quail.ink/blog/widget?theme=light&amp;layout=subscribe_form_mini&amp;logged=ignore" data-theme="light" width="100%" height="142px" title="Quail Widget" frameborder="0" allow="web-share" allowfullscreen=""></iframe></div></div>
+    <div class="enclave-object-wrapper normal-wrapper"><div class="enclave-object quail-enclave-object normal-object no-border"><iframe src="https://quail.ink/blog/p/customize-newsletter-subscription-form-for-your-website/widget?theme=light&amp;layout=&amp;logged=ignore" data-theme="light" width="100%" height="128px" title="Quail Widget" frameborder="0" allow="web-share"></iframe></div></div>
+
+    <div class="enclave-object-wrapper normal-wrapper"><div class="enclave-object quail-enclave-object normal-object no-border"><iframe src="https://quail.ink/blog/widget?theme=light&amp;layout=subscribe_form_mini&amp;logged=ignore" data-theme="light" width="100%" height="142px" title="Quail Widget" frameborder="0" allow="web-share"></iframe></div></div>
 
     <h3>An h3 header</h3>
     <h4>Nested list and others</h4>

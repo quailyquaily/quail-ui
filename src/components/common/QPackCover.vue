@@ -34,7 +34,7 @@ const height = computed(() => {
 </script>
 
 <template>
-<div class="q-pack-cover">
+<div class="q-pack-cover" :style="`width: ${width}px; height: ${height}px;`">
   <div class="q-pack-cover-layer one"></div>
   <div class="q-pack-cover-layer two"></div>
   <div class="q-pack-cover-inner" :style="`width: ${width}px; height: ${height}px;`">

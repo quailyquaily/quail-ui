@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
-
+import logo from "@/assets/images/logo.svg";
 const switchTheme = ref(true);
 
 watch(() => switchTheme.value, (val) => {
@@ -17,9 +17,11 @@ watch(() => switchTheme.value, (val) => {
   <div class="container" :class="switchTheme ? 'light' : 'dark'">
     <div class="grid gap-4 grid-cols-2">
       <div class="">
-        <h1 class="q-text-display mb-2">Quail UI</h1>
-        <div class="q-text-desc">
-          👉 <a href="https://github.com/quail-ink/quail-ui" target="_blank" class="q-c-dark-2">Fork at Github</a>
+        <div class="flex" style="align-items: center;">
+          <QAvatar :src="logo" :size="32"/>
+          <div class="q-text-desc ml-2">
+            👉 <a href="https://github.com/quail-ink/quail-ui" target="_blank" class="q-c-dark-2">Fork Quaily UI at Github</a>
+          </div>
         </div>
       </div>
       <div class="text-right">

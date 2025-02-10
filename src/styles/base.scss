@@ -200,15 +200,19 @@ a {
 .one-line-ellipsis, .two-line-ellipsis, .three-line-ellipsis {
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .one-line-ellipsis {
   -webkit-line-clamp: 1;
+  line-clamp: 1;
 }
 .two-line-ellipsis {
   -webkit-line-clamp: 2;
+  line-clamp: 2;
 }
 .three-line-ellipsis {
   -webkit-line-clamp: 3;
+  line-clamp: 3;
 }

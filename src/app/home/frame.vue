@@ -12,6 +12,9 @@
       <div class="frame p-4 shadow">
         Some content here, with shadow
       </div>
+      <div class="frame p-4 flat">
+        Some content here, flat
+      </div>
       <div class="frame p-4">
         Some content here
         <div class="divider my-4"></div>

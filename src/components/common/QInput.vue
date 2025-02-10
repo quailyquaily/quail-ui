@@ -290,7 +290,6 @@ onMounted(() => {
       .q-text-field-wrapper {
         &:deep(.q-text-field) {
           opacity: 0.5;
-          background-color: var(--q-c-light-4);
         }
       }
     }

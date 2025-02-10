@@ -250,6 +250,12 @@ button.toggle {
   &.shadow {
     box-shadow: 0px 1px 2px 0px #4343431A;
   }
+
+  &.flat {
+    border: none;
+    background-color: var(--q-bg-light-2);
+    box-shadow: 0 0 0 0.5px var(--q-c-dark-5);
+  }
 }
 
 .divider {
@@ -268,6 +274,11 @@ button.toggle {
     }
     &.shadow {
       box-shadow: 0px 1px 2px 0px #4343431A;
+    }
+    &.flat {
+      border: none;
+      background-color: var(--q-bg-dark-float);
+      box-shadow: 0 0 0 0.5px var(--q-c-light-4);
     }
   }
 

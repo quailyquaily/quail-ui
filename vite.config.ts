@@ -21,7 +21,8 @@ export default defineConfig(({ mode }) => {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url))
       }
-    }
+    },
+    assetsInclude: ['**/*.png', '**/*.svg', '**/*.webp'],
   }
   if (mode === 'lib') {
     ret.build = {

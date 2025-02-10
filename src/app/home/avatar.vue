@@ -6,6 +6,7 @@
       <div>
         <div class="q-text-caption q-c-dark-3 mb-2">different variant</div>
         <div class="flow">
+          <QAvatar :src="'https://picsum.photos/200'" :size="42" />
           <QAvatar :src="'https://picsum.photos/200'" :size="42" border-type="solid" />
           <QAvatar :src="'https://picsum.photos/200'" :size="42" variant="rounded" border-type="solid" />
           <QAvatar :src="'https://picsum.photos/200'" :size="42" variant="square" border-type="solid" />
@@ -23,11 +24,11 @@
       <div>
         <div class="q-text-caption q-c-dark-3 mb-2">different size</div>
         <div class="flow">
-          <QAvatar :src="'https://picsum.photos/200'" :size="24" />
-          <QAvatar :src="'https://picsum.photos/200'" :size="32" variant="rounded" />
-          <QAvatar :src="'https://picsum.photos/200'" :size="48" variant="square"/>
-          <QAvatar :src="'https://picsum.photos/200'" :size="64" />
-          <QAvatar :src="'https://quail.ink'" :size="96" />
+          <QAvatar src="#" :size="24" />
+          <QAvatar src="#" :size="32" variant="rounded" />
+          <QAvatar src="#" :size="48" variant="square"/>
+          <QAvatar src="#" :size="64" />
+          <QAvatar src="#" :size="96" />
         </div>
       </div>
 

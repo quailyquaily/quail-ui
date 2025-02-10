@@ -91,7 +91,7 @@ const height = computed(() => {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 2rem 0.6rem 0.6rem 1.6rem;
+    padding: 2rem 0.6rem 8% 12%;
     background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 100%);
     z-index: 2;
     color: var(--q-c-white);

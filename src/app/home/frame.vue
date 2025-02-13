@@ -14,6 +14,8 @@
       </div>
       <div class="frame p-4 flat">
         Some content here, flat
+        <div class="divider double my-4"></div>
+        Ok...
       </div>
       <div class="frame p-4">
         Some content here

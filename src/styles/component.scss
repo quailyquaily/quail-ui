@@ -263,6 +263,10 @@ button.toggle {
   &.focus {
     border-top: 4px solid var(--q-c-dark);
   }
+  &.double {
+    height: 4px;
+    border-bottom: 0.5px solid var(--q-c-dark-4);
+  }
 }
 
 .dark {

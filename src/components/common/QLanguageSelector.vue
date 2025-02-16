@@ -94,7 +94,7 @@ watch(() => props.lang, (lang) => {
 onMounted(() => {
   selectedLangItem.value =
     languageItems.value.find((item: any) => {
-      return props.lang === item.value || localStorage.getItem("quail-language") === item.value;
+      return props.lang === item.value || (props.presist? localStorage.getItem("quail-language") === item.value : false);
     }) || languageItems.value[0];
 });
 </script>

@@ -6,6 +6,7 @@
       <div class="grid gap-4 grid-cols-3">
         <QLanguageSelector :lang="'en'" auto @change="onLangSelected"/>
         <QLanguageSelector :lang="selectedLang" no-flag :presist="true" @change="onLangSelected"/>
+        <QLanguageSelector :lang="'ja'" @change="onLangSelected"/>
       </div>
     </div>
     <div class="grid gap-4 grid-cols-3">
@@ -17,7 +18,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const selectedLang = ref('en');
+const selectedLang = ref('zh');
 
 const selectedCurrency = ref('USD');
 

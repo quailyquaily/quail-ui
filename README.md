@@ -1,8 +1,8 @@
 # Quail UI
 
-The Vue3 UI library for [Quail](https://quail.ink).
+The Vue3 UI library for [Quaily](https://quaily.com).
 
-[Demo](https://quail-ink.github.io/quail-ui/)
+[Demo](https://quailyquaily.github.io/quail-ui/)
 
 ## Installation
 

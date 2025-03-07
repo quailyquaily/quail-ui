@@ -343,6 +343,9 @@
       align-items: center;
       font-size: 0.8rem;
       box-shadow: none;
+      padding: 10px;
+      position: static;
+      aspect-ratio: auto;
     }
     &.normal-object {
       aspect-ratio: auto;

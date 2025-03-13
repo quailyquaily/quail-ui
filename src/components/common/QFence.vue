@@ -55,7 +55,7 @@ const props = defineProps({
     padding: 0.5rem 0.8rem;
     color: var(--q-c-dark);
     opacity: 0.7;
-    background: var(--q-bg-dark-2);
+    background: rgba(0, 0, 0, 0.04);
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     cursor: default;
@@ -68,25 +68,25 @@ const props = defineProps({
       opacity: 1;
     }
     .q-fence-text {
-      margin-top: 2px;
+      line-height: 1.6 !important;
     }
   }
   &.warning {
     .q-fence-inner {
       color: var(--q-c-orange-dark);
-      background-color: var(--q-c-orange-dimm-2);
+      background-color: var(--q-c-orange-dimm-1);
     }
   }
   &.error {
     .q-fence-inner {
       color: var(--q-c-red-dark);
-      background-color: var(--q-c-red-dimm-2);
+      background-color: var(--q-c-red-dimm-1);
     }
   }
   &.success {
     .q-fence-inner {
       color: var(--q-c-green-dark);
-      background-color: var(--q-c-green-dimm-2);
+      background-color: var(--q-c-green-dimm-1);
     }
   }
 }
@@ -94,25 +94,25 @@ const props = defineProps({
   .q-fence {
     .q-fence-inner {
       color: var(--q-c-light-2);
-      background: var(--q-c-light-4);
+      background: rgba(255, 255, 255, 0.03);
       opacity: 1;
     }
     &.warning {
       .q-fence-inner {
         color: var(--q-c-orange-light);
-        background-color: var(--q-c-orange-dimm-2);
+        background-color: var(--q-c-orange-dimm-1);
       }
     }
     &.error {
       .q-fence-inner {
         color: var(--q-c-red-light);
-        background-color: var(--q-c-red-dimm-2);
+        background-color: var(--q-c-red-dimm-1);
       }
     }
     &.success {
       .q-fence-inner {
-        color: var(--q-c-green-light);
-        background-color: var(--q-c-green-dimm-2);
+        color: var(--q-c-green);
+        background-color: var(--q-c-green-dimm-1);
       }
     }
   }

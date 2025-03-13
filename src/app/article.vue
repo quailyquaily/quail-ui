@@ -127,7 +127,7 @@ onMounted(async () => {
   <div class="q-article">
     <h1>An H1 header for this article</h1>
     <p>Paragraphs are separated by a blank line.</p>
-    <p>2nd paragraph. <em>Italic</em>, <strong>bold</strong>, <del>Strikethrough</del>, <mark>highlight text</mark>, and <code>monospace</code>. Itemized lists
+    <p>2nd paragraph. <em>Italic</em>, <strong>bold</strong>, <del>Strikethrough</del>, <mark>highlight text</mark>, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd>, and <code>monospace</code>. Itemized lists
     look like:</p>
     <ul>
     <li>this one

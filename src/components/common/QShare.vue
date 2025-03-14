@@ -41,9 +41,9 @@ import { copyToClipboard } from "../../utils";
 import QRCode from "qrcode";
 
 const supportedServices:any = {
-  "twitter": {
-    "icon": "q-icon-color-twitter",
-    "tooltip": "Share on Twitter",
+  "x": {
+    "icon": "q-icon-color-x",
+    "tooltip": "Share on X",
     "url_template": "https://x.com/intent/tweet?url={url}&text={text}"
   },
   "facebook": {
@@ -101,7 +101,7 @@ const props = defineProps({
   },
   services: {
     type: Array<string>,
-    default: () => ["twitter", "facebook", "hackernews", "general"],
+    default: () => ["x", "facebook", "hackernews", "general"],
   },
 });
 
@@ -213,6 +213,9 @@ function shareToMastodon() {
         &.twitter {
           background-color: rgba(84, 181, 230, 0.2);
         }
+        &.x {
+          background-color: rgba(187, 187, 187, 0.2);
+        }
         &.facebook {
           background-color: rgba(78, 113, 168, 0.2);
         }
@@ -250,6 +253,9 @@ function shareToMastodon() {
     }
     &.twitter {
       border-color: #54b5e686;
+    }
+    &.x {
+      border-color: var(--q-c-dark-3);
     }
     &.facebook {
       border-color: #4E71A886;

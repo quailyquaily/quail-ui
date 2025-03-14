@@ -13,7 +13,7 @@
         <QButton class="highlight">Highlight</QButton>
         <QButton class="highlight elevated">Highlight</QButton>
         <QButton class="highlight" disabled>Highlight</QButton>
-        <QButton class="highlight" loading>Highlight</QButton>
+        <QButton class="highlight" loading>Loading</QButton>
       </div>
       <div class="flow">
         <QButton class="outlined">Outlined</QButton>
@@ -30,24 +30,24 @@
       <div class="flow">
         <QButton class="stripe">Stripe</QButton>
         <QButton class="stripe" disabled>Stripe</QButton>
-        <QButton class="stripe" loading>Stripe</QButton>
+        <QButton class="stripe" loading>Loading</QButton>
       </div>
       <div class="flow">
         <QButton class="danger">Danger</QButton>
         <QButton class="danger elevated">Danger</QButton>
         <QButton class="danger" disabled>Danger</QButton>
-        <QButton class="danger" loading>Danger</QButton>
+        <QButton class="danger" loading>Loading</QButton>
       </div>
       <div class="flow">
         <QButton class="outlined danger">Danger</QButton>
         <QButton class="outlined danger elevated">Danger</QButton>
         <QButton class="outlined danger" disabled>Danger</QButton>
-        <QButton class="outlined danger" loading>Danger</QButton>
+        <QButton class="outlined danger" loading>Loading</QButton>
       </div>
       <div class="flow">
         <QButton class="plain danger">Danger</QButton>
         <QButton class="plain danger" disabled>Danger</QButton>
-        <QButton class="plain danger" loading>Danger</QButton>
+        <QButton class="plain danger" loading>Loading</QButton>
       </div>
       <div class="flow">
         <QButton class="outlined">Normal</QButton>

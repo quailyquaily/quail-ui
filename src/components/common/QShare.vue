@@ -9,7 +9,7 @@
         </q-button>
       </div>
     </q-dialog>
-    <q-dialog v-model="showGeneralDialog" title="Share to ...">
+    <q-dialog v-model="showGeneralDialog" title="Share">
       <div class="q-dialog-content general-dialog-content">
         <div class="qrcode-wrapper">
           <img :src="generalDataUrl" alt="QR Code" class="frame shadow"/>

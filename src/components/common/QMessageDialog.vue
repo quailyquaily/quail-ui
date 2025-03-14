@@ -116,7 +116,7 @@ function closeDialog() {
     .icon-emoji {
       height: 24px;
       width: 24px;
-      font-size: 24px;
+      font-size: 20px;
       line-height: 1;
     }
   }

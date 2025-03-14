@@ -124,7 +124,7 @@ const useDialogFlag = computed(() => {
 });
 
 function toggle() {
-  if (props.disabled) {
+  if (props.disabled || props.loading) {
     return;
   }
 

@@ -55,9 +55,21 @@
       </div>
     </div>
 
+    <div class="rows ">
+      <QButton class="primary" @click="gotoArticle">Button</QButton>
+    </div>
   </div>
 </template>
 
+<script setup lang="ts">
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+function gotoArticle() {
+  router.push('/article');
+}
+</script>
 <style scoped lang="scss">
 .rows {
   .row {

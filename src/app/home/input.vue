@@ -3,7 +3,7 @@
     <div class="divider mb-4"></div>
     <h2 class="q-text-h2 mb-4">Input</h2>
     <div class="grid gap-4 grid-cols-2 mb-4">
-      <QInput v-model="inputValue" type="text" placeholder="type here!" :hint-text="'Less than 10 charactors'" :max="10"/>
+      <QInput v-model="defaultInputValue" type="text" placeholder="type here!" :hint-text="'Less than 10 charactors'" :max="10"/>
       <QInput v-model="inputValue" type="text" placeholder="type here!" :error="true" :hint-text="'Some errors!'"/>
       <QInput v-model="inputValue" type="text" placeholder="type here!" :disabled="true" :hint-text="'Some errors!'"/>
       <QInput v-model="inputValue" type="text" placeholder="type here!" :disabled="true"/>
@@ -51,6 +51,7 @@ import { computed, ref } from 'vue';
 const switchValue = ref(false);
 const inputValue = ref('');
 const searchValue = ref('');
+const defaultInputValue = ref('Hello!');
 
 const searchItems = computed(() => {
   const source = [

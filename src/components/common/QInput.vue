@@ -138,6 +138,11 @@ function updateValue() {
 }
 
 onMounted(() => {
+  if (props.defaultText) {
+    text.value = props.defaultText;
+  } else if (props.modelValue) {
+    text.value = props.modelValue;
+  }
 });
 </script>
 

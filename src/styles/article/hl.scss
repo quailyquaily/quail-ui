@@ -293,7 +293,6 @@
   .hljs-tag {
     font-size: 0.7rem;
     position: absolute;
-    transform: translateX(50vw);
     top: 0;
     border-bottom-right-radius: 2px;
     border-bottom-left-radius: 2px;
@@ -348,6 +347,8 @@
 
 .light .highlight {
   .hljs-tag {
+    color: var(--q-c-red);
+    background-color: var(--q-c-red-dimm-1);
     .hljs-tag-buttons {
       border-left: 1px solid var(--q-c-red-dimm-2);
     }
@@ -368,6 +369,8 @@
 
 .dark .highlight {
   .hljs-tag {
+    background-color: var(--q-c-green-dimm-2);
+    color: var(--q-c-green-lighter);
     .hljs-tag-buttons {
       border-left: 1px solid var(--q-c-green-dimm-2);
     }

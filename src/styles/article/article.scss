@@ -444,14 +444,6 @@
         color: var(--q-c-light);
         background: var(--q-bg-dark-float);
       }
-      .hljs-tag, .hljs-tag-shadow {
-        background-color: var(--q-c-green-dimm-2);
-        color: var(--q-c-green-lighter);
-      }
-      .hljs-tag-shadow {
-        background-color: var(--q-c-green-dimm-2);
-        color: var(--q-c-green-lighter);
-      }
     }
     table {
       th {
@@ -606,13 +598,6 @@
       code {
         color: var(--q-c-dark);
         background: var(--q-bg-dark-3);
-      }
-      .hljs-tag, .hljs-tag-shadow {
-        color: var(--q-c-red);
-        background-color: var(--q-c-red-dimm-1);
-      }
-      .hljs-tag-shadow {
-        display: none;
       }
     }
 

@@ -287,3 +287,101 @@
 /* GenericUnderline */ .hl-chroma .hl-gl { text-decoration: underline }
 /* TextWhitespace */ .hl-chroma .hl-w { color: #6e7681 }
 }
+
+.highlight {
+  position: relative;
+  .hljs-tag {
+    font-size: 0.7rem;
+    position: absolute;
+    transform: translateX(50vw);
+    top: 0;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    line-height: 1.7;
+    display: flex;
+    padding: 2px 4px;
+    align-items: center;
+    height: 24px;
+    .hljs-tag-label {
+      margin: 0 8px 0 4px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    .hljs-tag-buttons {
+      height: 16px;
+      padding-left: 4px;
+    }
+    .hljs-tag-button {
+      height: 16px;
+      width: 16px;
+      border: none;
+      background: transparent;
+      border-radius: 2px;
+      font-size: 0.7rem;
+      line-height: 1;
+      font-family: Inconsolata,Roboto Mono,Source Code Pro,Monaco,Menlo,Consolas,monospace;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+      position: relative;
+      transition: all 0.2s ease-in-out;
+    }
+    .hljs-tag-button:after,
+    .hljs-tag-button:before {
+      position: absolute;
+      content: " ";
+      width: 8px;
+      height: 8px;
+      display: block;
+      margin-top: 2px;
+      margin-left: 2px;
+      border-radius: 2px;
+    }
+    .hljs-tag-button:before {
+      background: transparent;
+      transform: translateX(-2px) translateY(-2px);
+    }
+  }
+}
+
+.light .highlight {
+  .hljs-tag {
+    .hljs-tag-buttons {
+      border-left: 1px solid var(--q-c-red-dimm-2);
+    }
+    .hljs-tag-button {
+      color: var(--q-c-red);
+    }
+    .hljs-tag-button:hover {
+      background: var(--q-c-red-dimm-2);
+    }
+    .hljs-tag-button:after {
+      background: var(--q-c-red-dimm-3);
+    }
+    .hljs-tag-button:before {
+      border: 1px solid var(--q-c-red-dimm-3);
+    }
+  }
+}
+
+.dark .highlight {
+  .hljs-tag {
+    .hljs-tag-buttons {
+      border-left: 1px solid var(--q-c-green-dimm-2);
+    }
+    .hljs-tag-button {
+      color: var(--q-c-green-lighter);
+    }
+    .hljs-tag-button:hover {
+      background: var(--q-c-green-dimm-2);
+    }
+    .hljs-tag-button:after {
+      background: var(--q-c-green-dimm-3);
+    }
+    .hljs-tag-button:before {
+      border: 1px solid var(--q-c-green-dimm-3);
+    }
+  }
+}

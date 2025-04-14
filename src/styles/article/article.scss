@@ -101,21 +101,6 @@
       padding-top: 1em;
       padding-left: 1em;
     }
-    .hljs-tag, .hljs-tag-shadow {
-      font-size: 0.7rem;
-      display: block;
-      position: absolute;
-      transform: translateX(50vw);
-      top: 0;
-      padding: 0 4px;
-      border-bottom-right-radius: 2px;
-      border-bottom-left-radius: 2px;
-      height: 20px;
-      line-height: 1.7;
-    }
-    .hljs-tag-shadow {
-      filter: blur(12px);
-    }
   }
 
   kbd {

@@ -79,10 +79,6 @@ const validatedCode = computed(() => {
 });
 
 const label = computed(() => {
-  if (props.loading) {
-    return "Loading...";
-  }
-
   return props.actionLabel;
 });
 
@@ -112,7 +108,7 @@ function changed() {
       />
     </div>
     <div class="q-text-button-wrapper">
-      <q-button :class="buttonCls" :disabled="!validated" @click="submit">
+      <q-button :class="buttonCls" :disabled="!validated" @click="submit" :loading="loading">
         {{ label }}
       </q-button>
     </div>

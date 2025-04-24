@@ -190,6 +190,8 @@ for i in range(10):
     time.sleep(0.5)
     print i</code></pre>
 
+    <div class="quail-ad-wrapper" style="width: 100%; height: auto; margin: 1rem 0px; display: block;"><div class="quail-ad active" data-ad-id="1" style="width: 100%; height: auto;"><img src="https://quaily.com/portal-images/illustration/finance-you-0.webp" class="quail-ad-cover"><div class="quail-ad-content-container"><div class="quail-ad-title q-c-dark-1 q-text-h3">测试广告 1: 一口价</div><div class="quail-ad-content q-c-dark-3 q-text-body-title">他好我也好</div></div><div class="quail-ad-tag">Ad</div></div></div>
+
     <h2>Extended Markdown Syntax</h2>
     <h3>Images</h3>
     <p>

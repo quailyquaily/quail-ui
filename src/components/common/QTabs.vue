@@ -95,7 +95,7 @@ function genCls(tab:any, ix: number) {
   }
   &.normal {
     border-radius: 6px;
-    background-color: var(--q-bg-dark-3);
+    background-color: var(--q-bg-light-float);
     padding: .25rem;
     &:deep(.q-button) {
       transition: none;

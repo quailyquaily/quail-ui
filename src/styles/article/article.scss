@@ -380,6 +380,42 @@
     font-size: 0.75rem;
     text-align: center;
   }
+  .quail-ad {
+    padding: 0.5rem;
+    border-radius: 4px;
+    display: none;
+    height: 0;
+    transition: all 0.3s ease-in-out;
+    cursor: default;
+    position: relative;
+    &.active {
+      display: flex;
+      height: auto;
+    }
+    .quail-ad-cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      max-width: 100px;
+      border-radius: 2px;
+      max-height: 100px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+    .quail-ad-content-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-left: 0.75rem;
+    }
+    .quail-ad-tag {
+      font-size: 0.6rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 4px 6px;
+      line-height: 1;
+    }
+  }
 }
 
 .dark {
@@ -530,6 +566,16 @@
     .quail-image-caption {
       color: var(--q-c-light-3);
     }
+    .quail-ad {
+      border: 0.5px solid var(--q-c-light-5);
+      background-color: var(--q-bg-dark-2);
+      &:hover {
+        border-color: var(--q-c-light-4);
+      }
+      .quail-ad-tag {
+        color: var(--q-c-light-4);
+      }
+    }
     mjx-container[jax="SVG"] {
       &:hover {
         color: var(--q-c-blue-lighter);
@@ -579,25 +625,25 @@
       box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1);
     }
     blockquote {
-      background: var(--q-bg-dark-3);
+      background: var(--q-bg-light-float);
       &:before {
         background: var(--q-c-red);
       }
     }
     pre {
-      background-color: var(--q-bg-dark-3);
+      background-color: var(--q-bg-light-float);
       &.mermaid {
-        background-color: var(--q-bg-dark-3);
+        background-color: var(--q-bg-light-float);
         &::before {
           background: transparent;
         }
       }
       &::before {
-        background: var(--q-bg-dark-3);
+        background: var(--q-bg-light-float);
       }
       code {
         color: var(--q-c-dark);
-        background: var(--q-bg-dark-3);
+        background: var(--q-bg-light-float);
       }
     }
 
@@ -655,7 +701,7 @@
 
     p, li {
       & > code {
-        background: var(--q-bg-dark-3);
+        background: var(--q-bg-light-float);
       }
     }
 
@@ -688,7 +734,16 @@
     .quail-image-caption {
       color: var(--q-c-dark-3);
     }
-
+    .quail-ad {
+      border: 0.5px solid var(--q-c-dark-5);
+      background-color: var(--q-bg-white);
+      &:hover {
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      }
+      .quail-ad-tag {
+        color: var(--q-c-dark-4);
+      }
+    }
     mjx-container[jax="SVG"] {
       &:hover {
         color: var(--q-c-blue);

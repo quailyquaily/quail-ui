@@ -166,11 +166,11 @@ onMounted(() => {
 }
 .dark {
   .q-dropdown-menu-with-text-field {
-    border: 0.5px solid var(--q-c-light-4);
+    border: 0.5px solid var(--q-c-light-5);
     box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.03), 0px 1px 1px 0px #4343431A;
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255,255,255,0.03);
     &:has(input:focus) {
-      border-color: var(--q-c-light-3);
+      border-color: var(--q-c-light-4);
     }
     .q-dropdown-menu-with-text-field-bottom {
       .fill-action {

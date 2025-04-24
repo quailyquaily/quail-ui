@@ -281,8 +281,8 @@ button.toggle {
     }
     &.flat {
       border: none;
-      background-color: var(--q-bg-dark-float);
-      box-shadow: 0 0 0 0.5px var(--q-c-light-4);
+      background-color: var(--q-bg-dark-2);
+      box-shadow: 0 0 0 0.5px var(--q-c-light-5);
     }
   }
 
@@ -312,13 +312,13 @@ button.toggle {
   }
 
   input.text-field, textarea.textarea {
-    border: 0.5px solid var(--q-c-light-4);
+    border: 0.5px solid var(--q-c-light-5);
     box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.01), 0px 1px 1px 0px #4343431A;
     transition: all 0.2s ease-in-out;
     color: var(--q-c-light);
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.03);
     &:focus {
-      border: 0.5px solid var(--q-c-light-3);
+      border: 0.5px solid var(--q-c-light-4);
     }
     &[disabled] {
       opacity: 0.5;

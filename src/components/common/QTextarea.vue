@@ -245,11 +245,11 @@ onMounted(() => {
       }
     }
     .q-textarea-wrapper {
-      border-color: var(--q-c-light-4);
+      border-color: var(--q-c-light-5);
       box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.03), 0px 1px 1px 0px #4343431A;
-      background-color: rgba(255,255,255,0.1);
+      background-color: rgba(255,255,255,0.03);
       &:has(textarea:focus) {
-        border-color: var(--q-c-light-3);
+        border-color: var(--q-c-light-4);
       }
       &:deep(textarea) {
         color: var(--q-c-light);

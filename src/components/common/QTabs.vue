@@ -136,11 +136,11 @@ function genCls(tab:any, ix: number) {
 .dark {
   .q-tabs {
     &.normal {
-      background-color: var(--q-c-black);
-      box-shadow: inset 0 0 0 1px var(--q-c-light-4);
+      background-color: var(--q-bg-dark-2);
+      box-shadow: inset 0 0 0 1px var(--q-c-light-5);
       &:deep(.q-button) {
         &.selected {
-          background-color: var(--q-c-light-4) !important;
+          background-color: var(--q-bg-dark) !important;
           border: 0.5px solid var(--q-c-dark-4);
         }
       }

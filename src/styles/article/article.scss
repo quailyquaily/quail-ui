@@ -198,6 +198,7 @@
     & > li {
       margin: 0;
       padding-top: 10px;
+      line-height: 1.6;
       &:first-child {
         padding-top: 20px;
       }
@@ -751,8 +752,8 @@
     }
   }
 }
-
-@media only screen and (max-width: 768px) {
+// tablet
+@media only screen and (max-width: 868px) {
   .q-article {
     font-size: 16px;
   }

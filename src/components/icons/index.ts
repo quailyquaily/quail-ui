@@ -100,6 +100,9 @@ import QIconRefreshSingle from './QIconRefreshSingle.vue';
 import QIconSend from './QIconSend.vue';
 import QIconShare from './QIconShare.vue';
 import QIconTranslate from './QIconTranslate.vue';
+import QIconThumbsUp from './QIconThumbsUp.vue';
+import QIconUploadCloud from './QIconUploadCloud.vue';
+import QIconCoinsHand from './QIconCoinsHand.vue';
 
 import QIconColorTelegram from './QIconColorTelegram.vue';
 import QIconColorFeed from './QIconColorFeed.vue';
@@ -220,6 +223,9 @@ export {
   QIconSend,
   QIconShare,
   QIconTranslate,
+  QIconThumbsUp,
+  QIconUploadCloud,
+  QIconCoinsHand,
 
   QIconColorTelegram,
   QIconColorFeed,

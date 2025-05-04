@@ -49,9 +49,37 @@ export function useUtil() {
     };
   }
 
+  function extractText(nodes: any) {
+    let extracted = '';
+    if (!nodes) return extracted;
+    for (const node of nodes) {
+      if (typeof node.children === 'string') {
+        // get the text from the node
+        extracted += node.children;
+      } else if (Array.isArray(node.children)) {
+        extracted += extractText(node.children);
+      }
+    }
+    return extracted;
+  };
+
+  function extractIconName(nodes: any) {
+    let extracted = '';
+    if (!nodes) return extracted;
+    for (const node of nodes) {
+      if (node.type.name) {
+        return node.type.name;
+      } else if (Array.isArray(node.children)) {
+        extracted = extractIconName(node.children);
+      }
+    }
+    return extracted;
+  }
 
   return {
     browserDetect,
     debounce,
+    extractText,
+    extractIconName,
   }
 }

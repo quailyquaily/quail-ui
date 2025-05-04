@@ -1,14 +1,19 @@
 <template>
-  <button :class="cls" :disabled="!validated">
+  <button :class="cls" :disabled="!validated" :ariaLabel="ariaLabel">
+    <slot></slot>
     <div v-if="props.loading" class="ocean">
       <div class="wave"></div>
     </div>
-    <slot></slot>
   </button>
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, useSlots } from 'vue';
+import { useUtil } from '@/composables/useUtil';
+
+const slots = useSlots();
+
+const { extractText, extractIconName } = useUtil();
 
 const props = defineProps({
   class: {
@@ -36,6 +41,25 @@ const cls = computed(() => {
 
 const validated = computed(() => {
   return !props.disabled;
+});
+
+const ariaLabel = computed(() => {
+  const defaultSlotNodes = slots.default?.();
+  let text = '';
+
+  if (defaultSlotNodes) {
+    text = extractText(defaultSlotNodes).trim();
+  }
+
+  if (text === '' && cls.value.includes('icon')) {
+    // try to get the text from the icon
+    text = extractIconName(defaultSlotNodes);
+    console.log("text", text);
+  }
+
+  // Return the extracted text if non-empty, otherwise undefined
+  // so the aria-label attribute is only added when meaningful text is found.
+  return text || undefined;
 });
 </script>
 

@@ -28,5 +28,3 @@ const QuailUI = {
 };
 
 export { Icons, Common, QuailUI }
-
-export default QuailUI;

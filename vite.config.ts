@@ -4,6 +4,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { resolve } from 'path'
 import vue from '@vitejs/plugin-vue'
 
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const ret:any = {
@@ -50,6 +51,11 @@ export default defineConfig(({ mode }) => {
   } else if (mode === 'demo') {
     ret.base = '/quail-ui/'
   }
+  if (ret.build === undefined) {
+    ret.build = {}
+  }
+  ret.build.cssMinify = true
+  ret.build.minify = 'esbuild'
 
   return ret;
 })

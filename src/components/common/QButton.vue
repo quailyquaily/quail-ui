@@ -9,7 +9,7 @@
 
 <script lang="ts" setup>
 import { computed, useSlots } from 'vue';
-import { useUtil } from '@/composables/useUtil';
+import { useUtil } from '../../composables/useUtil';
 
 const slots = useSlots();
 

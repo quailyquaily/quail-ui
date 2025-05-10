@@ -11,6 +11,7 @@
         <input
           ref="textField"
           class="q-text-field text-field"
+          :type="props.inputType"
           :placeholder="props.placeholder"
           :disabled="props.disabled"
           v-model="text"
@@ -77,6 +78,10 @@ const props = defineProps({
   max: {
     type: Number,
     default: -1,
+  },
+  inputType: {
+    type: String,
+    default: "text",
   },
 });
 

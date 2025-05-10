@@ -54,7 +54,6 @@ const ariaLabel = computed(() => {
   if (text === '' && cls.value.includes('icon')) {
     // try to get the text from the icon
     text = extractIconName(defaultSlotNodes);
-    console.log("text", text);
   }
 
   // Return the extracted text if non-empty, otherwise undefined

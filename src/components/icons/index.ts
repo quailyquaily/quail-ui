@@ -103,6 +103,10 @@ import QIconTranslate from './QIconTranslate.vue';
 import QIconThumbsUp from './QIconThumbsUp.vue';
 import QIconUploadCloud from './QIconUploadCloud.vue';
 import QIconCoinsHand from './QIconCoinsHand.vue';
+import QIconLock from './QIconLock.vue';
+import QIconLockKeyholeCircle from './QIconLockKeyholeCircle.vue';
+import QIconPasscodeLock from './QIconPasscodeLock.vue';
+import QIconShieldCheck from './QIconShieldTick.vue';
 
 import QIconColorTelegram from './QIconColorTelegram.vue';
 import QIconColorFeed from './QIconColorFeed.vue';
@@ -227,6 +231,10 @@ export {
   QIconThumbsUp,
   QIconUploadCloud,
   QIconCoinsHand,
+  QIconLock,
+  QIconLockKeyholeCircle,
+  QIconPasscodeLock,
+  QIconShieldCheck,
 
   QIconColorTelegram,
   QIconColorFeed,

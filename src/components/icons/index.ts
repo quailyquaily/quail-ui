@@ -106,7 +106,7 @@ import QIconCoinsHand from './QIconCoinsHand.vue';
 import QIconLock from './QIconLock.vue';
 import QIconLockKeyholeCircle from './QIconLockKeyholeCircle.vue';
 import QIconPasscodeLock from './QIconPasscodeLock.vue';
-import QIconShieldCheck from './QIconShieldTick.vue';
+import QIconShieldTick from './QIconShieldTick.vue';
 
 import QIconColorTelegram from './QIconColorTelegram.vue';
 import QIconColorFeed from './QIconColorFeed.vue';
@@ -234,7 +234,7 @@ export {
   QIconLock,
   QIconLockKeyholeCircle,
   QIconPasscodeLock,
-  QIconShieldCheck,
+  QIconShieldTick,
 
   QIconColorTelegram,
   QIconColorFeed,

@@ -14,6 +14,22 @@
             </div>
           </div>
           <div class="form-row column">
+            <div class="grid gap-4 grid-cols-2">
+              <div>
+                <div class="form-label">Put a text field</div>
+                <QInput type="text" placeholder="type here!" />
+              </div>
+              <div>
+                <div class="form-label">Put a text field</div>
+                <QInput type="text" placeholder="type here!" />
+              </div>
+            </div>
+            <div class="form-hint">
+              What you're typing here will be an example
+            </div>
+          </div>
+
+          <div class="form-row column">
             <div class="form-label">Put a text field</div>
             <QInput type="text" placeholder="type here!" />
             <div class="form-hint">

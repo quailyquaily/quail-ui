@@ -63,7 +63,7 @@ function closeDialog() {
       <div class="q-text-body mb-2 text-center font-bold">
         {{ props.title }}
       </div>
-      <div class="q-text-body-title mb-6 text-center message-dialog-text q-c-dark-2">
+      <div class="q-text-body-text mb-6 text-center message-dialog-text q-c-dark-2">
         {{ props.text }}
       </div>
       <div class="buttons grid gap-4" :class="`grid-cols-${acts.length}`">

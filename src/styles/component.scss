@@ -18,6 +18,9 @@
     &.center {
       justify-content: center;
     }
+    &.no-margin {
+      margin-bottom: 0;
+    }
     .form-row-left {
       margin-right: 0.5rem;
     }

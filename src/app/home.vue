@@ -26,53 +26,58 @@ import SecIcon from "./home/icon.vue"
 </script>
 
 <template>
-  <div>
-    <SecTypeface />
+  <div class="home">
+    <div class="cases">
+      <SecTypeface />
 
-    <SecFrameAndDivider />
+      <SecFrameAndDivider />
 
-    <SecPremiumDecoration />
+      <SecPremiumDecoration />
 
-    <SecButton />
+      <SecButton />
 
-    <SecInput />
+      <SecInput />
 
-    <SecTextarea />
+      <SecTextarea />
 
-    <SecForm />
+      <SecForm />
 
-    <SecInputWithButton />
+      <SecInputWithButton />
 
-    <SecFence />
+      <SecFence />
 
-    <SecProgress />
+      <SecProgress />
 
-    <SecSwitch />
+      <SecSwitch />
 
-    <SecMenu />
+      <SecMenu />
 
-    <SecSelector />
+      <SecSelector />
 
-    <SecDialog />
+      <SecDialog />
 
-    <SecDatetimePicker />
+      <SecDatetimePicker />
 
-    <SecPagination />
+      <SecPagination />
 
-    <SecTab />
+      <SecTab />
 
-    <SecCover />
+      <SecCover />
 
-    <SecAvatar />
+      <SecAvatar />
 
-    <SecShare />
+      <SecShare />
 
-    <SecPayment />
+      <SecPayment />
 
-    <SecIcon />
+      <SecIcon />
 
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.home {
+
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="q-dropdown-menu-with-text-field" >
+  <div class="q-dropdown-menu-with-text-field" :class="showBottom ? 'has-bottom' : 'no-bottom'">
     <div class="q-dropdown-menu-with-text-field-top">
       <div class="q-dropdown-menu-wrapper">
         <q-dropdown-menu
@@ -128,12 +128,30 @@ onMounted(() => {
     border-color: var(--q-c-dark-3);
   }
 
+  &.no-bottom {
+    .q-dropdown-menu-wrapper {
+      &:deep(.touchable.plain) {
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
   .q-dropdown-menu-with-text-field-top, .q-dropdown-menu-with-text-field-bottom {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+  }
+
+  .q-dropdown-menu-wrapper {
+    &:deep(.chevron-icon) {
+      margin-left: 0.4rem;
+    }
+    &:deep(.touchable.plain) {
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 0;
+    }
   }
 
   .q-dropdown-menu-with-text-field-bottom {
@@ -159,8 +177,9 @@ onMounted(() => {
       border: none;
       text-align: right;
       box-shadow: none;
-      font-size: 0.875rem;
+      font-size: 0.9375rem;
     }
+
   }
 }
 .dark {

@@ -91,20 +91,20 @@ function gotoPage(ix: any, item:any ) {
 </script>
 <template>
   <div class="q-pagination">
-    <q-button class="prev sm outlined icon" @click="prevPage" :disabled="!props.hasPrev">
+    <q-button class="prev sm plain icon" @click="prevPage" :disabled="!props.hasPrev">
       <q-icon-arrow-left class="icon" ></q-icon-arrow-left>
     </q-button>
     <div v-if="totalPage !== 0" class="q-page-indicators">
       <div v-for="item in indicators" class="q-page-indicator">
-        <q-button class="q-page-indicator sm outlined" :class="item.label === val? 'active': ''" :disabled="item.disabled" @click="gotoPage(item.label, item)">
+        <q-button class="sm plain" :class="item.label === val? 'active': ''" :disabled="item.disabled" @click="gotoPage(item.label, item)">
           {{ item.label }}
         </q-button>
       </div>
     </div>
-    <q-button v-else class="outlined sm q-page-indicator-simple q-page-indicator">
+    <q-button v-else class="plain sm q-page-indicator-simple q-page-indicator">
       <div class="">{{ modelValue }}</div>
     </q-button>
-    <q-button class="next sm outlined icon" @click="nextPage" :disabled="!props.hasNext">
+    <q-button class="next sm plain icon" @click="nextPage" :disabled="!props.hasNext">
       <q-icon-arrow-right class="icon" ></q-icon-arrow-right>
     </q-button>
   </div>
@@ -156,9 +156,6 @@ function gotoPage(ix: any, item:any ) {
     .q-button.active {
       color: var(--q-c-red);
       opacity: 1;
-      &:hover {
-        color: var(--q-c-red-light);
-      }
     }
   }
   .q-page-indicator-simple {

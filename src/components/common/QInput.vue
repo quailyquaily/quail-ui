@@ -218,7 +218,7 @@ onMounted(() => {
       outline: none !important;
       min-height: 42px;
       background-color: transparent;
-      font-size: 0.875rem;
+      font-size: 0.9375rem;
     }
     .clear-btn {
       min-height: 32px;

@@ -250,7 +250,7 @@ onMounted(() => {
     .q-dropdown-menu-action {
       padding: 0 0.5rem 0 0.8rem;
       height: 38px;
-      font-size: 0.875rem;
+      font-size: 0.9375rem;
       .menu-icon {
         margin-left: 2px;
       }
@@ -301,7 +301,7 @@ onMounted(() => {
     }
     .chevron-icon {
       transition: all 0.2s ease-in;
-      margin-left: 0.3rem;
+      margin-left: 0rem;
       opacity: 0.5;
     }
     &.expanded {
@@ -328,6 +328,8 @@ onMounted(() => {
     display: flex;
     align-items: center;
     user-select: none;
+    max-width: calc(100% - 16px);
+    overflow: hidden;
   }
   .menu-image {
     width: 24px;
@@ -340,8 +342,6 @@ onMounted(() => {
   }
   .q-menu {
     right: 0;
-  }
-  .menu-title {
   }
 }
 .q-menu-popup-body {
@@ -374,10 +374,6 @@ onMounted(() => {
   .q-menu-popup-body {
     background: var(--q-c-black);
     border: 0.5px solid var(--q-c-light-4);
-    .filter-area {
-      input {
-      }
-    }
     .scroll-area {
       .empty-hint  {
         color: var(--q-c-light-3)

@@ -215,6 +215,14 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
     line-height: math.div(28, 16) + rem;
   }
 
+  .#{$prefix}q-text-body-text {
+    font-family: var(--q-font-sans);
+    font-size: math.div(15, 16) + rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
   .#{$prefix}q-text-body-title {
     font-family: var(--q-font-sans);
     font-size: math.div(14, 16) + rem;
@@ -260,6 +268,7 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
     }
 
     .#{$prefix}q-text-body,
+    .#{$prefix}q-text-body-text,
     .#{$prefix}q-text-body-title,
     .#{$prefix}q-text-caption {
       font-family: "Noto Sans JP", "Noto Sans", sans-serif;
@@ -280,6 +289,7 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
     }
 
     .#{$prefix}q-text-body,
+    .#{$prefix}q-text-body-text,
     .#{$prefix}q-text-body-title,
     .#{$prefix}q-text-caption {
       font-family: "Noto Sans SC", "Noto Sans", sans-serif;
@@ -307,6 +317,7 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
     }
 
     .#{$prefix}q-text-body,
+    .#{$prefix}q-text-body-text,
     .#{$prefix}q-text-body-title,
     .#{$prefix}q-text-caption {
       font-family: "Noto Sans TC", "Noto Sans", sans-serif;

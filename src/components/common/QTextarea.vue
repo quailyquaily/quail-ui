@@ -197,6 +197,7 @@ onMounted(() => {
       outline: none !important;
       resize: none;
       background-color: transparent;
+      font-size: 0.875rem;
     }
 
     .q-textarea-hint {

@@ -13,7 +13,7 @@
           <QSwitch class="mr-2" v-model="switchValue"/>
         </template>
         <template #prepend>
-          <QIconSearch class="icon ml-2" />
+          <QIconSearch class="text-field-icon ml-3" />
         </template>
         <template #append>
           <QButton class="outlined xs icon mr-2">
@@ -79,4 +79,8 @@ function selectSearchResult(val:any) {
 </script>
 
 <style scoped lang="scss">
+.text-field-icon {
+  width: 16px;
+  height: 16px;
+}
 </style>

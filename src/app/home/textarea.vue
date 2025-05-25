@@ -21,20 +21,20 @@
       <div>
         <QTextarea v-model="inputValue" placeholder="type here!" :max="100" :hint-icon="'QIconMarkdown'" :hint-text="'Markdown Enabled.'">
           <template #prepend-out>
-            <QButton class="outlined icon mr-2 xs">
+            <QButton class="outlined icon mr-2 sm">
               <QIconArrowLeft class="icon" />
             </QButton>
           </template>
           <template #prepend>
-            <QIconSearch class="icon q-c-dark-3 ml-2 mt-3" />
+            <QIconSearch class="icon text-field-icon q-c-dark-3 ml-3 mt-3" />
           </template>
           <template #append>
             <QButton class="plain icon mt-1 mr-1 sm danger">
-              <QIconMagicWand class="icon" />
+              <QIconMagicWand class="icon text-field-icon" />
             </QButton>
           </template>
           <template #append-out>
-            <QButton class="highlight icon ml-2">
+            <QButton class="highlight icon sm ml-2">
               <QIconMenu class="icon" />
             </QButton>
           </template>
@@ -51,4 +51,8 @@ const inputValue = ref('');
 </script>
 
 <style scoped lang="scss">
+.text-field-icon {
+  width: 16px;
+  height: 16px;
+}
 </style>

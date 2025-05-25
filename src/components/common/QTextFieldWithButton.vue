@@ -123,6 +123,7 @@ function changed() {
     border-bottom-right-radius: 0;
     min-width: 296px;
     color: var(--q-c-dark);
+    font-size: 0.875rem;
   }
   .q-text-button-wrapper {
     .q-button {

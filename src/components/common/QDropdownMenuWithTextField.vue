@@ -153,14 +153,13 @@ onMounted(() => {
       height: 16px;
     }
   }
-  .q-dropdown-menu-wrapper {
-  }
   .q-text-field-wrapper {
     flex: 1;
     &:deep(.q-text-field) {
       border: none;
       text-align: right;
       box-shadow: none;
+      font-size: 0.875rem;
     }
   }
 }

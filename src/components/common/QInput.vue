@@ -20,7 +20,7 @@
           @focus="() => emit('focus')"
           @blur="() => emit('blur')"
         />
-        <QButton class="clear-btn plain sm icon" @click="clear">
+        <QButton v-if="!props.disabled" class="clear-btn plain sm icon" @click="clear">
           <QIconEditorDelete class="icon" />
         </QButton>
         <div class="q-input-append">

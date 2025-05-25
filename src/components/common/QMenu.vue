@@ -148,7 +148,7 @@ function doAction(item: any) {
     }
 
     .q-menu-item-divider {
-      border-top: 1px solid var(--q-c-dark-4);
+      border-top: 0.5px solid var(--q-c-dark-4);
       margin: 0 1rem;
       height: 0px;
       transform: translateY(-0.5px);

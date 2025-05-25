@@ -254,9 +254,6 @@ onMounted(() => {
       .menu-icon {
         margin-left: 2px;
       }
-      .menu-image {
-        transform: translateX(-4px);
-      }
     }
   }
   &.xs {
@@ -266,9 +263,6 @@ onMounted(() => {
       font-size: 0.75rem;
       .menu-icon {
         margin-left: 4px;
-      }
-      .menu-image {
-        transform: translateX(-6px);
       }
     }
   }

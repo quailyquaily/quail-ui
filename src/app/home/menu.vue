@@ -87,6 +87,15 @@
         />
       </div>
       <div>
+        <div class="q-text-caption q-c-dark-3 mb-2">small size</div>
+        <QDropdownMenu
+          class="sm"
+          :items="menuItems"
+          :initial-item="selectedMenuItem"
+          @change="dropdownMenuSelectionChanged"
+        />
+      </div>
+      <div>
       <div class="q-text-caption q-c-dark-3 mb-2">smaller size</div>
         <QDropdownMenu
           class="xs"

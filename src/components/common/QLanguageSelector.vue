@@ -56,6 +56,12 @@ const languageItems = computed(() => {
       value: "ja",
       action: selectLang,
     },
+    {
+      flag: "⚜️",
+      title: "Français",
+      value: "fr",
+      action: selectLang,
+    },
   ]
   if (props.auto) {
     items.unshift({

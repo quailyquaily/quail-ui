@@ -40,8 +40,8 @@ const height = computed(() => {
   <div class="q-pack-cover-inner" :style="`width: ${width}px; height: ${height}px;`">
     <img :src="props.src" :alt="alt"/>
     <div class="q-pack-cover-content">
-      <h3 v-if="props.title" class="q-pack-cover-title q-text-h2 mb-1">{{ title }}</h3>
-      <div v-if="props.subtitle" class="q-pack-cover-subtitle q-text-desc mb-2">{{ subtitle }}</div>
+      <h3 v-if="props.title" class="q-pack-cover-title q-text-h2 two-line-ellipsis mb-1">{{ title }}</h3>
+      <div v-if="props.subtitle" class="q-pack-cover-subtitle q-text-desc two-line-ellipsis mb-2">{{ subtitle }}</div>
       <div v-if="props.desc" class="q-pack-cover-desc q-text-caption">{{ desc }}</div>
     </div>
   </div>

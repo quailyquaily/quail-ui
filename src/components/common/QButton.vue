@@ -1,6 +1,8 @@
 <template>
   <button :class="cls" :disabled="!validated" :ariaLabel="ariaLabel">
-    <slot></slot>
+    <span class="button-inner">
+      <slot></slot>
+    </span>
     <div v-if="props.loading" class="ocean">
       <div class="wave"></div>
     </div>
@@ -67,15 +69,13 @@ const ariaLabel = computed(() => {
 
 .q-button {
   height: 44px;
-  font-weight: 500;
-  border-radius: 6px;
+  font-weight: 400;
   padding: 0.8rem 1rem;
   text-align: center;
   text-decoration: none;
   display: flex;
-  font-size: 1rem;
   cursor: default;
-  font-size: 1rem;
+  font-size: 0.875rem;
   transition: all 0.2s ease-in-out;
   white-space: nowrap;
   line-height: 1;
@@ -87,6 +87,7 @@ const ariaLabel = computed(() => {
     padding: 0.6rem 0.8rem;
     height: 38px;
     font-size: 0.875rem;
+    border-radius: 0.5rem;
   }
   &.xs {
     padding: 0.6rem 0.8rem;
@@ -98,8 +99,17 @@ const ariaLabel = computed(() => {
     height: 24px;
     font-size: 0.7rem;
   }
-  .button-label {
+  .button-inner {
     align-self: center;
+    color: inherit;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &.weight-bold {
+    font-weight: 500;
   }
   &:deep(.icon) {
     margin-right: 0.5rem;

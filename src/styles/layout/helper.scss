@@ -217,7 +217,7 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
 
   .#{$prefix}q-text-body-text {
     font-family: var(--q-font-sans);
-    font-size: math.div(15, 16) + rem;
+    font-size: math.div(14, 16) + rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;

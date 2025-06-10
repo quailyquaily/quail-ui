@@ -88,7 +88,7 @@ function doAction(item: any) {
           :is="item.icon"
         />
         <div class="q-menu-item-content">
-          <div class="q-menu-title q-text-body-title">{{ item.title }}</div>
+          <div class="q-menu-title q-text-body-text">{{ item.title }}</div>
           <div v-if="item.subtitle" class="q-menu-subtitle q-text-caption q-c-dark-3">
             {{ item.subtitle }}
           </div>

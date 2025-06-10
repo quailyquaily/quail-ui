@@ -265,6 +265,7 @@ button.toggle {
   border-top: 0.5px solid var(--q-c-dark-4);
   &.focus {
     border-top: 4px solid var(--q-c-dark);
+    border-radius: 0.5rem;
   }
   &.double {
     height: 4px;

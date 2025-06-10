@@ -209,7 +209,7 @@ onMounted(() => {
             class="icon menu-icon"
             :is="selectedItem.icon"
           ></component>
-          <div v-if="!hideActionLabel" class="menu-title q-text-body-title">
+          <div v-if="!hideActionLabel" class="menu-title q-text-body-text">
             {{
               selectedItem
                 ? selectedItem.title

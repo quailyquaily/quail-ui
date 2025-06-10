@@ -65,13 +65,13 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .q-payment-approach-item-wrapper {
-  border-radius: 2px;
+  border-radius: 0.5rem;
   border: 0.5px solid transparent;
   padding: 0 0.8rem;
   &.selected {
     filter: none;
     opacity: 1;
-    border-color: var(--q-c-red);
+    border-color: var(--q-c-red-dimm-3);
     background-color: var(--q-c-red-dimm-1);
   }
   &.disabled {

@@ -2,19 +2,20 @@
 .touchable {
   background-color: var(--q-c-white);
   color: var(--q-c-dark);
-  border-radius: 6px;
+  border-radius: 0.5rem;
   transition: all 0.2s ease;
   &.primary {
     --q-progress-color: rgba(255, 255, 255, 0.1);
     --q-progress-color-light: rgba(255, 255, 255, 0.05);
     background-color: var(--q-c-dark);
-    border: 0.5px solid var(--q-c-dark);
     color: white;
+    border: 0.5px solid var(--q-c-dark);
+    background-color: var(--q-c-dark);
     &:hover {
       box-shadow: 0 0 8px rgba(41,30,56,.2);
     }
     &.elevated {
-      box-shadow: 0 0 16px rgba(41, 30, 56, .3);
+      box-shadow: 0px 1px 9px 0px rgba(41, 30, 56, .3);
     }
     &[disabled] {
       box-shadow: none;
@@ -65,7 +66,6 @@
     border: 0.5px solid var(--q-c-dark-4);
     box-shadow: inset 0px 1px 10px 0px rgba(0, 0, 0, 0.01), 0px 1px 2px 0px #4343431A;
     &:hover{
-      color: var(--q-c-dark-2);
       background-color: rgba(0, 0, 0, 0.02);
       box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.01), 0px 1px 1px 0px #4343431A;
     }
@@ -146,6 +146,7 @@
     box-shadow: none;
     border: none;
     background: transparent url("@/assets/images/button-stripe-bg.webp") repeat 0 0;
+    background-size: 260%;
     &:hover{
       background-color: rgba(0,0,0,0.05);
     }
@@ -184,6 +185,9 @@
   }
   &.primary {
     color: #9d9db8;
+  }
+  &.stripe {
+    background-size: 220%;
   }
   &.danger {
     color: #ffcaca;

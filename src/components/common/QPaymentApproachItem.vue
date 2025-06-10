@@ -42,7 +42,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 .q-payment-apparoch-item {
   padding: 0.8rem 0;
-  border-radius: 6px;
+  border-radius: 0.5rem;
   cursor: default;
   opacity: 0.8;
   display: flex;

@@ -4,17 +4,33 @@
     <h2 class="q-text-h2 mb-4">Icons</h2>
     <div class="q-text-caption q-c-dark-3 mb-2">QIconColor*</div>
     <div class="grid gap-2 grid-cols-2 md-grid-cols-3 lg-grid-cols-5 mb-4">
-      <div v-for="icon in colorIcons" class="icon-wrapper frame">
+      <div v-for="icon in colorIcons" class="icon-wrapper">
+        <div class="icon-wrapper-top">
           <component :is="icon" :data-name="icon.name" class="icon"/>
-          <span class="label text-xs ml-2">{{ icon.name }}</span>
         </div>
+        <div class="icon-wrapper-bottom">
+          <span class="label q-text-caption">{{ icon.name }}</span>
+          <div class="spacer"></div>
+          <QButton class="xxs icon plain copy-button" @click="copyIcon(icon.name)">
+            <QIconCopy class="icon" />
+          </QButton>
+        </div>
+      </div>
     </div>
     <div class="q-text-caption q-c-dark-3 mb-2">QIcon*</div>
-    <div class="grid gap-2 grid-cols-2 md-grid-cols-3 lg-grid-cols-5">
-      <div v-for="icon in monoIcons" class="icon-wrapper frame">
+    <div class="grid gap-4 grid-cols-2 md-grid-cols-3 lg-grid-cols-5">
+      <div v-for="icon in monoIcons" class="icon-wrapper">
+        <div class="icon-wrapper-top">
           <component :is="icon" :data-name="icon.name" class="icon"/>
-          <span class="label text-xs ml-2">{{ icon.name }}</span>
         </div>
+        <div class="icon-wrapper-bottom">
+          <span class="label q-text-caption">{{ icon.name }}</span>
+          <div class="spacer"></div>
+          <QButton class="xxs icon plain copy-button" @click="copyIcon(icon.name)">
+            <QIconCopy class="icon" />
+          </QButton>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -41,21 +57,33 @@ const monoIcons = computed(() => {
   });
   return ret;
 });
+const copyIcon = (name: string) => {
+  navigator.clipboard.writeText(name);
+};
 </script>
 
 <style scoped lang="scss">
 .icon-wrapper {
-  padding: 1rem 0.5rem !important;
-  display: flex;
-  align-items: center;
-  height: 24px;
-  .icon {
-    height: 20px;
-    width: 20px;
-    min-width: 20px;
+  .icon-wrapper-top {
+    .icon {
+      height: 16px;
+      width: 16px;
+      min-width: 16px;
+    }
   }
-  .label {
-    font-family: monospace;
+  .icon-wrapper-bottom {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    .label {
+      font-family: monospace;
+    }
+    .copy-button {
+      .icon {
+        height: 12px !important;
+        width: 12px !important;
+      }
+    }
   }
 }
 </style>

@@ -11,7 +11,6 @@ import QIconCommunity from './QIconCommunity.vue';
 import QIconCopy from './QIconCopy.vue';
 import QIconCode from './QIconCode.vue';
 import QIconDesktop from './QIconDesktop.vue';
-import QIconDocumentation from './QIconDocumentation.vue';
 import QIconDownloadCloud from './QIconDownloadCloud.vue';
 import QIconEcosystem from './QIconEcosystem.vue';
 import QIconFaceFrown from './QIconFaceFrown.vue';
@@ -139,7 +138,6 @@ export {
   QIconCopy,
   QIconCode,
   QIconDesktop,
-  QIconDocumentation,
   QIconDownloadCloud,
   QIconEcosystem,
   QIconFaceFrown,

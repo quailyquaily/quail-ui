@@ -4,6 +4,14 @@
     <h2 class="q-text-h2 mb-4">Button</h2>
     <div class="grid gap-4 grid-cols-3">
       <div class="flow">
+        <QButton class="outlined">Outlined</QButton>
+        <QButton class="outlined elevated">Outlined</QButton>
+        <QButton class="outlined" disabled>Outlined</QButton>
+        <QButton class="outlined" loading>Loading</QButton>
+        <QButton class="outlined toggle-on">Toggled</QButton>
+        <QButton class="outlined weight-bold">Focused</QButton>
+      </div>
+      <div class="flow">
         <QButton class="primary" @click="() => console.log('OK')">Primary</QButton>
         <QButton class="primary elevated">Primary</QButton>
         <QButton class="primary" disabled>Primary</QButton>
@@ -14,13 +22,6 @@
         <QButton class="highlight elevated">Highlight</QButton>
         <QButton class="highlight" disabled>Highlight</QButton>
         <QButton class="highlight" loading>Loading</QButton>
-      </div>
-      <div class="flow">
-        <QButton class="outlined">Outlined</QButton>
-        <QButton class="outlined elevated">Outlined</QButton>
-        <QButton class="outlined" disabled>Outlined</QButton>
-        <QButton class="outlined" loading>Loading</QButton>
-        <QButton class="outlined toggle-on">Toggled</QButton>
       </div>
       <div class="flow">
         <QButton class="plain">Plain</QButton>

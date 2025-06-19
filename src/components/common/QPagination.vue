@@ -160,7 +160,7 @@ function gotoPage(ix: any, item:any ) {
   }
   .q-page-indicator-simple {
     padding: 0 1rem;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     border-left: none !important;
     border-right: none !important;
     color: var(--q-c-red) !important;
@@ -180,7 +180,7 @@ function gotoPage(ix: any, item:any ) {
     }
     .q-page-indicator-simple {
       padding: 0 1rem;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       border-left: none !important;
       border-right: none !important;
       color: var(--q-c-red-light) !important;

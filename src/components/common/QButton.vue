@@ -103,7 +103,6 @@ const ariaLabel = computed(() => {
     align-self: center;
     color: inherit;
     position: relative;
-    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;

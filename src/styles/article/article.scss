@@ -267,7 +267,8 @@
     border-spacing: 0px;
     border-collapse: collapse !important;
     border-radius: 6px;
-    display: table;
+    display: block;
+    overflow-x: auto;
     td,
     th {
       padding: 8px 16px;

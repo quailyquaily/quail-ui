@@ -99,10 +99,8 @@ function genCls(tab:any, ix: number) {
     padding: .25rem;
     &:deep(.q-button) {
       transition: none;
-      border-radius: 4px !important;
       &.selected {
         background-color: white !important;
-        border: 0.5px solid var(--q-c-dark-4);
       }
       &.non-selected {
         border: 0.5px solid transparent !important;
@@ -120,6 +118,10 @@ function genCls(tab:any, ix: number) {
       transition: all 0.2s ease-in-out;
       border-radius: 0 !important;
       border-bottom: 1px solid transparent;
+      &.squircle {
+        --squircle-radius-bottom-left: 0px;
+        --squircle-radius-bottom-right: 0px;
+      }
       &.selected {
         color: var(--q-c-red) !important;
         border-bottom: 1px solid var(--q-c-red);

@@ -38,6 +38,9 @@ const cls = computed(() => {
   if (props.loading) {
     ret.push('loading');
   }
+  if ((window as any)?._quailui_use_squircle) {
+    ret.push('squircle');
+  }
   return ret.join(' ');
 });
 

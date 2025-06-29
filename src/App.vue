@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import logo from "@/assets/images/logo.svg";
 const switchTheme = ref(true);
 
@@ -9,8 +9,10 @@ watch(() => switchTheme.value, (val) => {
   } else {
     document.body.classList.add("dark");
   }
-})
+});
 
+onMounted(() => {
+})
 </script>
 
 <template>

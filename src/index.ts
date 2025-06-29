@@ -21,6 +21,19 @@ const QuailUI = {
       app.component(name, component);
     }
 
+    if (options?.useSquircle) {
+      if ("paintWorklet" in CSS) {
+        if (options?.debug) {
+          console.log("[quail-ui] add CSS paintWorklet")
+        }
+        (CSS as any)?.paintWorklet?.addModule(
+          "https://static.quail.ink/assets/squircle.min.js"
+        );
+        const w = (window as any);
+        w._quailui_use_squircle = true;
+      }
+    }
+
     document.body.addEventListener('click', (e) => {
       closePopupMenu();
     })

@@ -26,6 +26,7 @@ const app = createApp(App)
 app.use(QuailUI, {
   debug: true,
   useLayout: true,
+  useSquircle: true,
 })
 app.use(router)
 app.mount('#app')

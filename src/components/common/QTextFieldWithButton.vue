@@ -131,6 +131,10 @@ function changed() {
       width: 100%;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
+      &.squircle {
+        --squircle-radius-top-left: 0px;
+        --squircle-radius-top-right: 0px;
+      }
       display: flex;
       align-items: center;
       justify-content: center;
@@ -156,8 +160,12 @@ function changed() {
       position: relative;
       z-index: 1;
       .q-button {
-        border-radius: 0 6px 6px 0;
+        border-radius: 0 8px 8px 0;
         transform: translateY(0px);
+        &.squircle {
+          --squircle-radius-bottom-left: 0px;
+          --squircle-radius-top-right: 0px;
+        }
       }
     }
     .q-text-field {

@@ -90,6 +90,10 @@ const actionCls = computed(() => {
     cls.push("loading");
   }
 
+  if ((window as any)?._quailui_use_squircle) {
+    cls.push("squircle");
+  }
+
   return cls.join(" ");
 });
 
@@ -341,6 +345,7 @@ onMounted(() => {
 .q-menu-popup-body {
   background: var(--q-c-white);
   border-radius: 8px;
+
   .filter-area {
     padding: 1rem 1rem 0.5rem 1rem;
   }

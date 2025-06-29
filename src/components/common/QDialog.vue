@@ -38,6 +38,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  class: {
+    type: String,
+    default: '',
+  },
 });
 
 const emit = defineEmits(["update:modelValue", "close"]);
@@ -146,7 +150,7 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div class="q-dialog-trigger-wrapper" ref="triggerWrapper">
+  <div class="q-dialog-trigger-wrapper" ref="triggerWrapper" :class="props.class" >
     <slot name="trigger"></slot>
     <template v-if="isPopup">
       <Transition>

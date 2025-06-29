@@ -9,14 +9,14 @@
             title="A Pack Title"
             subtitle="A Pack Subtitle, it's a bit long"
             desc="10 items"
-            width="200"/>
+            :width="200"/>
         </div>
         <div class="ml-4">
           <QPackCover
             title="A Pack Title"
             subtitle="A Pack Subtitle, it's a bit long"
             desc="10 items"
-            width="300"/>
+            :width="300"/>
         </div>
         <div class="content p-4 ml-4">
           <h3 class="one-line-ellipsis q-text-h2 mb-2">A Pack Title</h3>

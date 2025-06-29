@@ -8,7 +8,7 @@
       <QInput v-model="inputValue" type="text" placeholder="type here!" :disabled="true" :hint-text="'Some errors!'"/>
       <QInput v-model="inputValue" type="text" placeholder="type here!" :disabled="true"/>
       <QInput v-model="inputValue" type="text" placeholder="type here!" />
-      <QInput v-model="inputValue" type="text" placeholder="type here!" max="100">
+      <QInput v-model="inputValue" type="text" placeholder="type here!" :max="100">
         <template #prepend-out>
           <QSwitch class="mr-2" v-model="switchValue"/>
         </template>

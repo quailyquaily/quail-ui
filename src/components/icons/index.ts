@@ -123,6 +123,7 @@ import QIconColorSteam from './QIconColorSteam.vue';
 import QIconColorInstagram from './QIconColorInstagram.vue';
 import QIconColorX from './QIconColorX.vue';
 import QIconColorSlack from './QIconColorSlack.vue';
+import QIconColorYoutube from './QIconColorYoutube.vue';
 
 export {
   QIconArrowUpRight,
@@ -250,4 +251,5 @@ export {
   QIconColorInstagram,
   QIconColorX,
   QIconColorSlack,
+  QIconColorYoutube,
 };

@@ -1,8 +1,11 @@
 <template>
   <button :class="cls" :disabled="!validated" :ariaLabel="ariaLabel">
-    <span class="button-inner">
+    <span v-if="!href" class="button-inner">
       <slot></slot>
     </span>
+    <a v-else :href="href" class="button-inner" :title="ariaLabel" :target="target">
+      <slot></slot>
+    </a>
     <div v-if="props.loading" class="ocean">
       <div class="wave"></div>
     </div>
@@ -29,6 +32,14 @@ const props = defineProps({
   loading: {
     type: Boolean,
     default: false,
+  },
+  href: {
+    type: String,
+    default: '',
+  },
+  target: {
+    type: String,
+    default: '_self',
   },
 });
 
@@ -109,6 +120,7 @@ const ariaLabel = computed(() => {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
   }
   &.weight-bold {
     font-weight: 500;

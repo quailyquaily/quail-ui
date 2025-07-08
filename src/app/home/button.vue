@@ -86,6 +86,9 @@
         <div class="frame q-text-desc q-c-dark-2 p-3">value: {{ toggleValue }}</div>
         <QButton class="primary" @click="toggleValue = !toggleValue">Toggle</QButton>
       </div>
+      <div class="flow">
+        <QButton class="outlined" href="https://www.google.com" target="_blank">Visit Google</QButton>
+      </div>
     </div>
   </div>
 </template>

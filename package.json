@@ -1,6 +1,6 @@
 {
   "name": "quail-ui",
-  "version": "0.5.57",
+  "version": "0.5.58",
   "type": "module",
   "files": [
     "dist"

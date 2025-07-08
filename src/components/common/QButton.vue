@@ -3,7 +3,7 @@
     <span v-if="!href" class="button-inner">
       <slot></slot>
     </span>
-    <a v-else :href="href" class="button-inner" :title="ariaLabel" :target="target">
+    <a v-else :href="href" class="button-inner" :title="ariaLabel" :target="target" :rel="rel">
       <slot></slot>
     </a>
     <div v-if="props.loading" class="ocean">
@@ -40,6 +40,10 @@ const props = defineProps({
   target: {
     type: String,
     default: '_self',
+  },
+  rel: {
+    type: String,
+    default: 'nofollow noopener noreferrer',
   },
 });
 

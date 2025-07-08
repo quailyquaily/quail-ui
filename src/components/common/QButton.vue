@@ -84,7 +84,6 @@ const ariaLabel = computed(() => {
 .q-button {
   height: 44px;
   font-weight: 400;
-  padding: 0.8rem 1rem;
   text-align: center;
   text-decoration: none;
   display: flex;
@@ -97,23 +96,31 @@ const ariaLabel = computed(() => {
   justify-content: center;
   position: relative;
   overflow:hidden;
+  padding: 0;
   &.sm {
-    padding: 0.6rem 0.8rem;
     height: 38px;
     font-size: 0.875rem;
     border-radius: 0.5rem;
+    .button-inner {
+      padding: 0.6rem 0.8rem;
+    }
   }
   &.xs {
-    padding: 0.6rem 0.8rem;
     height: 32px;
     font-size: 0.75rem;
+    .button-inner {
+      padding: 0.6rem 0.8rem;
+    }
   }
   &.xxs {
-    padding: 0.6rem 0.8rem;
     height: 24px;
     font-size: 0.7rem;
+    .button-inner {
+      padding: 0.4rem 0.8rem;
+    }
   }
   .button-inner {
+    padding: 0.8rem 1rem;
     align-self: center;
     color: inherit;
     position: relative;

@@ -1,9 +1,9 @@
 <template>
-  <button :class="cls" :disabled="!validated" :ariaLabel="ariaLabel">
+  <button :class="cls" :disabled="!validated" :ariaLabel="realAriaLabel">
     <span v-if="!href" class="button-inner">
       <slot></slot>
     </span>
-    <a v-else :href="href" class="button-inner" :title="ariaLabel" :target="target" :rel="rel">
+    <a v-else :href="href" class="button-inner" :title="title" :target="target" :rel="rel">
       <slot></slot>
     </a>
     <div v-if="props.loading" class="ocean">
@@ -45,6 +45,14 @@ const props = defineProps({
     type: String,
     default: 'nofollow noopener noreferrer',
   },
+  title: {
+    type: String,
+    default: '',
+  },
+  ariaLabel: {
+    type: String,
+    default: '',
+  }
 });
 
 const cls = computed(() => {
@@ -63,7 +71,14 @@ const validated = computed(() => {
   return !props.disabled;
 });
 
-const ariaLabel = computed(() => {
+const realAriaLabel = computed(() => {
+  if (props.ariaLabel) {
+    return props.ariaLabel;
+  }
+  if (props.title) {
+    return props.title;
+  }
+
   const defaultSlotNodes = slots.default?.();
   let text = '';
 

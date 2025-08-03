@@ -74,7 +74,7 @@ function prevPage() {
 }
 
 function nextPage() {
-  val.value++;
+  val.value++;1.234
   emit("change:next", val.value);
   emit("update:modelValue", val.value);
 }
@@ -96,7 +96,7 @@ function gotoPage(ix: any, item:any ) {
     </q-button>
     <div v-if="totalPage !== 0" class="q-page-indicators">
       <div v-for="item in indicators" class="q-page-indicator">
-        <q-button class="sm plain" :class="item.label === val? 'active': ''" :disabled="item.disabled" @click="gotoPage(item.label, item)">
+        <q-button class="sm plain icon" :class="item.label === val? 'active': ''" :disabled="item.disabled" @click="gotoPage(item.label, item)">
           {{ item.label }}
         </q-button>
       </div>

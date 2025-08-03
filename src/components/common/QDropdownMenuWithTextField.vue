@@ -151,6 +151,8 @@ onMounted(() => {
     &:deep(.touchable.plain) {
       border-bottom-left-radius: 0;
       border-top-right-radius: 0;
+      border-top-left-radius: 6px;
+      border-bottom-right-radius: 6px;
     }
   }
 
@@ -162,13 +164,15 @@ onMounted(() => {
       padding: 0.1rem 0.75rem 0.4rem .75rem;
       cursor: default;
       transition: color 0.2s ease-in;
+      display: flex;
+      align-items: center;
       &:hover {
         color: var(--q-c-dark-2);
       }
     }
     .icon {
-      width: 16px;
-      height: 16px;
+      width: 12px;
+      height: 12px;
     }
   }
   .q-text-field-wrapper {

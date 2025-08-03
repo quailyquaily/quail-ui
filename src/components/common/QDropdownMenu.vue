@@ -301,6 +301,7 @@ onMounted(() => {
       transition: all 0.2s ease-in;
       margin-left: 0rem;
       opacity: 0.5;
+      height: 14px;
     }
     &.expanded {
       .chevron-icon {

@@ -5,7 +5,6 @@
     <div class="grid gap-4 grid-cols-3">
       <div class="flow">
         <QButton class="outlined">Outlined</QButton>
-        <QButton class="outlined elevated">Outlined</QButton>
         <QButton class="outlined" disabled>Outlined</QButton>
         <QButton class="outlined" loading>Loading</QButton>
         <QButton class="outlined toggle-on">Toggled</QButton>
@@ -13,13 +12,11 @@
       </div>
       <div class="flow">
         <QButton class="primary" @click="() => console.log('OK')">Primary</QButton>
-        <QButton class="primary elevated">Primary</QButton>
         <QButton class="primary" disabled>Primary</QButton>
         <QButton class="primary" loading>Loading</QButton>
       </div>
       <div class="flow">
         <QButton class="highlight">Highlight</QButton>
-        <QButton class="highlight elevated">Highlight</QButton>
         <QButton class="highlight" disabled>Highlight</QButton>
         <QButton class="highlight" loading>Loading</QButton>
       </div>
@@ -35,13 +32,11 @@
       </div>
       <div class="flow">
         <QButton class="danger">Danger</QButton>
-        <QButton class="danger elevated">Danger</QButton>
         <QButton class="danger" disabled>Danger</QButton>
         <QButton class="danger" loading>Loading</QButton>
       </div>
       <div class="flow">
         <QButton class="outlined danger">Danger</QButton>
-        <QButton class="outlined danger elevated">Danger</QButton>
         <QButton class="outlined danger" disabled>Danger</QButton>
         <QButton class="outlined danger" loading>Loading</QButton>
       </div>
@@ -82,7 +77,9 @@
       </div>
       <div class="flow">
         <QToggleButton v-model="toggleValue">On/Off</QToggleButton>
-        <QToggleButton v-model="toggleValue" class="icon"><QIconMenu /></QToggleButton>
+        <QToggleButton v-model="toggleValue" class="icon">
+          <QIconMenu class="icon"/>
+        </QToggleButton>
         <div class="frame q-text-desc q-c-dark-2 p-3">value: {{ toggleValue }}</div>
         <QButton class="primary" @click="toggleValue = !toggleValue">Toggle</QButton>
       </div>

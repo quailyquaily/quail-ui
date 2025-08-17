@@ -4,8 +4,33 @@
   border-radius: 0.5rem;
   transition: all 0.2s ease;
 
+  &.border-radius-sm {
+    border-radius: 0.375rem;
+  }
+  &.border-radius-xs {
+    border-radius: 0.25rem;
+  }
+  &.border-radius-xxs {
+    border-radius: 0.125rem;
+  }
+  &.border-radius-none {
+    border-radius: 0rem;
+  }
+
   &.squircle {
     --squircle-radius: 8px;
+    &.border-radius-sm {
+      --squircle-radius: 6px;
+    }
+    &.border-radius-xs {
+      --squircle-radius: 4px;
+    }
+    &.border-radius-xxs {
+      --squircle-radius: 2px;
+    }
+    &.border-radius-none {
+      --squircle-radius: 0px;
+    }
   }
 
   &.primary {

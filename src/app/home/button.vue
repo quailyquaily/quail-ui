@@ -86,6 +86,12 @@
       <div class="flow">
         <QButton class="outlined" href="https://www.google.com" target="_blank">Visit Google</QButton>
       </div>
+      <div class="flow">
+        <QButton class="outlined border-radius-sm">border-radius-sm</QButton>
+        <QButton class="primary border-radius-xs">border-radius-xs</QButton>
+        <QButton class="highlight border-radius-xxs">border-radius-xxs</QButton>
+        <QButton class="danger border-radius-none">border-radius-none</QButton>
+      </div>
     </div>
   </div>
 </template>

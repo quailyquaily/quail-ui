@@ -40,7 +40,7 @@ function genCls(tab:any, ix: number) {
   const ret = [];
   if (props.variant === "normal") {
     if (selectedIndex.value === ix) {
-      ret.push("selected outlined");
+      ret.push("selected outlined border-radius-sm");
     } else {
       ret.push("non-selected plain");
     }

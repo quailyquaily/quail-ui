@@ -119,7 +119,6 @@ const realAriaLabel = computed(() => {
   &.sm {
     height: 38px;
     font-size: 0.875rem;
-    border-radius: 0.5rem;
     .button-inner {
       padding: 0.6rem 0.8rem;
     }
@@ -178,6 +177,10 @@ const realAriaLabel = computed(() => {
     &.xs {
       padding: 0.6rem;
       width: 32px;
+    }
+    &.xxs {
+      padding: 0.4rem;
+      width: 24px;
     }
   }
 }

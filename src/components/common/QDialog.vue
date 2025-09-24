@@ -56,7 +56,7 @@ const popupPos = ref<{ top?: string; bottom?: string; left?: string }>({ top: '0
 const triggerWrapper:Ref<any> = ref(null);
 const dialogMask:Ref<any> = ref(null);
 
-const isPopup = computed(() => {
+const isDesktopPopup = computed(() => {
   return !isMobile && props.desktopMode === 'popup';
 });
 
@@ -67,7 +67,7 @@ const dialogStyle = computed(() => {
     width: w,
     height: h,
   };
-  if (isPopup.value) {
+  if (isDesktopPopup.value) {
     // Position relative to trigger wrapper
     if (props.popupPosition === 'top') {
       ret.bottom = popupPos.value.bottom;
@@ -95,14 +95,17 @@ const dialogCls = computed(() => {
 
 const dialogMaskCls = computed(() => {
   let cls = [];
-  if (isPopup.value) {
+  if (isDesktopPopup.value) {
     cls.push('desktop-mode-popup');
   }
-  // Allow choosing top/bottom alignment for non-popup dialogs
-  if (props.popupPosition === 'top') {
-    cls.push('position-top');
-  } else {
-    cls.push('position-bottom');
+
+  if (isMobile) {
+    // Allow choosing top/bottom alignment for non-popup dialogs
+    if (props.popupPosition === 'top') {
+      cls.push('position-top');
+    } else {
+      cls.push('position-bottom');
+    }
   }
   return cls.join(' ');
 });
@@ -119,10 +122,12 @@ watch(
             const rect = el.getBoundingClientRect();
             const offset = rect.height + 8;
             const left = 0;
-            if (props.popupPosition === 'top') {
-              popupPos.value = { bottom: `${offset}px`, left: `${left}px` };
-            } else {
-              popupPos.value = { top: `${offset}px`, left: `${left}px` };
+            if (isDesktopPopup.value) {
+              if (props.popupPosition === 'top') {
+                popupPos.value = { bottom: `${offset}px`, left: `${left}px` };
+              } else {
+                popupPos.value = { top: `${offset}px`, left: `${left}px` };
+              }
             }
           }
         }
@@ -168,29 +173,11 @@ onMounted(() => {
   }
 })
 
-// watch(
-//   () => props.popupPosition,
-//   () => {
-//     // Recalculate position when switching between top/bottom while open
-//     if (isPopup.value && isOpen.value && triggerWrapper.value?.children) {
-//       const el: any = (triggerWrapper.value.children as any)[0];
-//       if (el) {
-//         const rect = el.getBoundingClientRect();
-//         const offset = rect.height + 8;
-//         if (props.popupPosition === 'top') {
-//           popupPos.value = { bottom: `${offset}px`, left: '0px' };
-//         } else {
-//           popupPos.value = { top: `${offset}px`, left: '0px' };
-//         }
-//       }
-//     }
-//   }
-// )
 </script>
 <template>
   <div class="q-dialog-trigger-wrapper" ref="triggerWrapper" :class="props.class" >
     <slot name="trigger"></slot>
-    <template v-if="isPopup">
+    <template v-if="isDesktopPopup">
       <Transition>
         <div v-if="isOpen" class="q-dialog" :style="dialogStyle" @click.stop="v" :class="dialogCls">
           <div class="q-dialog-body">
@@ -200,7 +187,7 @@ onMounted(() => {
       </Transition>
     </template>
   </div>
-  <template v-if="!isPopup">
+  <template v-if="!isDesktopPopup">
     <Transition>
       <div v-if="isOpen" class="q-dialog-mask" @click="close" :class="dialogMaskCls" ref="dialogMask">
         <div class="q-dialog" :style="dialogStyle" @click.stop="v" :class="dialogCls">

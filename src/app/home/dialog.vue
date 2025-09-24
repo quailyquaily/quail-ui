@@ -52,7 +52,7 @@
         </div>
       </QDialog>
 
-      <QDialog v-model="dialogValue8" desktop-mode="popup" no-frame popup-position="top">
+      <QDialog v-model="dialogValue8" desktop-mode="dialog" no-frame popup-position="top">
         <template #trigger>
           <QButton class="outlined" @click.stop="dialogValue8 = true">
             Open Dialog (top)

@@ -54,6 +54,7 @@
       border-color: #6a6a7f;
     }
   }
+
   &.danger {
     --q-progress-color: rgba(255, 255, 255, 0.15);
     --q-progress-color-light: rgba(255, 255, 255, 0.05);
@@ -74,6 +75,7 @@
       opacity: 0.5;
     }
   }
+
   &.highlight {
     --q-progress-color: rgba(255, 255, 255, 0.15);
     --q-progress-color-light: rgba(255, 255, 255, 0.05);
@@ -94,6 +96,7 @@
       opacity: 0.5;
     }
   }
+
   &.outlined {
     --q-progress-color: rgba(0, 0, 0, 0);
     --q-progress-color-light: rgba(0, 0, 0, 0.03);
@@ -131,6 +134,7 @@
       box-shadow: inset 0px 1px 2px #4343431a;
     }
   }
+
   &.outlined.danger {
     --q-progress-color: rgba(0, 0, 0, 0);
     --q-progress-color-light: rgba(255, 0, 0, 0.03);
@@ -159,6 +163,7 @@
       }
     }
   }
+
   &.plain {
     --q-progress-color: rgba(0, 0, 0, 0);
     --q-progress-color-light: rgba(0, 0, 0, 0.03);
@@ -180,6 +185,7 @@
       }
     }
   }
+
   &.plain.danger {
     --q-progress-color: rgba(0, 0, 0, 0);
     --q-progress-color-light: rgba(255, 0, 0, 0.03);
@@ -201,6 +207,7 @@
       }
     }
   }
+
   &.stripe {
     --q-progress-color: rgba(0, 0, 0, 0);
     --q-progress-color-light: rgba(0, 0, 0, 0.03);
@@ -221,6 +228,44 @@
       &:hover {
         background-color: rgba(255, 255, 255, 0.1);
       }
+    }
+  }
+
+  &.placeholder {
+    --q-progress-color: rgba(0, 0, 0, 0);
+    --q-progress-color-light: rgba(0, 0, 0, 0.03);
+    background-color: transparent;
+    border: 1px dashed var(--q-c-dark-4);
+    box-shadow:
+      inset 0px 1px 10px 0px rgba(0, 0, 0, 0.01),
+      0px 1px 2px 0px #4343431a;
+
+    &.squircle {
+      border: none;
+      background: paint(squircle);
+      --squircle-outline: 0.5px;
+      --squircle-fill: var(--q-c-dark-4);
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.02);
+      box-shadow:
+        inset 0px 1px 2px 0px rgba(0, 0, 0, 0.01),
+        0px 1px 1px 0px #4343431a;
+    }
+    &[disabled] {
+      color: #888;
+      &:hover {
+        background-color: transparent;
+        box-shadow:
+          inset 0px 1px 10px 0px #0000000d,
+          0px 1px 3px 0px #4343431a !important;
+      }
+    }
+    &.toggle-on {
+      // pushed state
+      background-color: rgba(0, 0, 0, 0.04);
+      box-shadow: inset 0px 1px 2px #4343431a;
     }
   }
 }

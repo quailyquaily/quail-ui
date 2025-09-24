@@ -14,6 +14,10 @@ const props = defineProps({
     type: String,
     default: 'dialog' // dialog, popup
   },
+  popupPosition: { // only available in popup mode
+    type: String,
+    default: 'bottom',
+  },
   noFrame: {
     type: Boolean,
     default: false,
@@ -48,7 +52,7 @@ const emit = defineEmits(["update:modelValue", "close"]);
 
 const shaking = ref(false);
 const isOpen = ref(props.modelValue);
-const popupPos = ref({ "top": "0", "left": "0" });
+const popupPos = ref<{ top?: string; bottom?: string; left?: string }>({ top: '0', left: '0' });
 const triggerWrapper:Ref<any> = ref(null);
 const dialogMask:Ref<any> = ref(null);
 
@@ -64,7 +68,12 @@ const dialogStyle = computed(() => {
     height: h,
   };
   if (isPopup.value) {
-    ret.top = popupPos.value.top;
+    // Position relative to trigger wrapper
+    if (props.popupPosition === 'top') {
+      ret.bottom = popupPos.value.bottom;
+    } else {
+      ret.top = popupPos.value.top;
+    }
     ret.left = popupPos.value.left;
   }
   return ret;
@@ -89,6 +98,12 @@ const dialogMaskCls = computed(() => {
   if (isPopup.value) {
     cls.push('desktop-mode-popup');
   }
+  // Allow choosing top/bottom alignment for non-popup dialogs
+  if (props.popupPosition === 'top') {
+    cls.push('position-top');
+  } else {
+    cls.push('position-bottom');
+  }
   return cls.join(' ');
 });
 
@@ -102,9 +117,13 @@ watch(
           const el:any = (triggerWrapper.value.children as any)[0]
           if (el) {
             const rect = el.getBoundingClientRect();
-            const top = rect.height + 8;
+            const offset = rect.height + 8;
             const left = 0;
-            popupPos.value = { "top": `${top}px`, "left":`${left}px` };
+            if (props.popupPosition === 'top') {
+              popupPos.value = { bottom: `${offset}px`, left: `${left}px` };
+            } else {
+              popupPos.value = { top: `${offset}px`, left: `${left}px` };
+            }
           }
         }
       }
@@ -148,6 +167,25 @@ onMounted(() => {
     });
   }
 })
+
+// watch(
+//   () => props.popupPosition,
+//   () => {
+//     // Recalculate position when switching between top/bottom while open
+//     if (isPopup.value && isOpen.value && triggerWrapper.value?.children) {
+//       const el: any = (triggerWrapper.value.children as any)[0];
+//       if (el) {
+//         const rect = el.getBoundingClientRect();
+//         const offset = rect.height + 8;
+//         if (props.popupPosition === 'top') {
+//           popupPos.value = { bottom: `${offset}px`, left: '0px' };
+//         } else {
+//           popupPos.value = { top: `${offset}px`, left: '0px' };
+//         }
+//       }
+//     }
+//   }
+// )
 </script>
 <template>
   <div class="q-dialog-trigger-wrapper" ref="triggerWrapper" :class="props.class" >
@@ -199,6 +237,9 @@ onMounted(() => {
   &.desktop-mode-popup {
     background-color: transparent;
     position: static;
+  }
+  &.position-top {
+    align-items: flex-start;
   }
 }
 
@@ -253,13 +294,14 @@ onMounted(() => {
   .q-dialog-mask {
     align-items: flex-end;
   }
+  .q-dialog-mask.position-top {
+    align-items: flex-start;
+  }
   .q-dialog {
     width: 100%;
     border-radius: 0;
     bottom: 0;
     background-color: var(--q-c-white);
-    .q-dialog-header {
-    }
     .q-dialog-body {
       height: calc(100% - 78px);
       overflow-y: auto;

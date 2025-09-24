@@ -46,6 +46,13 @@
         <QButton class="plain danger" loading>Loading</QButton>
       </div>
       <div class="flow">
+        <QButton class="placeholder">Placeholder</QButton>
+        <QButton class="placeholder icon" disabled>
+          <QIconPlus class="icon"/>
+        </QButton>
+        <QButton class="placeholder" loading>Placeholder</QButton>
+      </div>
+      <div class="flow">
         <QButton class="outlined">Normal</QButton>
         <QButton class="sm outlined">Small</QButton>
         <QButton class="xs outlined">Smaller</QButton>

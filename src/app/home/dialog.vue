@@ -52,6 +52,28 @@
         </div>
       </QDialog>
 
+      <QDialog v-model="dialogValue8" desktop-mode="popup" no-frame popup-position="top">
+        <template #trigger>
+          <QButton class="outlined" @click.stop="dialogValue8 = true">
+            Open Dialog (top)
+          </QButton>
+        </template>
+
+        <div class="dialog-body" style="padding: 1rem; position: relative">
+          <div class="dialog-body-frame" style="background-color: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+            <div class="flex search-wrapper">
+              <QSearchInput class="search-box" />
+              <QButton class="primary block icon ml-2">
+                <QIconSearch class="icon" />
+              </QButton>
+            </div>
+            <div class="search-result flex place-center q-c-dark-3 q-text-caption">
+              <span class="p-4">Search results</span>
+            </div>
+          </div>
+        </div>
+      </QDialog>
+
       <QDialog v-model="dialogValue1" title="Hello">
         <div class="dialog-body">
           <div class="form-row center">
@@ -124,6 +146,7 @@ const dialogValue4 = ref(false);
 const dialogValue5 = ref(false);
 const dialogValue6 = ref(false);
 const dialogValue7 = ref(false);
+const dialogValue8 = ref(false);
 
 function openDialog3(ev:any) {
   dialogValue3.value = true;
@@ -134,3 +157,12 @@ function openDialog4(ev:any) {
 }
 
 </script>
+
+<style lang="scss" scoped>
+.search-wrapper {
+  display: flex;
+  .search-box {
+    flex: 1;
+  }
+}
+</style>

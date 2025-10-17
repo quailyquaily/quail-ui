@@ -1,4 +1,6 @@
 :root {
+  // global settings
+  text-autospace: normal;
   // new variables
   --q-font-serif: "Noto Serif";
   --q-font-serif-sc: "Noto Serif SC";
@@ -22,42 +24,42 @@
   --q-fs-body-caption: 2.5rem;
 
   // colors
-  --q-c-red: #AE1300;
+  --q-c-red: #ae1300;
   --q-c-red-dark: #920d2a;
   --q-c-red-light: #f44336;
   --q-c-red-lighter: #e66372;
-  --q-c-red-dimm-1: rgba(244, 63, 94, .05);
-  --q-c-red-dimm-2: rgba(244, 63, 94, .2);
-  --q-c-red-dimm-3: rgba(244, 63, 94, .5);
+  --q-c-red-dimm-1: rgba(244, 63, 94, 0.05);
+  --q-c-red-dimm-2: rgba(244, 63, 94, 0.2);
+  --q-c-red-dimm-3: rgba(244, 63, 94, 0.5);
 
   --q-c-green: #10b981;
   --q-c-green-dark: #059669;
   --q-c-green-light: #34d399;
   --q-c-green-lighter: #6ee7b7;
-  --q-c-green-dimm-1: rgba(16, 185, 129, .05);
-  --q-c-green-dimm-2: rgba(16, 185, 129, .2);
-  --q-c-green-dimm-3: rgba(16, 185, 129, .5);
+  --q-c-green-dimm-1: rgba(16, 185, 129, 0.05);
+  --q-c-green-dimm-2: rgba(16, 185, 129, 0.2);
+  --q-c-green-dimm-3: rgba(16, 185, 129, 0.5);
 
   --q-c-orange: #d97706;
   --q-c-orange-dark: #b45309;
   --q-c-orange-light: #f59e0b;
   --q-c-orange-lighter: #fbbf24;
-  --q-c-orange-dimm-1: rgba(234, 179, 8, .05);
-  --q-c-orange-dimm-2: rgba(234, 179, 8, .2);
-  --q-c-orange-dimm-3: rgba(234, 179, 8, .5);
+  --q-c-orange-dimm-1: rgba(234, 179, 8, 0.05);
+  --q-c-orange-dimm-2: rgba(234, 179, 8, 0.2);
+  --q-c-orange-dimm-3: rgba(234, 179, 8, 0.5);
 
   --q-c-blue: #0d75fc;
   --q-c-blue-dark: rgb(22, 100, 202);
   --q-c-blue-light: rgb(42, 134, 255);
   --q-c-blue-lighter: rgb(97, 165, 255);
   --q-c-blue-dimm-1: rgba(13, 117, 252, 0.05);
-  --q-c-blue-dimm-2: rgba(13, 117, 252, .2);
-  --q-c-blue-dimm-3: rgba(13, 117, 252, .5);
+  --q-c-blue-dimm-2: rgba(13, 117, 252, 0.2);
+  --q-c-blue-dimm-3: rgba(13, 117, 252, 0.5);
 
   // grey level
-  --q-c-white: #FFF;
+  --q-c-white: #fff;
   --q-c-black: #000;
-  --q-c-dark: #16161D;
+  --q-c-dark: #16161d;
   --q-c-dark-2: rgba(45, 37, 36, 0.6);
   --q-c-dark-3: rgba(45, 37, 36, 0.5);
   --q-c-dark-4: rgba(45, 37, 36, 0.2);
@@ -69,13 +71,13 @@
   --q-c-light-5: rgba(250, 250, 250, 0.1);
 
   // background color
-  --q-bg-white: #FFF;
-  --q-bg-light: #FAFAF8;
-  --q-bg-light-2: #F7F7F7;
+  --q-bg-white: #fff;
+  --q-bg-light: #fafaf8;
+  --q-bg-light-2: #f7f7f7;
   --q-bg-light-float: rgba(245, 245, 245, 1);
-  --q-bg-dark: #16161D;
-  --q-bg-dark-2: #20202A;
-  --q-bg-dark-float: #28282F;
+  --q-bg-dark: #16161d;
+  --q-bg-dark-2: #20202a;
+  --q-bg-dark-float: #28282f;
   --q-bg-overlay: #2d252432;
 
   // legacy variables
@@ -91,41 +93,53 @@
   --vt-c-golden: rgb(238, 180, 103);
   --vt-c-golden-dark: rgb(208, 139, 49);
 
-  --vt-c-red: #CB0000;
+  --vt-c-red: #cb0000;
   --vt-c-red-dark: #920d2a;
   --vt-c-red-light: #f44336;
   --vt-c-red-lighter: #e66372;
-  --vt-c-red-dimm-1: rgba(244, 63, 94, .05);
-  --vt-c-red-dimm-2: rgba(244, 63, 94, .2);
-  --vt-c-red-dimm-3: rgba(244, 63, 94, .5);
+  --vt-c-red-dimm-1: rgba(244, 63, 94, 0.05);
+  --vt-c-red-dimm-2: rgba(244, 63, 94, 0.2);
+  --vt-c-red-dimm-3: rgba(244, 63, 94, 0.5);
 
   --vt-c-green: #10b981;
   --vt-c-green-dark: #059669;
   --vt-c-green-light: #34d399;
   --vt-c-green-lighter: #6ee7b7;
-  --vt-c-green-dimm-1: rgba(16, 185, 129, .05);
-  --vt-c-green-dimm-2: rgba(16, 185, 129, .2);
-  --vt-c-green-dimm-3: rgba(16, 185, 129, .5);
+  --vt-c-green-dimm-1: rgba(16, 185, 129, 0.05);
+  --vt-c-green-dimm-2: rgba(16, 185, 129, 0.2);
+  --vt-c-green-dimm-3: rgba(16, 185, 129, 0.5);
 
   --vt-c-orange: #d97706;
   --vt-c-orange-dark: #b45309;
   --vt-c-orange-light: #f59e0b;
   --vt-c-orange-lighter: #fbbf24;
-  --vt-c-orange-dimm-1: rgba(234, 179, 8, .05);
-  --vt-c-orange-dimm-2: rgba(234, 179, 8, .2);
-  --vt-c-orange-dimm-3: rgba(234, 179, 8, .5);
+  --vt-c-orange-dimm-1: rgba(234, 179, 8, 0.05);
+  --vt-c-orange-dimm-2: rgba(234, 179, 8, 0.2);
+  --vt-c-orange-dimm-3: rgba(234, 179, 8, 0.5);
 
   --vt-c-blue: rgb(13, 117, 252);
   --vt-c-blue-dark: rgb(22, 100, 202);
   --vt-c-blue-light: rgb(42, 134, 255);
   --vt-c-blue-lighter: rgb(97, 165, 255);
   --vt-c-blue-dimm-1: rgba(13, 117, 252, 0.05);
-  --vt-c-blue-dimm-2: rgba(13, 117, 252, .2);
-  --vt-c-blue-dimm-3: rgba(13, 117, 252, .5);
+  --vt-c-blue-dimm-2: rgba(13, 117, 252, 0.2);
+  --vt-c-blue-dimm-3: rgba(13, 117, 252, 0.5);
 
-  --vt-c-golden-linear-gradient: linear-gradient(180deg, #dbb165 0%, #bf865e 100%);
-  --vt-c-golden-dark-linear-gradient: linear-gradient(180deg, #D8AE5F 0%, #9C5B2D 100%);
-  --vt-c-golden-dark-linear-gradient-webkit: -webkit-linear-gradient(up, #D8AE5F, #9C5B2D);
+  --vt-c-golden-linear-gradient: linear-gradient(
+    180deg,
+    #dbb165 0%,
+    #bf865e 100%
+  );
+  --vt-c-golden-dark-linear-gradient: linear-gradient(
+    180deg,
+    #d8ae5f 0%,
+    #9c5b2d 100%
+  );
+  --vt-c-golden-dark-linear-gradient-webkit: -webkit-linear-gradient(
+    up,
+    #d8ae5f,
+    #9c5b2d
+  );
 
   --vt-c-divider-light-1: rgb(228, 228, 231);
   --vt-c-divider-light-2: rgba(228, 228, 231, 0.8);
@@ -169,8 +183,9 @@ body {
   min-height: 100vh;
   color: var(--color-text);
   line-height: 1.6;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-size: 16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -179,7 +194,7 @@ body {
 }
 
 a {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent; /* For some Androids */
 }
 
@@ -193,7 +208,9 @@ a {
   opacity: 0;
 }
 
-.one-line-ellipsis, .two-line-ellipsis, .three-line-ellipsis {
+.one-line-ellipsis,
+.two-line-ellipsis,
+.three-line-ellipsis {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   box-orient: vertical;

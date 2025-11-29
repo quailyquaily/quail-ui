@@ -27,7 +27,7 @@ const QuailUI = {
           console.log("[quail-ui] add CSS paintWorklet")
         }
         (CSS as any)?.paintWorklet?.addModule(
-          "https://static.quail.ink/assets/squircle.min.js"
+          "https://static.quaily.com/assets/squircle.min.js"
         );
         const w = (window as any);
         w._quailui_use_squircle = true;

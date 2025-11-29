@@ -5,7 +5,7 @@
     <div class="grid gap-4 grid-cols-1">
       <div class="frame p-4" style="display: flex;">
         <div class="">
-          <QPackCover src="https://static.quail.ink/media/jo4uz87q.jpg"
+          <QPackCover src="https://static.quaily.com/media/jo4uz87q.jpg"
             title="A Pack Title"
             subtitle="A Pack Subtitle, it's a bit long"
             desc="10 items"

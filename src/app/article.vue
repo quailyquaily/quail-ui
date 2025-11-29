@@ -195,10 +195,10 @@ for i in range(10):
     <h2>Extended Markdown Syntax</h2>
     <h3>Images</h3>
     <p>
-      <span class="quail-image-wrapper" style="width: auto; height: auto; margin: 1rem 0px; display: block;"><img src="https://static.quail.ink/media/qn2u29wq.webp" alt="An image to describe A girl and a boy, is playing in the yard" style="width: auto; height: auto;" class="quail-image"><span class="quail-image-caption" style="display: block;">A girl and a boy, is playing in the yard</span></span>
+      <span class="quail-image-wrapper" style="width: auto; height: auto; margin: 1rem 0px; display: block;"><img src="https://static.quaily.com/media/qn2u29wq.webp" alt="An image to describe A girl and a boy, is playing in the yard" style="width: auto; height: auto;" class="quail-image"><span class="quail-image-caption" style="display: block;">A girl and a boy, is playing in the yard</span></span>
     </p>
 
-    <p><span class="quail-image-wrapper" style="width: 120px; height: auto; margin: 1rem 0px; display: block;"><img src="https://static.quail.ink/media/qn2u29wq.webp?w=120px" alt="An image to describe post" style="width: 120px; height: auto;" class="quail-image"><span class="quail-image-caption" style="display: block;"></span></span></p>
+    <p><span class="quail-image-wrapper" style="width: 120px; height: auto; margin: 1rem 0px; display: block;"><img src="https://static.quaily.com/media/qn2u29wq.webp?w=120px" alt="An image to describe post" style="width: 120px; height: auto;" class="quail-image"><span class="quail-image-caption" style="display: block;"></span></span></p>
 
     <h3>Custom Blocks</h3>
 

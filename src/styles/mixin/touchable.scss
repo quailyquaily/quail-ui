@@ -447,5 +447,16 @@
         background-color: rgba(255, 255, 255, 0.1);
       }
     }
+    &.placeholder {
+      box-shadow:
+        inset 0px 1px 10px 0px rgba(0, 0, 0, 0.01),
+        0px 1px 2px 0px #d8d8d81a;
+      border-color: var(--q-c-light-4);
+      &:hover {
+        color: var(--q-c-light);
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0px 1px 1px 0px #d8d8d81a;
+      }
+    }
   }
 }

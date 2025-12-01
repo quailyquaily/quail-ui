@@ -18,18 +18,24 @@
   }
 
   &.squircle {
-    --squircle-radius: 8px;
+    corner-shape: squircle;
+    border-radius: 12px;
+    /* --squircle-radius: 8px; */
     &.border-radius-sm {
-      --squircle-radius: 6px;
+      /* --squircle-radius: 6px; */
+      border-radius: 10px;
     }
     &.border-radius-xs {
-      --squircle-radius: 4px;
+      /* --squircle-radius: 4px; */
+      border-radius: 8px;
     }
     &.border-radius-xxs {
-      --squircle-radius: 2px;
+      /* --squircle-radius: 2px; */
+      border-radius: 4px;
     }
     &.border-radius-none {
-      --squircle-radius: 0px;
+      /* --squircle-radius: 0px; */
+      border-radius: 0px;
     }
   }
 
@@ -42,7 +48,7 @@
     background-color: var(--q-c-dark);
 
     &.squircle {
-      mask-image: paint(squircle);
+      /* mask-image: paint(squircle); */
     }
 
     &:hover {
@@ -63,7 +69,7 @@
     border: 0.5px solid var(--q-c-red);
 
     &.squircle {
-      mask-image: paint(squircle);
+      /* mask-image: paint(squircle); */
     }
 
     &:hover {
@@ -84,7 +90,7 @@
     border: 0.5px solid var(--q-c-blue);
 
     &.squircle {
-      mask-image: paint(squircle);
+      /* mask-image: paint(squircle); */
     }
 
     &:hover {
@@ -107,10 +113,10 @@
       0px 1px 2px 0px #4343431a;
 
     &.squircle {
-      border: none;
+      /* border: none;
       background: paint(squircle);
       --squircle-outline: 0.5px;
-      --squircle-fill: var(--q-c-dark-4);
+      --squircle-fill: var(--q-c-dark-4); */
     }
 
     &:hover {
@@ -146,11 +152,11 @@
       0px 1px 1px 0px rgba(244, 67, 54, 0.1);
 
     &.squircle {
-      mask-image: none !important;
+      /* mask-image: none !important;
       border: none;
       background: paint(squircle);
       --squircle-outline: 0.5px;
-      --squircle-fill: rgba(244, 67, 54, 0.2);
+      --squircle-fill: rgba(244, 67, 54, 0.2); */
     }
 
     &:hover {
@@ -172,7 +178,7 @@
     background-color: transparent;
 
     &.squircle {
-      mask-image: paint(squircle);
+      /* mask-image: paint(squircle); */
     }
 
     &:hover {
@@ -194,7 +200,7 @@
     border: none;
 
     &.squircle {
-      mask-image: paint(squircle);
+      /* mask-image: paint(squircle); */
     }
 
     &:hover {
@@ -217,7 +223,7 @@
       0 0;
 
     &.squircle {
-      mask-image: paint(squircle);
+      /* mask-image: paint(squircle); */
     }
 
     &:hover {
@@ -241,10 +247,10 @@
       0px 1px 2px 0px #4343431a;
 
     &.squircle {
-      border: none;
+      /* border: none;
       background: paint(squircle);
       --squircle-outline: 0.5px;
-      --squircle-fill: var(--q-c-dark-4);
+      --squircle-fill: var(--q-c-dark-4); */
     }
 
     &:hover {

@@ -93,11 +93,12 @@
       <div class="flow">
         <QButton class="outlined" href="https://www.google.com" target="_blank">Visit Google</QButton>
       </div>
-      <div class="flow">
-        <QButton class="outlined border-radius-sm">border-radius-sm</QButton>
-        <QButton class="primary border-radius-xs">border-radius-xs</QButton>
-        <QButton class="highlight border-radius-xxs">border-radius-xxs</QButton>
-        <QButton class="danger border-radius-none">border-radius-none</QButton>
+      <div class="flow grid gap-4 grid-cols-2">
+        <QButton class="outlined block">border-radius</QButton>
+        <QButton class="outlined block border-radius-sm">border-radius-sm</QButton>
+        <QButton class="outlined block border-radius-xs">border-radius-xs</QButton>
+        <QButton class="outlined block border-radius-xxs">border-radius-xxs</QButton>
+        <QButton class="outlined block border-radius-none">border-radius-none</QButton>
       </div>
     </div>
   </div>

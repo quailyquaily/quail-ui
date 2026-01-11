@@ -1,8 +1,17 @@
 # Quaily UI
 
-The Vue3 UI library for [Quaily](https://quaily.com).
+A Vue 3 component library for [Quaily](https://quaily.com).
 
-[Demo](https://quailyquaily.github.io/quail-ui/)
+[Live Demo](https://quail-ink.github.io/quail-ui/)
+
+## Features
+
+- 26+ UI components (Button, Input, Dialog, Menu, Tabs, etc.)
+- 110+ SVG icons
+- Dark mode support
+- TUI (Terminal UI) mode with monospace fonts
+- Fully typed with TypeScript
+- SCSS with CSS custom properties
 
 ## Installation
 
@@ -18,29 +27,103 @@ yarn add quail-ui
 
 ## Usage
 
-Init Quaily UI in your main.js file.
+Initialize Quaily UI in your main.js/main.ts file:
 
 ```js
 import { createApp } from 'vue'
-import { QuailUI, Icons } from 'quail-ui'
-
-// import style
+import { QuailUI } from 'quail-ui'
 import 'quail-ui/dist/style.css'
-
-// ...
 
 const app = createApp(App)
 app.use(QuailUI)
+app.mount('#app')
 ```
 
-Use the components in your .vue files.
+Use components in your .vue files:
 
 ```vue
 <template>
-  <div class="image-uploader" :class="rounded? 'rounded':''">
-    <QLoading v-if="loading" class="loading-mask"/>
-    <QIconCamera class="icon"/>
-  </div>
+  <QButton class="primary" @click="handleClick">
+    Click Me
+  </QButton>
+
+  <QInput v-model="text" placeholder="Enter text..." />
+
+  <QDialog v-model="showDialog" title="Hello">
+    <p>Dialog content here</p>
+  </QDialog>
 </template>
 ```
 
+### Usage via CDN (No Build Tools)
+
+You can use Quaily UI directly in HTML without any build tools:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/quail-ui/dist/style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js",
+        "quail-ui": "https://unpkg.com/quail-ui/dist/index.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <q-button class="primary">Hello</q-button>
+    <q-fence text="This is a notice" type="warning"></q-fence>
+  </div>
+
+  <script type="module">
+    import { createApp } from 'vue'
+    import { QuailUI } from 'quail-ui'
+
+    const app = createApp({})
+    app.use(QuailUI)
+    app.mount('#app')
+  </script>
+</body>
+</html>
+```
+
+## Components
+
+| Component | Description |
+|-----------|-------------|
+| QButton | Button with variants (primary, outlined, plain, danger, etc.) |
+| QInput | Text input with validation and slots |
+| QTextarea | Multi-line text input |
+| QDialog | Modal dialog |
+| QMenu | Dropdown menu |
+| QTabs | Tab navigation |
+| QSwitch | Toggle switch |
+| QProgress | Progress bar |
+| QAvatar | User avatar |
+| QPagination | Page navigation |
+| QFence | Alert/notice box |
+| ... | And more |
+
+## Dark Mode
+
+Toggle dark mode by adding/removing the `.dark` class on `<body>`:
+
+```js
+document.body.classList.toggle('dark')
+```
+
+## TUI Mode
+
+Enable terminal-style UI with monospace fonts:
+
+```js
+document.body.classList.add('tui')
+```
+
+## License
+
+MIT

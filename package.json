@@ -8,11 +8,16 @@
   "license": "AGPL-3.0",
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.umd.cjs"
     },
+    "./style.css": "./dist/style.css",
     "./dist/": {
       "import": "./dist/",
       "require": "./dist/"
@@ -25,19 +30,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "qrcode": "^1.5.3",
+    "qrcode": "^1.5.4",
     "quail-js": "^0.3.18",
-    "vue": "^3.3.4",
+    "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@types/node": "^20.5.1",
+    "@types/node": "^22.10.5",
     "@types/qrcode": "^1.5.5",
-    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue": "^5.2.1",
     "rollup-plugin-scss": "^4.0.0",
-    "sass": "^1.66.1",
-    "typescript": "^5.0.2",
-    "vite": "^4.5.2",
-    "vue-tsc": "^2.0.26"
+    "sass": "^1.83.1",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7",
+    "vue-tsc": "^2.2.0"
   }
 }

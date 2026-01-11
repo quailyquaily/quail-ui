@@ -66,7 +66,7 @@ const props = defineProps({
     default: false,
   },
   hintIcon: {
-    type: Object,
+    type: [String, Object],
     default: null,
   },
   hintText: {

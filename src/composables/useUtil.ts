@@ -35,33 +35,18 @@ export function useUtil() {
     }
   }
 
-  function debounce(func: any, delay: number): any {
-    let timeoutId: ReturnType<typeof setTimeout>;
-
-    return function(this: any, ...args: any[]) {
-      const context = this;
-
-      clearTimeout(timeoutId);
-
-      timeoutId = setTimeout(() => {
-        func.apply(context, args);
-      }, delay);
-    };
-  }
-
-  function extractText(nodes: any) {
-    let extracted = '';
-    if (!nodes) return extracted;
+  function extractText(nodes: any): string {
+    if (!nodes) return '';
+    const parts: string[] = [];
     for (const node of nodes) {
       if (typeof node.children === 'string') {
-        // get the text from the node
-        extracted += node.children;
+        parts.push(node.children);
       } else if (Array.isArray(node.children)) {
-        extracted += extractText(node.children);
+        parts.push(extractText(node.children));
       }
     }
-    return extracted;
-  };
+    return parts.join('');
+  }
 
   function extractIconName(nodes: any) {
     let extracted = '';
@@ -78,7 +63,6 @@ export function useUtil() {
 
   return {
     browserDetect,
-    debounce,
     extractText,
     extractIconName,
   }

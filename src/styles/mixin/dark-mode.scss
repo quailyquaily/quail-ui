@@ -1,0 +1,16 @@
+// Dark mode mixin for consistent dark theme styling
+// Usage: @include dark-mode { ... }
+
+@mixin dark-mode {
+  .dark & {
+    @content;
+  }
+}
+
+// Alternative: for use at root level
+// Usage: @include dark-mode-root { .my-component { ... } }
+@mixin dark-mode-root {
+  .dark {
+    @content;
+  }
+}

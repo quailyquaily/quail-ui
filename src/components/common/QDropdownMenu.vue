@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch, type Ref } from "vue";
-import { closePopupMenu, debounce } from "../../util";
+import { computed, onMounted, onUnmounted, ref, watch, type Ref } from "vue";
+import { closePopupMenu, onPopupClose, debounce } from "../../util";
 import { useSlots } from 'vue'
 
 const slots = useSlots()
+const focusedIndex = ref(-1)
 
 const props = defineProps({
   items: {
@@ -138,17 +139,19 @@ function toggle() {
   }
   // toggle
   expanded.value = !expanded.value;
+  focusedIndex.value = -1;
   // adjust menu position to make sure it's visible
   if (expanded.value) {
     if (!useDialogFlag.value) {
-      setTimeout(() => {
+      requestAnimationFrame(() => {
         const wrapper = menuWrapper?.value;
         const menu = wrapper?.querySelector(".q-menu");
+        if (!menu) return;
         const rect = menu.getBoundingClientRect();
         if (rect.left < 0) {
           menu.style.left = "0";
         }
-      }, 10);
+      });
     } else {
       debounce(() => {
         scrollArea?.value?.addEventListener("scroll", () => {
@@ -170,6 +173,40 @@ function menuItemClick(item: any) {
   emit("change", item);
 }
 
+// Keyboard navigation
+function handleKeyDown(event: KeyboardEvent) {
+  if (!expanded.value) return;
+
+  const items = filteredItems.value.filter((item: any) => !item.divider && !item.disabled);
+  if (!items.length) return;
+
+  switch (event.key) {
+    case 'ArrowDown':
+      event.preventDefault();
+      focusedIndex.value = Math.min(focusedIndex.value + 1, items.length - 1);
+      break;
+    case 'ArrowUp':
+      event.preventDefault();
+      focusedIndex.value = Math.max(focusedIndex.value - 1, 0);
+      break;
+    case 'Enter':
+      event.preventDefault();
+      if (focusedIndex.value >= 0 && focusedIndex.value < items.length) {
+        menuItemClick(items[focusedIndex.value]);
+      }
+      break;
+    case 'Escape':
+      event.preventDefault();
+      expanded.value = false;
+      break;
+  }
+}
+
+// Popup close handler
+function handlePopupClose() {
+  expanded.value = false;
+}
+
 watch(
   () => props.initialItem,
   () => {
@@ -179,18 +216,20 @@ watch(
   }
 );
 
+let cleanupPopupClose: (() => void) | null = null;
+
 onMounted(() => {
   if (props.initialItem) {
     selectedItem.value = props.initialItem;
   }
 
-  window.addEventListener("storage", (event) => {
-    if (event.key === "quailui_global_popup_trigger") {
-      if (event.newValue) {
-        expanded.value = false;
-      }
-    }
-  });
+  cleanupPopupClose = onPopupClose(handlePopupClose);
+  window.addEventListener("keydown", handleKeyDown);
+});
+
+onUnmounted(() => {
+  cleanupPopupClose?.();
+  window.removeEventListener("keydown", handleKeyDown);
 });
 </script>
 
@@ -227,7 +266,7 @@ onMounted(() => {
       </div>
       <div v-if="!useDialogFlag" ref="menuWrapper">
         <Transition>
-          <q-menu v-if="expanded" :items="items" @action="menuItemClick"></q-menu>
+          <q-menu v-if="expanded" :items="items" :focused-index="focusedIndex" @action="menuItemClick"></q-menu>
         </Transition>
       </div>
       <q-dialog v-if="useDialogFlag" v-model="expanded" no-frame>
@@ -236,7 +275,7 @@ onMounted(() => {
             <input type="text" class="filter-input text-field" placeholder="Filter" v-model="filterText" />
           </div>
           <div class="scroll-area" :class="scrollAreaCls" ref="scrollArea" :style="{ height: props.scrollHeight, maxHeight: props.scrollHeight }">
-            <q-menu v-if="filteredItems" :items="filteredItems" @action="menuItemClick" persistent no-frame no-shadow></q-menu>
+            <q-menu v-if="filteredItems" :items="filteredItems" :focused-index="focusedIndex" @action="menuItemClick" persistent no-frame no-shadow></q-menu>
             <div v-else class="empty-hint flow place-center" v-text="emptyHit"></div>
           </div>
         </div>

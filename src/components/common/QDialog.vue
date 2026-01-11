@@ -2,9 +2,11 @@
 import { computed, ref, watch,
   nextTick,
   Ref,
-  onMounted
+  onMounted,
+  onUnmounted
 } from 'vue';
 import { useUtil } from "../../composables/useUtil";
+import { onPopupClose } from "../../util";
 const { browserDetect } = useUtil();
 const { isMobile } = browserDetect();
 
@@ -161,16 +163,56 @@ function close () {
 
 function v() {};
 
+// Popup close handler
+function handlePopupClose() {
+  close();
+}
+
+// Focus trap for accessibility
+function handleKeyDown(event: KeyboardEvent) {
+  if (!isOpen.value) return;
+
+  if (event.key === 'Escape' && !props.persistent) {
+    close();
+    return;
+  }
+
+  if (event.key !== 'Tab') return;
+
+  const dialog = dialogMask.value?.querySelector('.q-dialog') as HTMLElement;
+  if (!dialog) return;
+
+  const focusable = dialog.querySelectorAll<HTMLElement>(
+    'button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  );
+  if (!focusable.length) return;
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+}
+
+let cleanupPopupClose: (() => void) | null = null;
+
 onMounted(() => {
   if (props.desktopMode === "popup") {
-    window.addEventListener("storage", (event) => {
-      if (event.key === "quailui_global_popup_trigger") {
-        if (event.newValue) {
-          close();
-        }
-      }
-    });
+    cleanupPopupClose = onPopupClose(handlePopupClose);
   }
+  window.addEventListener("keydown", handleKeyDown);
+});
+
+onUnmounted(() => {
+  cleanupPopupClose?.();
+  window.removeEventListener("keydown", handleKeyDown);
+  // Restore body scroll
+  document.body.style.overflowY = 'auto';
 })
 
 </script>

@@ -1,11 +1,12 @@
+const POPUP_CLOSE_EVENT = 'quailui:close-popup';
+
 function closePopupMenu() {
-  let trigger = parseInt(sessionStorage.getItem('quailui_global_popup_trigger') || '0') || 0;
-  sessionStorage.setItem('quailui_global_popup_trigger', (trigger + 1) + '');
-  window.dispatchEvent(new StorageEvent("storage", {
-    key: 'quailui_global_popup_trigger',
-    newValue: (trigger + 1) + '',
-    oldValue: trigger + ''
-  }));
+  window.dispatchEvent(new CustomEvent(POPUP_CLOSE_EVENT));
+}
+
+function onPopupClose(handler: () => void): () => void {
+  window.addEventListener(POPUP_CLOSE_EVENT, handler);
+  return () => window.removeEventListener(POPUP_CLOSE_EVENT, handler);
 }
 
 function debounce(func: any, delay: number): any {
@@ -24,5 +25,6 @@ function debounce(func: any, delay: number): any {
 
 export {
   closePopupMenu,
+  onPopupClose,
   debounce,
 }

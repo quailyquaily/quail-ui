@@ -3,7 +3,7 @@
     ref="buttonRef"
     :class="cls"
     :disabled="!validated"
-    :ariaLabel="realAriaLabel"
+    :aria-label="realAriaLabel"
   >
     <span v-if="!href" class="button-inner">
       <slot></slot>

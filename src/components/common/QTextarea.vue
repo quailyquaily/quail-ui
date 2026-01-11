@@ -13,7 +13,7 @@ const props = defineProps({
     default: "",
   },
   hintIcon: {
-    type: String,
+    type: [String, Object],
     default: null,
   },
   hintText: {

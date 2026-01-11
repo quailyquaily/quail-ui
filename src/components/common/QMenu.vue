@@ -18,6 +18,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  focusedIndex: {
+    type: Number,
+    default: -1,
+  },
 });
 
 const emit = defineEmits(["action"]);
@@ -36,7 +40,23 @@ const menuCls = computed(() => {
   return _cls.join(" ");
 });
 
-function cls(item: any) {
+// Map focusedIndex (navigable items only) to actual item index
+const focusedItemIndex = computed(() => {
+  if (props.focusedIndex < 0) return -1;
+  let navIndex = -1;
+  for (let i = 0; i < props.items.length; i++) {
+    const item = props.items[i];
+    if (!item.divider && !item.disabled) {
+      navIndex++;
+      if (navIndex === props.focusedIndex) {
+        return i;
+      }
+    }
+  }
+  return -1;
+});
+
+function cls(item: any, index: number) {
   let _cls = "";
   if (item.disabled) {
     _cls += " disabled";
@@ -53,6 +73,9 @@ function cls(item: any) {
   if (item.divider) {
     _cls += " with-divider";
   }
+  if (index === focusedItemIndex.value) {
+    _cls += " focused";
+  }
   return _cls;
 }
 
@@ -66,12 +89,14 @@ function doAction(item: any) {
 }
 </script>
 <template>
-  <div class="q-menu" :class="menuCls">
+  <div class="q-menu" :class="menuCls" role="menu">
     <div
       class="q-menu-item"
-      v-for="item in props.items"
+      v-for="(item, index) in props.items"
       :key="`q-menu-item-${item.id}`"
-      :class="cls(item)"
+      :class="cls(item, index)"
+      :role="item.divider ? 'separator' : 'menuitem'"
+      :aria-disabled="item.disabled ? 'true' : undefined"
       @click="doAction(item)"
     >
       <div v-if="item.divider" class="q-menu-item-divider"></div>
@@ -168,6 +193,11 @@ function doAction(item: any) {
         margin-left: 0rem;
       }
     }
+    &.focused {
+      .q-menu-item-inner {
+        background-color: rgba(0, 0, 0, 0.06);
+      }
+    }
 
     .q-menu-image {
       height: 24px;
@@ -217,6 +247,11 @@ function doAction(item: any) {
       }
       .q-menu-item-inner {
         &:hover {
+          background-color: rgba(255, 255, 255, 0.12);
+        }
+      }
+      &.focused {
+        .q-menu-item-inner {
           background-color: rgba(255, 255, 255, 0.12);
         }
       }

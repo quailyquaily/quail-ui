@@ -1,10 +1,19 @@
 import * as Icons from './components/icons';
 import * as Common from './components/common';
 import { closePopupMenu } from './util';
-import './style.scss';
+
+// Re-export all components for tree-shaking support
+export * from './components/icons';
+export * from './components/common';
+
+// Export utility functions
+export { closePopupMenu, onPopupClose, debounce } from './util';
 
 const QuailUI = {
   install(app:any, options:any) {
+    // Import styles only when using full plugin
+    import('./style.scss');
+
     if (options?.debug) {
       console.log('options', options);
     }
@@ -34,9 +43,11 @@ const QuailUI = {
       }
     }
 
-    document.body.addEventListener('click', (e) => {
-      closePopupMenu();
-    })
+    // Prevent duplicate click handlers
+    if (!(window as any).__quailui_click_handler_installed) {
+      document.body.addEventListener('click', () => closePopupMenu());
+      (window as any).__quailui_click_handler_installed = true;
+    }
   }
 };
 

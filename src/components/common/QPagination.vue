@@ -74,7 +74,7 @@ function prevPage() {
 }
 
 function nextPage() {
-  val.value++;1.234
+  val.value++;
   emit("change:next", val.value);
   emit("update:modelValue", val.value);
 }

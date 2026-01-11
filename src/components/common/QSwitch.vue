@@ -68,7 +68,7 @@ function change(event:any) {
 
 	.q-switch-inner {
 		display: inline-block;
-		background: #ccc;
+		background: var(--q-c-dark-4);
 		border-radius: 16px;
 		width: var(--switch-w);
 		height: var(--switch-h);

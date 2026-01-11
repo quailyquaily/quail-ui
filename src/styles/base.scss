@@ -1,6 +1,15 @@
 :root {
   // global settings
   text-autospace: normal;
+
+  // border radius
+  --q-radius-xs: 4px;
+  --q-radius-sm: 6px;
+  --q-radius-md: 8px;
+  --q-radius-lg: 12px;
+  --q-radius-xl: 16px;
+  --q-radius-full: 9999px;
+
   // new variables
   --q-font-serif: "Noto Serif";
   --q-font-serif-sc: "Noto Serif SC";

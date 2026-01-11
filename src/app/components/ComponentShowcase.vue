@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 
 const props = defineProps<{
   id: string;
@@ -8,14 +8,7 @@ const props = defineProps<{
   sourceCode?: string;
 }>();
 
-const cardTheme = ref<'light' | 'dark'>('light');
 const showCode = ref(false);
-
-const cardThemeToggle = computed({
-  get: () => cardTheme.value === 'light',
-  set: (val: boolean) => { cardTheme.value = val ? 'light' : 'dark'; }
-});
-
 const copySuccess = ref(false);
 
 function copyCode() {
@@ -41,14 +34,8 @@ function toggleCode() {
         <p v-if="description" class="q-text-desc q-c-dark-3 mt-1">{{ description }}</p>
       </div>
 
-      <div class="showcase-controls">
-        <QSwitch
-          v-model="cardThemeToggle"
-          theme="clear-sky"
-        />
-
+      <div v-if="sourceCode" class="showcase-controls">
         <QButton
-          v-if="sourceCode"
           class="outlined xs code-btn"
           @click="toggleCode"
         >
@@ -58,7 +45,7 @@ function toggleCode() {
       </div>
     </div>
 
-    <div class="showcase-preview" :class="[cardTheme, { 'code-visible': showCode && sourceCode }]">
+    <div class="showcase-preview" :class="{ 'code-visible': showCode && sourceCode }">
       <div class="preview-inner">
         <slot></slot>
       </div>
@@ -115,7 +102,7 @@ function toggleCode() {
   flex-shrink: 0;
 
   @media (max-width: 640px) {
-    justify-content: space-between;
+    justify-content: flex-end;
   }
 }
 
@@ -131,21 +118,10 @@ function toggleCode() {
 .showcase-preview {
   padding: 1.5rem;
   min-height: 100px;
-  transition: background-color 0.3s, color 0.3s;
   border-radius: 0 0 8px 8px;
 
   &.code-visible {
     border-radius: 0;
-  }
-
-  &.light {
-    background: var(--q-bg-light);
-    color: var(--q-c-dark);
-  }
-
-  &.dark {
-    background: var(--q-bg-dark);
-    color: var(--q-c-light);
   }
 }
 
@@ -198,7 +174,7 @@ function toggleCode() {
   padding: 1rem 1.25rem;
   margin: 0;
   overflow-x: auto;
-  font-family: 'SF Mono', 'Fira Code', 'Monaco', monospace;
+  font-family: var(--q-font-mono);
   font-size: 0.8125rem;
   line-height: 1.6;
   color: #d4d4d8;
@@ -240,55 +216,22 @@ function toggleCode() {
   .showcase-header {
     background: var(--q-bg-dark-2);
     border-bottom-color: var(--q-c-light-4);
+
+    .q-text-h2 {
+      color: var(--q-c-light);
+    }
+
+    .q-text-desc {
+      color: var(--q-c-light-2) !important;
+    }
   }
 
-  .theme-toggle-wrapper {
-    background: var(--q-c-light-5);
+  .showcase-preview {
+    color: var(--q-c-light);
   }
 
   .showcase-code {
     border-top-color: var(--q-c-light-4);
-  }
-}
-
-// Dark preview context for nested components
-.showcase-preview.dark {
-  :deep(.q-button) {
-    &.outlined {
-      border-color: var(--q-c-light-3);
-      color: var(--q-c-light);
-    }
-  }
-
-  :deep(.q-input),
-  :deep(.q-textarea) {
-    background: transparent;
-    border-color: var(--q-c-light-4);
-    color: var(--q-c-light);
-
-    &::placeholder {
-      color: var(--q-c-light-3);
-    }
-  }
-
-  :deep(.q-text-h2),
-  :deep(.q-text-h3),
-  :deep(.q-text-body-title) {
-    color: var(--q-c-light);
-  }
-
-  :deep(.q-text-desc),
-  :deep(.q-text-body-text) {
-    color: var(--q-c-light-2);
-  }
-
-  :deep(.divider) {
-    border-color: var(--q-c-light-4);
-  }
-
-  :deep(.frame) {
-    border-color: var(--q-c-light-4);
-    background: var(--q-bg-dark-2);
   }
 }
 </style>

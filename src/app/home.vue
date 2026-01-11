@@ -24,6 +24,33 @@ import SecPayment from "./home/payment.vue";
 import SecIcon from "./home/icon.vue";
 
 const sourceCodes = {
+  typeface: `<!-- Headings -->
+<h1 class="q-text-h1">Heading 1</h1>
+<h2 class="q-text-h2">Heading 2</h2>
+<h3 class="q-text-h3">Heading 3</h3>
+
+<!-- Body Text -->
+<p class="q-text-body-title">Body Title</p>
+<p class="q-text-body-text">Body Text</p>
+<p class="q-text-desc">Description</p>
+<span class="q-text-caption">Caption</span>`,
+
+  frame: `<!-- Frame -->
+<div class="frame">
+  Content inside a frame
+</div>
+
+<!-- Divider -->
+<div class="divider"></div>`,
+
+  premium: `<!-- Premium Badge -->
+<span class="premium-badge">Premium</span>
+
+<!-- Premium Frame -->
+<div class="premium-frame">
+  Premium content
+</div>`,
+
   button: `<QButton class="outlined">Outlined</QButton>
 <QButton class="primary">Primary</QButton>
 <QButton class="highlight">Highlight</QButton>
@@ -59,11 +86,75 @@ const sourceCodes = {
 <!-- Disabled -->
 <QInput v-model="value" disabled />`,
 
+  textarea: `<QTextarea v-model="value" placeholder="Enter text..." />
+
+<!-- With Rows -->
+<QTextarea v-model="value" :rows="5" />
+
+<!-- With Max Length -->
+<QTextarea v-model="value" :max-length="500" />
+
+<!-- Disabled -->
+<QTextarea v-model="value" disabled />`,
+
+  form: `<QFormItem label="Username" required>
+  <QInput v-model="username" />
+</QFormItem>
+
+<QFormItem label="Email" hint="We'll never share your email">
+  <QInput v-model="email" type="email" />
+</QFormItem>
+
+<QFormItem label="Password" error="Password is required">
+  <QInput v-model="password" type="password" />
+</QFormItem>`,
+
+  inputWithBtn: `<QInputWithButton
+  v-model="value"
+  placeholder="Enter email..."
+  button-text="Subscribe"
+  @submit="handleSubmit"
+/>
+
+<!-- Loading State -->
+<QInputWithButton
+  v-model="value"
+  button-text="Submit"
+  :loading="true"
+/>`,
+
   switch: `<QSwitch v-model="checked" />
 
 <!-- Themes -->
 <QSwitch v-model="checked" theme="clear-sky" />
 <QSwitch v-model="checked" theme="plastic" />`,
+
+  selector: `<!-- Language Selector -->
+<QLanguageSelector v-model="lang" :languages="languages" />
+
+<!-- Currency Selector -->
+<QCurrencySelector v-model="currency" :currencies="currencies" />`,
+
+  menu: `<QDropdownMenu :items="menuItems">
+  <QButton class="outlined">Open Menu</QButton>
+</QDropdownMenu>
+
+const menuItems = [
+  { label: 'Edit', icon: QIconEdit },
+  { label: 'Delete', icon: QIconTrash, class: 'danger' },
+  { divider: true },
+  { label: 'Settings', icon: QIconSettings }
+]`,
+
+  progress: `<QProgress :percentage="50" />
+
+<!-- Colors -->
+<QProgress :percentage="75" color="green" />
+<QProgress :percentage="25" color="orange" />
+<QProgress :percentage="100" color="red" />
+
+<!-- Infinite -->
+<QProgress infinite />`,
 
   dialog: `<QDialog v-model="visible" title="Dialog Title">
   <p>Dialog content goes here.</p>
@@ -79,6 +170,31 @@ const sourceCodes = {
   ]"
 />`,
 
+  fence: `<QFence title="Code Block">
+  <pre><code>const greeting = "Hello World";</code></pre>
+</QFence>
+
+<!-- With Language Tag -->
+<QFence title="JavaScript" language="js">
+  <pre><code>function hello() {
+  console.log("Hello!");
+}</code></pre>
+</QFence>`,
+
+  pagination: `<QPagination
+  v-model="currentPage"
+  :total="100"
+  :page-size="10"
+/>
+
+<!-- With Page Size Selector -->
+<QPagination
+  v-model="currentPage"
+  :total="100"
+  :page-size="pageSize"
+  show-size-changer
+/>`,
+
   tabs: `<QTabs v-model="selectedTab" :tabs="tabs" />
 
 <!-- Plain Variant -->
@@ -90,15 +206,31 @@ const tabs = [
   { id: 'settings', title: 'Settings', icon: QIconSettings }
 ]`,
 
-  progress: `<QProgress :percentage="50" />
+  datetime: `<QDatetimePicker v-model="date" />
 
-<!-- Colors -->
-<QProgress :percentage="75" color="green" />
-<QProgress :percentage="25" color="orange" />
-<QProgress :percentage="100" color="red" />
+<!-- Date Only -->
+<QDatetimePicker v-model="date" type="date" />
 
-<!-- Infinite -->
-<QProgress infinite />`,
+<!-- Time Only -->
+<QDatetimePicker v-model="time" type="time" />
+
+<!-- With Range -->
+<QDatetimePicker v-model="dateRange" range />`,
+
+  cover: `<QCover
+  :src="imageUrl"
+  :width="300"
+  :height="200"
+/>
+
+<!-- With Fallback -->
+<QCover
+  :src="imageUrl"
+  :fallback="fallbackUrl"
+/>
+
+<!-- Rounded -->
+<QCover :src="imageUrl" rounded />`,
 
   avatar: `<QAvatar src="https://..." :size="48" />
 
@@ -106,6 +238,29 @@ const tabs = [
 <QAvatar src="..." variant="circle" />
 <QAvatar src="..." variant="rounded" />
 <QAvatar src="..." variant="square" />`,
+
+  share: `<QShare
+  :platforms="['twitter', 'facebook', 'linkedin']"
+  :url="shareUrl"
+  :title="shareTitle"
+/>`,
+
+  payment: `<QPaymentMethods
+  v-model="selectedMethod"
+  :methods="['card', 'paypal', 'crypto']"
+/>`,
+
+  icon: `<!-- Basic Usage -->
+<QIconHome class="icon" />
+<QIconSettings class="icon" />
+<QIconUser class="icon" />
+
+<!-- With Size -->
+<QIconHome style="width: 24px; height: 24px;" />
+
+<!-- Colored Icons -->
+<QIconColorTwitter />
+<QIconColorGithub />`,
 };
 </script>
 
@@ -119,6 +274,7 @@ const tabs = [
         id="typeface"
         title="Typeface"
         description="Typography styles and font variations"
+        :source-code="sourceCodes.typeface"
       >
         <SecTypeface />
       </ComponentShowcase>
@@ -127,6 +283,7 @@ const tabs = [
         id="frame"
         title="Frame & Divider"
         description="Container frames and visual dividers"
+        :source-code="sourceCodes.frame"
       >
         <SecFrameAndDivider />
       </ComponentShowcase>
@@ -135,6 +292,7 @@ const tabs = [
         id="premium"
         title="Premium Decoration"
         description="Premium styling and decorations"
+        :source-code="sourceCodes.premium"
       >
         <SecPremiumDecoration />
       </ComponentShowcase>
@@ -171,6 +329,7 @@ const tabs = [
         id="textarea"
         title="Textarea"
         description="Multi-line text input"
+        :source-code="sourceCodes.textarea"
       >
         <SecTextarea />
       </ComponentShowcase>
@@ -179,6 +338,7 @@ const tabs = [
         id="form"
         title="Form"
         description="Form layout patterns and field organization"
+        :source-code="sourceCodes.form"
       >
         <SecForm />
       </ComponentShowcase>
@@ -187,6 +347,7 @@ const tabs = [
         id="input-with-btn"
         title="Input with Button"
         description="Combined input field with action button"
+        :source-code="sourceCodes.inputWithBtn"
       >
         <SecInputWithButton />
       </ComponentShowcase>
@@ -209,6 +370,7 @@ const tabs = [
         id="selector"
         title="Selector"
         description="Language and currency selectors"
+        :source-code="sourceCodes.selector"
       >
         <SecSelector />
       </ComponentShowcase>
@@ -217,6 +379,7 @@ const tabs = [
         id="menu"
         title="Menu"
         description="Dropdown menus with icons, dividers, and keyboard navigation"
+        :source-code="sourceCodes.menu"
       >
         <SecMenu />
       </ComponentShowcase>
@@ -248,6 +411,7 @@ const tabs = [
         id="fence"
         title="Fence"
         description="Code fence and content blocks"
+        :source-code="sourceCodes.fence"
       >
         <SecFence />
       </ComponentShowcase>
@@ -261,6 +425,7 @@ const tabs = [
         id="pagination"
         title="Pagination"
         description="Page navigation controls"
+        :source-code="sourceCodes.pagination"
       >
         <SecPagination />
       </ComponentShowcase>
@@ -283,6 +448,7 @@ const tabs = [
         id="datetime"
         title="Datetime Picker"
         description="Date and time selection component"
+        :source-code="sourceCodes.datetime"
       >
         <SecDatetimePicker />
       </ComponentShowcase>
@@ -291,6 +457,7 @@ const tabs = [
         id="cover"
         title="Cover"
         description="Cover image and card components"
+        :source-code="sourceCodes.cover"
       >
         <SecCover />
       </ComponentShowcase>
@@ -308,6 +475,7 @@ const tabs = [
         id="share"
         title="Share"
         description="Social sharing functionality"
+        :source-code="sourceCodes.share"
       >
         <SecShare />
       </ComponentShowcase>
@@ -316,6 +484,7 @@ const tabs = [
         id="payment"
         title="Payment"
         description="Payment method selection"
+        :source-code="sourceCodes.payment"
       >
         <SecPayment />
       </ComponentShowcase>
@@ -324,6 +493,7 @@ const tabs = [
         id="icon"
         title="Icons"
         description="Icon gallery with copy-to-clipboard"
+        :source-code="sourceCodes.icon"
       >
         <SecIcon />
       </ComponentShowcase>
@@ -346,5 +516,6 @@ const tabs = [
 
 :global(.dark) .category-title {
   border-bottom-color: var(--q-c-red-light);
+  color: var(--q-c-light);
 }
 </style>

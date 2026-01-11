@@ -151,6 +151,14 @@ onMounted(async () => {
   .article-header {
     background: var(--q-bg-dark-2);
     border-bottom-color: var(--q-c-light-4);
+
+    .q-text-h2 {
+      color: var(--q-c-light);
+    }
+
+    .q-text-desc {
+      color: var(--q-c-light-2) !important;
+    }
   }
 }
 </style>

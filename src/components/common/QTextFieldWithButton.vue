@@ -143,7 +143,7 @@ function changed() {
 
   &.code {
     .q-text-field {
-      font-family: monospace;
+      font-family: var(--q-font-mono);
       letter-spacing: 0.2rem;
     }
   }

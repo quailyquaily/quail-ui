@@ -8,6 +8,16 @@ const router = useRouter();
 const route = useRoute();
 
 const sidebarOpen = ref(false);
+const isDarkMode = ref(false);
+const isTUIMode = ref(false);
+
+function setTUIMode(enabled: boolean) {
+  if (enabled) {
+    document.body.classList.add('tui');
+  } else {
+    document.body.classList.remove('tui');
+  }
+}
 
 const topNavTabs = computed(() => [
   { id: 'home', title: 'Components' },
@@ -25,6 +35,20 @@ watch(() => route.path, (path) => {
     selectedTopTab.value = topNavTabs.value[1];
   }
 }, { immediate: true });
+
+watch(isDarkMode, (dark) => {
+  if (dark) {
+    document.body.classList.remove('light');
+    document.body.classList.add('dark');
+  } else {
+    document.body.classList.remove('dark');
+    document.body.classList.add('light');
+  }
+});
+
+watch(isTUIMode, (tui) => {
+  setTUIMode(tui);
+});
 
 function onTabChange(data: { index: number; tab: { id: string; title: string } }) {
   if (data.tab.id === 'home') {
@@ -75,6 +99,15 @@ onMounted(() => {
         </nav>
 
         <div class="top-nav-right">
+          <div class="global-switch">
+            <span class="switch-label q-text-caption">TUI</span>
+            <QSwitch v-model="isTUIMode" theme="clear-sky" />
+          </div>
+          <div class="global-switch">
+            <QIconSun class="switch-icon" />
+            <QSwitch v-model="isDarkMode" theme="clear-sky" />
+            <QIconMoon class="switch-icon" />
+          </div>
           <QButton class="github-btn outlined xs" href="https://github.com/quail-ink/quail-ui" target="_blank">
             <QIconColorGithub class="icon" />
             <span class="github-text">GitHub</span>
@@ -119,7 +152,6 @@ body {
 
 .app-container {
   min-height: 100vh;
-  font-family: var(--q-font-sans);
 }
 
 // Top Navigation
@@ -139,6 +171,10 @@ body {
   border-bottom-color: var(--q-c-light-4);
 }
 
+:global(.dark) .logo-text {
+  color: var(--q-c-light);
+}
+
 .top-nav-inner {
   display: flex;
   align-items: center;
@@ -156,9 +192,9 @@ body {
 }
 
 .hamburger-btn {
-  display: none;
+  display: none !important;
   @media (max-width: 767px) {
-    display: flex;
+    display: inline-flex !important;
   }
 }
 
@@ -191,6 +227,39 @@ body {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+}
+
+.global-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+
+  .switch-label {
+    color: var(--q-c-dark-2);
+    font-weight: 500;
+  }
+
+  .switch-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--q-c-dark-3);
+  }
+
+  @media (max-width: 640px) {
+    .switch-label {
+      display: none;
+    }
+  }
+}
+
+:global(.dark) .global-switch {
+  .switch-label {
+    color: var(--q-c-light-2);
+  }
+
+  .switch-icon {
+    color: var(--q-c-light-3);
+  }
 }
 
 .github-btn {

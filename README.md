@@ -32,7 +32,7 @@ Initialize Quaily UI in your main.js/main.ts file:
 ```js
 import { createApp } from 'vue'
 import { QuailUI } from 'quail-ui'
-import 'quail-ui/dist/style.css'
+import 'quail-ui/dist/index.css'
 
 const app = createApp(App)
 app.use(QuailUI)
@@ -63,7 +63,7 @@ You can use Quaily UI directly in HTML without any build tools:
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="https://unpkg.com/quail-ui/dist/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/quail-ui/dist/index.css" />
   <script type="importmap">
     {
       "imports": {

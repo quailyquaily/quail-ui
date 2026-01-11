@@ -4,6 +4,32 @@
   border-radius: 0.5rem;
   transition: all 0.2s ease;
 
+  // Pressed state overlay
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    border-radius: inherit;
+    pointer-events: none;
+    transition: background 0.1s ease-out;
+  }
+  &:active::before,
+  &.shortcut-active::before {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  // Filled buttons use light overlay
+  &.primary:active::before,
+  &.primary.shortcut-active::before,
+  &.highlight:active::before,
+  &.highlight.shortcut-active::before,
+  &.danger:active::before,
+  &.danger.shortcut-active::before,
+  &.stripe:active::before,
+  &.stripe.shortcut-active::before {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
   &.border-radius-sm {
     border-radius: 0.375rem;
   }
@@ -333,6 +359,23 @@
   .touchable {
     background-color: var(--q-c-dark);
     color: var(--q-c-white);
+
+    // Dark mode pressed state
+    &:active::before,
+    &.shortcut-active::before {
+      background: rgba(0, 0, 0, 0.15);
+    }
+    &.primary:active::before,
+    &.primary.shortcut-active::before,
+    &.highlight:active::before,
+    &.highlight.shortcut-active::before,
+    &.danger:active::before,
+    &.danger.shortcut-active::before,
+    &.stripe:active::before,
+    &.stripe.shortcut-active::before {
+      background: rgba(0, 0, 0, 0.2);
+    }
+
     &.primary {
       --q-progress-color: rgba(255, 255, 255, 0.1);
       --q-progress-color-light: rgba(0, 0, 0, 0.05);

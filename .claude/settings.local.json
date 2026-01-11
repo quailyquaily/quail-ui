@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:zed.dev)",
+      "WebFetch(domain:jsonbill.com)"
+    ]
+  }
+}

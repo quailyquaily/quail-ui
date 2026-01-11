@@ -1,10 +1,17 @@
 <template>
-  <button :class="cls" :disabled="!validated" :ariaLabel="realAriaLabel">
+  <button
+    ref="buttonRef"
+    :class="cls"
+    :disabled="!validated"
+    :ariaLabel="realAriaLabel"
+  >
     <span v-if="!href" class="button-inner">
       <slot></slot>
+      <span v-if="displayShortcut" class="shortcut-badge">{{ displayShortcut }}</span>
     </span>
     <a v-else :href="href" class="button-inner" :title="title" :target="target" :rel="rel">
       <slot></slot>
+      <span v-if="displayShortcut" class="shortcut-badge">{{ displayShortcut }}</span>
     </a>
     <div v-if="props.loading" class="ocean">
       <div class="wave"></div>
@@ -13,12 +20,15 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, useSlots } from 'vue';
+import { computed, useSlots, ref, onMounted, onUnmounted } from 'vue';
 import { useUtil } from '../../composables/useUtil';
 
 const slots = useSlots();
 
-const { extractText, extractIconName } = useUtil();
+const { extractText, extractIconName, browserDetect } = useUtil();
+
+const buttonRef = ref<HTMLButtonElement | null>(null);
+const shortcutPressed = ref(false);
 
 const props = defineProps({
   class: {
@@ -52,6 +62,118 @@ const props = defineProps({
   ariaLabel: {
     type: String,
     default: '',
+  },
+  shortcut: {
+    type: String,
+    default: '',
+  }
+});
+
+
+// Map common shortcut names to event.key values
+const keyNameMap: Record<string, string> = {
+  'del': 'delete',
+  'esc': 'escape',
+  'ins': 'insert',
+  'pgup': 'pageup',
+  'pgdn': 'pagedown',
+  'enter': 'enter',
+  'return': 'enter',
+  'space': ' ',
+  'up': 'arrowup',
+  'down': 'arrowdown',
+  'left': 'arrowleft',
+  'right': 'arrowright',
+};
+
+// Parse shortcut string into components
+function parseShortcut(shortcut: string) {
+  const parts = shortcut.split('+').map(p => p.trim().toLowerCase());
+  let key = parts[parts.length - 1];
+  // Map common key names to event.key values
+  key = keyNameMap[key] || key;
+  const modifiers = {
+    ctrl: parts.includes('ctrl'),
+    cmd: parts.includes('cmd') || parts.includes('meta'),
+    alt: parts.includes('alt'),
+    shift: parts.includes('shift'),
+  };
+  return { key, modifiers };
+}
+
+// Format shortcut for display with OS-specific modifier symbols
+const displayShortcut = computed(() => {
+  if (!props.shortcut) return '';
+
+  const { isMac } = browserDetect();
+  const parts = props.shortcut.split('+').map(p => p.trim());
+
+  return parts.map(part => {
+    const lower = part.toLowerCase();
+    if (lower === 'ctrl') return isMac ? '⌃' : 'Ctrl';
+    if (lower === 'cmd' || lower === 'meta') return isMac ? '⌘' : 'Ctrl';
+    if (lower === 'alt') return isMac ? '⌥' : 'Alt';
+    if (lower === 'shift') return isMac ? '⇧' : 'Shift';
+    return part.toUpperCase();
+  }).join(isMac ? '' : '+');
+});
+
+// Handle keyboard events
+function handleKeyDown(event: KeyboardEvent) {
+  if (!props.shortcut || props.disabled) return;
+
+  // Don't trigger shortcuts when typing in input fields
+  const target = event.target as HTMLElement;
+  if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) {
+    return;
+  }
+
+  const { key, modifiers } = parseShortcut(props.shortcut);
+  const { isMac } = browserDetect();
+
+  // Check if the key matches
+  if (event.key.toLowerCase() !== key) return;
+
+  // Check modifiers - on Mac, Cmd maps to metaKey; Ctrl maps to ctrlKey
+  // On Windows/Linux, both Cmd and Ctrl map to ctrlKey
+  const cmdOrCtrlPressed = isMac ? event.metaKey : event.ctrlKey;
+  const wantsCmd = modifiers.cmd || modifiers.ctrl;
+
+  if (wantsCmd !== cmdOrCtrlPressed) return;
+  if (modifiers.alt !== event.altKey) return;
+  if (modifiers.shift !== event.shiftKey) return;
+
+  // Prevent default browser behavior
+  event.preventDefault();
+
+  // Show pressed state
+  shortcutPressed.value = true;
+
+  // Trigger native button click
+  buttonRef.value?.click();
+}
+
+// Handle key up to release pressed state
+function handleKeyUp(event: KeyboardEvent) {
+  if (!props.shortcut || !shortcutPressed.value) return;
+
+  const { key } = parseShortcut(props.shortcut);
+  if (event.key.toLowerCase() === key) {
+    shortcutPressed.value = false;
+  }
+}
+
+onMounted(() => {
+  if (props.shortcut) {
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+  }
+});
+
+onUnmounted(() => {
+  if (props.shortcut) {
+    window.removeEventListener('keydown', handleKeyDown);
+    window.removeEventListener('keyup', handleKeyUp);
   }
 });
 
@@ -60,6 +182,9 @@ const cls = computed(() => {
   ret.push(props.class);
   if (props.loading) {
     ret.push('loading');
+  }
+  if (shortcutPressed.value) {
+    ret.push('shortcut-active');
   }
   if ((window as any)?._quailui_use_squircle) {
     ret.push('squircle');
@@ -146,6 +271,43 @@ const realAriaLabel = computed(() => {
     align-items: center;
     justify-content: center;
     text-decoration: none;
+  }
+  .shortcut-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5rem;
+    padding: 0.15rem 0.45rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    line-height: 1.3;
+    min-width: 1.4em;
+  }
+  // For filled buttons (primary, highlight, danger, stripe): use light/white background
+  &.primary .shortcut-badge,
+  &.highlight .shortcut-badge,
+  &.danger .shortcut-badge,
+  &.stripe .shortcut-badge {
+    background: rgba(255, 255, 255, 0.25);
+    color: inherit;
+  }
+  // For outlined/plain buttons: subtle gray with border
+  &.outlined .shortcut-badge,
+  &.plain .shortcut-badge,
+  &.placeholder .shortcut-badge {
+    background: rgba(0, 0, 0, 0.06);
+    color: rgba(0, 0, 0, 0.5);
+  }
+  :global(.dark) & .shortcut-badge {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  :global(.dark) &.outlined .shortcut-badge,
+  :global(.dark) &.plain .shortcut-badge,
+  :global(.dark) &.placeholder .shortcut-badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
   }
   &.weight-bold {
     font-weight: 500;

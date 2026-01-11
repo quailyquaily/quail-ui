@@ -93,6 +93,14 @@
       <div class="flow">
         <QButton class="outlined" href="https://www.google.com" target="_blank">Visit Google</QButton>
       </div>
+      <div class="flow">
+        <QButton class="primary" shortcut="W" @click="() => console.log('W pressed')">Download</QButton>
+        <QButton class="outlined" shortcut="Cmd+K" @click="() => console.log('Cmd+K pressed')">Search</QButton>
+        <QButton class="highlight" shortcut="Cmd+S" @click="() => console.log('Cmd+S pressed')">Save</QButton>
+        <QButton class="danger" shortcut="Del" @click="() => console.log('Del pressed')">Save</QButton>
+        <QButton class="outlined danger" shortcut="Del" @click="() => console.log('Del pressed')">Save</QButton>
+        <QButton class="plain" shortcut="Shift+N" @click="() => console.log('Shift+N pressed')">New</QButton>
+      </div>
       <div class="flow grid gap-4 grid-cols-2">
         <QButton class="outlined block">border-radius</QButton>
         <QButton class="outlined block border-radius-sm">border-radius-sm</QButton>

@@ -212,6 +212,24 @@ button, input, select, textarea {
   font-family: inherit;
 }
 
+// TUI mode - override typeface classes to use monospace
+body.tui {
+  .q-text-display-title,
+  .q-text-display-desc,
+  .q-text-display,
+  .q-text-h1,
+  .q-text-h2,
+  .q-text-h3,
+  .q-text-desc,
+  .q-text-body,
+  .q-text-body-text,
+  .q-text-body-title,
+  .q-text-body-desc,
+  .q-text-caption {
+    font-family: inherit;
+  }
+}
+
 a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent; /* For some Androids */

@@ -101,16 +101,14 @@ onMounted(() => {
         <div class="top-nav-right">
           <div class="global-switch">
             <span class="switch-label q-text-caption">TUI</span>
-            <QSwitch v-model="isTUIMode" theme="clear-sky" />
+            <QSwitch v-model="isTUIMode" />
           </div>
           <div class="global-switch">
             <QIconSun class="switch-icon" />
             <QSwitch v-model="isDarkMode" theme="clear-sky" />
-            <QIconMoon class="switch-icon" />
           </div>
-          <QButton class="github-btn outlined xs" href="https://github.com/quail-ink/quail-ui" target="_blank">
+          <QButton class="github-btn outlined icon xs" href="https://github.com/quail-ink/quail-ui" target="_blank">
             <QIconColorGithub class="icon" />
-            <span class="github-text">GitHub</span>
           </QButton>
         </div>
       </div>
@@ -166,14 +164,6 @@ body {
   background: rgba(250, 250, 248, 0.9);
 }
 
-:global(.dark) .top-nav {
-  background: rgba(22, 22, 29, 0.9);
-  border-bottom-color: var(--q-c-light-4);
-}
-
-:global(.dark) .logo-text {
-  color: var(--q-c-light);
-}
 
 .top-nav-inner {
   display: flex;
@@ -252,16 +242,6 @@ body {
   }
 }
 
-:global(.dark) .global-switch {
-  .switch-label {
-    color: var(--q-c-light-2);
-  }
-
-  .switch-icon {
-    color: var(--q-c-light-3);
-  }
-}
-
 .github-btn {
   .github-text {
     margin-left: 0.375rem;
@@ -320,6 +300,29 @@ body {
   }
   .label {
     font-family: var(--q-font-mono);
+  }
+}
+</style>
+
+<style lang="scss">
+.dark {
+  .top-nav {
+    background: rgba(22, 22, 29, 0.9);
+    border-bottom-color: var(--q-c-light-4);
+  }
+
+  .logo-text {
+    color: var(--q-c-light);
+  }
+
+  .global-switch {
+    .switch-label {
+      color: var(--q-c-light-2);
+    }
+
+    .switch-icon {
+      color: var(--q-c-light-3);
+    }
   }
 }
 </style>

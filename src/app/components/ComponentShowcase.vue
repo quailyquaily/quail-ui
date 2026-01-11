@@ -206,8 +206,10 @@ function toggleCode() {
   opacity: 1;
 }
 
-// Global dark mode adjustments
-:global(.dark) {
+</style>
+
+<style lang="scss">
+.dark {
   .component-showcase {
     border-color: var(--q-c-light-4);
     background: var(--q-bg-dark);

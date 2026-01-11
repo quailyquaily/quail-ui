@@ -261,8 +261,21 @@ function scrollToSection(sectionId: string) {
   }
 }
 
-// Dark mode
-:global(.dark) {
+// Collapse animation
+.collapse-enter-active,
+.collapse-leave-active {
+  transition: all 0.2s ease;
+}
+
+.collapse-enter-from,
+.collapse-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+</style>
+
+<style lang="scss">
+.dark {
   .demo-sidebar {
     background: var(--q-bg-dark);
     border-right-color: var(--q-c-light-4);
@@ -270,10 +283,15 @@ function scrollToSection(sectionId: string) {
 
   .sidebar-header {
     border-bottom-color: var(--q-c-light-4);
+    color: var(--q-c-light);
   }
 
   .category-header:hover {
     background-color: var(--q-c-light-5);
+  }
+
+  .category-title {
+    color: var(--q-c-light);
   }
 
   .section-link {
@@ -289,17 +307,5 @@ function scrollToSection(sectionId: string) {
       background-color: rgba(174, 19, 0, 0.15);
     }
   }
-}
-
-// Collapse animation
-.collapse-enter-active,
-.collapse-leave-active {
-  transition: all 0.2s ease;
-}
-
-.collapse-enter-from,
-.collapse-leave-to {
-  opacity: 0;
-  transform: translateY(-8px);
 }
 </style>

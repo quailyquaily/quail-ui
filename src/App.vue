@@ -319,7 +319,7 @@ body {
     min-width: 20px;
   }
   .label {
-    font-family: monospace;
+    font-family: var(--q-font-mono);
   }
 }
 </style>

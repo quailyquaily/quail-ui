@@ -68,7 +68,7 @@ function change(event:any) {
 
 	.q-switch-inner {
 		display: inline-block;
-		background: var(--q-c-dark-4);
+		background: var(--q-bg-dark-float);
 		border-radius: 16px;
 		width: var(--switch-w);
 		height: var(--switch-h);
@@ -108,7 +108,7 @@ function change(event:any) {
 }
 .q-switch.theme-plastic {
 	.q-switch-inner {
-		background: #161616;
+	  background: var(--q-bg-dark-float);
 		.q-switch-handle {
 			background: linear-gradient(to bottom, #484833 0%,#333 100%);
 			.q-switch-icon {
@@ -118,7 +118,6 @@ function change(event:any) {
 				transform: translate(-50%, -50%);
 				width: 16px;
 				height: 16px;
-				color: #fff079;
 			}
 		}
 	}

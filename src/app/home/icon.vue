@@ -76,7 +76,7 @@ const copyIcon = (name: string) => {
     align-items: center;
     height: 24px;
     .label {
-      font-family: monospace;
+      font-family: var(--q-font-mono);
     }
     .copy-button {
       .icon {

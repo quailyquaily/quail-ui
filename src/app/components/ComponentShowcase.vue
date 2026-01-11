@@ -20,10 +20,6 @@ function copyCode() {
     }, 2000);
   }
 }
-
-function toggleCode() {
-  showCode.value = !showCode.value;
-}
 </script>
 
 <template>
@@ -35,19 +31,9 @@ function toggleCode() {
       </div>
 
       <div v-if="sourceCode" class="showcase-controls">
-        <QButton
-          class="outlined xs code-btn"
-          @click="toggleCode"
-        >
+        <QToggleButton v-model="showCode" class="icon xs">
           <QIconCode class="icon" />
-          <span class="btn-text">{{ showCode ? 'Hide' : 'Code' }}</span>
-        </QButton>
-      </div>
-    </div>
-
-    <div class="showcase-preview" :class="{ 'code-visible': showCode && sourceCode }">
-      <div class="preview-inner">
-        <slot></slot>
+        </QToggleButton>
       </div>
     </div>
 
@@ -63,6 +49,12 @@ function toggleCode() {
         <pre class="code-content"><code>{{ sourceCode }}</code></pre>
       </div>
     </Transition>
+
+    <div class="showcase-preview" :class="{ 'code-visible': showCode && sourceCode }">
+      <div class="preview-inner">
+        <slot></slot>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -106,43 +98,8 @@ function toggleCode() {
   }
 }
 
-.code-btn {
-  .btn-text {
-    margin-left: 0.375rem;
-    @media (max-width: 480px) {
-      display: none;
-    }
-  }
-}
-
-.showcase-preview {
-  padding: 1.5rem;
-  min-height: 100px;
-  border-radius: 0 0 8px 8px;
-
-  &.code-visible {
-    border-radius: 0;
-  }
-}
-
-.preview-inner {
-  :deep(.section) {
-    margin: 0;
-  }
-
-  :deep(.divider) {
-    display: none;
-  }
-
-  :deep(.q-text-h2:first-child) {
-    display: none;
-  }
-}
-
 .showcase-code {
-  border-top: 0.5px solid var(--q-c-dark-4);
   background: #1a1a1f;
-  border-radius: 0 0 8px 8px;
   overflow: hidden;
 }
 
@@ -184,6 +141,30 @@ function toggleCode() {
   code {
     font-family: inherit;
     white-space: pre;
+  }
+}
+
+.showcase-preview {
+  padding: 1.5rem;
+  min-height: 100px;
+  border-radius: 0 0 8px 8px;
+
+  &.code-visible {
+    border-top: 0.5px solid var(--q-c-dark-4);
+  }
+}
+
+.preview-inner {
+  :deep(.section) {
+    margin: 0;
+  }
+
+  :deep(.divider) {
+    display: none;
+  }
+
+  :deep(.q-text-h2:first-child) {
+    display: none;
   }
 }
 
@@ -230,10 +211,10 @@ function toggleCode() {
 
   .showcase-preview {
     color: var(--q-c-light);
-  }
 
-  .showcase-code {
-    border-top-color: var(--q-c-light-4);
+    &.code-visible {
+      border-top-color: var(--q-c-light-4);
+    }
   }
 }
 </style>

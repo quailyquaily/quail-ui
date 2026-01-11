@@ -2,78 +2,95 @@
   <div class="section mb-4">
     <div class="divider mb-4"></div>
     <h2 class="q-text-h2 mb-4">Dialog & MessageDialog</h2>
-    <div class="grid gap-4 grid-cols-2 mb-4">
-      <QButton class="outlined" @click="dialogValue1 = true">
-        Open Dialog
-      </QButton>
 
-      <QButton class="outlined" @click="dialogValue2 = true">
-        Open Persistent Dialog
-      </QButton>
-
-      <QDialog v-model="dialogValue3" desktop-mode="popup">
-        <template #trigger>
-          <QButton class="outlined" @click.stop="openDialog3">
-            Open Dialog (popup)
+    <div class="demo-groups">
+      <!-- Basic Dialog -->
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">Basic Dialog</div>
+        <div class="flow">
+          <QButton class="outlined" @click="dialogValue1 = true">
+            Open Dialog
           </QButton>
-        </template>
-
-        <div class="dialog-body">
-          <div class="form-row center">
-            <p style="text-align: center">Some text here</p>
-          </div>
-        </div>
-      </QDialog>
-
-      <QDialog v-model="dialogValue4" desktop-mode="popup" no-frame>
-        <template #trigger>
-            <QButton class="outlined" @click.stop="openDialog4">
-            Open Dialog (popup & no-frame)
+          <QButton class="outlined" @click="dialogValue2 = true">
+            Open Persistent Dialog
           </QButton>
-        </template>
-
-        <div
-          class="dialog-body"
-          style="padding: 1rem; position: relative"
-        >
-          <div class="dialog-body-frame" style="background-color: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
-            <div class="grid gap-4 grid-cols-1 center">
-              <QButton class="primary block">
-                Action
-              </QButton>
-              <QButton class="danger block">
-                Action
-              </QButton>
-              <QButton class="stripe" @click="dialogValue4 = false">
-                Cancel
-              </QButton>
-            </div>
-          </div>
         </div>
-      </QDialog>
+      </div>
 
-      <QDialog v-model="dialogValue8" desktop-mode="dialog" no-frame popup-position="top">
-        <template #trigger>
-          <QButton class="outlined" @click.stop="dialogValue8 = true">
-            Open Dialog (top)
+      <!-- Popup Mode -->
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">Popup Mode</div>
+        <div class="flow">
+          <QDialog v-model="dialogValue3" desktop-mode="popup">
+            <template #trigger>
+              <QButton class="outlined" @click.stop="openDialog3">
+                Open Dialog (popup)
+              </QButton>
+            </template>
+            <div class="dialog-body">
+              <div class="form-row center">
+                <p style="text-align: center">Some text here</p>
+              </div>
+            </div>
+          </QDialog>
+
+          <QDialog v-model="dialogValue4" desktop-mode="popup" no-frame>
+            <template #trigger>
+              <QButton class="outlined" @click.stop="openDialog4">
+                Open Dialog (popup & no-frame)
+              </QButton>
+            </template>
+            <div class="dialog-body" style="padding: 1rem; position: relative">
+              <div class="dialog-body-frame" style="background-color: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+                <div class="grid gap-4 grid-cols-1 center">
+                  <QButton class="primary block">Action</QButton>
+                  <QButton class="danger block">Action</QButton>
+                  <QButton class="stripe" @click="dialogValue4 = false">Cancel</QButton>
+                </div>
+              </div>
+            </div>
+          </QDialog>
+
+          <QDialog v-model="dialogValue8" desktop-mode="dialog" no-frame popup-position="top">
+            <template #trigger>
+              <QButton class="outlined" @click.stop="dialogValue8 = true">
+                Open Dialog (top)
+              </QButton>
+            </template>
+            <div class="dialog-body" style="padding: 1rem; position: relative">
+              <div class="dialog-body-frame" style="background-color: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+                <div class="flex search-wrapper">
+                  <QSearchInput class="search-box" />
+                  <QButton class="primary block icon ml-2">
+                    <QIconSearch class="icon" />
+                  </QButton>
+                </div>
+                <div class="search-result flex place-center q-c-dark-3 q-text-caption">
+                  <span class="p-4">Search results</span>
+                </div>
+              </div>
+            </div>
+          </QDialog>
+        </div>
+      </div>
+
+      <!-- Message Dialog -->
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">Message Dialog</div>
+        <div class="flow">
+          <QButton class="outlined" @click="dialogValue5 = true">
+            Open Message Dialog
           </QButton>
-        </template>
-
-        <div class="dialog-body" style="padding: 1rem; position: relative">
-          <div class="dialog-body-frame" style="background-color: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
-            <div class="flex search-wrapper">
-              <QSearchInput class="search-box" />
-              <QButton class="primary block icon ml-2">
-                <QIconSearch class="icon" />
-              </QButton>
-            </div>
-            <div class="search-result flex place-center q-c-dark-3 q-text-caption">
-              <span class="p-4">Search results</span>
-            </div>
-          </div>
+          <QButton class="outlined" @click="dialogValue6 = true">
+            Open Message Dialog (emoji)
+          </QButton>
+          <QButton class="outlined" @click="dialogValue7 = true">
+            Open Message Dialog (warn)
+          </QButton>
         </div>
-      </QDialog>
+      </div>
 
+      <!-- Hidden Dialogs -->
       <QDialog v-model="dialogValue1" title="Hello">
         <div class="dialog-body">
           <div class="form-row center">
@@ -88,26 +105,10 @@
             <p class="text-center p-4">You must click close button to close me</p>
           </div>
           <div class="flex place-center">
-            <QButton class="primary" @click="dialogValue2 = false">
-              Close
-            </QButton>
+            <QButton class="primary" @click="dialogValue2 = false">Close</QButton>
           </div>
         </div>
       </QDialog>
-
-    </div>
-    <div class="grid gap-4 grid-cols-2 mb-4">
-      <QButton class="outlined" @click="dialogValue5 = true">
-        Open Message Dialog
-      </QButton>
-
-      <QButton class="outlined" @click="dialogValue6 = true">
-        Open Message Dialog (emoji)
-      </QButton>
-
-      <QButton class="outlined" @click="dialogValue7 = true">
-        Open Message Dialog (warn)
-      </QButton>
 
       <QMessageDialog v-model="dialogValue5"
         icon="QIconSun"
@@ -132,7 +133,6 @@
           {label: 'Cancel', class: 'outlined', action: () => { dialogValue7 = false }},
           {label: 'Delete', class: 'primary danger', action: () => { dialogValue7 = false }}
         ]"/>
-
     </div>
   </div>
 </template>
@@ -155,10 +155,24 @@ function openDialog3(ev:any) {
 function openDialog4(ev:any) {
   dialogValue4.value = true;
 }
-
 </script>
 
 <style lang="scss" scoped>
+.demo-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.demo-group {
+  .group-label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
 .search-wrapper {
   display: flex;
   .search-box {

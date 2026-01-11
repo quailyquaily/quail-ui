@@ -9,7 +9,7 @@ const router = useRouter();
 const route = useRoute();
 
 const sidebarOpen = ref(false);
-const isDarkMode = ref(false);
+const isLightMode = ref(true);
 const isTUIMode = ref(false);
 
 function setTUIMode(enabled: boolean) {
@@ -29,7 +29,7 @@ const selectedTopTab = ref(topNavTabs.value[0]);
 
 const isHomePage = computed(() => route.path === '/' || route.name === 'home');
 
-const currentLogo = computed(() => isDarkMode.value ? logoDark : logoLight);
+const currentLogo = computed(() => isLightMode.value ? logoLight: logoDark);
 
 watch(() => route.path, (path) => {
   if (path === '/' || path === '/home') {
@@ -39,13 +39,13 @@ watch(() => route.path, (path) => {
   }
 }, { immediate: true });
 
-watch(isDarkMode, (dark) => {
-  if (dark) {
-    document.body.classList.remove('light');
-    document.body.classList.add('dark');
-  } else {
+watch(isLightMode, (light) => {
+  if (light) {
     document.body.classList.remove('dark');
     document.body.classList.add('light');
+  } else {
+    document.body.classList.remove('light');
+    document.body.classList.add('dark');
   }
 });
 
@@ -107,8 +107,8 @@ onMounted(() => {
             <QSwitch v-model="isTUIMode" />
           </div>
           <div class="global-switch">
-            <QIconSun class="switch-icon" />
-            <QSwitch v-model="isDarkMode" theme="clear-sky" />
+            <!-- <QIconSun class="switch-icon" /> -->
+            <QSwitch v-model="isLightMode" theme="clear-sky" />
           </div>
           <QButton class="github-btn outlined icon xs" href="https://github.com/quail-ink/quail-ui" target="_blank">
             <QIconGithub class="icon" />

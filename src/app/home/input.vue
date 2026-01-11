@@ -2,43 +2,65 @@
   <div class="section mb-4">
     <div class="divider mb-4"></div>
     <h2 class="q-text-h2 mb-4">Input</h2>
-    <div class="grid gap-4 grid-cols-2 mb-4">
-      <QInput v-model="defaultInputValue" type="text" placeholder="type here!" :hint-text="'Less than 10 charactors'" :max="10"/>
-      <QInput v-model="inputValue" type="text" placeholder="type here!" :error="true" :hint-text="'Some errors!'"/>
-      <QInput v-model="inputValue" type="text" placeholder="type here!" :disabled="true" :hint-text="'Some errors!'"/>
-      <QInput v-model="inputValue" type="text" placeholder="type here!" :disabled="true"/>
-      <QInput v-model="inputValue" type="text" placeholder="type here!" />
-      <QInput v-model="inputValue" type="text" placeholder="type here!" :max="100">
-        <template #prepend-out>
-          <QSwitch class="mr-2" v-model="switchValue"/>
-        </template>
-        <template #prepend>
-          <QIconSearch class="text-field-icon ml-3" />
-        </template>
-        <template #append>
-          <QButton class="outlined xs icon mr-2">
-            <QIconSun class="icon" />
-          </QButton>
-        </template>
-        <template #append-out>
-          <QButton class="highlight icon ml-2">
-            <QIconMenu class="icon" />
-          </QButton>
-        </template>
-      </QInput>
-      <div class="frame p-3 q-text-desc">
-        <div>inputValue: {{ inputValue }}</div>
+
+    <div class="demo-groups">
+      <!-- Basic -->
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">Basic</div>
+        <div class="demo-row">
+          <QInput v-model="defaultInputValue" type="text" placeholder="type here!" :hint-text="'Less than 10 charactors'" :max="10"/>
+          <QInput v-model="inputValue" type="text" placeholder="type here!" />
+        </div>
       </div>
-    </div>
-    <div>
-      <div class="q-text-caption q-c-dark-3 mb-2">search input</div>
-      <div class="grid gap-4 grid-cols-2">
-        <QSearchInput v-model="searchValue" :items="searchItems"
-          placeholder="Search here. e.g. apple"
-          @keyup="searchInputKeyup" @select="selectSearchResult"
-        />
-        <div class="frame p-3 q-text-desc">
-          search result: {{ searchValue }}
+
+      <!-- States -->
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">States</div>
+        <div class="demo-row">
+          <QInput v-model="inputValue" type="text" placeholder="type here!" :error="true" :hint-text="'Some errors!'"/>
+          <QInput v-model="inputValue" type="text" placeholder="disabled" :disabled="true"/>
+        </div>
+      </div>
+
+      <!-- With Slots -->
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">With Slots</div>
+        <div class="demo-row">
+          <QInput v-model="inputValue" type="text" placeholder="type here!" :max="100">
+            <template #prepend-out>
+              <QSwitch class="mr-2" v-model="switchValue"/>
+            </template>
+            <template #prepend>
+              <QIconSearch class="text-field-icon ml-3" />
+            </template>
+            <template #append>
+              <QButton class="outlined xs icon mr-2">
+                <QIconSun class="icon" />
+              </QButton>
+            </template>
+            <template #append-out>
+              <QButton class="highlight icon ml-2">
+                <QIconMenu class="icon" />
+              </QButton>
+            </template>
+          </QInput>
+          <div class="frame p-3 q-text-desc">
+            <div>inputValue: {{ inputValue }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search Input -->
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">Search Input</div>
+        <div class="demo-row">
+          <QSearchInput v-model="searchValue" :items="searchItems"
+            placeholder="Search here. e.g. apple"
+            @keyup="searchInputKeyup" @select="selectSearchResult"
+          />
+          <div class="frame p-3 q-text-desc">
+            search result: {{ searchValue }}
+          </div>
         </div>
       </div>
     </div>
@@ -82,5 +104,30 @@ function selectSearchResult(val:any) {
 .text-field-icon {
   width: 16px;
   height: 16px;
+}
+
+.demo-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.demo-group {
+  .group-label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.demo-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

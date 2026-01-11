@@ -2,159 +2,183 @@
   <div class="section mb-4">
     <div class="divider mb-4"></div>
     <h2 class="q-text-h2 mb-4">Menu, DropdownMenu & DropdownMenuWithTextField</h2>
-    <div class="grid gap-4 grid-cols-3">
-      <div class="menu-wrapper" style="width: 300px; height: 400px;">
-        <div class="q-text-caption q-c-dark-3 mb-2">Normal</div>
-        <QMenu :items="menuItems" persistent/>
-      </div>
-      <div class="menu-wrapper" style="width: 300px; height: 400px;">
-        <div class="q-text-caption q-c-dark-3 mb-2">without frame</div>
-        <QMenu :items="menuItems" no-frame persistent/>
-      </div>
-      <div class="menu-wrapper" style="width: 300px; height: 400px;">
-        <div class="q-text-caption q-c-dark-3 mb-2">without frame & shadow</div>
-        <QMenu :items="menuItems" no-frame no-shadow persistent/>
-      </div>
-    </div>
-    <div class="grid gap-4 grid-cols-5 mb-8">
-      <div>
-        <div class="q-text-caption q-c-dark-3 mb-2">normal</div>
-        <QDropdownMenu
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          @change="dropdownMenuSelectionChanged"
-        />
-      </div>
-      <div>
-        <div class="q-text-caption q-c-dark-3 mb-2">disabled</div>
-        <QDropdownMenu
-          :items="menuItems"
-          disabled
-          :initial-item="selectedMenuItem"
-          @change="dropdownMenuSelectionChanged"
-        />
-      </div>
-      <div>
-        <div class="q-text-caption q-c-dark-3 mb-2">hide selected item</div>
-        <QDropdownMenu
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          hide-selected
-          @change="dropdownMenuSelectionChanged"
-        />
-      </div>
-      <div>
-        <div class="q-text-caption q-c-dark-3 mb-2">custom content</div>
-        <QDropdownMenu
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          @change="dropdownMenuSelectionChanged"
-        >
-          <div class="">Custom content</div>
-        </QDropdownMenu>
-      </div>
-    </div>
-    <div class="grid gap-4 grid-cols-5 mb-8">
-      <div>
-        <div class="q-text-caption q-c-dark-3 mb-2">custom content (plain)</div>
-        <QDropdownMenu
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          variant="plain"
-          @change="dropdownMenuSelectionChanged"
-        >
-          <div class="">Custom content</div>
-        </QDropdownMenu>
-      </div>
-      <div>
-        <div class="q-text-caption q-c-dark-3 mb-2">hide action label (plain)</div>
-        <QDropdownMenu
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          variant="plain"
-          hide-action-label
-          @change="dropdownMenuSelectionChanged"
-        ></QDropdownMenu>
-      </div>
-      <div>
-        <div class="q-text-caption q-c-dark-3 mb-2">loading and small size</div>
-        <QDropdownMenu
-          class="sm"
-          :loading="true"
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          @change="dropdownMenuSelectionChanged"
-        />
-      </div>
-      <div>
-        <div class="q-text-caption q-c-dark-3 mb-2">small size</div>
-        <QDropdownMenu
-          class="sm"
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          @change="dropdownMenuSelectionChanged"
-        />
-      </div>
-      <div>
-      <div class="q-text-caption q-c-dark-3 mb-2">smaller size</div>
-        <QDropdownMenu
-          class="xs"
-          :items="menuItems"
-          :initial-item="selectedMenuItem"
-          @change="dropdownMenuSelectionChanged"
-        />
-      </div>
-    </div>
-    <div class="mb-8">
-      <div class="grid gap-4 grid-cols-5">
-        <div>
-          <div class="q-text-caption q-c-dark-3 mb-2">use dialog</div>
-          <QDropdownMenu
-            :items="menuItems"
-            :initial-item="selectedMenuItem"
-            use-dialog="always"
-            @change="dropdownMenuSelectionChanged"
-          />
+
+    <div class="demo-groups">
+      <!-- QMenu -->
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">QMenu</div>
+        <div class="menu-grid">
+          <div class="menu-wrapper">
+            <div class="q-text-caption q-c-dark-3 mb-2">Normal</div>
+            <QMenu :items="menuItems" persistent/>
+          </div>
+          <div class="menu-wrapper">
+            <div class="q-text-caption q-c-dark-3 mb-2">No Frame</div>
+            <QMenu :items="menuItems" no-frame persistent/>
+          </div>
+          <div class="menu-wrapper">
+            <div class="q-text-caption q-c-dark-3 mb-2">No Frame & Shadow</div>
+            <QMenu :items="menuItems" no-frame no-shadow persistent/>
+          </div>
         </div>
-        <div>
-          <div class="q-text-caption q-c-dark-3 mb-2">use dialog with a filter</div>
-          <QDropdownMenu
-            :items="menuItems"
-            :initial-item="selectedMenuItem"
-            use-dialog="always"
-            use-filter
-            @change="dropdownMenuSelectionChanged"
-          />
-        </div>
-        <div>
-          <div class="q-text-caption q-c-dark-3 mb-2">use dialog with a filter and a scroll area</div>
-          <QDropdownMenu
-            :items="menuItems"
-            :initial-item="selectedMenuItem"
-            use-dialog="always"
-            use-filter
-            scroll-height="200px"
-            @change="dropdownMenuSelectionChanged"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="grid gap-4 grid-cols-4">
-      <div>
-        <div class="q-text-caption q-c-dark-3 mb-2">normal</div>
-        <QDropdownMenuWithTextField :default-selection="currencies[0]" default-text="1.234" :items="currencies" @change="currencySelected"/>
-      </div>
-      <div>
-        <div class="q-text-caption q-c-dark-3 mb-2">with fill-action and hint-text</div>
-        <QDropdownMenuWithTextField :default-selection="currencies[0]" default-text="1.234"
-          :items="currencies" @change="currencySelected"
-          fill-action-label='Bal: 100' fill-action-value="100" hint-text="$100000"
-        />
-      </div>
-      <div v-if="selectedCurrencyResult" class="frame p-4 q-text-desc">
-        You selected: {{ selectedCurrencyResult.selected?.title }} - {{ selectedCurrencyResult.text }}
       </div>
 
+      <!-- Dropdown Menu Basic -->
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">Dropdown Menu</div>
+        <div class="flow">
+          <div>
+            <div class="q-text-caption q-c-dark-3 mb-2">Normal</div>
+            <QDropdownMenu
+              :items="menuItems"
+              :initial-item="selectedMenuItem"
+              @change="dropdownMenuSelectionChanged"
+            />
+          </div>
+          <div>
+            <div class="q-text-caption q-c-dark-3 mb-2">Disabled</div>
+            <QDropdownMenu
+              :items="menuItems"
+              disabled
+              :initial-item="selectedMenuItem"
+              @change="dropdownMenuSelectionChanged"
+            />
+          </div>
+          <div>
+            <div class="q-text-caption q-c-dark-3 mb-2">Hide Selected</div>
+            <QDropdownMenu
+              :items="menuItems"
+              :initial-item="selectedMenuItem"
+              hide-selected
+              @change="dropdownMenuSelectionChanged"
+            />
+          </div>
+          <div>
+            <div class="q-text-caption q-c-dark-3 mb-2">Custom Content</div>
+            <QDropdownMenu
+              :items="menuItems"
+              :initial-item="selectedMenuItem"
+              @change="dropdownMenuSelectionChanged"
+            >
+              <div class="">Custom content</div>
+            </QDropdownMenu>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dropdown Menu Variants -->
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">Dropdown Menu Variants</div>
+        <div class="flow">
+          <div>
+            <div class="q-text-caption q-c-dark-3 mb-2">Plain</div>
+            <QDropdownMenu
+              :items="menuItems"
+              :initial-item="selectedMenuItem"
+              variant="plain"
+              @change="dropdownMenuSelectionChanged"
+            >
+              <div class="">Custom content</div>
+            </QDropdownMenu>
+          </div>
+          <div>
+            <div class="q-text-caption q-c-dark-3 mb-2">Hide Action Label</div>
+            <QDropdownMenu
+              :items="menuItems"
+              :initial-item="selectedMenuItem"
+              variant="plain"
+              hide-action-label
+              @change="dropdownMenuSelectionChanged"
+            ></QDropdownMenu>
+          </div>
+          <div>
+            <div class="q-text-caption q-c-dark-3 mb-2">Loading (SM)</div>
+            <QDropdownMenu
+              class="sm"
+              :loading="true"
+              :items="menuItems"
+              :initial-item="selectedMenuItem"
+              @change="dropdownMenuSelectionChanged"
+            />
+          </div>
+          <div>
+            <div class="q-text-caption q-c-dark-3 mb-2">Small</div>
+            <QDropdownMenu
+              class="sm"
+              :items="menuItems"
+              :initial-item="selectedMenuItem"
+              @change="dropdownMenuSelectionChanged"
+            />
+          </div>
+          <div>
+            <div class="q-text-caption q-c-dark-3 mb-2">XS</div>
+            <QDropdownMenu
+              class="xs"
+              :items="menuItems"
+              :initial-item="selectedMenuItem"
+              @change="dropdownMenuSelectionChanged"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Dropdown Menu with Dialog -->
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">Dropdown Menu with Dialog</div>
+        <div class="flow">
+          <div>
+            <div class="q-text-caption q-c-dark-3 mb-2">Use Dialog</div>
+            <QDropdownMenu
+              :items="menuItems"
+              :initial-item="selectedMenuItem"
+              use-dialog="always"
+              @change="dropdownMenuSelectionChanged"
+            />
+          </div>
+          <div>
+            <div class="q-text-caption q-c-dark-3 mb-2">With Filter</div>
+            <QDropdownMenu
+              :items="menuItems"
+              :initial-item="selectedMenuItem"
+              use-dialog="always"
+              use-filter
+              @change="dropdownMenuSelectionChanged"
+            />
+          </div>
+          <div>
+            <div class="q-text-caption q-c-dark-3 mb-2">With Scroll Area</div>
+            <QDropdownMenu
+              :items="menuItems"
+              :initial-item="selectedMenuItem"
+              use-dialog="always"
+              use-filter
+              scroll-height="200px"
+              @change="dropdownMenuSelectionChanged"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Dropdown Menu with TextField -->
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">Dropdown Menu with TextField</div>
+        <div class="flow">
+          <div>
+            <div class="q-text-caption q-c-dark-3 mb-2">Normal</div>
+            <QDropdownMenuWithTextField :default-selection="currencies[0]" default-text="1.234" :items="currencies" @change="currencySelected"/>
+          </div>
+          <div>
+            <div class="q-text-caption q-c-dark-3 mb-2">With Fill Action</div>
+            <QDropdownMenuWithTextField :default-selection="currencies[0]" default-text="1.234"
+              :items="currencies" @change="currencySelected"
+              fill-action-label='Bal: 100' fill-action-value="100" hint-text="$100000"
+            />
+          </div>
+          <div v-if="selectedCurrencyResult" class="frame p-4 q-text-desc">
+            You selected: {{ selectedCurrencyResult.selected?.title }} - {{ selectedCurrencyResult.text }}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -245,3 +269,40 @@ function currencySelected(item: any) {
   selectedCurrencyResult.value = { selected: item.selected, text: item.text };
 }
 </script>
+
+<style scoped lang="scss">
+.demo-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.demo-group {
+  .group-label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.menu-wrapper {
+  width: 100%;
+  max-width: 300px;
+  height: 400px;
+}
+</style>

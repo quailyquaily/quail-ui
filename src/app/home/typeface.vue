@@ -57,10 +57,6 @@
         <div class="q-text-body q-c-dark-4">dark-4: The quick brown fox jumps over the lazy dogs</div>
       </div>
     </div>
-
-    <div class="rows ">
-      <QButton class="primary" @click="gotoArticle">Article</QButton>
-    </div>
   </div>
 </template>
 

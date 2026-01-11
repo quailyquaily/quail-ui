@@ -2,15 +2,25 @@
   <div class="section mb-4">
     <div class="divider mb-4"></div>
     <h2 class="q-text-h2 mb-4">LanguageSelector and CurrencySelector</h2>
-    <div class="grid gap-4 grid-cols-2 mb-4">
-      <div class="grid gap-4 grid-cols-3">
-        <QLanguageSelector :lang="'en'" auto @change="onLangSelected"/>
-        <QLanguageSelector :lang="selectedLang" no-flag :presist="true" @change="onLangSelected"/>
-        <QLanguageSelector :lang="'ja'" @change="onLangSelected"/>
+
+    <div class="demo-groups">
+      <!-- Language Selector -->
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">Language Selector</div>
+        <div class="flow">
+          <QLanguageSelector :lang="'en'" auto @change="onLangSelected"/>
+          <QLanguageSelector :lang="selectedLang" no-flag :presist="true" @change="onLangSelected"/>
+          <QLanguageSelector :lang="'ja'" @change="onLangSelected"/>
+        </div>
       </div>
-    </div>
-    <div class="grid gap-4 grid-cols-3">
-      <QCurrencySelector :currency="'USD'" @change="onCurrencySelected"/>
+
+      <!-- Currency Selector -->
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">Currency Selector</div>
+        <div class="flow">
+          <QCurrencySelector :currency="'USD'" @change="onCurrencySelected"/>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -32,3 +42,20 @@ function onCurrencySelected(item: any) {
   selectedCurrency.value = item.value;
 }
 </script>
+
+<style scoped lang="scss">
+.demo-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.demo-group {
+  .group-label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+</style>

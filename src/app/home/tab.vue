@@ -2,21 +2,31 @@
   <div class="section mb-4">
     <div class="divider mb-4"></div>
     <h2 class="q-text-h2 mb-4">Tab</h2>
-    <div class="grid gap-4 grid-cols-1">
-      <div class="flex">
-        <div>
-          <div class="q-text-caption q-c-dark-3 mb-2">variant: normal</div>
-          <QTabs v-model="selectedTab" :tabs="tabs" class="mr-4"/>
-        </div>
-        <div>
-          <div class="q-text-caption q-c-dark-3 mb-2">variant: plain</div>
-          <QTabs v-model="selectedTab" :tabs="tabs" variant="plain" class="mr-4"/>
+
+    <div class="demo-groups">
+      <!-- Variants -->
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">Variants</div>
+        <div class="flow">
+          <div>
+            <div class="q-text-caption q-c-dark-3 mb-2">Normal</div>
+            <QTabs v-model="selectedTab" :tabs="tabs"/>
+          </div>
+          <div>
+            <div class="q-text-caption q-c-dark-3 mb-2">Plain</div>
+            <QTabs v-model="selectedTab" :tabs="tabs" variant="plain"/>
+          </div>
         </div>
       </div>
-      <div class="flex">
-        <QButton class="outlined" @click="selectedTab = tabs[1]">Select Tab 2</QButton>
-        <div class="frame p-3 ml-4 q-text-desc">
-          Selected tab id: {{ selectedTab.id }}
+
+      <!-- Interaction -->
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">Interaction</div>
+        <div class="flow">
+          <QButton class="outlined" @click="selectedTab = tabs[1]">Select Tab 2</QButton>
+          <div class="frame p-3 q-text-desc">
+            Selected tab id: {{ selectedTab.id }}
+          </div>
         </div>
       </div>
     </div>
@@ -36,4 +46,18 @@ const selectedTab = ref(tabs.value[0]);
 </script>
 
 <style scoped lang="scss">
+.demo-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.demo-group {
+  .group-label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
 </style>

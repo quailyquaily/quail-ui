@@ -142,8 +142,8 @@ function genCls(tab:any, ix: number) {
       box-shadow: inset 0 0 0 1px var(--q-c-light-5);
       &:deep(.q-button) {
         &.selected {
-          background-color: var(--q-bg-dark) !important;
-          border: 0.5px solid var(--q-c-dark-4);
+          background-color: var(--q-bg-dark-float) !important;
+          border: 0.5px solid var(--q-c-light-4);
         }
       }
     }

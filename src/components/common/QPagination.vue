@@ -169,7 +169,7 @@ function gotoPage(ix: any, item:any ) {
 .dark {
   .q-pagination {
     .q-page-indicator {
-      background-color: var(--q-c-black) !important;
+      background-color: transparent !important;
       .q-button.active {
         color: var(--q-c-red-light);
         opacity: 1;

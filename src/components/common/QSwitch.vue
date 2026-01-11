@@ -68,7 +68,7 @@ function change(event:any) {
 
 	.q-switch-inner {
 		display: inline-block;
-		background: var(--q-bg-dark-float);
+		background: var(--q-c-dark-4);
 		border-radius: 16px;
 		width: var(--switch-w);
 		height: var(--switch-h);
@@ -108,9 +108,10 @@ function change(event:any) {
 }
 .q-switch.theme-plastic {
 	.q-switch-inner {
-	  background: var(--q-bg-dark-float);
+	  background: var(--q-c-dark-4);
 		.q-switch-handle {
 			background: linear-gradient(to bottom, #484833 0%,#333 100%);
+			color: #fff;
 			.q-switch-icon {
 				position: absolute;
 				top: 50%;
@@ -184,5 +185,10 @@ function change(event:any) {
 .q-switch-checkbox {
 	position: absolute;
 	visibility: hidden;
+}
+.dark {
+ 	.q-switch-inner {
+    background: var(--q-bg-dark-float);
+  }
 }
 </style>

@@ -2,7 +2,7 @@
 
 A Vue 3 component library for [Quaily](https://quaily.com).
 
-[Live Demo](https://quail-ink.github.io/quail-ui/)
+[Live Demo](https://quailyquaily.github.io/quail-ui/)
 
 ## Features
 

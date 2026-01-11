@@ -53,6 +53,12 @@ const categories = computed(() => [
       { id: 'progress', title: 'Progress' },
       { id: 'dialog', title: 'Dialog' },
       { id: 'fence', title: 'Fence' },
+      { id: 'toast', title: 'Toast' },
+      { id: 'tooltip', title: 'Tooltip' },
+      { id: 'skeleton', title: 'Skeleton' },
+      { id: 'badge', title: 'Badge' },
+      { id: 'collapse', title: 'Collapse' },
+      { id: 'drawer', title: 'Drawer' },
     ]
   },
   {

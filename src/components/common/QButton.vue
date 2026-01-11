@@ -22,10 +22,12 @@
 <script lang="ts" setup>
 import { computed, useSlots, ref, onMounted, onUnmounted } from 'vue';
 import { useUtil } from '../../composables/useUtil';
+import { useKeyboard } from '../../composables/useKeyboard';
 
 const slots = useSlots();
 
 const { extractText, extractIconName, browserDetect } = useUtil();
+const { hasKeyboard, onKeyboardDetected } = useKeyboard();
 
 const buttonRef = ref<HTMLButtonElement | null>(null);
 const shortcutPressed = ref(false);
@@ -102,8 +104,9 @@ function parseShortcut(shortcut: string) {
 }
 
 // Format shortcut for display with OS-specific modifier symbols
+// Only show when keyboard is available (hides on mobile/tablet without keyboard)
 const displayShortcut = computed(() => {
-  if (!props.shortcut) return '';
+  if (!props.shortcut || !hasKeyboard.value) return '';
 
   const { isMac } = browserDetect();
   const parts = props.shortcut.split('+').map(p => p.trim());
@@ -163,18 +166,43 @@ function handleKeyUp(event: KeyboardEvent) {
   }
 }
 
+// Track if listeners are registered
+const listenersRegistered = ref(false);
+
+function registerKeyboardListeners() {
+  if (listenersRegistered.value) return;
+  window.addEventListener('keydown', handleKeyDown);
+  window.addEventListener('keyup', handleKeyUp);
+  listenersRegistered.value = true;
+}
+
+function unregisterKeyboardListeners() {
+  if (!listenersRegistered.value) return;
+  window.removeEventListener('keydown', handleKeyDown);
+  window.removeEventListener('keyup', handleKeyUp);
+  listenersRegistered.value = false;
+}
+
+let cleanupKeyboardDetection: (() => void) | undefined;
+
 onMounted(() => {
   if (props.shortcut) {
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
+    // If keyboard is already detected, register immediately
+    // Otherwise, wait for keyboard to be detected (e.g., iPad with external keyboard)
+    if (hasKeyboard.value) {
+      registerKeyboardListeners();
+    } else {
+      // Lazy registration - only add listeners when keyboard is detected
+      cleanupKeyboardDetection = onKeyboardDetected(() => {
+        registerKeyboardListeners();
+      });
+    }
   }
 });
 
 onUnmounted(() => {
-  if (props.shortcut) {
-    window.removeEventListener('keydown', handleKeyDown);
-    window.removeEventListener('keyup', handleKeyUp);
-  }
+  unregisterKeyboardListeners();
+  cleanupKeyboardDetection?.();
 });
 
 const cls = computed(() => {
@@ -284,6 +312,11 @@ const realAriaLabel = computed(() => {
     border-radius: 6px;
     line-height: 1.3;
     min-width: 1.4em;
+
+    // Hide on touch-only devices (no hover capability = likely no keyboard)
+    @media (hover: none) {
+      display: none;
+    }
   }
   // For filled buttons (primary, highlight, danger, stripe): use light/white background
   &.primary .shortcut-badge,

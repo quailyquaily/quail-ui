@@ -22,6 +22,12 @@ import SecAvatar from "./home/avatar.vue";
 import SecShare from "./home/share.vue";
 import SecPayment from "./home/payment.vue";
 import SecIcon from "./home/icon.vue";
+import SecSkeleton from "./home/skeleton.vue";
+import SecTooltip from "./home/tooltip.vue";
+import SecToast from "./home/toast.vue";
+import SecBadge from "./home/badge.vue";
+import SecCollapse from "./home/collapse.vue";
+import SecDrawer from "./home/drawer.vue";
 
 const sourceCodes = {
   typeface: `<!-- Headings -->
@@ -261,6 +267,120 @@ const tabs = [
 <!-- Colored Icons -->
 <QIconColorTwitter />
 <QIconColorGithub />`,
+
+  skeleton: `<!-- Variants -->
+<QSkeleton variant="text" />
+<QSkeleton variant="avatar" />
+<QSkeleton variant="button" />
+<QSkeleton variant="image" />
+<QSkeleton variant="card" />
+
+<!-- Animation -->
+<QSkeleton animation="wave" />
+<QSkeleton animation="pulse" />
+
+<!-- Multiple lines -->
+<QSkeleton variant="text" :count="3" />
+
+<!-- Custom size -->
+<QSkeleton width="200px" height="20px" />`,
+
+  tooltip: `<QTooltip content="Tooltip text">
+  <QButton>Hover me</QButton>
+</QTooltip>
+
+<!-- Positions -->
+<QTooltip content="Top" position="top" />
+<QTooltip content="Bottom" position="bottom" />
+<QTooltip content="Left" position="left" />
+<QTooltip content="Right" position="right" />
+
+<!-- Triggers -->
+<QTooltip trigger="hover" />
+<QTooltip trigger="click" />
+<QTooltip trigger="focus" />
+
+<!-- Custom content -->
+<QTooltip>
+  <template #content>
+    <strong>Rich content</strong>
+  </template>
+  <QButton>Custom</QButton>
+</QTooltip>`,
+
+  toast: `// Programmatic usage
+import { useToast } from 'quail-ui';
+
+const toast = useToast();
+
+toast.success('Success message');
+toast.error('Error message');
+toast.warning('Warning message');
+toast.info('Info message');
+
+// With options
+toast.show({
+  type: 'info',
+  message: 'Custom toast',
+  duration: 5000,
+  closable: true,
+});
+
+// Declarative usage
+<QToast
+  v-model="visible"
+  type="success"
+  message="Toast message"
+/>`,
+
+  badge: `<!-- Types -->
+<QBadge type="default">Default</QBadge>
+<QBadge type="primary">Primary</QBadge>
+<QBadge type="success">Success</QBadge>
+<QBadge type="warning">Warning</QBadge>
+<QBadge type="danger">Danger</QBadge>
+
+<!-- Variants -->
+<QBadge variant="filled">Filled</QBadge>
+<QBadge variant="outlined">Outlined</QBadge>
+<QBadge variant="light">Light</QBadge>
+
+<!-- Closable -->
+<QBadge closable @close="handleClose">Tag</QBadge>
+
+<!-- Dot -->
+<QBadge type="danger" dot />`,
+
+  collapse: `<QCollapse v-model="activeKeys">
+  <QCollapseItem name="1" title="Section 1">
+    Content 1
+  </QCollapseItem>
+  <QCollapseItem name="2" title="Section 2">
+    Content 2
+  </QCollapseItem>
+</QCollapse>
+
+<!-- Accordion mode -->
+<QCollapse accordion>
+  ...
+</QCollapse>`,
+
+  drawer: `<QDrawer v-model="visible" title="Drawer">
+  Content here
+</QDrawer>
+
+<!-- Placement -->
+<QDrawer placement="left" />
+<QDrawer placement="right" />
+<QDrawer placement="top" />
+<QDrawer placement="bottom" />
+
+<!-- With footer -->
+<QDrawer v-model="visible">
+  <template #footer>
+    <QButton>Save</QButton>
+  </template>
+</QDrawer>`,
 };
 </script>
 
@@ -414,6 +534,60 @@ const tabs = [
         :source-code="sourceCodes.fence"
       >
         <SecFence />
+      </ComponentShowcase>
+
+      <ComponentShowcase
+        id="toast"
+        title="Toast"
+        description="Toast notifications for user feedback"
+        :source-code="sourceCodes.toast"
+      >
+        <SecToast />
+      </ComponentShowcase>
+
+      <ComponentShowcase
+        id="tooltip"
+        title="Tooltip"
+        description="Contextual tooltips on hover, click, or focus"
+        :source-code="sourceCodes.tooltip"
+      >
+        <SecTooltip />
+      </ComponentShowcase>
+
+      <ComponentShowcase
+        id="skeleton"
+        title="Skeleton"
+        description="Loading placeholder with animation"
+        :source-code="sourceCodes.skeleton"
+      >
+        <SecSkeleton />
+      </ComponentShowcase>
+
+      <ComponentShowcase
+        id="badge"
+        title="Badge"
+        description="Status labels and tags"
+        :source-code="sourceCodes.badge"
+      >
+        <SecBadge />
+      </ComponentShowcase>
+
+      <ComponentShowcase
+        id="collapse"
+        title="Collapse"
+        description="Collapsible content panels"
+        :source-code="sourceCodes.collapse"
+      >
+        <SecCollapse />
+      </ComponentShowcase>
+
+      <ComponentShowcase
+        id="drawer"
+        title="Drawer"
+        description="Slide-in panel from screen edge"
+        :source-code="sourceCodes.drawer"
+      >
+        <SecDrawer />
       </ComponentShowcase>
     </section>
 

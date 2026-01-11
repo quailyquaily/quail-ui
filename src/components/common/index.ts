@@ -23,6 +23,14 @@ import QCurrencySelector from './QCurrencySelector.vue';
 import QPaymentApproachItem from './QPaymentApproachItem.vue';
 import QPaymentApproachSelect from './QPaymentApproachSelect.vue';
 import QPremiumDecoration from './QPremiumDecoration.vue';
+import QSkeleton from './QSkeleton.vue';
+import QToast from './QToast.vue';
+import QToastContainer from './QToastContainer.vue';
+import QTooltip from './QTooltip.vue';
+import QBadge from './QBadge.vue';
+import QCollapse from './QCollapse.vue';
+import QCollapseItem from './QCollapseItem.vue';
+import QDrawer from './QDrawer.vue';
 
 export {
   QDatetimePicker,
@@ -50,4 +58,12 @@ export {
   QPaymentApproachItem,
   QPaymentApproachSelect,
   QPremiumDecoration,
+  QSkeleton,
+  QToast,
+  QToastContainer,
+  QTooltip,
+  QBadge,
+  QCollapse,
+  QCollapseItem,
+  QDrawer,
 };

@@ -9,6 +9,11 @@ export * from './components/common';
 // Export utility functions
 export { closePopupMenu, onPopupClose, debounce } from './util';
 
+// Export composables
+export { useToast } from './composables/useToast';
+export type { ToastOptions } from './composables/useToast';
+export { useKeyboard, hasKeyboard } from './composables/useKeyboard';
+
 /**
  * Enable or disable TUI (Text User Interface) mode
  * In TUI mode, all UI components use monospace font

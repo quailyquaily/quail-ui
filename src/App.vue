@@ -43,6 +43,10 @@ function closeSidebar() {
 }
 
 onMounted(() => {
+  // Add .light class to body for light mode styles (article.scss requires .light or .dark context)
+  if (!document.body.classList.contains('dark')) {
+    document.body.classList.add('light');
+  }
 });
 </script>
 

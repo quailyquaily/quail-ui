@@ -1,11 +1,12 @@
 @use "sass:math";
+@use "sass:map";
 
 $breakpoint-sizes: ("md": 768px, "lg": 1024px);
 
 @mixin usefull-classes($breakpoint) {
   @if $breakpoint != "" {
     $prefix: "#{$breakpoint}-";
-    $breakpoint-size: map-get($breakpoint-sizes, $breakpoint);
+    $breakpoint-size: map.get($breakpoint-sizes, $breakpoint);
     @media (min-width: $breakpoint-size) {
       @include usefull-classes-inner($prefix);
     }

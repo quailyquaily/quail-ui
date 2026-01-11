@@ -118,13 +118,51 @@ onMounted(async () => {
 });
 </script>
 <style lang="scss" scoped>
+
+.article-container {
+  border: 0.5px solid var(--q-c-dark-4);
+  border-radius: 8px;
+  background: var(--q-bg-light);
+}
+
+.article-header {
+  padding: 0.875rem 1.25rem;
+  background: var(--q-bg-light-2);
+  border-bottom: 0.5px solid var(--q-c-dark-4);
+  border-radius: 8px 8px 0 0;
+}
+
+.article-content {
+  padding: 2rem;
+  border-radius: 0 0 8px 8px;
+}
+
 .q-article {
   margin: 0 auto;
-  max-width: 760px;
+  overflow: auto;
+}
+
+:global(.dark) {
+  .article-container {
+    border-color: var(--q-c-light-4);
+    background: var(--q-bg-dark);
+  }
+
+  .article-header {
+    background: var(--q-bg-dark-2);
+    border-bottom-color: var(--q-c-light-4);
+  }
 }
 </style>
 <template>
-  <div class="q-article">
+  <div class="article-page">
+    <div class="article-container">
+      <div class="article-header">
+        <h2 class="q-text-h2">Article Preview</h2>
+        <p class="q-text-desc q-c-dark-3 mt-1">Rich text content styling showcase</p>
+      </div>
+      <div class="article-content">
+        <div class="q-article">
     <h1>An H1 header for this article</h1>
     <p>Paragraphs are separated by a blank line.</p>
     <p>2nd paragraph. <em>Italic</em>, <strong>bold</strong>, <del>Strikethrough</del>, <mark>highlight text</mark>, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd>, and <code>monospace</code>. Itemized lists
@@ -331,5 +369,8 @@ for i in range(10):
     <p>$$I = \int \rho R^{2} dV$$</p>
     <p>And note that you can backslash-escape any punctuation characters
     which you wish to be displayed literally, ex.: `foo`, *bar*, etc.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>

@@ -223,7 +223,7 @@ const realAriaLabel = computed(() => {
 </script>
 
 <style scoped lang="scss">
-@import "@/styles/mixin/touchable.scss";
+@use "@/styles/mixin/touchable.scss" as *;
 
 .q-button {
   height: 44px;

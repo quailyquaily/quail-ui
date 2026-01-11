@@ -423,31 +423,35 @@
     }
 
     &.outlined {
-      --q-progress-color-light: rgba(255, 255, 255, 0.1);
-      border: 0.5px solid var(--q-c-light-4);
+      --q-progress-color-light: rgba(255, 255, 255, 0.08);
+      border: 0.5px solid rgba(255, 255, 255, 0.12);
+      background-color: rgba(255, 255, 255, 0.03);
       box-shadow:
-        inset 0px 1px 10px 0px rgba(255, 255, 255, 0.01),
-        0px 1px 2px 0px #d8d8d81a;
-      background-color: transparent;
+        inset 0px 1px 0px 0px rgba(255, 255, 255, 0.04),
+        0px 1px 2px 0px rgba(0, 0, 0, 0.2);
       &:hover {
         color: var(--q-c-light);
-        background-color: rgba(255, 255, 255, 0.1);
-        box-shadow: 0px 1px 1px 0px #d8d8d81a;
+        background-color: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.18);
+        box-shadow:
+          inset 0px 1px 0px 0px rgba(255, 255, 255, 0.06),
+          0px 2px 4px 0px rgba(0, 0, 0, 0.25);
       }
       &[disabled] {
-        color: #888;
+        color: #666;
         background-color: transparent;
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: none;
         &:hover {
           background-color: transparent;
-          box-shadow:
-            inset 0px 1px 10px 0px #0000000d,
-            0px 1px 3px 0px #d8d8d81a !important;
+          box-shadow: none;
         }
       }
       &.toggle-on {
         // pushed state
         background-color: rgba(255, 255, 255, 0.1);
-        box-shadow: inset 0px 1px 2px #d8d8d81a;
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
       }
     }
 
@@ -497,14 +501,13 @@
       }
     }
     &.placeholder {
-      box-shadow:
-        inset 0px 1px 10px 0px rgba(0, 0, 0, 0.01),
-        0px 1px 2px 0px #d8d8d81a;
-      border-color: var(--q-c-light-4);
+      border-color: rgba(255, 255, 255, 0.15);
+      background-color: transparent;
+      box-shadow: none;
       &:hover {
         color: var(--q-c-light);
-        background-color: rgba(255, 255, 255, 0.1);
-        box-shadow: 0px 1px 1px 0px #d8d8d81a;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.2);
       }
     }
   }

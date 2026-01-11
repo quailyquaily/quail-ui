@@ -1,7 +1,7 @@
 @use "sass:math";
 
-@import "./mermaid.scss";
-@import "./hl.scss";
+@use "./mermaid.scss" as *;
+@use "./hl.scss" as *;
 
 .q-article {
   font-style: normal;

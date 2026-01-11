@@ -285,7 +285,7 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss">
-@import "@/styles/mixin/touchable.scss";
+@use "@/styles/mixin/touchable.scss" as *;
 
 .q-dropdown-menu {
   // height: 44px;

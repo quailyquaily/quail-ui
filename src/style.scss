@@ -1,6 +1,6 @@
-@import "./src/styles/layout/index.scss";
-@import "./src/styles/base.scss";
-@import "./src/styles/typeface.scss";
-@import "./src/styles/component.scss";
+@use "./styles/layout/index.scss" as *;
+@use "./styles/base.scss" as *;
+@use "./styles/typeface.scss" as *;
+@use "./styles/component.scss" as *;
 
-@import "./src/styles/article/article.scss";
+@use "./styles/article/article.scss" as *;

@@ -5,10 +5,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Build Commands
 
 ```bash
-npm run dev          # Start dev server with hot reload
-npm run build        # TypeScript check + build library (outputs to dist/)
-npm run build:demo   # Build demo application for GitHub Pages
-npm run preview      # Preview built demo
+pnpm dev          # Start dev server with hot reload
+pnpm build        # TypeScript check + build library (outputs to dist/)
+pnpm build:demo   # Build demo application for GitHub Pages
 ```
 
 ## Architecture Overview

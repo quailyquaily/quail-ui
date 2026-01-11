@@ -121,6 +121,7 @@ import QIconColorBluesky from "./QIconColorBluesky.vue";
 import QIconColorMastodon from "./QIconColorMastodon.vue";
 import QIconColorShare from "./QIconColorShare.vue";
 import QIconColorGithub from "./QIconColorGithub.vue";
+import QIconGithub from "./QIconGithub.vue";
 import QIconColorSteam from "./QIconColorSteam.vue";
 import QIconColorInstagram from "./QIconColorInstagram.vue";
 import QIconColorX from "./QIconColorX.vue";
@@ -250,6 +251,7 @@ export {
   QIconColorMastodon,
   QIconColorShare,
   QIconColorGithub,
+  QIconGithub,
   QIconColorSteam,
   QIconColorInstagram,
   QIconColorX,

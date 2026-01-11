@@ -19,8 +19,12 @@
   --q-font-sans-sc: "Noto Sans SC";
   --q-font-sans-tc: "Noto Sans TC";
   --q-font-sans-jp: "Noto Sans JP";
-  --q-font-mono: "SF Mono", "Fira Code", "Monaco", "Inconsolata", "Roboto Mono", "Source Code Pro", Menlo, Consolas, monospace;
-  --q-font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --q-font-mono:
+    "SF Mono", "Fira Code", "Monaco", "Inconsolata", "Roboto Mono",
+    "Source Code Pro", Menlo, Consolas, monospace;
+  --q-font-ui:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 
   // font size
   --q-fs-display-title: 2.5rem;
@@ -203,12 +207,16 @@ body {
   // TUI mode - use monospace font
   &.tui {
     font-family: var(--q-font-mono);
+    /* font-size: 14px; */
     letter-spacing: 0;
   }
 }
 
 // Form elements don't inherit font by default
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   font-family: inherit;
 }
 

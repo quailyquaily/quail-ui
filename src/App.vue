@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import logo from "@/assets/images/logo.svg";
+import logoLight from "@/assets/images/app-logo-light.png";
+import logoDark from "@/assets/images/app-logo-dark.png";
 import DemoSidebar from "@/app/components/DemoSidebar.vue";
 
 const router = useRouter();
@@ -27,6 +28,8 @@ const topNavTabs = computed(() => [
 const selectedTopTab = ref(topNavTabs.value[0]);
 
 const isHomePage = computed(() => route.path === '/' || route.name === 'home');
+
+const currentLogo = computed(() => isDarkMode.value ? logoDark : logoLight);
 
 watch(() => route.path, (path) => {
   if (path === '/' || path === '/home') {
@@ -83,7 +86,7 @@ onMounted(() => {
             <QIconMenu class="icon" />
           </QButton>
           <div class="logo-wrapper" @click="router.push('/')">
-            <QAvatar :src="logo" :size="28" class="logo-avatar"/>
+            <QAvatar :src="currentLogo" :size="28" class="logo-avatar"/>
             <span class="logo-text q-text-h3">Quail UI</span>
           </div>
         </div>
@@ -108,7 +111,7 @@ onMounted(() => {
             <QSwitch v-model="isDarkMode" theme="clear-sky" />
           </div>
           <QButton class="github-btn outlined icon xs" href="https://github.com/quail-ink/quail-ui" target="_blank">
-            <QIconColorGithub class="icon" />
+            <QIconGithub class="icon" />
           </QButton>
         </div>
       </div>

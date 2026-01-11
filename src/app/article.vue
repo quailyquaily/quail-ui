@@ -142,7 +142,10 @@ onMounted(async () => {
   overflow: auto;
 }
 
-:global(.dark) {
+</style>
+
+<style lang="scss">
+.dark {
   .article-container {
     border-color: var(--q-c-light-4);
     background: var(--q-bg-dark);

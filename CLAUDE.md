@@ -13,7 +13,7 @@ npm run preview      # Preview built demo
 
 ## Architecture Overview
 
-Quail UI is a Vue 3 component library for [Quaily](https://quaily.com). It exports UI components and icons via a Vue plugin system.
+Quaily UI is a Vue 3 component library for [Quaily](https://quaily.com). It exports UI components and icons via a Vue plugin system.
 
 ### Entry Points
 

@@ -1,4 +1,4 @@
-# Quail UI
+# Quaily UI
 
 The Vue3 UI library for [Quaily](https://quaily.com).
 
@@ -18,7 +18,7 @@ yarn add quail-ui
 
 ## Usage
 
-Init Quail UI in your main.js file.
+Init Quaily UI in your main.js file.
 
 ```js
 import { createApp } from 'vue'

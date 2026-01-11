@@ -21,8 +21,8 @@ function setTUIMode(enabled: boolean) {
 }
 
 const topNavTabs = computed(() => [
-  { id: 'home', title: 'Components' },
-  { id: 'article', title: 'Article' },
+  { id: 'home', title: 'Components', icon: 'QIconGrid' },
+  { id: 'article', title: 'Article', icon: 'QIconBookOpen' },
 ]);
 
 const selectedTopTab = ref(topNavTabs.value[0]);
@@ -87,7 +87,7 @@ onMounted(() => {
           </QButton>
           <div class="logo-wrapper" @click="router.push('/')">
             <QAvatar :src="currentLogo" :size="28" class="logo-avatar"/>
-            <span class="logo-text q-text-h3">Quail UI</span>
+            <span class="logo-text q-text-h3">Quaily UI</span>
           </div>
         </div>
 
@@ -95,7 +95,6 @@ onMounted(() => {
           <QTabs
             v-model="selectedTopTab"
             :tabs="topNavTabs"
-            variant="plain"
             size="sm"
             @change="onTabChange"
           />

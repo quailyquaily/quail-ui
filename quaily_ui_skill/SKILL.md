@@ -1,7 +1,10 @@
 ---
 name: Use Quaily UI in Frontend Project
 description: use quail-ui/quaily-ui component set, typeface, styles, icons in a frontend project.  
+allowed-tools: "Read,Write,Edit,Glob,Grep,Bash"
 ---
+
+you're allow to use the bash commands: cat, ls, grep, find, rg, etc.
 
 # Quaily UI Frontend Engineer
 

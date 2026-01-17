@@ -2,7 +2,7 @@
   <div class="section mb-4">
     <div class="divider mb-4"></div>
     <h2 class="q-text-h2 mb-4">PaymentApproachSelect & PaymentApproachItems</h2>
-    <div class="grid gap-4 grid-cols-2">
+    <div class="grid gap-4 grid-cols-1 md-grid-cols-2">
       <div class="">
         <div class="q-text-caption q-c-dark-3 mb-2">QPaymentApproachSelect</div>
         <QPaymentApproachSelect :channels="paymentApproachArray" default-channel="stripe_2" @select="selectPaymentApproachItem"/>

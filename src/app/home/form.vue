@@ -2,7 +2,7 @@
   <div class="section mb-4">
     <div class="divider mb-4"></div>
     <h2 class="q-text-h2 mb-4">Form</h2>
-    <div class="grid gap-4 grid-cols-2">
+    <div class="grid gap-4 grid-cols-1 md-grid-cols-2">
       <div class="form" style="width: 100%">
           <div class="form-row">
             <div class="form-row-left">

@@ -7,7 +7,7 @@ import QTextarea from '../../components/common/QTextarea.vue';
   <div class="section mb-4">
     <div class="divider mb-4"></div>
     <h2 class="q-text-h2 mb-4">Premium Decoration</h2>
-    <div class="grid gap-4 grid-cols-3">
+    <div class="grid gap-4 grid-cols-1 md-grid-cols-3">
       <div class="premium-wrapper">
         <QPremiumDecoration border-radius="6px">
           <div class="image-wrapper">

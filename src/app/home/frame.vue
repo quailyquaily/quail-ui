@@ -2,7 +2,7 @@
   <div class="section mb-4">
     <div class="divider mb-4"></div>
     <h2 class="q-text-h2 mb-4">Frame & Divider</h2>
-    <div class="grid gap-4 grid-cols-3">
+    <div class="grid gap-4 grid-cols-2 md-grid-cols-3">
       <div class="frame p-4">
         Some content here
       </div>

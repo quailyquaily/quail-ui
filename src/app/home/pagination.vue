@@ -5,7 +5,7 @@
 
     <div class="demo-groups">
       <!-- With Total Pages -->
-      <div class="demo-group">
+      <div class="demo-group scroll-on-mobile">
         <div class="group-label q-text-caption q-c-dark-3">With Total Pages</div>
         <div class="flow">
           <QPagination
@@ -68,6 +68,16 @@ const currentPage = ref(1);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .demo-group.scroll-on-mobile {
+    .flow {
+      max-height: 4.5rem;
+      overflow-y: auto;
+      padding-right: 0.25rem;
+    }
   }
 }
 </style>

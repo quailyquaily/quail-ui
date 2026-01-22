@@ -80,7 +80,6 @@ onMounted(() => {
 .channel-balance {
   font-size: 0.75rem;
   color: var(--q-c-dark-3);
-  margin-right: 0.5rem;
 
   strong {
     color: var(--q-c-dark);
@@ -154,7 +153,7 @@ onMounted(() => {
   }
 
   &:not(.disabled):active {
-    transform: scale(0.995);
+    transform: scale(0.996);
   }
 }
 

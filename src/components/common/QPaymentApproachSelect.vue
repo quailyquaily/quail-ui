@@ -53,50 +53,150 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="q-payment-approach-select grid gap-satoshi grid-cols-1">
+  <div class="q-payment-approach-select">
     <div v-for="ch in _channels" :key="`app-${ch.name}`" class="q-payment-approach-item-wrapper" :class="selectedCls(ch)"
       @click="selectPaymentApproach(ch)">
+      <div class="check-indicator">
+        <QIconCheckCircle />
+      </div>
       <QPaymentApproachItem
         :name="ch.name" :icons="ch.icons" :symbol="ch.symbol" :desc="ch.desc" :disabled="ch.disabled"
-      />
+      >
+        <span v-if="ch.balance !== undefined" class="channel-balance" :class="{ insufficient: ch.balanceInsufficient }">
+          Bal: <strong>{{ ch.balance }}</strong>
+        </span>
+      </QPaymentApproachItem>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.q-payment-approach-item-wrapper {
-  border-radius: 0.5rem;
-  border: 0.5px solid transparent;
-  padding: 0 0.8rem;
-  &.selected {
-    filter: none;
-    opacity: 1;
-    border-color: var(--q-c-red-dimm-3);
-    background-color: var(--q-c-red-dimm-1);
+.q-payment-approach-select {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.channel-balance {
+  font-size: 0.75rem;
+  color: var(--q-c-dark-3);
+  margin-right: 0.5rem;
+
+  strong {
+    color: var(--q-c-dark);
+    font-weight: 600;
   }
-  &.disabled {
-    filter: grayscale(1);
-    cursor: not-allowed;
-    .approach-icons {
-      opacity: 0.5;
-    }
-  }
-  &:hover {
-    background-color: var(--q-c-red-dimm-1);
-    &.selected {
-      background-color: var(--q-c-red-dimm-1);
+
+  &.insufficient {
+    color: var(--q-c-red);
+
+    strong {
+      color: var(--q-c-red);
     }
   }
 }
+
+.q-payment-approach-item-wrapper {
+  position: relative;
+  border-radius: var(--q-radius-md);
+  border: 1.5px solid var(--q-c-dark-5);
+  padding: 0 0.75rem 0 2.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: transparent;
+
+  .check-indicator {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--q-c-dark-4);
+    transition: color 0.2s ease;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &.selected {
+    filter: none;
+    opacity: 1;
+    border-color: var(--q-c-red);
+    background-color: var(--q-c-red-dimm-1);
+
+    .check-indicator {
+      color: var(--q-c-red);
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+
+    .check-indicator {
+      opacity: 0.5;
+    }
+  }
+
+  &:not(.disabled):hover {
+    border-color: var(--q-c-dark-4);
+    background-color: var(--q-c-dark-5);
+
+    &.selected {
+      border-color: var(--q-c-red);
+      background-color: var(--q-c-red-dimm-1);
+    }
+  }
+
+  &:not(.disabled):active {
+    transform: scale(0.995);
+  }
+}
+
 .dark {
+  .channel-balance {
+    color: var(--q-c-light-3);
+
+    strong {
+      color: var(--q-c-light);
+    }
+
+    &.insufficient {
+      color: var(--q-c-red-light);
+
+      strong {
+        color: var(--q-c-red-light);
+      }
+    }
+  }
+
   .q-payment-approach-item-wrapper {
+    border-color: var(--q-c-light-4);
+
+    .check-indicator {
+      color: var(--q-c-light-3);
+    }
+
     &.selected {
       border-color: var(--q-c-red-light);
       background-color: var(--q-c-red-dimm-2);
+
+      .check-indicator {
+        color: var(--q-c-red-light);
+      }
     }
-    &:hover {
-      background-color: var(--q-c-red-dimm-2);
+
+    &:not(.disabled):hover {
+      border-color: var(--q-c-light-3);
+      background-color: var(--q-c-light-5);
+
       &.selected {
+        border-color: var(--q-c-red-light);
         background-color: var(--q-c-red-dimm-2);
       }
     }

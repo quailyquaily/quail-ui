@@ -15,6 +15,12 @@
         <QPaymentApproachItem name="stripe_2" :icons="['wechat_pay', 'alipay']" :selected="true" symbol="" desc="others" >
           <QSwitch v-model="switchValue4" />
         </QPaymentApproachItem>
+        <QPaymentApproachItem name="points" :icons="['wallet']" desc="Credits">
+          <span class="points-balance">Bal: <strong>1,234</strong></span>
+        </QPaymentApproachItem>
+        <QPaymentApproachItem name="points_insufficient" :icons="['wallet']" desc="Credits" :disabled="true">
+          <span class="points-balance insufficient">Bal: <strong>0</strong></span>
+        </QPaymentApproachItem>
       </div>
       <div class="frame p-3 q-text-desc">
         selected: {{ selectedPaymentApproachItem }}
@@ -38,12 +44,18 @@ const paymentApproachArray = computed(() => {
     icons: ['visa', 'mastercard', 'amex' ],
     selected: true,
     symbol: "JPY",
-    desc: "card"
+    desc: "Cards"
   }, {
     name: "stripe_2",
     icons: ['visa', 'mastercard', 'amex', 'wechat_pay', 'alipay' ],
     symbol: "JPY",
-    desc: "all"
+    desc: "All Payments"
+  }, {
+    name: "credits",
+    icons: ['wallet'],
+    symbol: "",
+    desc: "Credits",
+    balance: "1,234"
   }, {
     name: "crypto",
     icons: ['evm' ],
@@ -58,3 +70,34 @@ function selectPaymentApproachItem(item: any) {
   selectedPaymentApproachItem.value = item;
 }
 </script>
+
+<style scoped>
+.points-balance {
+  font-size: 0.75rem;
+  color: var(--q-c-dark-3);
+  margin-right: 0.5rem;
+}
+.points-balance strong {
+  color: var(--q-c-dark);
+  font-weight: 600;
+}
+.points-balance.insufficient {
+  color: var(--q-c-red);
+}
+.points-balance.insufficient strong {
+  color: var(--q-c-red);
+}
+
+.dark .points-balance {
+  color: var(--q-c-light-3);
+}
+.dark .points-balance strong {
+  color: var(--q-c-light);
+}
+.dark .points-balance.insufficient {
+  color: var(--q-c-red-light);
+}
+.dark .points-balance.insufficient strong {
+  color: var(--q-c-red-light);
+}
+</style>

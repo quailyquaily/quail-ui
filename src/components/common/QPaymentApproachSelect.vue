@@ -17,6 +17,10 @@ const _channels = ref(props.channels);
 
 const emit = defineEmits(['select']);
 
+watch(() => props.channels, (newChannels) => {
+    _channels.value = newChannels;
+}, { deep: true });
+
 function selectedCls(ch:any) {
   const cls = [ch.selected ? 'selected': ''];
   if (ch.disabled) {

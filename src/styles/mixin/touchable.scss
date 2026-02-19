@@ -1,7 +1,9 @@
 .touchable {
   background-color: var(--q-c-white);
   color: var(--q-c-dark);
-  border-radius: 0.5rem;
+  border-radius: var(--q-button-radius);
+  font-weight: var(--q-button-font-weight);
+  letter-spacing: var(--q-button-letter-spacing);
   transition: all 0.2s ease;
 
   // Pressed state overlay
@@ -68,17 +70,17 @@
   &.primary {
     --q-progress-color: rgba(255, 255, 255, 0.1);
     --q-progress-color-light: rgba(255, 255, 255, 0.05);
-    background-color: var(--q-c-dark);
-    color: white;
-    border: 0.5px solid var(--q-c-dark);
-    background-color: var(--q-c-dark);
+    background-color: var(--q-button-primary-bg);
+    color: var(--q-button-primary-text);
+    border: 0.5px solid var(--q-button-primary-border);
+    box-shadow: var(--q-button-primary-shadow);
 
     &.squircle {
       /* mask-image: paint(squircle); */
     }
 
     &:hover {
-      box-shadow: 0 0 8px rgba(41, 30, 56, 0.2);
+      box-shadow: var(--q-button-primary-hover-shadow);
     }
     &[disabled] {
       box-shadow: none;
@@ -90,17 +92,17 @@
   &.danger {
     --q-progress-color: rgba(255, 255, 255, 0.15);
     --q-progress-color-light: rgba(255, 255, 255, 0.05);
-    background-color: var(--q-c-red);
+    background-color: var(--q-button-danger-bg);
     color: var(--q-c-white);
-    border: 0.5px solid var(--q-c-red);
+    border: 0.5px solid var(--q-button-danger-border);
 
     &.squircle {
       /* mask-image: paint(squircle); */
     }
 
     &:hover {
-      background-color: var(--q-c-red-light);
-      border: 0.5px solid var(--q-c-red-light);
+      background-color: var(--q-button-danger-hover-bg);
+      border: 0.5px solid var(--q-button-danger-hover-bg);
     }
     &[disabled] {
       box-shadow: none;
@@ -111,17 +113,17 @@
   &.highlight {
     --q-progress-color: rgba(255, 255, 255, 0.15);
     --q-progress-color-light: rgba(255, 255, 255, 0.05);
-    background-color: var(--q-c-blue);
+    background-color: var(--q-button-highlight-bg);
     color: var(--q-c-white);
-    border: 0.5px solid var(--q-c-blue);
+    border: 0.5px solid var(--q-button-highlight-border);
 
     &.squircle {
       /* mask-image: paint(squircle); */
     }
 
     &:hover {
-      background-color: var(--q-c-blue-light);
-      border: 0.5px solid var(--q-c-blue-light);
+      background-color: var(--q-button-highlight-hover-bg);
+      border: 0.5px solid var(--q-button-highlight-hover-bg);
     }
     &[disabled] {
       box-shadow: none;
@@ -132,11 +134,12 @@
   &.outlined {
     --q-progress-color: rgba(0, 0, 0, 0);
     --q-progress-color-light: rgba(0, 0, 0, 0.03);
-    background-color: transparent;
-    border: 0.5px solid var(--q-c-dark-4);
-    box-shadow:
-      inset 0px 1px 10px 0px rgba(0, 0, 0, 0.01),
-      0px 1px 2px 0px #4343431a;
+    background-color: var(--q-button-outlined-bg);
+    border: var(--q-button-outlined-border-width) solid var(--q-button-outlined-border);
+    box-shadow: var(--q-button-outlined-shadow);
+    color: var(--q-button-outlined-text);
+    backdrop-filter: var(--q-button-outlined-backdrop-filter);
+    -webkit-backdrop-filter: var(--q-button-outlined-webkit-backdrop-filter);
 
     &.squircle {
       /* border: none;
@@ -146,10 +149,9 @@
     }
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.02);
-      box-shadow:
-        inset 0px 1px 2px 0px rgba(0, 0, 0, 0.01),
-        0px 1px 1px 0px #4343431a;
+      background-color: var(--q-button-outlined-hover-bg);
+      border-color: var(--q-button-outlined-hover-border);
+      box-shadow: var(--q-button-outlined-hover-shadow);
     }
     &[disabled] {
       color: #888;
@@ -202,13 +204,15 @@
     box-shadow: none;
     border: none;
     background-color: transparent;
+    color: var(--q-button-plain-text);
 
     &.squircle {
       /* mask-image: paint(squircle); */
     }
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.05);
+      background-color: var(--q-button-plain-hover-bg);
+      color: var(--q-button-plain-hover-text);
     }
     &[disabled] {
       opacity: 0.5;

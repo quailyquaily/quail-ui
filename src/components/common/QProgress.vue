@@ -61,12 +61,12 @@ const completed = computed(() => {
   .q-progress-slot {
     position: relative;
     width: 100%;
-    height: 8px;
-    background: var(--q-c-dark-4);
-    border-radius: 6px;
+    height: var(--q-progress-track-height);
+    background: var(--q-progress-track-bg);
+    border-radius: var(--q-progress-track-radius);
     overflow: hidden;
     .q-progress-bar {
-      border-radius: 6px;
+      border-radius: var(--q-progress-bar-radius);
       position: absolute;
       top: 0;
       left: 0;
@@ -80,13 +80,7 @@ const completed = computed(() => {
       }
     }
     .q-progress-bar-inner {
-      background: repeating-linear-gradient(
-        45deg,
-        var(--q-progress-color),
-        var(--q-progress-color) 10px,
-        var(--q-progress-color-light) 10px,
-        var(--q-progress-color-light) 20px
-      );
+      background: var(--q-progress-fill);
       position: absolute;
       left: -28px;
       right: 0;

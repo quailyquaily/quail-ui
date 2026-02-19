@@ -1,0 +1,606 @@
+// Morph theme overrides, embedded from docs/override.css
+body[data-theme="morph"],
+body[data-theme="warm"] {
+  --q-c-dark: #141414;
+  --q-c-dark-2: #343434;
+  --q-c-dark-3: #6a6a6a;
+  --q-c-dark-4: #9ea4ad;
+  --q-c-dark-5: #d7dce3;
+  --q-c-blue: #d96a2b;
+  --q-c-blue-light: #e08853;
+  --q-c-blue-lighter: #f2b48f;
+  --q-c-red: #bc4f37;
+  --q-c-red-light: #d27763;
+  --q-c-green: #2e7a55;
+  --q-c-green-light: #4e9874;
+  --q-bg-white: #f8f8f8;
+  --q-bg-light: #f0f0f0;
+  --q-bg-light-2: #ececec;
+  --q-bg-light-float: #f4f4f4;
+
+  /* QButton override */
+  .touchable {
+    border-radius: 0 !important;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    box-shadow: none !important;
+  }
+
+  .touchable.primary {
+    border-color: rgba(44, 44, 44, 0.65) !important;
+    background-color: #2a2a2d !important;
+    color: #fff !important;
+    text-shadow: none !important;
+    box-shadow:
+      0 1px rgba(255, 255, 255, 0.07) inset,
+      0 7px 14px rgba(20, 24, 32, 0.11) !important;
+  }
+
+  .touchable.primary:hover {
+    border-color: rgba(44, 44, 44, 0.74) !important;
+    background-color: #232326 !important;
+    box-shadow:
+      0 1px rgba(255, 255, 255, 0.07) inset,
+      0 9px 18px rgba(20, 24, 32, 0.13) !important;
+  }
+
+  .touchable.outlined {
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    background-color: rgba(255, 255, 255, 0.36) !important;
+    color: rgba(20, 20, 20, 0.84) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+      0 1px rgba(255, 255, 255, 0.86) inset,
+      0 6px 14px rgba(20, 24, 32, 0.06) !important;
+  }
+
+  .touchable.outlined:hover {
+    border-color: rgba(96, 96, 96, 0.38) !important;
+    background-color: rgba(255, 255, 255, 0.44) !important;
+    box-shadow:
+      0 1px rgba(255, 255, 255, 0.9) inset,
+      0 8px 16px rgba(20, 24, 32, 0.075) !important;
+  }
+
+  .touchable.plain {
+    color: var(--q-c-dark-2) !important;
+  }
+
+  .touchable.plain:hover {
+    background: rgba(96, 96, 96, 0.1) !important;
+    color: var(--q-c-dark) !important;
+  }
+
+  /* QButton override (navigation variants) */
+  .sidebar .touchable.nav-btn {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
+  .sidebar .touchable.nav-btn:hover {
+    background: rgba(96, 96, 96, 0.1) !important;
+    color: var(--text-0, #141414) !important;
+  }
+
+  .sidebar .touchable.nav-btn.nav-btn-active {
+    border-left: none !important;
+    background: rgba(96, 96, 96, 0.14) !important;
+    color: var(--text-0, #141414) !important;
+  }
+
+  .mobile-drawer-nav .touchable.nav-btn {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
+  .mobile-drawer-nav .touchable.nav-btn:hover {
+    background: rgba(96, 96, 96, 0.1) !important;
+    color: var(--text-0, #141414) !important;
+  }
+
+  .mobile-drawer-nav .touchable.nav-btn.nav-btn-active {
+    border-left: none !important;
+    background: rgba(96, 96, 96, 0.14) !important;
+    color: var(--text-0, #141414) !important;
+  }
+
+  /* QInput override */
+  .q-input {
+    width: 100%;
+  }
+
+  .q-input .q-text-field-wrapper {
+    border-radius: 2px !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    box-shadow: none !important;
+    background-color: rgba(255, 255, 255, 0.86) !important;
+  }
+
+  .q-input .q-text-field-wrapper:has(input:focus) {
+    border-color: rgba(217, 106, 43, 0.62) !important;
+    box-shadow: 0 0 0 1px rgba(217, 106, 43, 0.16) !important;
+  }
+
+  .q-input input {
+    color: #1f1f1f !important;
+  }
+
+  .q-input input::placeholder {
+    color: #6a6a6a !important;
+  }
+
+  /* QTextarea override */
+  .q-textarea {
+    width: 100%;
+  }
+
+  .q-textarea .q-textarea-wrapper {
+    border-radius: 2px !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    box-shadow: none !important;
+    background-color: rgba(255, 255, 255, 0.86) !important;
+  }
+
+  .q-textarea .q-textarea-wrapper:has(textarea:focus) {
+    border-color: rgba(217, 106, 43, 0.62) !important;
+    box-shadow: 0 0 0 1px rgba(217, 106, 43, 0.16) !important;
+  }
+
+  .q-textarea textarea {
+    color: #1f1f1f !important;
+  }
+
+  .q-textarea textarea::placeholder {
+    color: #6a6a6a !important;
+  }
+
+  /* QDropdownMenu override */
+  .q-dropdown-menu {
+    width: 100%;
+  }
+
+  .q-dropdown-menu .q-dropdown-menu-action {
+    border-radius: 2px !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    box-shadow: none !important;
+    background-color: rgba(255, 255, 255, 0.86) !important;
+  }
+
+  .q-dropdown-menu .q-dropdown-menu-action:has(input:focus) {
+    border-color: rgba(217, 106, 43, 0.62) !important;
+    box-shadow: 0 0 0 1px rgba(217, 106, 43, 0.16) !important;
+  }
+
+  /* QFence override */
+  .q-fence .q-fence-inner {
+    opacity: 1;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #343434;
+  }
+
+  .q-fence.success .q-fence-inner {
+    background: rgba(78, 152, 116, 0.12);
+    border-color: rgba(78, 152, 116, 0.36);
+    color: #26684a;
+  }
+
+  .q-fence.warning .q-fence-inner {
+    background: rgba(217, 106, 43, 0.12);
+    border-color: rgba(217, 106, 43, 0.36);
+    color: #8f451f;
+  }
+
+  .q-fence.error .q-fence-inner,
+  .q-fence.danger .q-fence-inner {
+    background: rgba(188, 79, 55, 0.12);
+    border-color: rgba(188, 79, 55, 0.36);
+    color: #8d3d2d;
+  }
+
+  /* QProgress override */
+  .q-progress {
+    min-width: 0;
+  }
+
+  .q-progress .q-progress-slot {
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.12);
+  }
+
+  .q-progress .q-progress-slot .q-progress-bar {
+    border-radius: 999px;
+    background: linear-gradient(90deg, #d96a2b 0%, #efab7c 100%);
+  }
+
+  .q-progress .q-progress-slot .q-progress-bar .q-progress-bar-inner {
+    background: linear-gradient(90deg, #d96a2b 0%, #efab7c 100%);
+  }
+
+  /* QDrawer override */
+  .q-drawer-mask {
+    background: rgba(0, 0, 0, 0.24) !important;
+  }
+
+  .q-drawer {
+    border-right: 1px solid var(--line, rgba(0, 0, 0, 0.16));
+    background: rgba(247, 247, 247, 0.97) !important;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.9) inset,
+      0 12px 24px rgba(20, 24, 32, 0.14) !important;
+  }
+
+  .q-drawer-header {
+    border-bottom: 1px solid var(--line, rgba(0, 0, 0, 0.16)) !important;
+    padding: 12px 12px 10px !important;
+  }
+
+  .q-drawer-title {
+    font-family: var(--font-mono, "IBM Plex Mono", monospace);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-1, #343434);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .q-drawer-close {
+    color: var(--text-1, #343434);
+  }
+
+  .q-drawer-body {
+    padding: 10px !important;
+  }
+
+  /* QAvatar override */
+  .q-avatar.rounded {
+    border-radius: 2px !important;
+  }
+
+  .q-avatar.rounded img {
+    border-radius: 2px !important;
+  }
+
+  .q-avatar.border-solid {
+    border-width: 1px !important;
+    border-color: rgba(0, 0, 0, 0.18) !important;
+    box-shadow: none !important;
+  }
+
+  .q-avatar.border-hollow {
+    border-width: 1px !important;
+    border-color: rgba(0, 0, 0, 0.2) !important;
+  }
+
+  /* QBadge override */
+  .q-badge {
+    font-weight: 600;
+  }
+
+  .q-badge.q-badge-sm,
+  .q-badge.q-badge-md,
+  .q-badge.q-badge-lg {
+    border-radius: 2px !important;
+  }
+
+  .q-badge.q-badge-default.q-badge-filled {
+    background: rgba(96, 96, 96, 0.14) !important;
+    color: #343434 !important;
+  }
+
+  .q-badge.q-badge-default.q-badge-light {
+    background: rgba(96, 96, 96, 0.1) !important;
+    color: #343434 !important;
+  }
+
+  /* QCollapse/QCollapseItem override */
+  .q-collapse.q-collapse-bordered {
+    border: 1px solid rgba(0, 0, 0, 0.16) !important;
+    border-radius: 2px !important;
+  }
+
+  .q-collapse-item:not(:last-child):not(.ghost) {
+    border-bottom-color: rgba(0, 0, 0, 0.16) !important;
+  }
+
+  .q-collapse-item-header:hover:not(.disabled) {
+    background-color: rgba(96, 96, 96, 0.1) !important;
+  }
+
+  .q-collapse-item-subtitle,
+  .q-collapse-item-arrow .icon {
+    color: #6a6a6a !important;
+  }
+
+  .q-collapse-item-content {
+    background-color: rgba(255, 255, 255, 0.72) !important;
+    border-top-color: rgba(0, 0, 0, 0.14) !important;
+  }
+
+  .q-collapse-item.ghost .q-collapse-item-header {
+    border-radius: 2px !important;
+    background-color: rgba(96, 96, 96, 0.1) !important;
+  }
+
+  .q-collapse-item.ghost.active .q-collapse-item-header {
+    border-radius: 2px 2px 0 0 !important;
+  }
+
+  .q-collapse-item.ghost .q-collapse-item-content {
+    border-left-color: rgba(0, 0, 0, 0.16) !important;
+  }
+
+  /* QDatetimePicker override */
+  .q-datetime-picker {
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    border-radius: 2px !important;
+    background-color: rgba(255, 255, 255, 0.86) !important;
+    box-shadow: none !important;
+  }
+
+  .q-datetime-picker input[type="date"],
+  .q-datetime-picker input[type="time"] {
+    color: #1f1f1f !important;
+  }
+
+  /* QDialog override */
+  .q-dialog-mask {
+    background-color: rgba(0, 0, 0, 0.24) !important;
+  }
+
+  .q-dialog {
+    background-color: rgba(247, 247, 247, 0.97) !important;
+    border: 1px solid rgba(0, 0, 0, 0.16) !important;
+    border-radius: 2px !important;
+  }
+
+  .q-dialog.q-dialog.desktop-mode-popup {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.9) inset,
+      0 12px 24px rgba(20, 24, 32, 0.14) !important;
+  }
+
+  .q-dialog-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+  }
+
+  .q-dialog-header .q-dialog-title {
+    font-family: var(--q-font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #343434;
+  }
+
+  /* QDropdownMenuWithTextField override */
+  .q-dropdown-menu-with-text-field {
+    border-radius: 2px !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    box-shadow: none !important;
+    background-color: rgba(255, 255, 255, 0.86) !important;
+  }
+
+  .q-dropdown-menu-with-text-field:has(input:focus) {
+    border-color: rgba(217, 106, 43, 0.62) !important;
+    box-shadow: 0 0 0 1px rgba(217, 106, 43, 0.16) !important;
+  }
+
+  .q-dropdown-menu-with-text-field .q-dropdown-menu-wrapper .touchable.plain {
+    border-top-left-radius: 2px !important;
+    border-bottom-right-radius: 2px !important;
+  }
+
+  /* QMenu override */
+  .q-menu {
+    border: 1px solid rgba(0, 0, 0, 0.16) !important;
+    border-radius: 2px !important;
+    background: rgba(247, 247, 247, 0.98) !important;
+    box-shadow:
+      0 1px rgba(255, 255, 255, 0.85) inset,
+      0 10px 24px rgba(20, 24, 32, 0.1) !important;
+  }
+
+  .q-menu .q-menu-item .q-menu-item-divider {
+    border-top-color: rgba(0, 0, 0, 0.16) !important;
+  }
+
+  .q-menu .q-menu-item .q-menu-item-inner:hover,
+  .q-menu .q-menu-item.focused .q-menu-item-inner {
+    background-color: rgba(96, 96, 96, 0.1) !important;
+  }
+
+  /* QMessageDialog override */
+  .message-dialog-content .icon-wrapper {
+    background-color: rgba(217, 106, 43, 0.18) !important;
+    box-shadow: 0 0 0 8px rgba(217, 106, 43, 0.1) !important;
+  }
+
+  .message-dialog-content .icon-wrapper .icon {
+    color: #d96a2b !important;
+  }
+
+  /* QPackCover override */
+  .q-pack-cover-layer {
+    background: #d2d2d2 !important;
+  }
+
+  .q-pack-cover-layer.one {
+    background: #e9e9e9 !important;
+  }
+
+  .q-pack-cover-inner {
+    box-shadow:
+      0 1px rgba(255, 255, 255, 0.9) inset,
+      0 10px 20px rgba(20, 24, 32, 0.12) !important;
+  }
+
+  .q-pack-cover-seals {
+    border-right-color: rgba(0, 0, 0, 0.18) !important;
+  }
+
+  /* QPagination override */
+  .q-pagination .q-page-indicator {
+    background-color: rgba(255, 255, 255, 0.64) !important;
+  }
+
+  .q-pagination .q-page-indicator .q-button.active,
+  .q-pagination .q-page-indicator-simple {
+    color: #bc4f37 !important;
+  }
+
+  /* QPaymentApproachItem/QPaymentApproachSelect override */
+  .q-payment-apparoch-item {
+    border-radius: 2px !important;
+  }
+
+  .q-payment-approach-item-wrapper {
+    border-radius: 2px !important;
+    border-color: rgba(0, 0, 0, 0.16) !important;
+    background-color: rgba(255, 255, 255, 0.58) !important;
+  }
+
+  .q-payment-approach-item-wrapper .check-indicator {
+    color: #6a6a6a !important;
+  }
+
+  .q-payment-approach-item-wrapper.selected {
+    border-color: rgba(188, 79, 55, 0.52) !important;
+    background-color: rgba(188, 79, 55, 0.12) !important;
+  }
+
+  .q-payment-approach-item-wrapper.selected .check-indicator {
+    color: #bc4f37 !important;
+  }
+
+  .q-payment-approach-item-wrapper:not(.disabled):hover {
+    background-color: rgba(96, 96, 96, 0.1) !important;
+    border-color: rgba(0, 0, 0, 0.24) !important;
+  }
+
+  /* QPremiumDecoration override */
+  .q-premium-decoration-image {
+    opacity: 0.85;
+  }
+
+  /* QShare override */
+  .q-share .q-share-link,
+  .q-share .q-share-link-inner {
+    border-radius: 2px !important;
+  }
+
+  .q-share .q-share-link-inner.general {
+    border-color: rgba(0, 0, 0, 0.2) !important;
+  }
+
+  /* QSkeleton override */
+  .q-skeleton {
+    background: rgba(96, 96, 96, 0.22) !important;
+  }
+
+  .q-skeleton-wave::after {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent) !important;
+  }
+
+  /* QSwitch override */
+  .q-switch .q-switch-inner {
+    border-radius: 2px !important;
+    background: rgba(96, 96, 96, 0.32) !important;
+  }
+
+  .q-switch .q-switch-inner .q-switch-handle {
+    border-radius: 2px !important;
+  }
+
+  .q-switch .q-switch-checkbox:checked + .q-switch-inner {
+    background: #d96a2b !important;
+  }
+
+  /* QTabs override */
+  .q-tabs.normal {
+    border-radius: 2px !important;
+    background-color: rgba(255, 255, 255, 0.64) !important;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.14);
+  }
+
+  .q-tabs.normal .q-tabs-indicator {
+    border-radius: 2px !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    box-shadow: none !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  .q-tabs.plain {
+    box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.18) !important;
+  }
+
+  .q-tabs.plain .q-tabs-indicator {
+    background-color: #d96a2b !important;
+  }
+
+  .q-tabs.plain .q-button.selected {
+    color: #bc4f37 !important;
+  }
+
+  .q-tabs.plain .q-button:hover {
+    background-color: rgba(188, 79, 55, 0.12) !important;
+  }
+
+  /* QTextFieldWithButton override */
+  .q-text-field-with-button.horizontal .q-text-field {
+    border-radius: 2px 0 0 2px !important;
+  }
+
+  .q-text-field-with-button.horizontal .q-text-button-wrapper .q-button {
+    border-radius: 0 2px 2px 0 !important;
+  }
+
+  /* QToast/QToastContainer override */
+  .q-toast-container {
+    gap: 10px;
+  }
+
+  .q-toast {
+    border-radius: 2px !important;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    background: rgba(247, 247, 247, 0.97) !important;
+    box-shadow:
+      0 1px rgba(255, 255, 255, 0.9) inset,
+      0 10px 20px rgba(20, 24, 32, 0.12) !important;
+  }
+
+  /* QTooltip override */
+  .q-tooltip {
+    border-radius: 2px !important;
+    background: #2a2a2d !important;
+    color: #fff !important;
+    box-shadow:
+      0 1px rgba(255, 255, 255, 0.06) inset,
+      0 8px 16px rgba(20, 24, 32, 0.22) !important;
+  }
+
+  .q-tooltip.q-tooltip-arrow.q-tooltip-top::before {
+    border-top-color: #2a2a2d !important;
+  }
+
+  .q-tooltip.q-tooltip-arrow.q-tooltip-bottom::before {
+    border-bottom-color: #2a2a2d !important;
+  }
+
+  .q-tooltip.q-tooltip-arrow.q-tooltip-left::before {
+    border-left-color: #2a2a2d !important;
+  }
+
+  .q-tooltip.q-tooltip-arrow.q-tooltip-right::before {
+    border-right-color: #2a2a2d !important;
+  }
+}

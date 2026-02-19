@@ -159,22 +159,22 @@ onMounted(() => {
 
   &.exceed, &.error {
     .q-text-field-wrapper {
-      border: 0.5px solid var(--q-c-red-dimm-3);
+      border: var(--q-field-border-width) solid var(--q-field-error-border-color);
       &:has(input:focus) {
-        border-color: var(--q-c-red-dimm-3);
+        border-color: var(--q-field-error-border-color);
       }
     }
     .q-text-field-hint {
-      background-color: var(--q-c-red-dimm-1);
+      background-color: var(--q-field-error-bg);
     }
     .q-text-field-counter {
-      color: var(--q-c-red);
+      color: var(--q-field-error-counter);
     }
   }
 
   &.error {
     .q-text-field-hint-text {
-      color: var(--q-c-red);
+      color: var(--q-field-error-text);
     }
   }
   &.disabled {
@@ -196,14 +196,15 @@ onMounted(() => {
   .q-text-field-wrapper {
     width: 100%;
     min-height: 44px;
-    border: 0.5px solid var(--q-c-dark-4);
-    border-radius: 6px;
-    box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.03), 0px 1px 1px 0px #4343431A;
+    border: var(--q-field-border-width) solid var(--q-field-border-color);
+    border-radius: var(--q-field-radius);
+    box-shadow: var(--q-field-shadow);
     transition: border-color 0.2s ease-in-out;
-    background-color: var(--q-bg-white);
+    background-color: var(--q-field-bg);
     // if textarea gets focus, apply border color to .q-textarea by parent pesudo class
     &:has(input:focus) {
-      border-color: var(--q-c-dark-3);
+      border-color: var(--q-field-border-color-focus);
+      box-shadow: var(--q-field-shadow-focus, var(--q-field-shadow));
     }
 
     .q-text-field-inner {
@@ -219,6 +220,10 @@ onMounted(() => {
       min-height: 42px;
       background-color: transparent;
       font-size: 0.9375rem;
+      color: var(--q-field-text-color);
+      &::placeholder {
+        color: var(--q-field-placeholder-color);
+      }
     }
     .clear-btn {
       min-height: 32px;
@@ -226,16 +231,16 @@ onMounted(() => {
       min-width: 32px;
       max-width: 32px;
       margin-right: 4px;
-      color: var(--q-c-dark-3);
+      color: var(--q-field-clear-color);
     }
 
     .q-text-field-hint {
-      color: var(--q-c-dark-3);
+      color: var(--q-field-hint-color);
       padding: 0.2rem 0.5rem;
       margin-left: 0px;
       margin-right: 0px;
-      border-bottom-left-radius: 6px;
-      border-bottom-right-radius: 6px;
+      border-bottom-left-radius: var(--q-field-radius);
+      border-bottom-right-radius: var(--q-field-radius);
       display: flex;
       align-items: center;
       justify-content: space-between;

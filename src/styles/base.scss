@@ -94,6 +94,104 @@
   --q-bg-dark-float: #28282f;
   --q-bg-overlay: #2d252432;
 
+  // themeable component tokens (phase 1)
+  --q-button-radius: 0.5rem;
+  --q-button-font-weight: 400;
+  --q-button-letter-spacing: 0;
+  --q-button-primary-bg: var(--q-c-dark);
+  --q-button-primary-border: var(--q-c-dark);
+  --q-button-primary-text: var(--q-c-white);
+  --q-button-primary-shadow: none;
+  --q-button-primary-hover-shadow: 0 0 8px rgba(41, 30, 56, 0.2);
+  --q-button-highlight-bg: var(--q-c-blue);
+  --q-button-highlight-border: var(--q-c-blue);
+  --q-button-highlight-hover-bg: var(--q-c-blue-light);
+  --q-button-danger-bg: var(--q-c-red);
+  --q-button-danger-border: var(--q-c-red);
+  --q-button-danger-hover-bg: var(--q-c-red-light);
+  --q-button-outlined-border-width: 0.5px;
+  --q-button-outlined-border: var(--q-c-dark-4);
+  --q-button-outlined-bg: transparent;
+  --q-button-outlined-text: inherit;
+  --q-button-outlined-shadow:
+    inset 0px 1px 10px 0px rgba(0, 0, 0, 0.01),
+    0px 1px 2px 0px #4343431a;
+  --q-button-outlined-hover-bg: rgba(0, 0, 0, 0.02);
+  --q-button-outlined-hover-border: var(--q-button-outlined-border);
+  --q-button-outlined-hover-shadow:
+    inset 0px 1px 2px 0px rgba(0, 0, 0, 0.01),
+    0px 1px 1px 0px #4343431a;
+  --q-button-outlined-backdrop-filter: none;
+  --q-button-outlined-webkit-backdrop-filter: none;
+  --q-button-plain-text: inherit;
+  --q-button-plain-hover-text: inherit;
+  --q-button-plain-hover-bg: rgba(0, 0, 0, 0.05);
+
+  --q-field-radius: 6px;
+  --q-field-border-width: 0.5px;
+  --q-field-border-color: var(--q-c-dark-4);
+  --q-field-border-color-focus: var(--q-c-dark-3);
+  --q-field-shadow:
+    inset 0px 1px 8px 0px rgba(0, 0, 0, 0.03),
+    0px 1px 1px 0px #4343431a;
+  --q-field-shadow-focus: var(--q-field-shadow);
+  --q-field-bg: var(--q-bg-white);
+  --q-field-focus-ring: none;
+  --q-field-text-color: inherit;
+  --q-field-placeholder-color: var(--q-c-dark-3);
+  --q-field-clear-color: var(--q-c-dark-3);
+  --q-field-hint-color: var(--q-c-dark-3);
+  --q-field-error-border-color: var(--q-c-red-dimm-3);
+  --q-field-error-bg: var(--q-c-red-dimm-1);
+  --q-field-error-text: var(--q-c-red);
+  --q-field-error-counter: var(--q-c-red);
+  --q-dropdown-action-radius: var(--q-button-radius);
+
+  --q-fence-radius: 6px;
+  --q-fence-border-width: 0;
+  --q-fence-border-color: transparent;
+  --q-fence-bg: rgba(0, 0, 0, 0.04);
+  --q-fence-text: var(--q-c-dark);
+  --q-fence-opacity: 0.7;
+  --q-fence-warning-bg: var(--q-c-orange-dimm-1);
+  --q-fence-warning-text: var(--q-c-orange-dark);
+  --q-fence-danger-bg: var(--q-c-red-dimm-1);
+  --q-fence-danger-text: var(--q-c-red-dark);
+  --q-fence-success-bg: var(--q-c-green-dimm-1);
+  --q-fence-success-text: var(--q-c-green-dark);
+
+  --q-progress-track-height: 8px;
+  --q-progress-track-radius: 6px;
+  --q-progress-track-bg: var(--q-c-dark-4);
+  --q-progress-bar-radius: 6px;
+  --q-progress-fill: repeating-linear-gradient(
+    45deg,
+    var(--q-progress-color),
+    var(--q-progress-color) 10px,
+    var(--q-progress-color-light) 10px,
+    var(--q-progress-color-light) 20px
+  );
+
+  --q-drawer-mask-bg: rgba(0, 0, 0, 0.45);
+  --q-drawer-bg: var(--q-bg-white);
+  --q-drawer-text: inherit;
+  --q-drawer-border-color: var(--q-c-dark-4);
+  --q-drawer-right-border: none;
+  --q-drawer-left-border: none;
+  --q-drawer-shadow-right: -2px 0 8px rgba(0, 0, 0, 0.15);
+  --q-drawer-shadow-left: 2px 0 8px rgba(0, 0, 0, 0.15);
+  --q-drawer-shadow-top: 0 2px 8px rgba(0, 0, 0, 0.15);
+  --q-drawer-shadow-bottom: 0 -2px 8px rgba(0, 0, 0, 0.15);
+  --q-drawer-header-padding: 16px;
+  --q-drawer-body-padding: 16px;
+  --q-drawer-footer-padding: 16px;
+  --q-drawer-title-font-family: inherit;
+  --q-drawer-title-font-size: 1rem;
+  --q-drawer-title-font-weight: 600;
+  --q-drawer-title-letter-spacing: normal;
+  --q-drawer-title-text-transform: none;
+  --q-drawer-close-color: inherit;
+
   // legacy variables
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f2f2f2;
@@ -184,6 +282,125 @@
   --color-text: var(--vt-c-text-light-1);
 
   --section-gap: 160px;
+}
+
+body[data-theme="morph"],
+body[data-theme="warm"] {
+  --q-c-dark: #141414;
+  --q-c-dark-2: #343434;
+  --q-c-dark-3: #6a6a6a;
+  --q-c-dark-4: #9ea4ad;
+  --q-c-dark-5: #d7dce3;
+
+  --q-c-blue: #d96a2b;
+  --q-c-blue-dark: #b95b25;
+  --q-c-blue-light: #e08853;
+  --q-c-blue-lighter: #f2b48f;
+  --q-c-blue-dimm-1: rgba(217, 106, 43, 0.08);
+  --q-c-blue-dimm-2: rgba(217, 106, 43, 0.2);
+  --q-c-blue-dimm-3: rgba(217, 106, 43, 0.45);
+
+  --q-c-red: #bc4f37;
+  --q-c-red-dark: #8d3d2d;
+  --q-c-red-light: #d27763;
+  --q-c-red-lighter: #e89b8b;
+  --q-c-red-dimm-1: rgba(188, 79, 55, 0.12);
+  --q-c-red-dimm-2: rgba(188, 79, 55, 0.24);
+  --q-c-red-dimm-3: rgba(188, 79, 55, 0.42);
+
+  --q-c-green: #2e7a55;
+  --q-c-green-dark: #26684a;
+  --q-c-green-light: #4e9874;
+  --q-c-green-lighter: #7cb79a;
+  --q-c-green-dimm-1: rgba(78, 152, 116, 0.12);
+  --q-c-green-dimm-2: rgba(78, 152, 116, 0.22);
+  --q-c-green-dimm-3: rgba(78, 152, 116, 0.4);
+
+  --q-bg-white: #f8f8f8;
+  --q-bg-light: #f0f0f0;
+  --q-bg-light-2: #ececec;
+  --q-bg-light-float: #f4f4f4;
+
+  --q-button-radius: 0;
+  --q-button-font-weight: 600;
+  --q-button-letter-spacing: 0.01em;
+  --q-button-primary-bg: #2a2a2d;
+  --q-button-primary-border: rgba(44, 44, 44, 0.65);
+  --q-button-primary-shadow:
+    0 1px rgba(255, 255, 255, 0.07) inset,
+    0 7px 14px rgba(20, 24, 32, 0.11);
+  --q-button-primary-hover-shadow:
+    0 1px rgba(255, 255, 255, 0.07) inset,
+    0 9px 18px rgba(20, 24, 32, 0.13);
+
+  --q-button-outlined-border-width: 1px;
+  --q-button-outlined-border: rgba(0, 0, 0, 0.2);
+  --q-button-outlined-bg: rgba(255, 255, 255, 0.36);
+  --q-button-outlined-text: rgba(20, 20, 20, 0.84);
+  --q-button-outlined-shadow:
+    0 1px rgba(255, 255, 255, 0.86) inset,
+    0 6px 14px rgba(20, 24, 32, 0.06);
+  --q-button-outlined-hover-border: rgba(96, 96, 96, 0.38);
+  --q-button-outlined-hover-bg: rgba(255, 255, 255, 0.44);
+  --q-button-outlined-hover-shadow:
+    0 1px rgba(255, 255, 255, 0.9) inset,
+    0 8px 16px rgba(20, 24, 32, 0.075);
+  --q-button-outlined-backdrop-filter: blur(12px);
+  --q-button-outlined-webkit-backdrop-filter: blur(12px);
+  --q-button-plain-text: var(--q-c-dark-2);
+  --q-button-plain-hover-text: var(--q-c-dark);
+  --q-button-plain-hover-bg: rgba(96, 96, 96, 0.1);
+
+  --q-field-radius: 2px;
+  --q-field-border-width: 1px;
+  --q-field-border-color: rgba(0, 0, 0, 0.2);
+  --q-field-border-color-focus: rgba(217, 106, 43, 0.62);
+  --q-field-shadow: none;
+  --q-field-shadow-focus: 0 0 0 1px rgba(217, 106, 43, 0.16);
+  --q-field-bg: rgba(255, 255, 255, 0.86);
+  --q-field-focus-ring: 0 0 0 1px rgba(217, 106, 43, 0.16);
+  --q-field-text-color: #1f1f1f;
+  --q-field-placeholder-color: #6a6a6a;
+  --q-dropdown-action-radius: 2px;
+
+  --q-fence-radius: 2px;
+  --q-fence-border-width: 1px;
+  --q-fence-border-color: rgba(0, 0, 0, 0.15);
+  --q-fence-bg: rgba(255, 255, 255, 0.8);
+  --q-fence-text: #343434;
+  --q-fence-opacity: 1;
+  --q-fence-success-bg: rgba(78, 152, 116, 0.12);
+  --q-fence-success-text: #26684a;
+  --q-fence-warning-bg: rgba(217, 106, 43, 0.12);
+  --q-fence-warning-text: #8f451f;
+  --q-fence-danger-bg: rgba(188, 79, 55, 0.12);
+  --q-fence-danger-text: #8d3d2d;
+
+  --q-progress-track-height: 4px;
+  --q-progress-track-radius: 999px;
+  --q-progress-track-bg: rgba(0, 0, 0, 0.12);
+  --q-progress-bar-radius: 999px;
+  --q-progress-fill: linear-gradient(90deg, #d96a2b 0%, #efab7c 100%);
+
+  --q-drawer-mask-bg: rgba(0, 0, 0, 0.24);
+  --q-drawer-bg: rgba(247, 247, 247, 0.97);
+  --q-drawer-border-color: rgba(0, 0, 0, 0.16);
+  --q-drawer-right-border: 1px solid var(--q-drawer-border-color);
+  --q-drawer-left-border: 1px solid var(--q-drawer-border-color);
+  --q-drawer-shadow-right:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 12px 24px rgba(20, 24, 32, 0.14);
+  --q-drawer-shadow-left:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 12px 24px rgba(20, 24, 32, 0.14);
+  --q-drawer-header-padding: 12px 12px 10px;
+  --q-drawer-body-padding: 10px;
+  --q-drawer-title-font-family: var(--q-font-mono);
+  --q-drawer-title-font-size: 12px;
+  --q-drawer-title-font-weight: 700;
+  --q-drawer-title-letter-spacing: 0.1em;
+  --q-drawer-title-text-transform: uppercase;
+  --q-drawer-close-color: #343434;
 }
 
 *,

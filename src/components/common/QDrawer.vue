@@ -143,13 +143,14 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: var(--q-drawer-mask-bg);
 }
 
 .q-drawer {
   position: fixed;
-  background: var(--q-bg-white);
-  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+  background: var(--q-drawer-bg);
+  color: var(--q-drawer-text);
+  box-shadow: var(--q-drawer-shadow-right);
   display: flex;
   flex-direction: column;
 
@@ -157,27 +158,29 @@ onUnmounted(() => {
     top: 0;
     right: 0;
     bottom: 0;
+    border-left: var(--q-drawer-right-border);
   }
 
   &.q-drawer-left {
     top: 0;
     left: 0;
     bottom: 0;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    border-right: var(--q-drawer-left-border);
+    box-shadow: var(--q-drawer-shadow-left);
   }
 
   &.q-drawer-top {
     top: 0;
     left: 0;
     right: 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--q-drawer-shadow-top);
   }
 
   &.q-drawer-bottom {
     bottom: 0;
     left: 0;
     right: 0;
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--q-drawer-shadow-bottom);
   }
 }
 
@@ -185,18 +188,22 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
-  border-bottom: 1px solid var(--q-c-dark-4);
+  padding: var(--q-drawer-header-padding);
+  border-bottom: 1px solid var(--q-drawer-border-color);
   flex-shrink: 0;
 }
 
 .q-drawer-title {
-  font-size: 1rem;
-  font-weight: 600;
+  font-family: var(--q-drawer-title-font-family);
+  font-size: var(--q-drawer-title-font-size);
+  font-weight: var(--q-drawer-title-font-weight);
+  letter-spacing: var(--q-drawer-title-letter-spacing);
+  text-transform: var(--q-drawer-title-text-transform);
 }
 
 .q-drawer-close {
   padding: 4px;
+  color: var(--q-drawer-close-color);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -215,13 +222,13 @@ onUnmounted(() => {
 
 .q-drawer-body {
   flex: 1;
-  padding: 16px;
+  padding: var(--q-drawer-body-padding);
   overflow-y: auto;
 }
 
 .q-drawer-footer {
-  padding: 16px;
-  border-top: 1px solid var(--q-c-dark-4);
+  padding: var(--q-drawer-footer-padding);
+  border-top: 1px solid var(--q-drawer-border-color);
   flex-shrink: 0;
 }
 

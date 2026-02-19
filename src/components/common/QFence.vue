@@ -48,14 +48,15 @@ const props = defineProps({
   display: block;
   width: 100%;
   .q-fence-inner {
-    border-radius: 6px;
+    border-radius: var(--q-fence-radius);
+    border: var(--q-fence-border-width) solid var(--q-fence-border-color);
     display: flex;
     align-items: flex-start;
     width: 100%;
     padding: 0.5rem 0.8rem;
-    color: var(--q-c-dark);
-    opacity: 0.7;
-    background: rgba(0, 0, 0, 0.04);
+    color: var(--q-fence-text);
+    opacity: var(--q-fence-opacity);
+    background: var(--q-fence-bg);
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     cursor: default;
@@ -73,20 +74,20 @@ const props = defineProps({
   }
   &.warning {
     .q-fence-inner {
-      color: var(--q-c-orange-dark);
-      background-color: var(--q-c-orange-dimm-1);
+      color: var(--q-fence-warning-text);
+      background-color: var(--q-fence-warning-bg);
     }
   }
   &.error {
     .q-fence-inner {
-      color: var(--q-c-red-dark);
-      background-color: var(--q-c-red-dimm-1);
+      color: var(--q-fence-danger-text);
+      background-color: var(--q-fence-danger-bg);
     }
   }
   &.success {
     .q-fence-inner {
-      color: var(--q-c-green-dark);
-      background-color: var(--q-c-green-dimm-1);
+      color: var(--q-fence-success-text);
+      background-color: var(--q-fence-success-bg);
     }
   }
 }

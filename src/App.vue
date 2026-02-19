@@ -4,13 +4,21 @@ import { useRouter, useRoute } from "vue-router";
 import logoLight from "@/assets/images/app-logo-light.png";
 import logoDark from "@/assets/images/app-logo-dark.png";
 import DemoSidebar from "@/app/components/DemoSidebar.vue";
+import {
+  applyTheme,
+  getThemeOptions,
+  resolveInitialTheme,
+  type QuailTheme,
+  type ThemeOption,
+} from "@/theme";
 
 const router = useRouter();
 const route = useRoute();
 
 const sidebarOpen = ref(false);
-const isLightMode = ref(true);
+const selectedTheme = ref<QuailTheme>(resolveInitialTheme());
 const isTUIMode = ref(false);
+const themeItems = getThemeOptions();
 
 function setTUIMode(enabled: boolean) {
   if (enabled) {
@@ -29,7 +37,13 @@ const selectedTopTab = ref(topNavTabs.value[0]);
 
 const isHomePage = computed(() => route.path === '/' || route.name === 'home');
 
-const currentLogo = computed(() => isLightMode.value ? logoLight: logoDark);
+const selectedThemeItem = computed(() => {
+  return themeItems.find((item) => item.value === selectedTheme.value) || themeItems[0];
+});
+
+const isDarkTheme = computed(() => selectedTheme.value === "dark");
+
+const currentLogo = computed(() => (isDarkTheme.value ? logoDark : logoLight));
 
 watch(() => route.path, (path) => {
   if (path === '/' || path === '/home') {
@@ -39,15 +53,13 @@ watch(() => route.path, (path) => {
   }
 }, { immediate: true });
 
-watch(isLightMode, (light) => {
-  if (light) {
-    document.body.classList.remove('dark');
-    document.body.classList.add('light');
-  } else {
-    document.body.classList.remove('light');
-    document.body.classList.add('dark');
-  }
-});
+watch(
+  selectedTheme,
+  (theme, prevTheme) => {
+    applyTheme(theme, prevTheme !== undefined);
+  },
+  { immediate: true }
+);
 
 watch(isTUIMode, (tui) => {
   setTUIMode(tui);
@@ -69,11 +81,14 @@ function closeSidebar() {
   sidebarOpen.value = false;
 }
 
-onMounted(() => {
-  // Add .light class to body for light mode styles (article.scss requires .light or .dark context)
-  if (!document.body.classList.contains('dark')) {
-    document.body.classList.add('light');
+function onThemeChange(item: ThemeOption) {
+  if (item?.value) {
+    selectedTheme.value = item.value;
   }
+}
+
+onMounted(() => {
+  setTUIMode(isTUIMode.value);
 });
 </script>
 
@@ -105,9 +120,14 @@ onMounted(() => {
             <span class="switch-label q-text-caption">TUI</span>
             <QSwitch v-model="isTUIMode" />
           </div>
-          <div class="global-switch">
-            <!-- <QIconSun class="switch-icon" /> -->
-            <QSwitch v-model="isLightMode" theme="clear-sky" />
+          <div class="global-switch theme-dropdown">
+            <span class="switch-label q-text-caption">Theme</span>
+            <QDropdownMenu
+              class="theme-select sm"
+              :items="themeItems"
+              :initial-item="selectedThemeItem"
+              @change="onThemeChange"
+            />
           </div>
           <QButton class="github-btn outlined icon xs" href="https://github.com/quail-ink/quail-ui" target="_blank">
             <QIconGithub class="icon" />
@@ -250,6 +270,12 @@ body {
     @media (max-width: 640px) {
       display: none;
     }
+  }
+}
+
+.theme-dropdown {
+  .theme-select {
+    width: 126px;
   }
 }
 

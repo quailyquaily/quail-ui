@@ -13,6 +13,16 @@ export { closePopupMenu, onPopupClose, debounce } from './util';
 export { useToast } from './composables/useToast';
 export type { ToastOptions } from './composables/useToast';
 export { useKeyboard, hasKeyboard } from './composables/useKeyboard';
+export {
+  THEME_STORAGE_KEY,
+  THEME_IDS,
+  applyTheme,
+  getThemeOptions,
+  isTheme,
+  readStoredTheme,
+  resolveInitialTheme,
+} from './theme';
+export type { QuailTheme, ThemeOption } from './theme';
 
 /**
  * Enable or disable TUI (Text User Interface) mode

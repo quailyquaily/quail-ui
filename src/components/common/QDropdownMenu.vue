@@ -313,6 +313,7 @@ onUnmounted(() => {
     position: relative;
   }
   .q-dropdown-menu-action {
+    border-radius: var(--q-dropdown-action-radius, var(--q-button-radius));
     overflow: hidden;
     height: 44px;
     padding: 0 0.5rem 0 0.8rem;
@@ -326,6 +327,10 @@ onUnmounted(() => {
       .chevron-icon {
         opacity: 1;
       }
+    }
+    &:has(input:focus) {
+      border-color: var(--q-field-border-color-focus);
+      box-shadow: var(--q-field-shadow-focus, var(--q-field-shadow));
     }
     .empty-block {
       flex: 1;

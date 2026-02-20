@@ -1,6 +1,8 @@
 // Morph theme overrides, embedded from docs/override.css
 body[data-theme="morph"],
 body[data-theme="warm"] {
+  --tone-shadow: rgba(0, 0, 0, 0.2);
+  --tone-edge-bottom: 8px;
   --q-c-dark: #141414;
   --q-c-dark-2: #343434;
   --q-c-dark-3: #6a6a6a;
@@ -17,10 +19,38 @@ body[data-theme="warm"] {
   --q-bg-light: #f0f0f0;
   --q-bg-light-2: #ececec;
   --q-bg-light-float: #f4f4f4;
+  --morph-bg-grid-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280' viewBox='0 0 280 280' fill='none' shape-rendering='crispEdges'><g stroke='%23000000' stroke-opacity='.10' stroke-width='1' stroke-linecap='round' stroke-dasharray='1 3'><path d='M0 56.5H280'/><path d='M0 112.5H280'/><path d='M0 168.5H280'/><path d='M0 224.5H280'/><path d='M56.5 0V280'/><path d='M112.5 0V280'/><path d='M168.5 0V280'/><path d='M224.5 0V280'/></g><g stroke='%23000000' stroke-opacity='.095' stroke-width='1'><path d='M0 .5H280'/><path d='M.5 0V280'/></g></svg>");
+  --morph-bg-grid-mask: radial-gradient(circle at center, black 35%, transparent 100%);
+
+  // Morph signature background grid (svg texture + radial mask)
+  background-color: var(--q-bg-light);
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    display: block;
+    background-image: var(--morph-bg-grid-image);
+    background-size: 280px 280px;
+    background-repeat: repeat;
+    -webkit-mask-image: var(--morph-bg-grid-mask);
+    mask-image: var(--morph-bg-grid-mask);
+    opacity: 0.9;
+    mix-blend-mode: normal;
+  }
+
+  .component-showcase,
+  .component-showcase .showcase-header {
+    background: transparent !important;
+  }
 
   /* QButton override */
   .touchable {
-    border-radius: 0 !important;
+    border-radius: 2px !important;
     font-weight: 600;
     letter-spacing: 0.01em;
     box-shadow: none !important;
@@ -70,6 +100,79 @@ body[data-theme="warm"] {
   .touchable.plain:hover {
     background: rgba(96, 96, 96, 0.1) !important;
     color: var(--q-c-dark) !important;
+  }
+
+  .touchable[disabled],
+  .touchable.disabled {
+    opacity: 1 !important;
+    cursor: not-allowed !important;
+    color: rgba(20, 20, 20, 0.46) !important;
+    border-color: rgba(0, 0, 0, 0.12) !important;
+    background-color: rgba(233, 233, 233, 0.92) !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .touchable.primary[disabled],
+  .touchable.highlight[disabled],
+  .touchable.danger[disabled],
+  .touchable.stripe[disabled] {
+    color: rgba(255, 255, 255, 0.72) !important;
+    border-color: #9c9c9c !important;
+    background-color: #9c9c9c !important;
+  }
+
+  .touchable.outlined[disabled],
+  .touchable.placeholder[disabled] {
+    color: rgba(20, 20, 20, 0.4) !important;
+    border-color: rgba(0, 0, 0, 0.14) !important;
+    background-color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  .touchable.plain[disabled] {
+    color: rgba(20, 20, 20, 0.38) !important;
+    background-color: transparent !important;
+  }
+
+  .touchable[disabled]:hover,
+  .touchable.disabled:hover {
+    box-shadow: none !important;
+    background-color: inherit;
+    border-color: inherit;
+  }
+
+  .q-button .shortcut-badge {
+    border-radius: 2px !important;
+    border: 1px solid rgba(0, 0, 0, 0.22) !important;
+    background: rgba(255, 255, 255, 0.68) !important;
+    color: #4a4a4a !important;
+    box-shadow: none !important;
+    font-family: var(--q-font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.12rem 0.38rem;
+  }
+
+  .q-button.primary .shortcut-badge,
+  .q-button.highlight .shortcut-badge,
+  .q-button.danger .shortcut-badge,
+  .q-button.stripe .shortcut-badge {
+    border-color: rgba(255, 255, 255, 0.35) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+  }
+
+  .q-button.outlined .shortcut-badge,
+  .q-button.plain .shortcut-badge,
+  .q-button.placeholder .shortcut-badge {
+    border-color: rgba(0, 0, 0, 0.16) !important;
+    background: rgba(255, 255, 255, 0.72) !important;
+    color: #5e5e5e !important;
+  }
+
+  .q-button[disabled] .shortcut-badge {
+    opacity: 0.45 !important;
   }
 
   /* QButton override (navigation variants) */
@@ -173,6 +276,16 @@ body[data-theme="warm"] {
     background-color: rgba(255, 255, 255, 0.86) !important;
   }
 
+  .q-dropdown-menu .q-dropdown-menu-action.plain {
+    border-color: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .q-dropdown-menu .q-dropdown-menu-action.plain:hover {
+    background-color: rgba(96, 96, 96, 0.09) !important;
+  }
+
   .q-dropdown-menu .q-dropdown-menu-action:has(input:focus) {
     border-color: rgba(217, 106, 43, 0.62) !important;
     box-shadow: 0 0 0 1px rgba(217, 106, 43, 0.16) !important;
@@ -183,25 +296,27 @@ body[data-theme="warm"] {
     opacity: 1;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 2px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.52);
+    backdrop-filter: blur(1.6px);
+    -webkit-backdrop-filter: blur(1.6px);
     color: #343434;
   }
 
   .q-fence.success .q-fence-inner {
-    background: rgba(78, 152, 116, 0.12);
+    background: rgba(78, 152, 116, 0.12) !important;
     border-color: rgba(78, 152, 116, 0.36);
     color: #26684a;
   }
 
   .q-fence.warning .q-fence-inner {
-    background: rgba(217, 106, 43, 0.12);
+    background: rgba(217, 106, 43, 0.12) !important;
     border-color: rgba(217, 106, 43, 0.36);
     color: #8f451f;
   }
 
   .q-fence.error .q-fence-inner,
   .q-fence.danger .q-fence-inner {
-    background: rgba(188, 79, 55, 0.12);
+    background: rgba(188, 79, 55, 0.12) !important;
     border-color: rgba(188, 79, 55, 0.36);
     color: #8d3d2d;
   }
@@ -209,21 +324,134 @@ body[data-theme="warm"] {
   /* QProgress override */
   .q-progress {
     min-width: 0;
+    --q-progress-fill: repeating-linear-gradient(
+      45deg,
+      #2f2f2f,
+      #2f2f2f 10px,
+      #8f8f8f 10px,
+      #8f8f8f 20px
+    );
+  }
+
+  .q-progress.green {
+    --q-progress-fill: repeating-linear-gradient(
+      45deg,
+      #26684a,
+      #26684a 10px,
+      #4e9874 10px,
+      #4e9874 20px
+    );
+  }
+
+  .q-progress.orange {
+    --q-progress-fill: repeating-linear-gradient(
+      45deg,
+      #8f451f,
+      #8f451f 10px,
+      #d96a2b 10px,
+      #d96a2b 20px
+    );
+  }
+
+  .q-progress.red {
+    --q-progress-fill: repeating-linear-gradient(
+      45deg,
+      #8d3d2d,
+      #8d3d2d 10px,
+      #bc4f37 10px,
+      #bc4f37 20px
+    );
   }
 
   .q-progress .q-progress-slot {
-    height: 4px;
-    border-radius: 999px;
-    background: rgba(0, 0, 0, 0.12);
+    height: var(--q-progress-track-height);
+    border-radius: var(--q-progress-track-radius);
+    background: var(--q-progress-track-bg);
   }
 
   .q-progress .q-progress-slot .q-progress-bar {
-    border-radius: 999px;
-    background: linear-gradient(90deg, #d96a2b 0%, #efab7c 100%);
+    border-radius: var(--q-progress-bar-radius);
+    background: var(--q-progress-fill);
   }
 
   .q-progress .q-progress-slot .q-progress-bar .q-progress-bar-inner {
-    background: linear-gradient(90deg, #d96a2b 0%, #efab7c 100%);
+    background: var(--q-progress-fill);
+  }
+
+  /* Frame/card override */
+  .frame {
+    --morph-frame-tone-shadow: var(--tone-shadow);
+    --morph-frame-edge-opacity: 0.66;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px !important;
+    border: 1px solid rgba(0, 0, 0, 0.16) !important;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow:
+      0 1px rgba(255, 255, 255, 0.88) inset,
+      0 8px 16px rgba(20, 24, 32, 0.06);
+  }
+
+  .frame::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--tone-edge-bottom);
+    pointer-events: none;
+    z-index: 0;
+    background-image: repeating-linear-gradient(
+      90deg,
+      var(--morph-frame-tone-shadow) 0 1px,
+      transparent 1px 2px
+    );
+    background-repeat: repeat;
+    opacity: var(--morph-frame-edge-opacity);
+  }
+
+  .frame > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .frame:not(.flat) {
+    padding-bottom: 22px !important;
+  }
+
+  .frame.focus {
+    --morph-frame-tone-shadow: rgba(217, 106, 43, 0.3);
+    --morph-frame-edge-opacity: 0.78;
+    border-color: rgba(217, 106, 43, 0.52) !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    box-shadow:
+      0 0 0 1px rgba(217, 106, 43, 0.14),
+      0 1px rgba(255, 255, 255, 0.9) inset,
+      0 10px 18px rgba(20, 24, 32, 0.08) !important;
+  }
+
+  .frame.shadow {
+    --morph-frame-tone-shadow: rgba(0, 0, 0, 0.3);
+    --morph-frame-edge-opacity: 0.82;
+    box-shadow:
+      0 1px rgba(255, 255, 255, 0.9) inset,
+      0 14px 28px rgba(20, 24, 32, 0.15) !important;
+  }
+
+  .frame.shadow::after {
+    height: calc(var(--tone-edge-bottom) + 2px);
+  }
+
+  .frame.flat::after {
+    display: none;
+  }
+
+  .frame.flat {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    background: rgba(236, 236, 236, 0.4) !important;
+    backdrop-filter: blur(1.6px);
+    -webkit-backdrop-filter: blur(1.6px);
+    box-shadow: none !important;
   }
 
   /* QDrawer override */
@@ -419,6 +647,14 @@ body[data-theme="warm"] {
     background-color: rgba(96, 96, 96, 0.1) !important;
   }
 
+  .q-menu.no-frame {
+    border: none !important;
+  }
+
+  .q-menu.no-shadow {
+    box-shadow: none !important;
+  }
+
   /* QMessageDialog override */
   .message-dialog-content .icon-wrapper {
     background-color: rgba(217, 106, 43, 0.18) !important;
@@ -498,8 +734,44 @@ body[data-theme="warm"] {
     border-radius: 2px !important;
   }
 
+  .q-share .q-share-link-inner {
+    background: #e9e9e9 !important;
+    border-color: rgba(0, 0, 0, 0.18) !important;
+  }
+
+  .q-share .q-share-link-inner.x {
+    background: #000000 !important;
+    border-color: #000000 !important;
+  }
+
+  .q-share .q-share-link-inner.facebook {
+    background: #4E71A8 !important;
+    border-color: #4E71A8 !important;
+  }
+
+  .q-share .q-share-link-inner.linkedin {
+    background: #1686B0 !important;
+    border-color: #1686B0 !important;
+  }
+
+  .q-share .q-share-link-inner.mastodon {
+    background: #2B90D9 !important;
+    border-color: #2B90D9 !important;
+  }
+
+  .q-share .q-share-link-inner.bluesky {
+    background: #1185FE !important;
+    border-color: #1185FE !important;
+  }
+
+  .q-share .q-share-link-inner.hackernews {
+    background: #FF6600 !important;
+    border-color: #FF6600 !important;
+  }
+
   .q-share .q-share-link-inner.general {
-    border-color: rgba(0, 0, 0, 0.2) !important;
+    background: #585858 !important;
+    border-color: #585858 !important;
   }
 
   /* QSkeleton override */
@@ -525,43 +797,167 @@ body[data-theme="warm"] {
     background: #d96a2b !important;
   }
 
+  .q-switch.theme-clear-sky .q-switch-inner,
+  .q-switch.theme-plastic .q-switch-inner {
+    border-radius: 2px !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    background-image: none !important;
+    background: rgba(96, 96, 96, 0.32) !important;
+    box-shadow: none !important;
+  }
+
+  .q-switch.theme-clear-sky .q-switch-inner .q-switch-handle,
+  .q-switch.theme-plastic .q-switch-inner .q-switch-handle {
+    width: 24px !important;
+    height: 24px !important;
+    top: 3px !important;
+    left: 4px !important;
+    margin-top: 0 !important;
+    transform: none !important;
+    border-radius: 2px !important;
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%) !important;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .q-switch.theme-plastic .q-switch-inner .q-switch-handle .q-switch-icon {
+    color: rgba(0, 0, 0, 0.42) !important;
+  }
+
+  .q-switch.theme-clear-sky .q-switch-checkbox:checked + .q-switch-inner,
+  .q-switch.theme-plastic .q-switch-checkbox:checked + .q-switch-inner {
+    border-color: rgba(44, 44, 44, 0.65) !important;
+    background: #d96a2b !important;
+  }
+
+  .q-switch.theme-clear-sky .q-switch-checkbox:checked + .q-switch-inner .q-switch-handle,
+  .q-switch.theme-plastic .q-switch-checkbox:checked + .q-switch-inner .q-switch-handle {
+    left: 24px !important;
+    transform: none !important;
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%) !important;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .q-switch.theme-plastic .q-switch-checkbox:checked + .q-switch-inner .q-switch-handle .q-switch-icon {
+    color: rgba(0, 0, 0, 0.56) !important;
+  }
+
+  /* QCheckbox override */
+  input.q-checkbox {
+    border-radius: 2px !important;
+    border: 1px solid rgba(0, 0, 0, 0.24) !important;
+    background: rgba(255, 255, 255, 0.74) !important;
+  }
+
+  input.q-checkbox::before,
+  input.q-checkbox::after {
+    background-color: rgba(0, 0, 0, 0.34) !important;
+  }
+
+  input.q-checkbox:checked {
+    border-color: #2f2f2f !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+  }
+
+  input.q-checkbox:checked::before,
+  input.q-checkbox:checked::after {
+    background-color: #2f2f2f !important;
+  }
+
+  input.q-checkbox:disabled {
+    opacity: 1 !important;
+    border-color: rgba(0, 0, 0, 0.14) !important;
+    background: rgba(224, 224, 224, 0.74) !important;
+  }
+
+  input.q-checkbox:disabled::before,
+  input.q-checkbox:disabled::after {
+    background-color: rgba(0, 0, 0, 0.22) !important;
+  }
+
   /* QTabs override */
+  .q-tabs .q-tabs-indicator {
+    transition: left 0.16s ease-out, width 0.16s ease-out !important;
+  }
+
   .q-tabs.normal {
     border-radius: 2px !important;
-    background-color: rgba(255, 255, 255, 0.64) !important;
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.14);
   }
 
   .q-tabs.normal .q-tabs-indicator {
     border-radius: 2px !important;
-    border: 1px solid rgba(0, 0, 0, 0.2) !important;
-    box-shadow: none !important;
-    background-color: rgba(255, 255, 255, 0.9) !important;
+    border-color: transparent !important;
+  }
+
+  .q-tabs.normal .q-tab-button.selected.outlined {
+    border-color: rgba(96, 96, 96, 0.38) !important;
+    background-color: rgba(255, 255, 255, 0.44) !important;
+    box-shadow:
+      0 1px rgba(255, 255, 255, 0.9) inset,
+      0 8px 16px rgba(20, 24, 32, 0.075) !important;
+  }
+
+  .q-tabs.normal .q-tab-button.selected.outlined:hover {
+    border-color: rgba(96, 96, 96, 0.38) !important;
+    background-color: rgba(255, 255, 255, 0.44) !important;
+    box-shadow:
+      0 1px rgba(255, 255, 255, 0.9) inset,
+      0 8px 16px rgba(20, 24, 32, 0.075) !important;
   }
 
   .q-tabs.plain {
-    box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.18) !important;
+    box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.2) !important;
   }
 
   .q-tabs.plain .q-tabs-indicator {
-    background-color: #d96a2b !important;
+    background-color: rgba(20, 20, 20, 0.72) !important;
   }
 
-  .q-tabs.plain .q-button.selected {
-    color: #bc4f37 !important;
+  .q-tabs.plain .q-tab-button {
+    border-radius: 2px !important;
+    color: #5a5a5a !important;
   }
 
-  .q-tabs.plain .q-button:hover {
-    background-color: rgba(188, 79, 55, 0.12) !important;
+  .q-tabs.plain .q-tab-button.selected {
+    color: var(--q-c-blue) !important;
+    font-weight: 600;
+  }
+
+  .q-tabs.plain .q-tab-button.non-selected {
+    opacity: 0.84 !important;
+  }
+
+  .q-tabs.plain .q-tab-button:hover {
+    background-color: rgba(96, 96, 96, 0.11) !important;
+    color: #1f1f1f !important;
   }
 
   /* QTextFieldWithButton override */
+  .q-text-field-with-button.vertical .q-text-field {
+    border-top-left-radius: 2px !important;
+    border-top-right-radius: 2px !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+
+  .q-text-field-with-button.vertical .q-text-button-wrapper .q-button {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 2px !important;
+    border-bottom-right-radius: 2px !important;
+  }
+
   .q-text-field-with-button.horizontal .q-text-field {
-    border-radius: 2px 0 0 2px !important;
+    border-top-left-radius: 2px !important;
+    border-bottom-left-radius: 2px !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
   }
 
   .q-text-field-with-button.horizontal .q-text-button-wrapper .q-button {
-    border-radius: 0 2px 2px 0 !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: 2px !important;
+    border-bottom-right-radius: 2px !important;
   }
 
   /* QToast/QToastContainer override */

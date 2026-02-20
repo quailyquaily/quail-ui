@@ -166,10 +166,10 @@
   --q-progress-bar-radius: 6px;
   --q-progress-fill: repeating-linear-gradient(
     45deg,
-    var(--q-progress-color),
-    var(--q-progress-color) 10px,
-    var(--q-progress-color-light) 10px,
-    var(--q-progress-color-light) 20px
+    #0d75fc,
+    #0d75fc 10px,
+    #61a5ff 10px,
+    #61a5ff 20px
   );
 
   --q-drawer-mask-bg: rgba(0, 0, 0, 0.45);
@@ -284,6 +284,32 @@
   --section-gap: 160px;
 }
 
+// Theme-specific progress tokens.
+// Keep the fill token explicit per theme to avoid ambiguous overrides.
+body.light,
+body[data-theme="light"] {
+  --q-progress-track-bg: var(--q-c-dark-4);
+  --q-progress-fill: repeating-linear-gradient(
+    45deg,
+    #0d75fc,
+    #0d75fc 10px,
+    #61a5ff 10px,
+    #61a5ff 20px
+  );
+}
+
+body.dark,
+body[data-theme="dark"] {
+  --q-progress-track-bg: var(--q-c-light-4);
+  --q-progress-fill: repeating-linear-gradient(
+    45deg,
+    #0d75fc,
+    #0d75fc 10px,
+    #61a5ff 10px,
+    #61a5ff 20px
+  );
+}
+
 body[data-theme="morph"],
 body[data-theme="warm"] {
   --q-c-dark: #141414;
@@ -321,7 +347,7 @@ body[data-theme="warm"] {
   --q-bg-light-2: #ececec;
   --q-bg-light-float: #f4f4f4;
 
-  --q-button-radius: 0;
+  --q-button-radius: 2px;
   --q-button-font-weight: 600;
   --q-button-letter-spacing: 0.01em;
   --q-button-primary-bg: #2a2a2d;
@@ -380,7 +406,13 @@ body[data-theme="warm"] {
   --q-progress-track-radius: 999px;
   --q-progress-track-bg: rgba(0, 0, 0, 0.12);
   --q-progress-bar-radius: 999px;
-  --q-progress-fill: linear-gradient(90deg, #d96a2b 0%, #efab7c 100%);
+  --q-progress-fill: repeating-linear-gradient(
+    45deg,
+    #2f2f2f,
+    #2f2f2f 10px,
+    #8f8f8f 10px,
+    #8f8f8f 20px
+  );
 
   --q-drawer-mask-bg: rgba(0, 0, 0, 0.24);
   --q-drawer-bg: rgba(247, 247, 247, 0.97);

@@ -1,3 +1,5 @@
+@use "@/styles/mixin/blur-glass.scss" as blur-glass;
+
 .touchable {
   background-color: var(--q-c-white);
   color: var(--q-c-dark);
@@ -199,6 +201,7 @@
   }
 
   &.plain {
+    @include blur-glass.blur-glass;
     --q-progress-color: rgba(0, 0, 0, 0);
     --q-progress-color-light: rgba(0, 0, 0, 0.03);
     box-shadow: none;
@@ -268,6 +271,7 @@
   }
 
   &.placeholder {
+    @include blur-glass.blur-glass;
     --q-progress-color: rgba(0, 0, 0, 0);
     --q-progress-color-light: rgba(0, 0, 0, 0.03);
     background-color: transparent;

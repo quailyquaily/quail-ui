@@ -1,3 +1,5 @@
+@use "./mixin/blur-glass.scss" as blur-glass;
+
 .narrow-view {
   max-width: 960px;
   margin: 0 auto;
@@ -255,6 +257,7 @@ button.toggle {
   }
 
   &.flat {
+    @include blur-glass.blur-glass;
     border: none;
     background-color: var(--q-bg-light-2);
     box-shadow: 0 0 0 0.5px var(--q-c-dark-5);

@@ -145,6 +145,14 @@ onMounted(() => {
   }
 
   .q-dropdown-menu-wrapper {
+    &:deep(.q-dropdown-menu-action) {
+      border: none !important;
+      box-shadow: none !important;
+    }
+    &:deep(.q-menu) {
+      border: none !important;
+      box-shadow: none !important;
+    }
     &:deep(.chevron-icon) {
       margin-left: 0.4rem;
     }

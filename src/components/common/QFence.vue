@@ -44,10 +44,13 @@ const props = defineProps({
 });
 </script>
 <style lang="scss">
+@use "@/styles/mixin/blur-glass.scss" as blur-glass;
+
 .q-fence {
   display: block;
   width: 100%;
   .q-fence-inner {
+    @include blur-glass.blur-glass;
     border-radius: var(--q-fence-radius);
     border: var(--q-fence-border-width) solid var(--q-fence-border-color);
     display: flex;

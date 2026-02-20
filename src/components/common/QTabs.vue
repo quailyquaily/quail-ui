@@ -117,6 +117,8 @@ function genCls(tab:any, ix: number) {
 </template>
 
 <style lang="scss" scoped>
+@use "@/styles/mixin/blur-glass.scss" as blur-glass;
+
 .q-tabs {
   display: inline-flex;
   justify-content: center;
@@ -149,8 +151,8 @@ function genCls(tab:any, ix: number) {
     }
   }
   &.normal {
+    @include blur-glass.blur-glass;
     border-radius: 6px;
-    background-color: var(--q-bg-light-float);
     padding: .25rem;
 
     .q-tabs-indicator {
@@ -176,6 +178,7 @@ function genCls(tab:any, ix: number) {
     }
   }
   &.plain {
+    @include blur-glass.blur-glass;
     box-shadow: inset 0 -0.5px 0 0 var(--q-c-dark-4);
     padding: 0;
 
@@ -211,7 +214,6 @@ function genCls(tab:any, ix: number) {
 .dark {
   .q-tabs {
     &.normal {
-      background-color: var(--q-bg-dark-2);
       box-shadow: inset 0 0 0 1px var(--q-c-light-5);
 
       .q-tabs-indicator {

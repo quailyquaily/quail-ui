@@ -1,0 +1,9 @@
+@mixin blur-glass {
+  backdrop-filter: blur(1.6px);
+  -webkit-backdrop-filter: blur(1.6px);
+
+  @at-root body[data-theme="morph"] #{&},
+    body[data-theme="warm"] #{&} {
+    background: rgba(236, 236, 236, 0.4) !important;
+  }
+}

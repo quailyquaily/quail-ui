@@ -8,7 +8,7 @@ A Vue 3 component library for [Quaily](https://quaily.com).
 
 - 26+ UI components (Button, Input, Dialog, Menu, Tabs, etc.)
 - 110+ SVG icons
-- Dark mode support
+- Theme support (light, dark, morph)
 - TUI (Terminal UI) mode with monospace fonts
 - Fully typed with TypeScript
 - SCSS with CSS custom properties
@@ -108,13 +108,35 @@ You can use Quaily UI directly in HTML without any build tools:
 | QFence | Alert/notice box |
 | ... | And more |
 
-## Dark Mode
+## Theme Switching
 
-Toggle dark mode by adding/removing the `.dark` class on `<body>`:
+Quail UI includes three built-in themes:
+
+- `light`
+- `dark`
+- `morph`
+
+Use the exported theme helpers:
 
 ```js
-document.body.classList.toggle('dark')
+import { applyTheme, resolveInitialTheme } from 'quail-ui'
+
+// Initialize from localStorage / system preference
+const initialTheme = resolveInitialTheme()
+applyTheme(initialTheme)
+
+// Switch theme
+applyTheme('light')
+applyTheme('dark')
+applyTheme('morph')
+
+// Optional: switch without persisting to localStorage
+applyTheme('morph', false)
 ```
+
+`applyTheme` updates `document.body.dataset.theme` and toggles `.dark/.light` body classes automatically.
+
+For legacy usage, dark mode still works by toggling the `.dark` class on `<body>`.
 
 ## TUI Mode
 

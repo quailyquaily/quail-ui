@@ -78,6 +78,7 @@ const categories = computed(() => [
       { id: 'avatar', title: 'Avatar' },
       { id: 'share', title: 'Share' },
       { id: 'payment', title: 'Payment' },
+      { id: 'height-comparison', title: 'Height Comparison' },
       { id: 'icon', title: 'Icons' },
     ]
   }

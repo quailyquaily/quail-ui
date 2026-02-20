@@ -46,6 +46,9 @@ const cls = computed(() => {
   if (props.type === "code") {
     cls.push("code");
   }
+  if (props.disabled) {
+    cls.push("disabled");
+  }
   return cls.join(" ");
 });
 
@@ -103,6 +106,7 @@ function changed() {
       <input
         class="q-text-field text-field"
         :placeholder="props.placeholder"
+        :disabled="props.disabled"
         v-model="text"
         @change="changed"
       />
@@ -117,14 +121,46 @@ function changed() {
 
 <style lang="scss">
 .q-text-field-with-button {
-  .q-text-field {
-    text-align: center;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    min-width: 296px;
-    color: var(--q-c-dark);
-    font-size: 0.9375rem;
+  .q-text-field-wrapper {
+    --q-text-field-with-button-border-color: var(--q-field-border-color);
+    border: none;
+    border-radius: var(--q-field-radius);
+    box-shadow:
+      inset 0 0 0 var(--q-field-border-width) var(--q-text-field-with-button-border-color),
+      var(--q-field-shadow);
+    transition: box-shadow 0.2s ease-in-out;
+    background-color: var(--q-field-bg);
+
+    &:has(input:focus) {
+      --q-text-field-with-button-border-color: var(--q-field-border-color-focus);
+      box-shadow:
+        inset 0 0 0 var(--q-field-border-width) var(--q-text-field-with-button-border-color),
+        var(--q-field-shadow-focus, var(--q-field-shadow));
+    }
   }
+
+  .q-text-field {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    background-color: transparent;
+    text-align: center;
+    border-radius: 0;
+    min-height: 42px;
+    min-width: 296px;
+    color: var(--q-field-text-color);
+    font-size: 0.9375rem;
+
+    &::placeholder {
+      color: var(--q-field-placeholder-color);
+    }
+
+    &[disabled] {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+
   .q-text-button-wrapper {
     .q-button {
       transform: translateY(-1px);
@@ -141,20 +177,38 @@ function changed() {
     }
   }
 
+  &.vertical {
+    .q-text-field-wrapper {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
   &.code {
     .q-text-field {
       font-family: var(--q-font-mono);
       letter-spacing: 0.2rem;
     }
   }
+
+  &.disabled {
+    .q-text-field-wrapper {
+      background-color: transparent;
+    }
+  }
+
   &.horizontal {
     display: flex;
     align-items: center;
     justify-content: center;
     max-width: 400px;
+
     .q-text-field-wrapper {
       flex: 6;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
+
     .q-text-button-wrapper {
       flex: 4;
       position: relative;
@@ -168,10 +222,35 @@ function changed() {
         }
       }
     }
+
     .q-text-field {
-      border-radius: 6px 0 0 6px;
-      border-width: 1px 0 1px 1px;
       min-width: auto;
+    }
+  }
+}
+
+.dark {
+  .q-text-field-with-button {
+    .q-text-field-wrapper {
+      --q-text-field-with-button-border-color: var(--q-c-light-5);
+      box-shadow:
+        inset 0 0 0 var(--q-field-border-width) var(--q-text-field-with-button-border-color),
+        inset 0px 1px 8px 0px rgba(0,0,0,0.03),
+        0px 1px 1px 0px #4343431A;
+      background-color: rgba(255,255,255,0.03);
+
+      &:has(input:focus) {
+        --q-text-field-with-button-border-color: var(--q-c-light-4);
+      }
+    }
+
+    .q-text-field {
+      color: var(--q-c-light);
+      background-color: transparent;
+
+      &::placeholder {
+        color: var(--q-c-light-3);
+      }
     }
   }
 }

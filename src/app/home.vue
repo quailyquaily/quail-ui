@@ -21,6 +21,7 @@ import SecCover from "./home/cover.vue";
 import SecAvatar from "./home/avatar.vue";
 import SecShare from "./home/share.vue";
 import SecPayment from "./home/payment.vue";
+import SecHeightComparison from "./home/height-comparison.vue";
 import SecIcon from "./home/icon.vue";
 import SecSkeleton from "./home/skeleton.vue";
 import SecTooltip from "./home/tooltip.vue";
@@ -255,6 +256,18 @@ const tabs = [
   v-model="selectedMethod"
   :methods="['card', 'paypal', 'crypto']"
 />`,
+
+  heightComparison: `<div class="height-compare-row">
+  <QButton class="outlined">Outlined Button</QButton>
+  <QInput v-model="inputValue" placeholder="QInput" />
+  <QDropdownMenu :items="dropdownItems" :initial-item="selectedDropdownItem" />
+  <QTextFieldWithButton
+    v-model="textFieldValue"
+    layout="horizontal"
+    placeholder="Horizontal TextFieldWithButton"
+    action-label="Submit"
+  />
+</div>`,
 
   icon: `<!-- Basic Usage -->
 <QIconHome class="icon" />
@@ -661,6 +674,15 @@ toast.show({
         :source-code="sourceCodes.payment"
       >
         <SecPayment />
+      </ComponentShowcase>
+
+      <ComponentShowcase
+        id="height-comparison"
+        title="Height Comparison"
+        description="Compare the default heights of common controls"
+        :source-code="sourceCodes.heightComparison"
+      >
+        <SecHeightComparison />
       </ComponentShowcase>
 
       <ComponentShowcase

@@ -159,9 +159,9 @@ onMounted(() => {
 
   &.exceed, &.error {
     .q-text-field-wrapper {
-      border: var(--q-field-border-width) solid var(--q-field-error-border-color);
+      --q-input-border-color: var(--q-field-error-border-color);
       &:has(input:focus) {
-        border-color: var(--q-field-error-border-color);
+        --q-input-border-color: var(--q-field-error-border-color);
       }
     }
     .q-text-field-hint {
@@ -194,17 +194,22 @@ onMounted(() => {
   }
 
   .q-text-field-wrapper {
+    --q-input-border-color: var(--q-field-border-color);
     width: 100%;
     min-height: 44px;
-    border: var(--q-field-border-width) solid var(--q-field-border-color);
+    border: none;
     border-radius: var(--q-field-radius);
-    box-shadow: var(--q-field-shadow);
-    transition: border-color 0.2s ease-in-out;
+    box-shadow:
+      inset 0 0 0 var(--q-field-border-width) var(--q-input-border-color),
+      var(--q-field-shadow);
+    transition: box-shadow 0.2s ease-in-out;
     background-color: var(--q-field-bg);
     // if textarea gets focus, apply border color to .q-textarea by parent pesudo class
     &:has(input:focus) {
-      border-color: var(--q-field-border-color-focus);
-      box-shadow: var(--q-field-shadow-focus, var(--q-field-shadow));
+      --q-input-border-color: var(--q-field-border-color-focus);
+      box-shadow:
+        inset 0 0 0 var(--q-field-border-width) var(--q-input-border-color),
+        var(--q-field-shadow-focus, var(--q-field-shadow));
     }
 
     .q-text-field-inner {
@@ -267,9 +272,9 @@ onMounted(() => {
   .q-input {
     &.exceed, &.error {
       .q-text-field-wrapper {
-        border: 0.5px solid var(--q-c-red-dimm-3);
+        --q-input-border-color: var(--q-c-red-dimm-3);
         &:has(input:focus) {
-          border-color: var(--q-c-red-dimm-3);
+          --q-input-border-color: var(--q-c-red-dimm-3);
         }
         .q-text-field-hint {
           background-color: var(--q-c-red-dimm-2);
@@ -285,11 +290,14 @@ onMounted(() => {
       }
     }
     .q-text-field-wrapper {
-      border-color: var(--q-c-light-5);
-      box-shadow: inset 0px 1px 8px 0px rgba(0,0,0,0.03), 0px 1px 1px 0px #4343431A;
+      --q-input-border-color: var(--q-c-light-5);
+      box-shadow:
+        inset 0 0 0 var(--q-field-border-width) var(--q-input-border-color),
+        inset 0px 1px 8px 0px rgba(0,0,0,0.03),
+        0px 1px 1px 0px #4343431A;
       background-color: rgba(255,255,255,0.03);
       &:has(input:focus) {
-        border-color: var(--q-c-light-4);
+        --q-input-border-color: var(--q-c-light-4);
       }
       &:deep(.q-text-field) {
         color: var(--q-c-light);

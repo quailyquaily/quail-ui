@@ -146,9 +146,9 @@ input.q-checkbox {
     left: 5px;
   }
   &:checked {
-    border: 1px solid var(--q-c-blue-lighter);
+    border: 1px solid var(--q-c-blue);
     &:after, &:before {
-      background-color: var(--q-c-blue-lighter);
+      background-color: var(--q-c-blue);
     }
   }
   &:disabled {
@@ -346,9 +346,9 @@ button.toggle {
       background-color: rgb(80, 80, 80);
     }
     &:checked {
-      border: 1px solid var(--q-c-blue-lighter);
+      border: 1px solid var(--q-c-blue);
       &:after, &:before {
-        background-color: var(--q-c-blue-lighter);
+        background-color: var(--q-c-blue);
       }
     }
   }

@@ -126,19 +126,24 @@ onMounted(async () => {
 }
 
 .article-header {
-  padding: 0.875rem 1.25rem;
+  padding: clamp(0.875rem, 2vw, 1.25rem) clamp(1rem, 3vw, 1.5rem);
   background: var(--q-bg-light-2);
   border-bottom: 0.5px solid var(--q-c-dark-4);
   border-radius: 8px 8px 0 0;
+
+  > * {
+    max-width: min(100%, 72ch);
+  }
 }
 
 .article-content {
-  padding: 2rem;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
   border-radius: 0 0 8px 8px;
 }
 
 .q-article {
   margin: 0 auto;
+  width: min(100%, 72ch);
   overflow: auto;
 }
 

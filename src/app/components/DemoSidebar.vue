@@ -12,15 +12,6 @@ const emit = defineEmits<{
 
 const categories = computed(() => [
   {
-    id: 'typography',
-    title: 'Typography & Decoration',
-    sections: [
-      { id: 'typeface', title: 'Typeface' },
-      { id: 'frame', title: 'Frame & Divider' },
-      { id: 'premium', title: 'Premium Decoration' },
-    ]
-  },
-  {
     id: 'buttons',
     title: 'Buttons',
     sections: [
@@ -81,10 +72,19 @@ const categories = computed(() => [
       { id: 'height-comparison', title: 'Height Comparison' },
       { id: 'icon', title: 'Icons' },
     ]
+  },
+  {
+    id: 'typography',
+    title: 'Typography & Decoration',
+    sections: [
+      { id: 'typeface', title: 'Typeface' },
+      { id: 'frame', title: 'Frame & Divider' },
+      { id: 'premium', title: 'Premium Decoration' },
+    ]
   }
 ]);
 
-const expandedCategories = ref<string[]>(['typography', 'buttons', 'form-inputs', 'selection', 'feedback', 'navigation', 'data-display']);
+const expandedCategories = ref<string[]>(['buttons', 'form-inputs', 'selection', 'feedback', 'navigation', 'data-display', 'typography']);
 const activeSection = ref('');
 
 function toggleCategory(categoryId: string) {

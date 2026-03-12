@@ -38,3 +38,5 @@
 - Do not hardcode secrets; only public assets are referenced. Maintain SRI when publishing via `./build.sh`.
 - CI uses Node 18 and pnpm 8 (see `.github/workflows/deploy.yml`).
 
+## Local Environment Notes
+- In this sandbox, `/usr/bin/chromium-browser` is a wrapper. The direct Chromium binary that worked for headless usage is `/snap/chromium/current/usr/lib/chromium-browser/chrome`.

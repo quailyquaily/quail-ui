@@ -18,6 +18,7 @@ const route = useRoute();
 const sidebarOpen = ref(false);
 const selectedTheme = ref<QuailTheme>(resolveInitialTheme());
 const isTUIMode = ref(false);
+const utilitiesOpen = ref(false);
 const themeItems = getThemeOptions();
 
 function setTUIMode(enabled: boolean) {
@@ -87,6 +88,10 @@ function onThemeChange(item: ThemeOption) {
   }
 }
 
+function openUtilities() {
+  utilitiesOpen.value = true;
+}
+
 onMounted(() => {
   setTUIMode(isTUIMode.value);
 });
@@ -115,7 +120,7 @@ onMounted(() => {
           />
         </nav>
 
-        <div class="top-nav-right">
+        <div class="top-nav-right desktop-utilities">
           <div class="global-switch">
             <span class="switch-label q-text-caption">TUI</span>
             <QSwitch v-model="isTUIMode" />
@@ -133,6 +138,20 @@ onMounted(() => {
             <QIconGithub class="icon" />
           </QButton>
         </div>
+
+        <QButton class="mobile-utilities icon plain" @click="openUtilities">
+          <QIconSettings class="icon" />
+        </QButton>
+      </div>
+
+      <div class="mobile-route-strip">
+        <QTabs
+          v-model="selectedTopTab"
+          :tabs="topNavTabs"
+          size="sm"
+          variant="plain"
+          @change="onTabChange"
+        />
       </div>
     </header>
 
@@ -153,6 +172,39 @@ onMounted(() => {
         <RouterView />
       </main>
     </div>
+
+    <QDrawer v-model="utilitiesOpen" title="Preferences" placement="right" size="320px">
+      <div class="utility-drawer">
+        <section class="utility-block">
+          <div class="utility-label q-text-caption">Theme</div>
+          <QDropdownMenu
+            class="theme-select mobile-theme-select"
+            :items="themeItems"
+            :initial-item="selectedThemeItem"
+            @change="onThemeChange"
+          />
+        </section>
+
+        <section class="utility-block">
+          <div class="utility-label q-text-caption">Interface mode</div>
+          <div class="utility-toggle-row">
+            <div>
+              <div class="q-text-body-title">TUI mode</div>
+              <div class="q-text-caption utility-copy">Use the monospace presentation layer.</div>
+            </div>
+            <QSwitch v-model="isTUIMode" />
+          </div>
+        </section>
+
+        <section class="utility-block">
+          <div class="utility-label q-text-caption">Resources</div>
+          <QButton class="outlined utility-link" href="https://github.com/quail-ink/quail-ui" target="_blank">
+            <QIconGithub class="icon" />
+            <span class="utility-link-text">GitHub repository</span>
+          </QButton>
+        </section>
+      </div>
+    </QDrawer>
   </div>
 </template>
 
@@ -179,11 +231,15 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  height: 60px;
+  min-height: 60px;
   background: var(--q-bg-light);
   border-bottom: 0.5px solid var(--q-c-dark-4);
   backdrop-filter: blur(8px);
   background: rgba(250, 250, 248, 0.9);
+
+  @media (min-width: 768px) {
+    height: 60px;
+  }
 }
 
 
@@ -241,6 +297,20 @@ body {
   gap: 0.75rem;
 }
 
+.desktop-utilities {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.mobile-utilities {
+  display: none !important;
+
+  @media (max-width: 767px) {
+    display: inline-flex !important;
+  }
+}
+
 .global-switch {
   display: flex;
   align-items: center;
@@ -279,6 +349,16 @@ body {
   }
 }
 
+.mobile-route-strip {
+  display: none;
+
+  @media (max-width: 767px) {
+    display: block;
+    padding: 0.5rem 1rem 0.75rem;
+    border-top: 0.5px solid var(--q-c-dark-4);
+  }
+}
+
 // Main Container
 .main-container {
   display: flex;
@@ -311,6 +391,49 @@ body {
   }
 }
 
+.utility-drawer {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.utility-block {
+  display: grid;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.5px solid var(--q-c-dark-4);
+}
+
+.utility-label {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--q-c-dark-3);
+}
+
+.utility-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.utility-copy {
+  margin-top: 0.25rem;
+  color: var(--q-c-dark-3);
+}
+
+.mobile-theme-select {
+  width: 100%;
+}
+
+.utility-link {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.utility-link-text {
+  margin-left: 0.5rem;
+}
+
 // Utility classes
 .section {
   margin: 2rem 0;
@@ -339,6 +462,10 @@ body {
     border-bottom-color: var(--q-c-light-4);
   }
 
+  .mobile-route-strip {
+    border-top-color: var(--q-c-light-4);
+  }
+
   .logo-text {
     color: var(--q-c-light);
   }
@@ -351,6 +478,15 @@ body {
     .switch-icon {
       color: var(--q-c-light-3);
     }
+  }
+
+  .utility-block {
+    border-bottom-color: var(--q-c-light-4);
+  }
+
+  .utility-label,
+  .utility-copy {
+    color: var(--q-c-light-3);
   }
 }
 </style>

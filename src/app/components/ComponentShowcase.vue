@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   id: string;
   title: string;
   description?: string;
   sourceCode?: string;
-}>();
+  variant?: 'default' | 'feature';
+  showSourceToggle?: boolean;
+}>(), {
+  variant: 'default',
+  showSourceToggle: true,
+});
 
 const showCode = ref(false);
 const copySuccess = ref(false);
@@ -23,14 +28,14 @@ function copyCode() {
 </script>
 
 <template>
-  <div :id="`demo-section-${id}`" class="component-showcase">
+  <div :id="`demo-section-${id}`" class="component-showcase" :class="variant">
     <div class="showcase-header">
       <div class="showcase-title-area">
         <h2 class="q-text-h2">{{ title }}</h2>
         <p v-if="description" class="q-text-desc q-c-dark-3 mt-1">{{ description }}</p>
       </div>
 
-      <div v-if="sourceCode" class="showcase-controls">
+      <div v-if="sourceCode && showSourceToggle" class="showcase-controls">
         <QToggleButton v-model="showCode" class="icon xs">
           <QIconCode class="icon" />
         </QToggleButton>
@@ -79,6 +84,44 @@ function copyCode() {
   @media (max-width: 640px) {
     flex-direction: column;
     align-items: stretch;
+  }
+}
+
+.component-showcase.feature {
+  display: grid;
+  grid-template-columns: minmax(15rem, 20rem) minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2rem);
+  margin-bottom: 0;
+  padding: clamp(1rem, 2.5vw, 1.5rem) 0;
+  border: none;
+  border-top: 0.5px solid var(--q-c-dark-4);
+  border-radius: 0;
+  background: transparent;
+
+  .showcase-header {
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .showcase-title-area {
+    max-width: 18rem;
+  }
+
+  .showcase-preview {
+    padding: 0;
+    min-height: 0;
+    border-radius: 0;
+  }
+
+  .preview-inner {
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+    border: 0.5px solid var(--q-c-dark-4);
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--q-bg-light) 80%, white 20%);
   }
 }
 
@@ -168,6 +211,12 @@ function copyCode() {
   }
 }
 
+@media (max-width: 900px) {
+  .component-showcase.feature {
+    grid-template-columns: 1fr;
+  }
+}
+
 // Slide animation
 .slide-down-enter-active,
 .slide-down-leave-active {
@@ -194,6 +243,16 @@ function copyCode() {
   .component-showcase {
     border-color: var(--q-c-light-4);
     background: var(--q-bg-dark);
+  }
+
+  .component-showcase.feature {
+    background: transparent;
+    border-color: var(--q-c-light-4);
+
+    .preview-inner {
+      border-color: var(--q-c-light-4);
+      background: color-mix(in srgb, var(--q-bg-dark) 78%, black 22%);
+    }
   }
 
   .showcase-header {

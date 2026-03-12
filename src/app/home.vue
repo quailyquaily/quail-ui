@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRouter } from "vue-router";
 import ComponentShowcase from "./components/ComponentShowcase.vue";
 import SecTypeface from "./home/typeface.vue";
 import SecFrameAndDivider from "./home/frame.vue";
@@ -29,6 +30,8 @@ import SecToast from "./home/toast.vue";
 import SecBadge from "./home/badge.vue";
 import SecCollapse from "./home/collapse.vue";
 import SecDrawer from "./home/drawer.vue";
+
+const router = useRouter();
 
 const sourceCodes = {
   typeface: `<!-- Headings -->
@@ -395,323 +398,806 @@ toast.show({
   </template>
 </QDrawer>`,
 };
+
+const demoRegistry = {
+  button: {
+    id: "button",
+    title: "Button",
+    description: "Actions, emphasis, sizes, and keyboard-aware controls.",
+    sourceCode: sourceCodes.button,
+    component: SecButton,
+  },
+  input: {
+    id: "input",
+    title: "Input",
+    description: "Text entry with hints, counters, and slot-driven composition.",
+    sourceCode: sourceCodes.input,
+    component: SecInput,
+  },
+  textarea: {
+    id: "textarea",
+    title: "Textarea",
+    description: "Multi-line input states for longer writing and notes.",
+    sourceCode: sourceCodes.textarea,
+    component: SecTextarea,
+  },
+  form: {
+    id: "form",
+    title: "Form",
+    description: "Field grouping patterns for composed forms and validation.",
+    sourceCode: sourceCodes.form,
+    component: SecForm,
+  },
+  "input-with-btn": {
+    id: "input-with-btn",
+    title: "Input with Button",
+    description: "A compact pattern for subscribe, search, and commit flows.",
+    sourceCode: sourceCodes.inputWithBtn,
+    component: SecInputWithButton,
+  },
+  menu: {
+    id: "menu",
+    title: "Menu",
+    description: "Dropdowns, menus, and text-field combinations for dense selection flows.",
+    sourceCode: sourceCodes.menu,
+    component: SecMenu,
+  },
+  dialog: {
+    id: "dialog",
+    title: "Dialog",
+    description: "Prompt, confirm, and interrupt with clearer interaction weight.",
+    sourceCode: sourceCodes.dialog,
+    component: SecDialog,
+  },
+  switch: {
+    id: "switch",
+    title: "Switch",
+    description: "Toggle states with theme-aware variants.",
+    sourceCode: sourceCodes.switch,
+    component: SecSwitch,
+  },
+  selector: {
+    id: "selector",
+    title: "Selector",
+    description: "Language and currency pickers for structured choice.",
+    sourceCode: sourceCodes.selector,
+    component: SecSelector,
+  },
+  progress: {
+    id: "progress",
+    title: "Progress",
+    description: "Loading, completion, and infinite feedback bars.",
+    sourceCode: sourceCodes.progress,
+    component: SecProgress,
+  },
+  fence: {
+    id: "fence",
+    title: "Fence",
+    description: "Inline notices, code fences, and semantic content blocks.",
+    sourceCode: sourceCodes.fence,
+    component: SecFence,
+  },
+  toast: {
+    id: "toast",
+    title: "Toast",
+    description: "Ephemeral status messaging for system feedback.",
+    sourceCode: sourceCodes.toast,
+    component: SecToast,
+  },
+  tooltip: {
+    id: "tooltip",
+    title: "Tooltip",
+    description: "Hover, focus, and click explanations without visual noise.",
+    sourceCode: sourceCodes.tooltip,
+    component: SecTooltip,
+  },
+  skeleton: {
+    id: "skeleton",
+    title: "Skeleton",
+    description: "Loading placeholders for perceived performance.",
+    sourceCode: sourceCodes.skeleton,
+    component: SecSkeleton,
+  },
+  badge: {
+    id: "badge",
+    title: "Badge",
+    description: "Status tags, chips, and small semantic markers.",
+    sourceCode: sourceCodes.badge,
+    component: SecBadge,
+  },
+  collapse: {
+    id: "collapse",
+    title: "Collapse",
+    description: "Progressive disclosure for long or optional content.",
+    sourceCode: sourceCodes.collapse,
+    component: SecCollapse,
+  },
+  drawer: {
+    id: "drawer",
+    title: "Drawer",
+    description: "Slide-in surfaces for focused secondary tasks.",
+    sourceCode: sourceCodes.drawer,
+    component: SecDrawer,
+  },
+  pagination: {
+    id: "pagination",
+    title: "Pagination",
+    description: "Pagination controls with size switching and state handling.",
+    sourceCode: sourceCodes.pagination,
+    component: SecPagination,
+  },
+  tab: {
+    id: "tab",
+    title: "Tabs",
+    description: "Segment navigation with plain and framed variants.",
+    sourceCode: sourceCodes.tabs,
+    component: SecTab,
+  },
+  datetime: {
+    id: "datetime",
+    title: "Datetime Picker",
+    description: "Date and time selection for scheduling and filtering.",
+    sourceCode: sourceCodes.datetime,
+    component: SecDatetimePicker,
+  },
+  cover: {
+    id: "cover",
+    title: "Cover",
+    description: "Media blocks and covers for editorial and card surfaces.",
+    sourceCode: sourceCodes.cover,
+    component: SecCover,
+  },
+  avatar: {
+    id: "avatar",
+    title: "Avatar",
+    description: "Identity markers with multiple shapes and scales.",
+    sourceCode: sourceCodes.avatar,
+    component: SecAvatar,
+  },
+  share: {
+    id: "share",
+    title: "Share",
+    description: "Share surfaces tuned for social distribution patterns.",
+    sourceCode: sourceCodes.share,
+    component: SecShare,
+  },
+  payment: {
+    id: "payment",
+    title: "Payment",
+    description: "Payment method presentation and selection states.",
+    sourceCode: sourceCodes.payment,
+    component: SecPayment,
+  },
+  "height-comparison": {
+    id: "height-comparison",
+    title: "Height Comparison",
+    description: "Compare control rhythm across buttons, fields, and pickers.",
+    sourceCode: sourceCodes.heightComparison,
+    component: SecHeightComparison,
+  },
+  icon: {
+    id: "icon",
+    title: "Icons",
+    description: "Icon gallery with copy-ready symbols and color variants.",
+    sourceCode: sourceCodes.icon,
+    component: SecIcon,
+  },
+  typeface: {
+    id: "typeface",
+    title: "Typeface",
+    description: "Serif and sans roles for editorial hierarchy and UI support.",
+    sourceCode: sourceCodes.typeface,
+    component: SecTypeface,
+  },
+  frame: {
+    id: "frame",
+    title: "Frame & Divider",
+    description: "Frames and dividers that establish rhythm without bulk.",
+    sourceCode: sourceCodes.frame,
+    component: SecFrameAndDivider,
+  },
+  premium: {
+    id: "premium",
+    title: "Premium Decoration",
+    description: "Accent treatments for premium or membership surfaces.",
+    sourceCode: sourceCodes.premium,
+    component: SecPremiumDecoration,
+  },
+} as const;
+
+const catalogGroups = [
+  {
+    id: "buttons",
+    index: "01",
+    title: "Buttons",
+    summary: "Actions, emphasis, and shortcut-friendly controls that establish the library's tone fast.",
+    firstDemoId: "button",
+    itemIds: ["button"],
+  },
+  {
+    id: "form-inputs",
+    index: "02",
+    title: "Form Inputs",
+    summary: "Text entry, composition, and submission patterns for writing-heavy products.",
+    firstDemoId: "input",
+    itemIds: ["input", "textarea", "form", "input-with-btn"],
+  },
+  {
+    id: "selection",
+    index: "03",
+    title: "Selection",
+    summary: "Pick, filter, and swap context with controls that stay compact under pressure.",
+    firstDemoId: "switch",
+    itemIds: ["switch", "selector", "menu"],
+  },
+  {
+    id: "feedback",
+    index: "04",
+    title: "Feedback",
+    summary: "Progress, alerts, notices, and transient states for system response.",
+    firstDemoId: "progress",
+    itemIds: ["progress", "dialog", "fence", "toast", "tooltip", "skeleton", "badge", "collapse", "drawer"],
+  },
+  {
+    id: "navigation",
+    index: "05",
+    title: "Navigation",
+    summary: "Movement patterns that keep the interface legible as content grows.",
+    firstDemoId: "pagination",
+    itemIds: ["pagination", "tab"],
+  },
+  {
+    id: "data-display",
+    index: "06",
+    title: "Data Display",
+    summary: "Media, identity, sharing, payments, and supporting display primitives.",
+    firstDemoId: "datetime",
+    itemIds: ["datetime", "cover", "avatar", "share", "payment", "height-comparison", "icon"],
+  },
+  {
+    id: "typography",
+    index: "07",
+    title: "Typography & Decoration",
+    summary: "Voice, framing, and ornamental accents for editorial and premium surfaces.",
+    firstDemoId: "typeface",
+    itemIds: ["typeface", "frame", "premium"],
+  },
+] as const;
+
+const featuredDemoIds = ["button", "input", "menu", "dialog"] as const;
+
+const featuredDemos = featuredDemoIds.map((id) => demoRegistry[id]);
+
+const openingNotes = [
+  "Serif-led hierarchy for editorial interfaces",
+  "Tactile controls with strong state coverage",
+  "Article styling that can support long-form content",
+];
+
+const totalShowcases = catalogGroups.reduce((count, group) => count + group.itemIds.length, 0);
+
+function getDemo(id: keyof typeof demoRegistry) {
+  return demoRegistry[id];
+}
+
+function scrollToDemo(sectionId: string) {
+  const element = document.getElementById(`demo-section-${sectionId}`);
+  if (!element) return;
+
+  const headerOffset = 88;
+  const elementPosition = element.getBoundingClientRect().top + window.scrollY - headerOffset;
+  window.scrollTo({
+    top: elementPosition,
+    behavior: "smooth",
+  });
+}
+
+function openArticle() {
+  router.push("/article");
+}
 </script>
 
 <template>
   <div class="home-page">
-    <!-- Typography & Decoration -->
-    <section class="category-group">
-      <h1 class="category-title q-text-h1">Typography & Decoration</h1>
+    <section class="home-intro">
+      <div class="intro-copy">
+        <p class="intro-kicker q-text-caption">Quail UI Field Guide</p>
+        <h1 class="intro-title">Tactile interface primitives for publishing products that need tone.</h1>
+        <p class="intro-desc q-text-body-text">
+          Quail UI is strongest when the interface feels editorial, direct, and quietly distinctive.
+          Start with the controls that define the library fastest, then drop into the full catalog when
+          you need the long tail.
+        </p>
+        <div class="intro-actions">
+          <QButton class="primary" @click="scrollToDemo('button')">Start with essentials</QButton>
+          <QButton class="outlined" @click="openArticle">Read article styles</QButton>
+          <QButton class="plain" @click="scrollToDemo('typeface')">Jump to voice</QButton>
+        </div>
+      </div>
 
-      <ComponentShowcase
-        id="typeface"
-        title="Typeface"
-        description="Typography styles and font variations"
-        :source-code="sourceCodes.typeface"
-      >
-        <SecTypeface />
-      </ComponentShowcase>
+      <div class="intro-notes">
+        <div class="note-block">
+          <p class="note-kicker q-text-caption">What stands out</p>
+          <ul class="intro-points">
+            <li v-for="point in openingNotes" :key="point" class="q-text-body-text">{{ point }}</li>
+          </ul>
+        </div>
 
-      <ComponentShowcase
-        id="frame"
-        title="Frame & Divider"
-        description="Container frames and visual dividers"
-        :source-code="sourceCodes.frame"
-      >
-        <SecFrameAndDivider />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="premium"
-        title="Premium Decoration"
-        description="Premium styling and decorations"
-        :source-code="sourceCodes.premium"
-      >
-        <SecPremiumDecoration />
-      </ComponentShowcase>
+        <div class="note-block">
+          <p class="note-kicker q-text-caption">Theme modes</p>
+          <div class="theme-tags">
+            <span>Light</span>
+            <span>Dark</span>
+            <span>Morph</span>
+            <span>TUI</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Buttons -->
-    <section class="category-group">
-      <h1 class="category-title q-text-h1">Buttons</h1>
+    <section class="library-index">
+      <div class="section-intro">
+        <p class="section-kicker q-text-caption">Library map</p>
+        <h2 class="q-text-h1">Start with the surfaces people reach for first.</h2>
+        <p class="q-text-desc">
+          The library is broad, but the fastest way in is by job: act, write, choose, respond, move,
+          and publish.
+        </p>
+      </div>
 
-      <ComponentShowcase
-        id="button"
-        title="Button"
-        description="Various button styles, sizes, states, and keyboard shortcuts"
-        :source-code="sourceCodes.button"
-      >
-        <SecButton />
-      </ComponentShowcase>
+      <div class="index-list">
+        <article v-for="group in catalogGroups" :key="group.id" class="index-entry">
+          <div class="entry-index q-text-caption">{{ group.index }}</div>
+          <div class="entry-main">
+            <div class="entry-header">
+              <h3 class="q-text-h3">{{ group.title }}</h3>
+              <button class="entry-jump" type="button" @click="scrollToDemo(group.firstDemoId)">
+                Jump in
+              </button>
+            </div>
+            <p class="entry-summary q-text-body-text">{{ group.summary }}</p>
+            <div class="entry-links">
+              <button
+                v-for="itemId in group.itemIds.slice(0, 3)"
+                :key="itemId"
+                class="entry-chip"
+                type="button"
+                @click="scrollToDemo(itemId)"
+              >
+                {{ getDemo(itemId).title }}
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <!-- Form Inputs -->
-    <section class="category-group">
-      <h1 class="category-title q-text-h1">Form Inputs</h1>
+    <section class="featured-section">
+      <div class="section-intro">
+        <p class="section-kicker q-text-caption">Start here</p>
+        <h2 class="q-text-h1">Four demos that explain the library quickly.</h2>
+        <p class="q-text-desc">
+          These are the surfaces that do the most work in the least time: actions, text entry,
+          selection, and prompting.
+        </p>
+      </div>
 
-      <ComponentShowcase
-        id="input"
-        title="Input"
-        description="Text input with validation, hints, and character counter"
-        :source-code="sourceCodes.input"
-      >
-        <SecInput />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="textarea"
-        title="Textarea"
-        description="Multi-line text input"
-        :source-code="sourceCodes.textarea"
-      >
-        <SecTextarea />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="form"
-        title="Form"
-        description="Form layout patterns and field organization"
-        :source-code="sourceCodes.form"
-      >
-        <SecForm />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="input-with-btn"
-        title="Input with Button"
-        description="Combined input field with action button"
-        :source-code="sourceCodes.inputWithBtn"
-      >
-        <SecInputWithButton />
-      </ComponentShowcase>
+      <div class="featured-grid">
+        <ComponentShowcase
+          v-for="demo in featuredDemos"
+          :id="`featured-${demo.id}`"
+          :key="demo.id"
+          :title="demo.title"
+          :description="demo.description"
+          :source-code="demo.sourceCode"
+          :show-source-toggle="false"
+          variant="feature"
+        >
+          <component :is="demo.component" />
+        </ComponentShowcase>
+      </div>
     </section>
 
-    <!-- Selection -->
-    <section class="category-group">
-      <h1 class="category-title q-text-h1">Selection</h1>
+    <section class="catalog-shell">
+      <div class="section-intro">
+        <p class="section-kicker q-text-caption">Full catalog</p>
+        <h2 class="q-text-h1">All {{ totalShowcases }} demos, organized by job instead of alphabet.</h2>
+        <p class="q-text-desc">
+          The exhaustive library still lives here. The difference is that it no longer needs to carry
+          the first impression alone.
+        </p>
+      </div>
 
-      <ComponentShowcase
-        id="switch"
-        title="Switch"
-        description="Toggle switches with multiple themes"
-        :source-code="sourceCodes.switch"
-      >
-        <SecSwitch />
-      </ComponentShowcase>
+      <section v-for="group in catalogGroups" :key="group.id" class="category-group">
+        <div class="category-heading">
+          <div class="category-meta">
+            <span class="category-index q-text-caption">{{ group.index }}</span>
+            <div class="category-copy">
+              <h2 class="category-title q-text-h1">{{ group.title }}</h2>
+              <p class="category-summary q-text-desc">{{ group.summary }}</p>
+            </div>
+          </div>
 
-      <ComponentShowcase
-        id="selector"
-        title="Selector"
-        description="Language and currency selectors"
-        :source-code="sourceCodes.selector"
-      >
-        <SecSelector />
-      </ComponentShowcase>
+          <div class="category-links">
+            <button
+              v-for="itemId in group.itemIds.slice(0, 4)"
+              :key="itemId"
+              class="catalog-chip"
+              type="button"
+              @click="scrollToDemo(itemId)"
+            >
+              {{ getDemo(itemId).title }}
+            </button>
+          </div>
+        </div>
 
-      <ComponentShowcase
-        id="menu"
-        title="Menu"
-        description="Dropdown menus with icons, dividers, and keyboard navigation"
-        :source-code="sourceCodes.menu"
-      >
-        <SecMenu />
-      </ComponentShowcase>
-    </section>
-
-    <!-- Feedback -->
-    <section class="category-group">
-      <h1 class="category-title q-text-h1">Feedback</h1>
-
-      <ComponentShowcase
-        id="progress"
-        title="Progress"
-        description="Progress bars with colors and infinite mode"
-        :source-code="sourceCodes.progress"
-      >
-        <SecProgress />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="dialog"
-        title="Dialog"
-        description="Modal dialogs and message dialogs"
-        :source-code="sourceCodes.dialog"
-      >
-        <SecDialog />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="fence"
-        title="Fence"
-        description="Code fence and content blocks"
-        :source-code="sourceCodes.fence"
-      >
-        <SecFence />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="toast"
-        title="Toast"
-        description="Toast notifications for user feedback"
-        :source-code="sourceCodes.toast"
-      >
-        <SecToast />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="tooltip"
-        title="Tooltip"
-        description="Contextual tooltips on hover, click, or focus"
-        :source-code="sourceCodes.tooltip"
-      >
-        <SecTooltip />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="skeleton"
-        title="Skeleton"
-        description="Loading placeholder with animation"
-        :source-code="sourceCodes.skeleton"
-      >
-        <SecSkeleton />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="badge"
-        title="Badge"
-        description="Status labels and tags"
-        :source-code="sourceCodes.badge"
-      >
-        <SecBadge />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="collapse"
-        title="Collapse"
-        description="Collapsible content panels"
-        :source-code="sourceCodes.collapse"
-      >
-        <SecCollapse />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="drawer"
-        title="Drawer"
-        description="Slide-in panel from screen edge"
-        :source-code="sourceCodes.drawer"
-      >
-        <SecDrawer />
-      </ComponentShowcase>
-    </section>
-
-    <!-- Navigation -->
-    <section class="category-group">
-      <h1 class="category-title q-text-h1">Navigation</h1>
-
-      <ComponentShowcase
-        id="pagination"
-        title="Pagination"
-        description="Page navigation controls"
-        :source-code="sourceCodes.pagination"
-      >
-        <SecPagination />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="tab"
-        title="Tabs"
-        description="Tab navigation with variants and icons"
-        :source-code="sourceCodes.tabs"
-      >
-        <SecTab />
-      </ComponentShowcase>
-    </section>
-
-    <!-- Data Display -->
-    <section class="category-group">
-      <h1 class="category-title q-text-h1">Data Display</h1>
-
-      <ComponentShowcase
-        id="datetime"
-        title="Datetime Picker"
-        description="Date and time selection component"
-        :source-code="sourceCodes.datetime"
-      >
-        <SecDatetimePicker />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="cover"
-        title="Cover"
-        description="Cover image and card components"
-        :source-code="sourceCodes.cover"
-      >
-        <SecCover />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="avatar"
-        title="Avatar"
-        description="User avatars with various sizes and variants"
-        :source-code="sourceCodes.avatar"
-      >
-        <SecAvatar />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="share"
-        title="Share"
-        description="Social sharing functionality"
-        :source-code="sourceCodes.share"
-      >
-        <SecShare />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="payment"
-        title="Payment"
-        description="Payment method selection"
-        :source-code="sourceCodes.payment"
-      >
-        <SecPayment />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="height-comparison"
-        title="Height Comparison"
-        description="Compare the default heights of common controls"
-        :source-code="sourceCodes.heightComparison"
-      >
-        <SecHeightComparison />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        id="icon"
-        title="Icons"
-        description="Icon gallery with copy-to-clipboard"
-        :source-code="sourceCodes.icon"
-      >
-        <SecIcon />
-      </ComponentShowcase>
+        <div class="catalog-group-list">
+          <ComponentShowcase
+            v-for="itemId in group.itemIds"
+            :id="itemId"
+            :key="itemId"
+            :title="getDemo(itemId).title"
+            :description="getDemo(itemId).description"
+            :source-code="getDemo(itemId).sourceCode"
+          >
+            <component :is="getDemo(itemId).component" />
+          </ComponentShowcase>
+        </div>
+      </section>
     </section>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.home-page {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.75rem, 6vw, 5.5rem);
+  min-width: 0;
+  padding-bottom: 4rem;
+}
+
+.home-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.9fr);
+  gap: clamp(1.75rem, 4vw, 3.25rem);
+  align-items: end;
+  padding: clamp(0.5rem, 2vw, 1rem) 0 clamp(2rem, 4vw, 3rem);
+  border-bottom: 0.5px solid var(--q-c-dark-4);
+}
+
+.intro-copy {
+  min-width: 0;
+}
+
+.intro-kicker,
+.section-kicker,
+.category-index {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--q-c-red);
+}
+
+.intro-title {
+  margin: 0;
+  max-width: 11ch;
+  font-family: var(--q-font-serif);
+  font-size: clamp(2.6rem, 6vw, 4.9rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+
+.intro-desc {
+  max-width: 58ch;
+  margin-top: 1.25rem;
+  color: var(--q-c-dark-2);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  line-height: 1.7;
+}
+
+.intro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.intro-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-left: clamp(1rem, 2vw, 1.5rem);
+  border-left: 0.5px solid var(--q-c-dark-4);
+}
+
+.note-block {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.note-kicker {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--q-c-dark-3);
+}
+
+.intro-points {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    color: var(--q-c-dark-2);
+    padding-bottom: 0.75rem;
+    border-bottom: 0.5px solid var(--q-c-dark-5);
+  }
+}
+
+.theme-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  span {
+    padding: 0.25rem 0.625rem;
+    border-radius: 999px;
+    border: 0.5px solid var(--q-c-dark-4);
+    background: var(--q-bg-light-2);
+    color: var(--q-c-dark-2);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+}
+
+.section-intro {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+  max-width: 48rem;
+}
+
+.library-index {
+  display: grid;
+  grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.index-list {
+  display: grid;
+}
+
+.index-entry {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 0.5px solid var(--q-c-dark-4);
+}
+
+.entry-index {
+  color: var(--q-c-dark-3);
+  padding-top: 0.35rem;
+}
+
+.entry-main {
+  min-width: 0;
+}
+
+.entry-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.entry-summary {
+  max-width: 50ch;
+  margin-top: 0.45rem;
+  color: var(--q-c-dark-2);
+  line-height: 1.6;
+}
+
+.entry-links,
+.category-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.entry-links {
+  margin-top: 0.95rem;
+}
+
+.entry-jump,
+.entry-chip,
+.catalog-chip {
+  appearance: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+.entry-jump {
+  color: var(--q-c-dark-2);
+  padding: 0;
+  border-bottom: 1px solid currentColor;
+}
+
+.entry-chip,
+.catalog-chip {
+  padding: 0.375rem 0.75rem;
+  border-radius: 999px;
+  border: 0.5px solid var(--q-c-dark-4);
+  background: color-mix(in srgb, var(--q-bg-light) 78%, white 22%);
+  color: var(--q-c-dark-2);
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    background: var(--q-bg-light-2);
+    border-color: var(--q-c-dark-3);
+    color: var(--q-c-dark);
+    transform: translateY(-1px);
+  }
+}
+
+.featured-section,
+.catalog-shell {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.featured-grid,
+.catalog-group-list {
+  display: grid;
+  gap: 1.25rem;
+}
 
 .category-group {
-  margin-bottom: 2.5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.category-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: end;
+  padding-top: 1.25rem;
+  border-top: 0.5px solid var(--q-c-dark-4);
+}
+
+.category-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.category-copy {
+  min-width: 0;
 }
 
 .category-title {
-  padding-bottom: 0.625rem;
-  border-bottom: 2px solid var(--q-c-red);
-  margin-bottom: 1.25rem;
-  font-weight: 600;
+  margin: 0;
+  font-weight: 700;
 }
 
-:global(.dark) .category-title {
-  border-bottom-color: var(--q-c-red-light);
+.category-summary {
+  max-width: 44rem;
+  margin-top: 0.45rem;
+  color: var(--q-c-dark-2);
+}
+
+.category-links {
+  justify-content: flex-end;
+}
+
+@media (max-width: 960px) {
+  .home-intro,
+  .library-index,
+  .category-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-title {
+    max-width: 14ch;
+  }
+
+  .intro-notes {
+    padding-left: 0;
+    padding-top: 1rem;
+    border-left: none;
+    border-top: 0.5px solid var(--q-c-dark-4);
+  }
+
+  .category-links {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-page {
+    gap: 2.5rem;
+  }
+
+  .section-intro :deep(.q-text-h1) {
+    font-size: clamp(1.9rem, 9vw, 2.35rem);
+    line-height: 0.98;
+    max-width: 12ch;
+  }
+
+  .intro-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .intro-actions :deep(.q-button) {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .entry-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .index-entry {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+:global(.dark) .intro-kicker,
+:global(.dark) .section-kicker,
+:global(.dark) .category-index {
+  color: var(--q-c-red-light);
+}
+
+:global(.dark) .home-intro,
+:global(.dark) .index-entry,
+:global(.dark) .category-heading,
+:global(.dark) .intro-notes {
+  border-color: var(--q-c-light-4);
+}
+
+:global(.dark) .intro-desc,
+:global(.dark) .entry-summary,
+:global(.dark) .category-summary,
+:global(.dark) .intro-points li {
+  color: var(--q-c-light-2);
+}
+
+:global(.dark) .note-kicker,
+:global(.dark) .entry-index {
+  color: var(--q-c-light-3);
+}
+
+:global(.dark) .intro-points li {
+  border-color: var(--q-c-light-5);
+}
+
+:global(.dark) .theme-tags span,
+:global(.dark) .entry-chip,
+:global(.dark) .catalog-chip {
+  background: color-mix(in srgb, var(--q-bg-dark) 76%, black 24%);
+  border-color: var(--q-c-light-4);
+  color: var(--q-c-light-2);
+}
+
+:global(.dark) .entry-chip:hover,
+:global(.dark) .catalog-chip:hover {
+  background: var(--q-bg-dark-2);
+  border-color: var(--q-c-light-3);
+  color: var(--q-c-light);
+}
+
+:global(.dark) .entry-jump,
+:global(.dark) .category-title,
+:global(.dark) .entry-header .q-text-h3 {
   color: var(--q-c-light);
 }
 </style>

@@ -6,7 +6,17 @@
   border-radius: var(--q-button-radius);
   font-weight: var(--q-button-font-weight);
   letter-spacing: var(--q-button-letter-spacing);
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.18s ease-out,
+    border-color 0.18s ease-out,
+    color 0.18s ease-out,
+    box-shadow 0.2s ease-out,
+    transform 0.18s ease-out;
+
+  &:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--q-c-red) 58%, transparent);
+    outline-offset: 2px;
+  }
 
   // Pressed state overlay
   &::before {

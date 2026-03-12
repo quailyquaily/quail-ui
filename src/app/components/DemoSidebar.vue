@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 
 const props = defineProps<{
   open: boolean;
@@ -86,6 +86,47 @@ const categories = computed(() => [
 
 const expandedCategories = ref<string[]>(['buttons', 'form-inputs', 'selection', 'feedback', 'navigation', 'data-display', 'typography']);
 const activeSection = ref('');
+const sectionOrder = computed(() => categories.value.flatMap((category) => category.sections.map((section) => section.id)));
+
+let refreshFrame = 0;
+const SCROLL_OFFSET = 104;
+
+function syncActiveSection() {
+  if (typeof window === 'undefined' || !sectionOrder.value.length) {
+    return;
+  }
+
+  let nextSection = sectionOrder.value[0];
+
+  for (const sectionId of sectionOrder.value) {
+    const element = document.getElementById(`demo-section-${sectionId}`);
+    if (!element) {
+      continue;
+    }
+
+    const { top } = element.getBoundingClientRect();
+    if (top <= SCROLL_OFFSET) {
+      nextSection = sectionId;
+    } else {
+      break;
+    }
+  }
+
+  if (activeSection.value !== nextSection) {
+    activeSection.value = nextSection;
+  }
+}
+
+function refreshObserver() {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  window.cancelAnimationFrame(refreshFrame);
+  refreshFrame = window.requestAnimationFrame(() => {
+    syncActiveSection();
+  });
+}
 
 function toggleCategory(categoryId: string) {
   const index = expandedCategories.value.indexOf(categoryId);
@@ -100,7 +141,7 @@ function scrollToSection(sectionId: string) {
   activeSection.value = sectionId;
   const element = document.getElementById(`demo-section-${sectionId}`);
   if (element) {
-    const headerOffset = 80;
+    const headerOffset = 88;
     const elementPosition = element.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
     window.scrollTo({
@@ -111,6 +152,30 @@ function scrollToSection(sectionId: string) {
   emit('navigate', sectionId);
   emit('close');
 }
+
+onMounted(() => {
+  nextTick(() => {
+    refreshObserver();
+  });
+  window.addEventListener('resize', refreshObserver);
+  window.addEventListener('scroll', refreshObserver, { passive: true });
+});
+
+onUnmounted(() => {
+  if (typeof window !== 'undefined') {
+    window.cancelAnimationFrame(refreshFrame);
+    window.removeEventListener('resize', refreshObserver);
+    window.removeEventListener('scroll', refreshObserver);
+  }
+});
+
+watch(() => props.open, (isOpen) => {
+  if (isOpen) {
+    nextTick(() => {
+      refreshObserver();
+    });
+  }
+});
 </script>
 
 <template>
@@ -127,6 +192,7 @@ function scrollToSection(sectionId: string) {
         v-for="category in categories"
         :key="category.id"
         class="sidebar-category"
+        :class="{ 'has-active-section': category.sections.some((section) => section.id === activeSection) }"
       >
         <div
           class="category-header"
@@ -206,6 +272,8 @@ function scrollToSection(sectionId: string) {
 }
 
 .sidebar-nav {
+  display: grid;
+  gap: 0.25rem;
   padding-top: 0.5rem;
 }
 
@@ -213,10 +281,11 @@ function scrollToSection(sectionId: string) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.625rem 0.5rem;
+  min-height: 2.5rem;
+  padding: 0.625rem 0.75rem;
   cursor: pointer;
-  border-radius: 6px;
-  transition: background-color 0.2s;
+  border-radius: 8px;
+  transition: background-color 0.18s ease-out, color 0.18s ease-out;
 
   &:hover {
     background-color: var(--q-c-dark-5);
@@ -226,6 +295,16 @@ function scrollToSection(sectionId: string) {
 .category-title {
   flex: 1;
   font-weight: 500;
+  color: var(--q-c-dark-2);
+  transition: color 0.14s ease-out;
+}
+
+.sidebar-category.has-active-section .category-header {
+  background: transparent;
+}
+
+.sidebar-category.has-active-section .category-title {
+  color: var(--q-c-dark);
 }
 
 .chevron-icon {
@@ -240,38 +319,77 @@ function scrollToSection(sectionId: string) {
 }
 
 .category-sections {
-  padding-left: 0.5rem;
+  position: relative;
+  margin-left: 0.75rem;
+  padding-left: 0.875rem;
   overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0.45rem;
+    bottom: 0.45rem;
+    left: 0;
+    width: 1px;
+    background: var(--q-c-dark-4);
+    transition: background-color 0.14s ease-out;
+  }
 }
 
 .section-link {
+  position: relative;
   display: block;
   width: 100%;
   text-align: left;
-  padding: 0.5rem 0.75rem;
+  min-height: 2.5rem;
+  padding: 0.625rem 0.5rem 0.625rem 0.875rem;
   background: none;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 0;
   color: var(--q-c-dark-2);
-  transition: all 0.15s;
-  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.14s ease-out;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0.55rem;
+    bottom: 0.55rem;
+    left: -0.875rem;
+    width: 1px;
+    background: var(--q-c-dark-4);
+    opacity: 0;
+    transition: opacity 0.14s ease-out, background-color 0.14s ease-out;
+  }
 
   &:hover {
-    background-color: var(--q-c-dark-5);
     color: var(--q-c-dark);
+    background-color: transparent;
+
+    &::before {
+      background: var(--q-c-dark-3);
+      opacity: 0.55;
+    }
   }
 
   &.active {
-    color: var(--q-c-red);
-    background-color: var(--q-c-red-dimm-1);
+    color: var(--q-c-dark);
+    background: transparent;
+
+    &::before {
+      background: var(--q-c-red);
+      opacity: 1;
+    }
   }
 }
 
 // Collapse animation
 .collapse-enter-active,
 .collapse-leave-active {
-  transition: all 0.2s ease;
+  transition: opacity 0.18s ease-out, transform 0.18s ease-out;
 }
 
 .collapse-enter-from,
@@ -298,20 +416,42 @@ function scrollToSection(sectionId: string) {
   }
 
   .category-title {
+    color: var(--q-c-light-2);
+  }
+
+  .sidebar-category.has-active-section .category-header {
+    background: transparent;
+  }
+
+  .sidebar-category.has-active-section .category-title {
     color: var(--q-c-light);
+  }
+
+  .category-sections::before {
+    background: var(--q-c-light-4);
   }
 
   .section-link {
     color: var(--q-c-light-2);
 
     &:hover {
-      background-color: var(--q-c-light-5);
       color: var(--q-c-light);
+      background-color: transparent;
+
+      &::before {
+        background: var(--q-c-light-3);
+        opacity: 0.6;
+      }
     }
 
     &.active {
-      color: var(--q-c-red-light);
-      background-color: rgba(174, 19, 0, 0.15);
+      color: var(--q-c-light);
+      background-color: transparent;
+
+      &::before {
+        background: var(--q-c-red-light);
+        opacity: 1;
+      }
     }
   }
 }

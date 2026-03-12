@@ -130,9 +130,8 @@ function genCls(tab:any, ix: number) {
     bottom: 0;
     height: 2px;
     background-color: var(--q-c-red);
-    // Elastic easing - slight overshoot then settle
-    transition: left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-                width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: left 0.28s cubic-bezier(0.19, 1, 0.22, 1),
+                width 0.28s cubic-bezier(0.19, 1, 0.22, 1);
     pointer-events: none;
   }
 

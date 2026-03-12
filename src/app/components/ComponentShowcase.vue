@@ -35,15 +35,21 @@ function copyCode() {
         <p v-if="description" class="q-text-desc q-c-dark-3 mt-1">{{ description }}</p>
       </div>
 
-      <div v-if="sourceCode && showSourceToggle" class="showcase-controls">
-        <QToggleButton v-model="showCode" class="icon xs">
+      <QButton
+        v-if="sourceCode && showSourceToggle"
+        :class="`showcase-toggle xs ${showCode ? 'outlined' : 'plain'}`"
+        :aria-pressed="showCode"
+        @click="showCode = !showCode"
+      >
+        <span class="toggle-text">{{ showCode ? 'Hide code' : 'Show code' }}</span>
+        <span class="toggle-icon-wrap">
           <QIconCode class="icon" />
-        </QToggleButton>
-      </div>
+        </span>
+      </QButton>
     </div>
 
-    <Transition name="slide-down">
-      <div v-if="showCode && sourceCode" class="showcase-code">
+    <div v-if="sourceCode && showSourceToggle" class="showcase-code-shell" :class="{ open: showCode }">
+      <div class="showcase-code">
         <div class="code-header">
           <span class="q-text-caption code-label">Source Code</span>
           <QButton class="plain xs copy-btn" @click="copyCode">
@@ -53,10 +59,10 @@ function copyCode() {
         </div>
         <pre class="code-content"><code>{{ sourceCode }}</code></pre>
       </div>
-    </Transition>
+    </div>
 
-    <div class="showcase-preview" :class="{ 'code-visible': showCode && sourceCode }">
-      <div class="preview-inner">
+    <div class="showcase-preview">
+      <div class="preview-surface">
         <slot></slot>
       </div>
     </div>
@@ -65,20 +71,15 @@ function copyCode() {
 
 <style lang="scss" scoped>
 .component-showcase {
+  display: grid;
+  gap: 0.9rem;
   margin-bottom: 1.5rem;
-  border: 0.5px solid var(--q-c-dark-4);
-  border-radius: 8px;
-  background: var(--q-bg-light);
 }
 
 .showcase-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0.875rem 1.25rem;
-  background: var(--q-bg-light-2);
-  border-bottom: 0.5px solid var(--q-c-dark-4);
-  border-radius: 8px 8px 0 0;
   gap: 1rem;
 
   @media (max-width: 640px) {
@@ -93,16 +94,10 @@ function copyCode() {
   gap: clamp(1.25rem, 3vw, 2rem);
   margin-bottom: 0;
   padding: clamp(1rem, 2.5vw, 1.5rem) 0;
-  border: none;
   border-top: 0.5px solid var(--q-c-dark-4);
-  border-radius: 0;
-  background: transparent;
 
   .showcase-header {
     padding: 0;
-    background: transparent;
-    border: none;
-    border-radius: 0;
     flex-direction: column;
     gap: 0.75rem;
   }
@@ -112,16 +107,15 @@ function copyCode() {
   }
 
   .showcase-preview {
-    padding: 0;
     min-height: 0;
-    border-radius: 0;
   }
 
-  .preview-inner {
-    padding: clamp(1rem, 2.5vw, 1.5rem);
-    border: 0.5px solid var(--q-c-dark-4);
-    border-radius: 12px;
-    background: color-mix(in srgb, var(--q-bg-light) 80%, white 20%);
+  .preview-surface {
+    min-height: 100%;
+  }
+
+  .showcase-code-shell {
+    grid-column: 1 / -1;
   }
 }
 
@@ -130,19 +124,56 @@ function copyCode() {
   min-width: 0;
 }
 
-.showcase-controls {
+.showcase-toggle {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
   flex-shrink: 0;
+
+  :deep(.button-inner) {
+    gap: 0.45rem;
+  }
+
+  :deep(.icon) {
+    margin-right: 0;
+    margin-left: 0;
+    flex-shrink: 0;
+  }
 
   @media (max-width: 640px) {
     justify-content: flex-end;
   }
 }
 
+.toggle-text {
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.toggle-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showcase-code-shell {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.22s cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 0.18s ease-out;
+
+  &.open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+}
+
 .showcase-code {
+  min-height: 0;
   background: #1a1a1f;
+  border: 0.5px solid var(--q-c-dark-4);
+  border-radius: 12px;
   overflow: hidden;
 }
 
@@ -174,12 +205,12 @@ function copyCode() {
   padding: 1rem 1.25rem;
   margin: 0;
   overflow-x: auto;
+  overflow-y: auto;
   font-family: var(--q-font-mono);
   font-size: 0.8125rem;
   line-height: 1.6;
   color: #d4d4d8;
   max-height: 400px;
-  overflow-y: auto;
 
   code {
     font-family: inherit;
@@ -188,16 +219,15 @@ function copyCode() {
 }
 
 .showcase-preview {
-  padding: 1.5rem;
   min-height: 100px;
-  border-radius: 0 0 8px 8px;
-
-  &.code-visible {
-    border-top: 0.5px solid var(--q-c-dark-4);
-  }
 }
 
-.preview-inner {
+.preview-surface {
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border: 0.5px solid var(--q-c-dark-4);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--q-bg-light) 88%, white 12%);
+
   :deep(.section) {
     margin: 0;
   }
@@ -217,48 +247,24 @@ function copyCode() {
   }
 }
 
-// Slide animation
-.slide-down-enter-active,
-.slide-down-leave-active {
-  transition: all 0.25s ease;
-  overflow: hidden;
-}
-
-.slide-down-enter-from,
-.slide-down-leave-to {
-  max-height: 0;
-  opacity: 0;
-}
-
-.slide-down-enter-to,
-.slide-down-leave-from {
-  max-height: 500px;
-  opacity: 1;
-}
-
 </style>
 
 <style lang="scss">
 .dark {
   .component-showcase {
     border-color: var(--q-c-light-4);
-    background: var(--q-bg-dark);
   }
 
   .component-showcase.feature {
-    background: transparent;
     border-color: var(--q-c-light-4);
 
-    .preview-inner {
+    .preview-surface {
       border-color: var(--q-c-light-4);
       background: color-mix(in srgb, var(--q-bg-dark) 78%, black 22%);
     }
   }
 
   .showcase-header {
-    background: var(--q-bg-dark-2);
-    border-bottom-color: var(--q-c-light-4);
-
     .q-text-h2 {
       color: var(--q-c-light);
     }
@@ -268,12 +274,17 @@ function copyCode() {
     }
   }
 
+  .showcase-code {
+    border-color: var(--q-c-light-4);
+  }
+
   .showcase-preview {
     color: var(--q-c-light);
+  }
 
-    &.code-visible {
-      border-top-color: var(--q-c-light-4);
-    }
+  .preview-surface {
+    border-color: var(--q-c-light-4);
+    background: color-mix(in srgb, var(--q-bg-dark) 82%, black 18%);
   }
 }
 </style>

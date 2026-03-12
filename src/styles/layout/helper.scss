@@ -202,10 +202,10 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
 
   .#{$prefix}q-text-desc {
     font-family: var(--q-font-serif);
-    font-size: math.div(14, 16) + rem;
+    font-size: math.div(15, 16) + rem;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: math.div(24, 16) + rem;
   }
 
   .#{$prefix}q-text-body {
@@ -218,18 +218,18 @@ $breakpoint-sizes: ("md": 768px, "lg": 1024px);
 
   .#{$prefix}q-text-body-text {
     font-family: var(--q-font-sans);
-    font-size: math.div(14, 16) + rem;
+    font-size: math.div(15, 16) + rem;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: math.div(24, 16) + rem;
   }
 
   .#{$prefix}q-text-body-title {
     font-family: var(--q-font-sans);
-    font-size: math.div(14, 16) + rem;
+    font-size: math.div(15, 16) + rem;
     font-style: normal;
     font-weight: 500;
-    line-height: normal;
+    line-height: math.div(22, 16) + rem;
   }
 
   .#{$prefix}q-text-body-desc {

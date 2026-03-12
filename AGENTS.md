@@ -40,3 +40,4 @@
 
 ## Local Environment Notes
 - In this sandbox, `/usr/bin/chromium-browser` is a wrapper. The direct Chromium binary that worked for headless usage is `/snap/chromium/current/usr/lib/chromium-browser/chrome`.
+- You can run pnpm, chrome, test, sed without asking.

@@ -61,12 +61,16 @@ const sourceCodes = {
   Premium content
 </div>`,
 
-  button: `<QButton class="outlined">Outlined</QButton>
-<QButton class="primary">Primary</QButton>
-<QButton class="highlight">Highlight</QButton>
-<QButton class="plain">Plain</QButton>
-<QButton class="danger">Danger</QButton>
-<QButton class="stripe">Stripe</QButton>
+  button: `<!-- Core hierarchy -->
+<QButton class="primary">Publish</QButton>
+<QButton class="outlined">Preview</QButton>
+<QButton class="plain">Skip for now</QButton>
+<QButton class="danger">Delete</QButton>
+
+<!-- States -->
+<QButton class="primary">Ready</QButton>
+<QButton class="primary" loading>Publishing</QButton>
+<QButton class="outlined" disabled>Disabled</QButton>
 
 <!-- Sizes -->
 <QButton class="outlined">Normal</QButton>
@@ -74,13 +78,16 @@ const sourceCodes = {
 <QButton class="xs outlined">XS</QButton>
 <QButton class="xxs outlined">XXS</QButton>
 
-<!-- Icon Button -->
-<QButton class="icon primary">
-  <QIconPlus class="icon" />
+<!-- Utility actions -->
+<QButton class="icon outlined">
+  <QIconSearch class="icon" />
 </QButton>
+<QButton class="primary" shortcut="Cmd+S">Save draft</QButton>
 
-<!-- With Keyboard Shortcut -->
-<QButton class="primary" shortcut="Cmd+S">Save</QButton>`,
+<!-- Expressive styles -->
+<QButton class="highlight">Highlight</QButton>
+<QButton class="stripe">Stripe</QButton>
+<QButton class="placeholder">Placeholder</QButton>`,
 
   input: `<QInput v-model="value" placeholder="Enter text..." />
 
@@ -711,7 +718,6 @@ function openArticle() {
         <div class="intro-actions">
           <QButton class="primary" @click="scrollToDemo('button')">Start with essentials</QButton>
           <QButton class="outlined" @click="openArticle">Read article styles</QButton>
-          <QButton class="plain" @click="scrollToDemo('typeface')">Jump to voice</QButton>
         </div>
       </div>
 
@@ -724,51 +730,12 @@ function openArticle() {
         </div>
 
         <div class="note-block">
-          <p class="note-kicker q-text-caption">Theme modes</p>
-          <div class="theme-tags">
-            <span>Light</span>
-            <span>Dark</span>
-            <span>Morph</span>
-            <span>TUI</span>
-          </div>
+          <p class="note-kicker q-text-caption">Theme stance</p>
+          <p class="theme-note q-text-body-text">
+            Light and dark are the reference themes. Morph stays available as an
+            experimental texture pass, and TUI swaps the system into a monospace utility layer.
+          </p>
         </div>
-      </div>
-    </section>
-
-    <section class="library-index">
-      <div class="section-intro">
-        <p class="section-kicker q-text-caption">Library map</p>
-        <h2 class="q-text-h1">Start with the surfaces people reach for first.</h2>
-        <p class="q-text-desc">
-          The library is broad, but the fastest way in is by job: act, write, choose, respond, move,
-          and publish.
-        </p>
-      </div>
-
-      <div class="index-list">
-        <article v-for="group in catalogGroups" :key="group.id" class="index-entry">
-          <div class="entry-index q-text-caption">{{ group.index }}</div>
-          <div class="entry-main">
-            <div class="entry-header">
-              <h3 class="q-text-h3">{{ group.title }}</h3>
-              <button class="entry-jump" type="button" @click="scrollToDemo(group.firstDemoId)">
-                Jump in
-              </button>
-            </div>
-            <p class="entry-summary q-text-body-text">{{ group.summary }}</p>
-            <div class="entry-links">
-              <button
-                v-for="itemId in group.itemIds.slice(0, 3)"
-                :key="itemId"
-                class="entry-chip"
-                type="button"
-                @click="scrollToDemo(itemId)"
-              >
-                {{ getDemo(itemId).title }}
-              </button>
-            </div>
-          </div>
-        </article>
       </div>
     </section>
 
@@ -816,18 +783,6 @@ function openArticle() {
               <h2 class="category-title q-text-h1">{{ group.title }}</h2>
               <p class="category-summary q-text-desc">{{ group.summary }}</p>
             </div>
-          </div>
-
-          <div class="category-links">
-            <button
-              v-for="itemId in group.itemIds.slice(0, 4)"
-              :key="itemId"
-              class="catalog-chip"
-              type="button"
-              @click="scrollToDemo(itemId)"
-            >
-              {{ getDemo(itemId).title }}
-            </button>
           </div>
         </div>
 
@@ -912,7 +867,7 @@ function openArticle() {
 
 .note-block {
   display: grid;
-  gap: 0.75rem;
+  gap: 0.625rem;
 }
 
 .note-kicker {
@@ -935,126 +890,29 @@ function openArticle() {
   }
 }
 
-.theme-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-
-  span {
-    padding: 0.25rem 0.625rem;
-    border-radius: 999px;
-    border: 0.5px solid var(--q-c-dark-4);
-    background: var(--q-bg-light-2);
-    color: var(--q-c-dark-2);
-    font-size: 0.75rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
+.theme-note {
+  max-width: 34ch;
+  margin: 0;
+  color: var(--q-c-dark-2);
 }
 
 .section-intro {
   display: grid;
   gap: 0.5rem;
   min-width: 0;
-  max-width: 48rem;
-}
-
-.library-index {
-  display: grid;
-  grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: start;
-}
-
-.index-list {
-  display: grid;
-}
-
-.index-entry {
-  display: grid;
-  grid-template-columns: 3rem minmax(0, 1fr);
-  gap: 1rem;
-  padding: 1rem 0;
-  border-top: 0.5px solid var(--q-c-dark-4);
-}
-
-.entry-index {
-  color: var(--q-c-dark-3);
-  padding-top: 0.35rem;
-}
-
-.entry-main {
-  min-width: 0;
-}
-
-.entry-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.entry-summary {
-  max-width: 50ch;
-  margin-top: 0.45rem;
-  color: var(--q-c-dark-2);
-  line-height: 1.6;
-}
-
-.entry-links,
-.category-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.entry-links {
-  margin-top: 0.95rem;
-}
-
-.entry-jump,
-.entry-chip,
-.catalog-chip {
-  appearance: none;
-  border: none;
-  background: none;
-  cursor: pointer;
-  font: inherit;
-}
-
-.entry-jump {
-  color: var(--q-c-dark-2);
-  padding: 0;
-  border-bottom: 1px solid currentColor;
-}
-
-.entry-chip,
-.catalog-chip {
-  padding: 0.375rem 0.75rem;
-  border-radius: 999px;
-  border: 0.5px solid var(--q-c-dark-4);
-  background: color-mix(in srgb, var(--q-bg-light) 78%, white 22%);
-  color: var(--q-c-dark-2);
-  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
-
-  &:hover {
-    background: var(--q-bg-light-2);
-    border-color: var(--q-c-dark-3);
-    color: var(--q-c-dark);
-    transform: translateY(-1px);
-  }
+  max-width: 42rem;
 }
 
 .featured-section,
 .catalog-shell {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 .featured-grid,
 .catalog-group-list {
   display: grid;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .category-group {
@@ -1064,9 +922,8 @@ function openArticle() {
 
 .category-heading {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 1rem;
-  align-items: end;
+  gap: 0.75rem;
+  align-items: start;
   padding-top: 1.25rem;
   border-top: 0.5px solid var(--q-c-dark-4);
 }
@@ -1092,13 +949,8 @@ function openArticle() {
   color: var(--q-c-dark-2);
 }
 
-.category-links {
-  justify-content: flex-end;
-}
-
 @media (max-width: 960px) {
   .home-intro,
-  .library-index,
   .category-heading {
     grid-template-columns: 1fr;
   }
@@ -1112,10 +964,6 @@ function openArticle() {
     padding-top: 1rem;
     border-left: none;
     border-top: 0.5px solid var(--q-c-dark-4);
-  }
-
-  .category-links {
-    justify-content: flex-start;
   }
 }
 
@@ -1139,16 +987,6 @@ function openArticle() {
     justify-content: center;
     width: 100%;
   }
-
-  .entry-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .index-entry {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
 }
 
 :global(.dark) .intro-kicker,
@@ -1158,21 +996,19 @@ function openArticle() {
 }
 
 :global(.dark) .home-intro,
-:global(.dark) .index-entry,
 :global(.dark) .category-heading,
 :global(.dark) .intro-notes {
   border-color: var(--q-c-light-4);
 }
 
 :global(.dark) .intro-desc,
-:global(.dark) .entry-summary,
 :global(.dark) .category-summary,
-:global(.dark) .intro-points li {
+:global(.dark) .intro-points li,
+:global(.dark) .theme-note {
   color: var(--q-c-light-2);
 }
 
-:global(.dark) .note-kicker,
-:global(.dark) .entry-index {
+:global(.dark) .note-kicker {
   color: var(--q-c-light-3);
 }
 
@@ -1180,24 +1016,7 @@ function openArticle() {
   border-color: var(--q-c-light-5);
 }
 
-:global(.dark) .theme-tags span,
-:global(.dark) .entry-chip,
-:global(.dark) .catalog-chip {
-  background: color-mix(in srgb, var(--q-bg-dark) 76%, black 24%);
-  border-color: var(--q-c-light-4);
-  color: var(--q-c-light-2);
-}
-
-:global(.dark) .entry-chip:hover,
-:global(.dark) .catalog-chip:hover {
-  background: var(--q-bg-dark-2);
-  border-color: var(--q-c-light-3);
-  color: var(--q-c-light);
-}
-
-:global(.dark) .entry-jump,
-:global(.dark) .category-title,
-:global(.dark) .entry-header .q-text-h3 {
+:global(.dark) .category-title {
   color: var(--q-c-light);
 }
 </style>

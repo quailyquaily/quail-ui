@@ -13,6 +13,35 @@
         </div>
       </div>
 
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">Sizes</div>
+        <div class="demo-row">
+          <QInput v-model="smallInputValue" class="sm" type="text" placeholder="small input" />
+          <QInput v-model="xsInputValue" class="xs" type="text" placeholder="xs input" />
+        </div>
+      </div>
+
+      <div class="demo-group">
+        <div class="group-label q-text-caption q-c-dark-3">Height Comparison</div>
+        <div class="comparison-list">
+          <div class="comparison-row">
+            <div class="comparison-label q-text-caption q-c-dark-3">Default 44px</div>
+            <QInput v-model="comparisonDefaultValue" type="text" placeholder="default input" />
+            <QButton class="outlined">Default button</QButton>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-label q-text-caption q-c-dark-3">Small 38px</div>
+            <QInput v-model="comparisonSmallValue" class="sm" type="text" placeholder="small input" />
+            <QButton class="sm outlined">Small button</QButton>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-label q-text-caption q-c-dark-3">XS 32px</div>
+            <QInput v-model="comparisonXsValue" class="xs" type="text" placeholder="xs input" />
+            <QButton class="xs outlined">XS button</QButton>
+          </div>
+        </div>
+      </div>
+
       <!-- States -->
       <div class="demo-group">
         <div class="group-label q-text-caption q-c-dark-3">States</div>
@@ -74,6 +103,11 @@ const switchValue = ref(false);
 const inputValue = ref('');
 const searchValue = ref('');
 const defaultInputValue = ref('Hello!');
+const smallInputValue = ref('');
+const xsInputValue = ref('');
+const comparisonDefaultValue = ref('');
+const comparisonSmallValue = ref('');
+const comparisonXsValue = ref('');
 
 const searchItems = computed(() => {
   const source = [
@@ -129,5 +163,26 @@ function selectSearchResult(val:any) {
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
   }
+}
+
+.comparison-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.comparison-row {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+.comparison-label {
+  font-weight: 500;
 }
 </style>

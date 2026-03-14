@@ -153,9 +153,24 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .q-input {
+  --q-input-wrapper-height: 44px;
+  --q-input-font-size: 0.9375rem;
+  --q-input-clear-size: 32px;
   width: 100%;
   display: flex;
   align-items: flex-start;
+
+  &.sm {
+    --q-input-wrapper-height: 38px;
+    --q-input-font-size: 0.875rem;
+    --q-input-clear-size: 28px;
+  }
+
+  &.xs {
+    --q-input-wrapper-height: 32px;
+    --q-input-font-size: 0.75rem;
+    --q-input-clear-size: 24px;
+  }
 
   &.exceed, &.error {
     .q-text-field-wrapper {
@@ -196,7 +211,6 @@ onMounted(() => {
   .q-text-field-wrapper {
     --q-input-border-color: var(--q-field-border-color);
     width: 100%;
-    min-height: 44px;
     border: none;
     border-radius: var(--q-field-radius);
     box-shadow:
@@ -216,25 +230,28 @@ onMounted(() => {
       flex: 1;
       display: flex;
       align-items: center;
+      min-height: var(--q-input-wrapper-height);
     }
 
     &:deep(.q-text-field) {
       border: none !important;
       box-shadow: none !important;
       outline: none !important;
-      min-height: 42px;
+      height: var(--q-input-wrapper-height) !important;
+      min-height: var(--q-input-wrapper-height);
+      box-sizing: border-box;
       background-color: transparent;
-      font-size: 0.9375rem;
+      font-size: var(--q-input-font-size);
       color: var(--q-field-text-color);
       &::placeholder {
         color: var(--q-field-placeholder-color);
       }
     }
     .clear-btn {
-      min-height: 32px;
-      max-height: 32px;
-      min-width: 32px;
-      max-width: 32px;
+      min-height: var(--q-input-clear-size);
+      max-height: var(--q-input-clear-size);
+      min-width: var(--q-input-clear-size);
+      max-width: var(--q-input-clear-size);
       margin-right: 4px;
       color: var(--q-field-clear-color);
     }

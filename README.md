@@ -31,7 +31,7 @@ Initialize Quaily UI in your main.js/main.ts file:
 ```js
 import { createApp } from 'vue'
 import { QuailUI } from 'quail-ui'
-import 'quail-ui/dist/index.css'
+import 'quail-ui/style.css'
 
 const app = createApp(App)
 app.use(QuailUI)

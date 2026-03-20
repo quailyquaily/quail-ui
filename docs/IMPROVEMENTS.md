@@ -253,7 +253,7 @@ export * from './components/common';
 3. **单独的样式入口**：
 ```json
 "exports": {
-  "./style.css": "./dist/style.css"
+  "./style.css": "./dist/index.css"
 }
 ```
 
@@ -273,7 +273,7 @@ import 'quail-ui/style.css';
 
 **状态**: 保留现状
 
-`rollup-plugin-scss` 用于将独立的 SCSS 文件打包为 `quail-ui.css`，这是 Vite 内置 SCSS 支持不直接处理的特定用例。
+`rollup-plugin-scss` 用于处理独立的 SCSS 入口；当前实际对外产物名为 `dist/index.css`，并通过 `quail-ui/style.css` 暴露稳定导入路径。
 
 ---
 

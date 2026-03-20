@@ -9,7 +9,6 @@ A Vue 3 component library for [Quaily](https://quaily.com).
 - 26+ UI components (Button, Input, Dialog, Menu, Tabs, etc.)
 - 110+ SVG icons
 - Theme support (light, dark, morph)
-- TUI (Terminal UI) mode with monospace fonts
 - Fully typed with TypeScript
 - SCSS with CSS custom properties
 
@@ -137,14 +136,6 @@ applyTheme('morph', false)
 `applyTheme` updates `document.body.dataset.theme` and toggles `.dark/.light` body classes automatically.
 
 For legacy usage, dark mode still works by toggling the `.dark` class on `<body>`.
-
-## TUI Mode
-
-Enable terminal-style UI with monospace fonts:
-
-```js
-document.body.classList.add('tui')
-```
 
 ## License
 

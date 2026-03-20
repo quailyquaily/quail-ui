@@ -42,7 +42,7 @@ Relevant files:
 ### 3. Mobile navigation hierarchy is corrected
 
 What changed:
-On small screens, route switching remains visible while TUI, theme, and GitHub controls move into a utility drawer.
+On small screens, route switching remains visible while theme and GitHub controls move into a utility drawer.
 
 Why it matters:
 Navigation is now more important than experimentation, which is the right hierarchy for a docs experience.

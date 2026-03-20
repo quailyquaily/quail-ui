@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import logoLight from "@/assets/images/app-logo-light.png";
 import logoDark from "@/assets/images/app-logo-dark.png";
@@ -17,17 +17,8 @@ const route = useRoute();
 
 const sidebarOpen = ref(false);
 const selectedTheme = ref<QuailTheme>(resolveInitialTheme());
-const isTUIMode = ref(false);
 const utilitiesOpen = ref(false);
 const themeItems = getThemeOptions();
-
-function setTUIMode(enabled: boolean) {
-  if (enabled) {
-    document.body.classList.add('tui');
-  } else {
-    document.body.classList.remove('tui');
-  }
-}
 
 const topNavTabs = computed(() => [
   { id: 'home', title: 'Components', icon: 'QIconGrid' },
@@ -62,10 +53,6 @@ watch(
   { immediate: true }
 );
 
-watch(isTUIMode, (tui) => {
-  setTUIMode(tui);
-});
-
 function onTabChange(data: { index: number; tab: { id: string; title: string } }) {
   if (data.tab.id === 'home') {
     router.push('/');
@@ -91,10 +78,6 @@ function onThemeChange(item: ThemeOption) {
 function openUtilities() {
   utilitiesOpen.value = true;
 }
-
-onMounted(() => {
-  setTUIMode(isTUIMode.value);
-});
 </script>
 
 <template>
@@ -121,10 +104,6 @@ onMounted(() => {
         </nav>
 
         <div class="top-nav-right desktop-utilities">
-          <div class="global-switch">
-            <span class="switch-label q-text-caption">TUI</span>
-            <QSwitch v-model="isTUIMode" />
-          </div>
           <div class="global-switch theme-dropdown">
             <span class="switch-label q-text-caption">Theme</span>
             <QDropdownMenu
@@ -183,17 +162,6 @@ onMounted(() => {
             :initial-item="selectedThemeItem"
             @change="onThemeChange"
           />
-        </section>
-
-        <section class="utility-block">
-          <div class="utility-label q-text-caption">Interface mode</div>
-          <div class="utility-toggle-row">
-            <div>
-              <div class="q-text-body-title">TUI mode</div>
-              <div class="q-text-caption utility-copy">Use the monospace presentation layer.</div>
-            </div>
-            <QSwitch v-model="isTUIMode" />
-          </div>
         </section>
 
         <section class="utility-block">
@@ -409,18 +377,6 @@ body {
   color: var(--q-c-dark-3);
 }
 
-.utility-toggle-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.utility-copy {
-  margin-top: 0.25rem;
-  color: var(--q-c-dark-3);
-}
-
 .mobile-theme-select {
   width: 100%;
 }
@@ -484,8 +440,7 @@ body {
     border-bottom-color: var(--q-c-light-4);
   }
 
-  .utility-label,
-  .utility-copy {
+  .utility-label {
     color: var(--q-c-light-3);
   }
 }

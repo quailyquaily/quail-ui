@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 import ComponentShowcase from "./components/ComponentShowcase.vue";
+import SecColorScheme from "./home/color-scheme.vue";
 import SecTypeface from "./home/typeface.vue";
 import SecFrameAndDivider from "./home/frame.vue";
 import SecPremiumDecoration from "./home/premium.vue";
@@ -20,10 +21,12 @@ import SecPagination from "./home/pagination.vue";
 import SecTab from "./home/tab.vue";
 import SecCover from "./home/cover.vue";
 import SecAvatar from "./home/avatar.vue";
+import SecCard from "./home/card.vue";
 import SecShare from "./home/share.vue";
 import SecPayment from "./home/payment.vue";
 import SecHeightComparison from "./home/height-comparison.vue";
 import SecIcon from "./home/icon.vue";
+import SecMediaFrame from "./home/media-frame.vue";
 import SecSkeleton from "./home/skeleton.vue";
 import SecTooltip from "./home/tooltip.vue";
 import SecToast from "./home/toast.vue";
@@ -34,6 +37,33 @@ import SecDrawer from "./home/drawer.vue";
 const router = useRouter();
 
 const sourceCodes = {
+  colorScheme: `const palette = {
+  surfaces: [
+    "--q-bg-paper",
+    "--q-bg-white",
+    "--q-bg-light",
+    "--q-bg-light-2",
+    "--q-bg-dark",
+    "--q-bg-dark-2",
+  ],
+  ink: [
+    "--q-c-dark",
+    "--q-c-dark-2",
+    "--q-c-dark-3",
+    "--q-c-dark-4",
+    "--q-c-light",
+    "--q-c-secondary",
+  ],
+  accents: [
+    "--q-c-blue",
+    "--q-c-orange",
+    "--q-c-green",
+    "--q-c-red",
+    "--q-button-primary-bg",
+    "--q-button-highlight-bg",
+  ],
+};`,
+
   typeface: `<!-- Headings -->
 <h1 class="q-text-h1">Heading 1</h1>
 <h2 class="q-text-h2">Heading 2</h2>
@@ -49,6 +79,9 @@ const sourceCodes = {
 <div class="frame">
   Content inside a frame
 </div>
+
+<!-- Labeled Divider -->
+<QDivider label="Section label" />
 
 <!-- Divider -->
 <div class="divider"></div>`,
@@ -374,6 +407,41 @@ toast.show({
 <!-- Dot -->
 <QBadge type="danger" dot />`,
 
+  card: `<QCard
+  eyebrow="Surface"
+  title="Plain content card with stronger hierarchy."
+  subtitle="Use this as the baseline information surface."
+>
+  <p>Use it for summaries, settings blocks, and feature notes.</p>
+</QCard>
+
+<QCard
+  hoverable
+  eyebrow="Surface"
+  title="Plain content card with stronger hierarchy."
+  subtitle="Use this as the baseline information surface."
+>
+  <p>Use it for summaries, settings blocks, and feature notes.</p>
+</QCard>
+
+<QCard dashed marker="A-02 / OUTLINE" marker-style="plate" title="Dashed card" />
+<QCard hoverable dashed marker="A-02 / OUTLINE" marker-style="plate" title="Dashed card" />
+<QCard leader marker="AN-14" marker-style="chip" title="Annotated card" />
+<QCard hoverable leader marker="AN-14" marker-style="chip" title="Annotated card" />
+<QCard variant="tile" marker="01" title="Tile" subtitle="Compact surface" />
+<QCard variant="tile" marker="01" title="Tile" subtitle="Compact surface" hoverable />`,
+
+  mediaFrame: `<QMediaFrame
+  src="https://static.quaily.com/media/jo4uz87q.jpg"
+  top-label="FRAME 01"
+  bottom-label="12 / 05"
+  caption="Hero media with stronger shell."
+/>
+
+<QMediaFrame crt top-label="SCAN" bottom-label="CRT">
+  <div class="signal-panel">...</div>
+</QMediaFrame>`,
+
   collapse: `<QCollapse v-model="activeKeys">
   <QCollapseItem name="1" title="Section 1">
     Content 1
@@ -561,6 +629,20 @@ const demoRegistry = {
     sourceCode: sourceCodes.avatar,
     component: SecAvatar,
   },
+  card: {
+    id: "card",
+    title: "Card",
+    description: "Flexible content cards with optional morph-only annotation details and compact tile mode.",
+    sourceCode: sourceCodes.card,
+    component: SecCard,
+  },
+  "media-frame": {
+    id: "media-frame",
+    title: "Media Frame",
+    description: "Framed media with coordinates, corner marks, and optional CRT treatment.",
+    sourceCode: sourceCodes.mediaFrame,
+    component: SecMediaFrame,
+  },
   share: {
     id: "share",
     title: "Share",
@@ -588,6 +670,13 @@ const demoRegistry = {
     description: "Icon gallery with copy-ready symbols and color variants.",
     sourceCode: sourceCodes.icon,
     component: SecIcon,
+  },
+  "color-scheme": {
+    id: "color-scheme",
+    title: "Color Scheme",
+    description: "Live theme tokens for surfaces, ink, and accent colors.",
+    sourceCode: sourceCodes.colorScheme,
+    component: SecColorScheme,
   },
   typeface: {
     id: "typeface",
@@ -659,15 +748,15 @@ const catalogGroups = [
     title: "Data Display",
     summary: "Media, identity, sharing, payments, and supporting display primitives.",
     firstDemoId: "datetime",
-    itemIds: ["datetime", "cover", "avatar", "share", "payment", "height-comparison", "icon"],
+    itemIds: ["datetime", "card", "media-frame", "cover", "avatar", "share", "payment", "height-comparison", "icon"],
   },
   {
     id: "typography",
     index: "07",
     title: "Typography & Decoration",
     summary: "Voice, framing, and ornamental accents for editorial and premium surfaces.",
-    firstDemoId: "typeface",
-    itemIds: ["typeface", "frame", "premium"],
+    firstDemoId: "color-scheme",
+    itemIds: ["color-scheme", "typeface", "frame", "premium"],
   },
 ] as const;
 
@@ -733,7 +822,7 @@ function openArticle() {
           <p class="note-kicker q-text-caption">Theme stance</p>
           <p class="theme-note q-text-body-text">
             Light and dark are the reference themes. Morph stays available as an
-            experimental texture pass, and TUI swaps the system into a monospace utility layer.
+            experimental texture pass for colder, more technical layouts.
           </p>
         </div>
       </div>

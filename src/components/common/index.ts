@@ -1,5 +1,6 @@
 import QDatetimePicker from './QDatetimePicker.vue';
 import QDialog from './QDialog.vue';
+import QDivider from './QDivider.vue';
 import QMessageDialog from './QMessageDialog.vue';
 import QFence from './QFence.vue';
 import QMenu from './QMenu.vue';
@@ -12,6 +13,7 @@ import QLanguageSelector from './QLanguageSelector.vue';
 import QPackCover from './QPackCover.vue';
 import QShare from './QShare.vue';
 import QAvatar from './QAvatar.vue';
+import QCard from './QCard.vue';
 import QDropdownMenuWithTextField from './QDropdownMenuWithTextField.vue';
 import QButton from './QButton.vue';
 import QTabs from './QTabs.vue';
@@ -31,10 +33,12 @@ import QBadge from './QBadge.vue';
 import QCollapse from './QCollapse.vue';
 import QCollapseItem from './QCollapseItem.vue';
 import QDrawer from './QDrawer.vue';
+import QMediaFrame from './QMediaFrame.vue';
 
 export {
   QDatetimePicker,
   QDialog,
+  QDivider,
   QMessageDialog,
   QFence,
   QMenu,
@@ -47,6 +51,7 @@ export {
   QPackCover,
   QShare,
   QAvatar,
+  QCard,
   QDropdownMenuWithTextField,
   QButton,
   QTabs,
@@ -66,4 +71,5 @@ export {
   QCollapse,
   QCollapseItem,
   QDrawer,
+  QMediaFrame,
 };

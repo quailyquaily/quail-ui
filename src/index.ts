@@ -24,19 +24,6 @@ export {
 } from './theme';
 export type { QuailTheme, ThemeOption } from './theme';
 
-/**
- * Enable or disable TUI (Text User Interface) mode
- * In TUI mode, all UI components use monospace font
- * @param enabled - Whether to enable TUI mode
- */
-export function setTUIMode(enabled: boolean) {
-  if (enabled) {
-    document.body.classList.add('tui');
-  } else {
-    document.body.classList.remove('tui');
-  }
-}
-
 const QuailUI = {
   install(app:any, options:any) {
     // Import styles only when using full plugin
@@ -75,14 +62,6 @@ const QuailUI = {
     if (!(window as any).__quailui_click_handler_installed) {
       document.body.addEventListener('click', () => closePopupMenu());
       (window as any).__quailui_click_handler_installed = true;
-    }
-
-    // TUI mode - use monospace font for all components
-    if (options?.tui) {
-      if (options?.debug) {
-        console.log("[quail-ui] TUI mode enabled");
-      }
-      setTUIMode(true);
     }
   }
 };

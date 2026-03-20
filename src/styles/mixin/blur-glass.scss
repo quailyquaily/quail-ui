@@ -4,6 +4,6 @@
 
   @at-root body[data-theme="morph"] #{&},
     body[data-theme="warm"] #{&} {
-    background: rgba(236, 236, 236, 0.4) !important;
+    background: color-mix(in srgb, var(--q-bg-light-2) 72%, transparent) !important;
   }
 }

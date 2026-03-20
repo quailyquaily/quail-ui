@@ -65,6 +65,8 @@ const categories = computed(() => [
     title: 'Data Display',
     sections: [
       { id: 'datetime', title: 'Datetime Picker' },
+      { id: 'card', title: 'Card' },
+      { id: 'media-frame', title: 'Media Frame' },
       { id: 'cover', title: 'Cover' },
       { id: 'avatar', title: 'Avatar' },
       { id: 'share', title: 'Share' },
@@ -77,6 +79,7 @@ const categories = computed(() => [
     id: 'typography',
     title: 'Typography & Decoration',
     sections: [
+      { id: 'color-scheme', title: 'Color Scheme' },
       { id: 'typeface', title: 'Typeface' },
       { id: 'frame', title: 'Frame & Divider' },
       { id: 'premium', title: 'Premium Decoration' },

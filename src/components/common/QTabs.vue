@@ -177,7 +177,7 @@ function genCls(tab:any, ix: number) {
     }
   }
   &.plain {
-    @include blur-glass.blur-glass;
+    background: transparent;
     box-shadow: inset 0 -0.5px 0 0 var(--q-c-dark-4);
     padding: 0;
 
@@ -189,6 +189,10 @@ function genCls(tab:any, ix: number) {
 
     &:deep(.q-button) {
       transition: color 0.2s ease-in-out;
+      box-shadow: none !important;
+      filter: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
       border-radius: 0 !important;
       border-bottom: none !important;
       &.squircle {

@@ -17,16 +17,14 @@
       "import": "./dist/index.js",
       "require": "./dist/index.umd.cjs"
     },
-    "./style.css": "./dist/style.css",
-    "./dist/": {
-      "import": "./dist/",
-      "require": "./dist/"
-    }
+    "./style.css": "./dist/index.css",
+    "./dist/*": "./dist/*"
   },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build --mode lib",
     "build:demo": "vue-tsc && vite build --mode demo",
+    "prepack": "pnpm build",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -27,6 +27,9 @@ export default defineConfig(({ mode }) => {
   }
   if (mode === 'lib') {
     ret.build = {
+      outDir: 'dist',
+      emptyOutDir: true,
+      copyPublicDir: false,
       lib: {
         // Could also be a dictionary or array of multiple entry points
         entry: resolve(__dirname, 'src/index.ts'),
@@ -49,6 +52,10 @@ export default defineConfig(({ mode }) => {
       },
     }
   } else if (mode === 'demo') {
+    ret.build = {
+      outDir: 'demo-dist',
+      emptyOutDir: true,
+    }
     ret.base = '/quail-ui/'
   }
   if (ret.build === undefined) {

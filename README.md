@@ -4,6 +4,13 @@ A Vue 3 component library for [Quaily](https://quaily.com).
 
 [Live Demo](https://quailyquaily.github.io/quail-ui/)
 
+## AI Agent Entry
+
+If you are an AI coding agent integrating Quail UI into another frontend project, start with these two files:
+
+- [docs/AI_AGENT_GUIDE.md](docs/AI_AGENT_GUIDE.md) for the full integration guide, real component APIs, theme tokens, icons, helper classes, and demo map
+- [quaily_ui_skill/SKILL.md](quaily_ui_skill/SKILL.md) for the compact agent workflow and file-loading instructions
+
 ## Features
 
 - 26+ UI components (Button, Input, Dialog, Menu, Tabs, etc.)
@@ -16,12 +23,6 @@ A Vue 3 component library for [Quaily](https://quaily.com).
 
 ```bash
 npm install quail-ui
-```
-
-or with yarn
-
-```bash
-yarn add quail-ui
 ```
 
 ## Usage

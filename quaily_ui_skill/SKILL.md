@@ -1,49 +1,50 @@
 ---
-name: Use Quaily UI in Frontend Project
-description: use quail-ui/quaily-ui component set, typeface, styles, icons in a frontend project.  
-allowed-tools: "Read,Write,Edit,Glob,Grep,Bash"
+name: use-quail-ui-in-frontend-project
+description: Use this skill when integrating Quail UI into a Vue 3 frontend, migrating an existing screen to Quail UI components, or needing the library's themes, tokens, icons, demo-backed usage patterns, and agent-facing onboarding docs.
 ---
 
-you're allow to use the bash commands: cat, ls, grep, find, rg, etc.
+# Quail UI Frontend Integration
 
-# Quaily UI Frontend Engineer
+Read [`../docs/AI_AGENT_GUIDE.md`](../docs/AI_AGENT_GUIDE.md) first. It is the primary onboarding document for AI agents and already contains:
 
-Uuse quail-ui/quaily-ui component set, typeface, styles, icons in a frontend project. to unify the UI appearence with good looking styles.
-
-## Install 
-
-```bash
-npm i quail-ui
-pmpm i quail-ui
-```
-
-## Usage (CDN)
-
-Refer to https://raw.githubusercontent.com/quailyquaily/quail-ui/refs/heads/master/README.md
-
-
-## References
-
-Visit the URLS below to read the references:
-- Quaily UI Claude.md and AGENTS.md: https://raw.githubusercontent.com/quailyquaily/quail-ui/refs/heads/master/CLAUDE.md, https://raw.githubusercontent.com/quailyquaily/quail-ui/refs/heads/master/AGENTS.md
-- Quaily UI Icons: https://raw.githubusercontent.com/quailyquaily/quail-ui/refs/heads/master/src/components/icons/index.ts
-- Quaily UI Typeface: https://raw.githubusercontent.com/quailyquaily/quail-ui/refs/heads/master/src/styles/typeface.scss
-- Quaily UI Components Styles:
-    - SCSS, some required style for components: https://raw.githubusercontent.com/quailyquaily/quail-ui/refs/heads/master/src/styles/component.scss
-    - Base SCSS, colors, size, common variables: https://raw.githubusercontent.com/quailyquaily/quail-ui/refs/heads/master/src/styles/base.scss
-    - Touchable SCSS, button like component's style: https://raw.githubusercontent.com/quailyquaily/quail-ui/refs/heads/master/src/styles/mixin/touchable.scss
-- Quaily UI Components: https://raw.githubusercontent.com/quailyquaily/quail-ui/refs/heads/master/src/app/home/${demo_sections}.vue
-  - in which, the `${demo_sections}` can be: typeface, premium, button, input, textarea, form, input-with-btn, fence, progress, switch, menu, selector, dialog, datetime, pagination, tab, cover, avatar, share, payment, icon, skeleton, tooltip, toast, badge, collapse, drawer
-
+- installation patterns
+- plugin vs named-import usage
+- theme helpers and token families
+- typography, utility classes, and common CSS patterns
+- demo coverage under `src/app/home/*`
+- the exported component catalog
+- the icon catalog
+- current API gotchas where older docs are stale
 
 ## Workflow
 
-```
-if found there is a VUE 3 frontend project:
-    read the references
-    setup the project to use quaily ui
-    use the quaily ui in the project:
-      use quaily ui typeface, icons, styles
-      replace the existing components with quaily ui components
-    polish the result to make it good looking
-```
+1. Open `../docs/AI_AGENT_GUIDE.md`.
+2. Default to `app.use(QuailUI)` plus `import "quail-ui/style.css"` unless the task clearly needs selective registration.
+3. Prefer exported Quail components, icons, theme helpers, and utility classes over custom lookalikes.
+4. Copy composition patterns from `../src/app/home/*.vue`.
+5. If a prop or event is unclear, inspect the source in `../src/components/common/*.vue` before writing code.
+
+## Files To Read On Demand
+
+- `../docs/AI_AGENT_GUIDE.md`
+- `../src/index.ts`
+- `../src/components/common/index.ts`
+- `../src/components/icons/index.ts`
+- `../src/theme/index.ts`
+- `../src/styles/base.scss`
+- `../src/styles/layout/helper.scss`
+- `../src/styles/component.scss`
+- `../src/styles/theme/morph.scss`
+- `../src/app/home.vue`
+- `../src/app/home/*.vue`
+
+## Rules
+
+- Prefer the real component APIs from source over older README snippets.
+- Remember the current gotchas from the guide:
+  - no `QFormItem`
+  - no `QInputWithButton`; use `QTextFieldWithButton`
+  - `QInput` uses `inputType`
+  - `QTextarea` uses `max`
+  - `QPagination` uses `totalPage`, `hasPrev`, `hasNext`
+  - selectors emit `change` instead of `v-model`

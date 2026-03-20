@@ -894,9 +894,10 @@ function openArticle() {
 
 <style lang="scss" scoped>
 .home-page {
+  --catalog-content-inset: clamp(0.95rem, 2.2vw, 1.25rem);
   display: flex;
   flex-direction: column;
-  gap: clamp(2.75rem, 6vw, 5.5rem);
+  gap: clamp(2.5rem, 5vw, 4.5rem);
   min-width: 0;
   padding-bottom: 4rem;
 }
@@ -905,9 +906,9 @@ function openArticle() {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.9fr);
   gap: clamp(1.75rem, 4vw, 3.25rem);
-  align-items: end;
-  padding: clamp(0.5rem, 2vw, 1rem) 0 clamp(2rem, 4vw, 3rem);
-  border-bottom: 0.5px solid var(--q-c-dark-4);
+  align-items: start;
+  padding: clamp(0.25rem, 1.5vw, 0.75rem) 0 clamp(1.75rem, 3.5vw, 2.5rem);
+  border-bottom: 0.5px solid var(--q-c-dark-5);
 }
 
 .intro-copy {
@@ -919,16 +920,16 @@ function openArticle() {
 .category-index {
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--q-c-red);
+  color: color-mix(in srgb, var(--q-c-secondary) 58%, var(--q-c-dark-3));
 }
 
 .intro-title {
   margin: 0;
-  max-width: 11ch;
+  max-width: 12ch;
   font-family: var(--q-font-serif);
-  font-size: clamp(2.6rem, 6vw, 4.9rem);
-  line-height: 0.92;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.3rem, 5vw, 4.15rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
 }
 
 .intro-desc {
@@ -942,40 +943,44 @@ function openArticle() {
 .intro-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
+  gap: 0.625rem;
+  margin-top: 1.35rem;
 }
 
 .intro-notes {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.9rem;
   padding-left: clamp(1rem, 2vw, 1.5rem);
-  border-left: 0.5px solid var(--q-c-dark-4);
+  border-left: 0.5px solid var(--q-c-dark-5);
 }
 
 .note-block {
   display: grid;
-  gap: 0.625rem;
+  gap: 0.55rem;
+  padding: 0.9rem 1rem;
+  border: 0.5px solid var(--q-c-dark-5);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--q-bg-light) 76%, white 24%);
 }
 
 .note-kicker {
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--q-c-dark-3);
+  color: color-mix(in srgb, var(--q-c-secondary) 35%, var(--q-c-dark-3));
 }
 
 .intro-points {
   display: grid;
-  gap: 0.75rem;
+  gap: 0.55rem;
   list-style: none;
   margin: 0;
   padding: 0;
 
   li {
     color: var(--q-c-dark-2);
-    padding-bottom: 0.75rem;
-    border-bottom: 0.5px solid var(--q-c-dark-5);
+    padding-bottom: 0;
+    border-bottom: none;
   }
 }
 
@@ -987,54 +992,60 @@ function openArticle() {
 
 .section-intro {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.4rem;
   min-width: 0;
-  max-width: 42rem;
+  max-width: 38rem;
 }
 
 .featured-section,
 .catalog-shell {
   display: grid;
-  gap: 1.75rem;
+  gap: 1.4rem;
 }
 
 .featured-grid,
 .catalog-group-list {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .category-group {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
 
 .category-heading {
   display: grid;
-  gap: 0.75rem;
+  gap: 0.55rem;
   align-items: start;
-  padding-top: 1.25rem;
-  border-top: 0.5px solid var(--q-c-dark-4);
+  padding-top: 1rem;
+  border-top: 0.5px solid var(--q-c-dark-5);
 }
 
 .category-meta {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
+  position: relative;
+  min-width: 0;
+}
+
+.category-index {
+  position: absolute;
+  top: 0.35rem;
+  left: 0;
 }
 
 .category-copy {
   min-width: 0;
+  padding-left: var(--catalog-content-inset);
 }
 
 .category-title {
   margin: 0;
-  font-weight: 700;
+  font-weight: 650;
 }
 
 .category-summary {
-  max-width: 44rem;
-  margin-top: 0.45rem;
+  max-width: 40rem;
+  margin-top: 0.3rem;
   color: var(--q-c-dark-2);
 }
 
@@ -1081,13 +1092,13 @@ function openArticle() {
 :global(.dark) .intro-kicker,
 :global(.dark) .section-kicker,
 :global(.dark) .category-index {
-  color: var(--q-c-red-light);
+  color: color-mix(in srgb, var(--q-c-light-2) 75%, var(--q-c-blue-lighter));
 }
 
 :global(.dark) .home-intro,
 :global(.dark) .category-heading,
 :global(.dark) .intro-notes {
-  border-color: var(--q-c-light-4);
+  border-color: var(--q-c-light-5);
 }
 
 :global(.dark) .intro-desc,
@@ -1101,8 +1112,9 @@ function openArticle() {
   color: var(--q-c-light-3);
 }
 
-:global(.dark) .intro-points li {
+:global(.dark) .note-block {
   border-color: var(--q-c-light-5);
+  background: color-mix(in srgb, var(--q-bg-dark-2) 84%, black 16%);
 }
 
 :global(.dark) .category-title {

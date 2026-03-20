@@ -200,10 +200,9 @@ body {
   top: 0;
   z-index: 100;
   min-height: 60px;
-  background: var(--q-bg-light);
-  border-bottom: 0.5px solid var(--q-c-dark-4);
-  backdrop-filter: blur(8px);
-  background: rgba(250, 250, 248, 0.9);
+  border-bottom: 0.5px solid var(--q-c-dark-5);
+  backdrop-filter: blur(6px);
+  background: transparent;
 
   @media (min-width: 768px) {
     height: 60px;
@@ -323,7 +322,7 @@ body {
   @media (max-width: 767px) {
     display: block;
     padding: 0.5rem 1rem 0.75rem;
-    border-top: 0.5px solid var(--q-c-dark-4);
+    border-top: 0.5px solid var(--q-c-dark-5);
   }
 }
 
@@ -414,12 +413,12 @@ body {
 <style lang="scss">
 .dark {
   .top-nav {
-    background: rgba(22, 22, 29, 0.9);
-    border-bottom-color: var(--q-c-light-4);
+    background: transparent;
+    border-bottom-color: var(--q-c-light-5);
   }
 
   .mobile-route-strip {
-    border-top-color: var(--q-c-light-4);
+    border-top-color: var(--q-c-light-5);
   }
 
   .logo-text {

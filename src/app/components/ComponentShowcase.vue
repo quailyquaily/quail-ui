@@ -72,8 +72,9 @@ function copyCode() {
 <style lang="scss" scoped>
 .component-showcase {
   display: grid;
-  gap: 0.9rem;
-  margin-bottom: 1.5rem;
+  --showcase-inline-pad: clamp(0.95rem, 2.2vw, 1.25rem);
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
 }
 
 .showcase-header {
@@ -81,6 +82,7 @@ function copyCode() {
   justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
+  padding-inline: var(--showcase-inline-pad);
 
   @media (max-width: 640px) {
     flex-direction: column;
@@ -91,10 +93,10 @@ function copyCode() {
 .component-showcase.feature {
   display: grid;
   grid-template-columns: minmax(15rem, 20rem) minmax(0, 1fr);
-  gap: clamp(1.25rem, 3vw, 2rem);
+  gap: clamp(1rem, 2.4vw, 1.6rem);
   margin-bottom: 0;
-  padding: clamp(1rem, 2.5vw, 1.5rem) 0;
-  border-top: 0.5px solid var(--q-c-dark-4);
+  padding: clamp(0.85rem, 2.2vw, 1.2rem) 0;
+  border-top: 0.5px solid var(--q-c-dark-5);
 
   .showcase-header {
     padding: 0;
@@ -173,7 +175,7 @@ function copyCode() {
   min-height: 0;
   background: #1a1a1f;
   border: 0.5px solid var(--q-c-dark-4);
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -223,10 +225,10 @@ function copyCode() {
 }
 
 .preview-surface {
-  padding: clamp(1rem, 2.5vw, 1.5rem);
-  border: 0.5px solid var(--q-c-dark-4);
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--q-bg-light) 88%, white 12%);
+  padding: var(--showcase-inline-pad);
+  border: 0.5px solid var(--q-c-dark-5);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--q-bg-light) 94%, white 6%);
 
   :deep(.section) {
     margin: 0;
@@ -256,11 +258,11 @@ function copyCode() {
   }
 
   .component-showcase.feature {
-    border-color: var(--q-c-light-4);
+    border-color: var(--q-c-light-5);
 
     .preview-surface {
-      border-color: var(--q-c-light-4);
-      background: color-mix(in srgb, var(--q-bg-dark) 78%, black 22%);
+      border-color: var(--q-c-light-5);
+      background: color-mix(in srgb, var(--q-bg-dark) 88%, black 12%);
     }
   }
 
@@ -275,7 +277,7 @@ function copyCode() {
   }
 
   .showcase-code {
-    border-color: var(--q-c-light-4);
+    border-color: var(--q-c-light-5);
   }
 
   .showcase-preview {

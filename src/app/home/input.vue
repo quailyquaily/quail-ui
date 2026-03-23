@@ -60,10 +60,10 @@
               <QSwitch class="mr-2" v-model="switchValue"/>
             </template>
             <template #prepend>
-              <QIconSearch class="text-field-icon ml-3" />
+              <QIconSearch class="text-field-icon ml-2" />
             </template>
             <template #append>
-              <QButton class="outlined xs icon mr-2">
+              <QButton class="outlined xs icon">
                 <QIconSun class="icon" />
               </QButton>
             </template>

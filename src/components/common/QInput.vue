@@ -207,6 +207,12 @@ onMounted(() => {
     align-items: center;
     justify-content: center;
   }
+  .q-input-prepend {
+    padding-left: 5px;
+  }
+  .q-input-append {
+    padding-right: 5px;
+  }
 
   .q-text-field-wrapper {
     --q-input-border-color: var(--q-field-border-color);
@@ -252,7 +258,6 @@ onMounted(() => {
       max-height: var(--q-input-clear-size);
       min-width: var(--q-input-clear-size);
       max-width: var(--q-input-clear-size);
-      margin-right: 4px;
       color: var(--q-field-clear-color);
     }
 

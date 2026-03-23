@@ -5,7 +5,7 @@ description: Use this skill when integrating Quail UI into a Vue 3 frontend, mig
 
 # Quail UI Frontend Integration
 
-Read [`../docs/AI_AGENT_GUIDE.md`](../docs/AI_AGENT_GUIDE.md) first. It is the primary onboarding document for AI agents and already contains:
+Read [`docs/ai-agent-guide.md`](https://github.com/quailyquaily/quail-ui/blob/master/docs/ai-agent-guide.md) first. It is the primary onboarding document for AI agents and already contains:
 
 - installation patterns
 - plugin vs named-import usage
@@ -18,25 +18,25 @@ Read [`../docs/AI_AGENT_GUIDE.md`](../docs/AI_AGENT_GUIDE.md) first. It is the p
 
 ## Workflow
 
-1. Open `../docs/AI_AGENT_GUIDE.md`.
+1. Open [`docs/ai-agent-guide.md`](https://github.com/quailyquaily/quail-ui/blob/master/docs/ai-agent-guide.md).
 2. Default to `app.use(QuailUI)` plus `import "quail-ui/style.css"` unless the task clearly needs selective registration.
 3. Prefer exported Quail components, icons, theme helpers, and utility classes over custom lookalikes.
-4. Copy composition patterns from `../src/app/home/*.vue`.
-5. If a prop or event is unclear, inspect the source in `../src/components/common/*.vue` before writing code.
+4. Copy composition patterns from [`src/app/home/`](https://github.com/quailyquaily/quail-ui/tree/master/src/app/home).
+5. If a prop or event is unclear, inspect the source in [`src/components/common/`](https://github.com/quailyquaily/quail-ui/tree/master/src/components/common) before writing code.
 
 ## Files To Read On Demand
 
-- `../docs/AI_AGENT_GUIDE.md`
-- `../src/index.ts`
-- `../src/components/common/index.ts`
-- `../src/components/icons/index.ts`
-- `../src/theme/index.ts`
-- `../src/styles/base.scss`
-- `../src/styles/layout/helper.scss`
-- `../src/styles/component.scss`
-- `../src/styles/theme/morph.scss`
-- `../src/app/home.vue`
-- `../src/app/home/*.vue`
+- [`docs/ai-agent-guide.md`](https://github.com/quailyquaily/quail-ui/blob/master/docs/ai-agent-guide.md)
+- [`src/index.ts`](https://github.com/quailyquaily/quail-ui/blob/master/src/index.ts)
+- [`src/components/common/index.ts`](https://github.com/quailyquaily/quail-ui/blob/master/src/components/common/index.ts)
+- [`src/components/icons/index.ts`](https://github.com/quailyquaily/quail-ui/blob/master/src/components/icons/index.ts)
+- [`src/theme/index.ts`](https://github.com/quailyquaily/quail-ui/blob/master/src/theme/index.ts)
+- [`src/styles/base.scss`](https://github.com/quailyquaily/quail-ui/blob/master/src/styles/base.scss)
+- [`src/styles/layout/helper.scss`](https://github.com/quailyquaily/quail-ui/blob/master/src/styles/layout/helper.scss)
+- [`src/styles/component.scss`](https://github.com/quailyquaily/quail-ui/blob/master/src/styles/component.scss)
+- [`src/styles/theme/morph.scss`](https://github.com/quailyquaily/quail-ui/blob/master/src/styles/theme/morph.scss)
+- [`src/app/home.vue`](https://github.com/quailyquaily/quail-ui/blob/master/src/app/home.vue)
+- [`src/app/home/`](https://github.com/quailyquaily/quail-ui/tree/master/src/app/home)
 
 ## Rules
 

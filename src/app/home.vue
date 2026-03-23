@@ -424,10 +424,10 @@ toast.show({
   <p>Use it for summaries, settings blocks, and feature notes.</p>
 </QCard>
 
-<QCard dashed marker="A-02 / OUTLINE" marker-style="plate" title="Dashed card" />
-<QCard hoverable dashed marker="A-02 / OUTLINE" marker-style="plate" title="Dashed card" />
-<QCard leader marker="AN-14" marker-style="chip" title="Annotated card" />
-<QCard hoverable leader marker="AN-14" marker-style="chip" title="Annotated card" />
+<QCard variant="dashed" title="Dashed card" />
+<QCard hoverable variant="dashed" title="Dashed card" />
+<QCard variant="annotated" marker="AN-14" marker-style="chip" title="Annotated card" />
+<QCard hoverable variant="annotated" marker="AN-22 / REVIEW" marker-style="plate" title="Annotated card" />
 <QCard variant="tile" marker="01" title="Tile" subtitle="Compact surface" />
 <QCard variant="tile" marker="01" title="Tile" subtitle="Compact surface" hoverable />`,
 

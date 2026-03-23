@@ -230,8 +230,14 @@
 
   --q-divider-border-color: var(--q-c-dark-4);
   --q-divider-accent-color: var(--q-c-dark);
-  --q-divider-label-bg: var(--q-bg-white);
+  --q-divider-label-bg: transparent;
   --q-divider-label-color: var(--q-c-dark-3);
+  --q-divider-line-width: 0.5px;
+  --q-divider-label-line-width: 1px;
+  --q-divider-label-gap: 0.75rem;
+  --q-divider-label-min-width: 5rem;
+  --q-divider-label-font-size: 0.72rem;
+  --q-divider-label-letter-spacing: 0.14em;
 
   // legacy variables
   --vt-c-white: #ffffff;
@@ -349,6 +355,10 @@ body[data-theme="dark"] {
     #61a5ff 10px,
     #61a5ff 20px
   );
+  --q-divider-border-color: var(--q-c-light-4);
+  --q-divider-accent-color: var(--q-c-light-2);
+  --q-divider-label-bg: transparent;
+  --q-divider-label-color: var(--q-c-light-3);
 }
 
 body[data-theme="morph"],
@@ -392,7 +402,7 @@ body[data-theme="warm"] {
   --q-c-green-dimm-2: rgba(63, 109, 110, 0.22);
   --q-c-green-dimm-3: rgba(63, 109, 110, 0.38);
 
-  --q-bg-paper: rgb(247, 251, 255);
+  --q-bg-paper: rgb(246, 250, 255);
   --q-bg-white: #fbfdff;
   --q-bg-light: #edf3f8;
   --q-bg-light-2: #e5edf5;
@@ -404,11 +414,11 @@ body[data-theme="warm"] {
   --q-button-primary-bg: var(--q-c-blue-dark);
   --q-button-primary-border: rgba(33, 68, 107, 0.7);
   --q-button-primary-shadow:
-    0 1px rgba(255, 255, 255, 0.16) inset,
-    0 10px 20px rgba(24, 46, 72, 0.14);
+    0 1px rgba(255, 255, 255, 0.88) inset,
+    0 0px 4px rgba(24, 46, 72, 0.05);
   --q-button-primary-hover-shadow:
-    0 1px rgba(255, 255, 255, 0.18) inset,
-    0 12px 24px rgba(24, 46, 72, 0.18);
+    0 1px rgba(255, 255, 255, 0.92) inset,
+    0 0px 8px rgba(24, 46, 72, 0.07);
   --q-button-highlight-bg: var(--q-c-orange);
   --q-button-highlight-border: var(--q-c-orange-dark);
   --q-button-highlight-hover-bg: var(--q-c-orange-light);
@@ -418,13 +428,13 @@ body[data-theme="warm"] {
   --q-button-outlined-bg: rgba(255, 255, 255, 0.64);
   --q-button-outlined-text: rgba(22, 35, 52, 0.9);
   --q-button-outlined-shadow:
-    0 1px rgba(255, 255, 255, 0.92) inset,
-    0 8px 18px rgba(24, 46, 72, 0.08);
+    0 1px rgba(255, 255, 255, 0.88) inset,
+    0 0px 4px rgba(24, 46, 72, 0.05);
   --q-button-outlined-hover-border: rgba(40, 78, 120, 0.36);
   --q-button-outlined-hover-bg: rgba(255, 255, 255, 0.78);
   --q-button-outlined-hover-shadow:
-    0 1px rgba(255, 255, 255, 0.96) inset,
-    0 10px 20px rgba(24, 46, 72, 0.1);
+    0 1px rgba(255, 255, 255, 0.92) inset,
+    0 0px 8px rgba(24, 46, 72, 0.07);
   --q-button-outlined-backdrop-filter: blur(12px);
   --q-button-outlined-webkit-backdrop-filter: blur(12px);
   --q-button-plain-text: var(--q-c-dark-2);
@@ -525,8 +535,11 @@ body[data-theme="warm"] {
 
   --q-divider-border-color: rgba(40, 78, 120, 0.18);
   --q-divider-accent-color: var(--q-c-blue);
-  --q-divider-label-bg: var(--q-bg-paper);
+  --q-divider-label-bg: transparent;
   --q-divider-label-color: var(--q-c-blue);
+  --q-divider-label-gap: 0.85rem;
+  --q-divider-label-font-size: 0.7rem;
+  --q-divider-label-letter-spacing: 0.12em;
 }
 
 *,

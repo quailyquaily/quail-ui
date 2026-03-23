@@ -265,14 +265,14 @@ button.toggle {
 }
 
 .divider {
-  border-top: 0.5px solid var(--q-c-dark-4);
+  border-top: var(--q-divider-line-width) solid var(--q-divider-border-color);
   &.focus {
-    border-top: 4px solid var(--q-c-dark);
+    border-top: 4px solid var(--q-divider-accent-color);
     border-radius: 0.5rem;
   }
   &.double {
     height: 4px;
-    border-bottom: 0.5px solid var(--q-c-dark-4);
+    border-bottom: var(--q-divider-line-width) solid var(--q-divider-border-color);
   }
 }
 
@@ -290,13 +290,6 @@ button.toggle {
       border: none;
       background-color: var(--q-bg-dark-2);
       box-shadow: 0 0 0 0.5px var(--q-c-light-5);
-    }
-  }
-
-  .divider {
-    border-color: var(--q-c-light-4);
-    &.focus {
-      border-color: var(--q-c-light-3);
     }
   }
 

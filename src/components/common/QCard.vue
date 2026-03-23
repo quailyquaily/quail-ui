@@ -2,25 +2,21 @@
 import { computed, useSlots } from "vue";
 
 const props = withDefaults(defineProps<{
-  variant?: "default" | "tile";
-  dashed?: boolean;
+  variant?: "default" | "dashed" | "annotated" | "tile";
   hoverable?: boolean;
   eyebrow?: string;
   title?: string;
   subtitle?: string;
   marker?: string;
-  markerStyle?: "none" | "plate" | "chip";
-  leader?: boolean;
+  markerStyle?: "plate" | "chip";
 }>(), {
   variant: "default",
-  dashed: false,
   hoverable: false,
   eyebrow: "",
   title: "",
   subtitle: "",
   marker: "",
-  markerStyle: "none",
-  leader: false,
+  markerStyle: "chip",
 });
 
 const slots = useSlots();
@@ -28,29 +24,43 @@ const slots = useSlots();
 const hasHeader = computed(() => !!slots.header || !!props.eyebrow || !!props.title || !!props.subtitle);
 const hasMedia = computed(() => !!slots.media);
 const hasFooter = computed(() => !!slots.footer);
-const hasMarker = computed(() => {
-  if (!props.marker) return false;
-  if (props.variant === "tile") return true;
-  return props.markerStyle !== "none";
+const markerParts = computed(() => {
+  const [number = "", ...rest] = props.marker
+    .split("/")
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+  return {
+    number,
+    type: rest.join(" / "),
+  };
 });
+const hasChipMarker = computed(() => props.variant === "annotated" && props.markerStyle === "chip" && !!props.marker);
+const hasPlateMarker = computed(() => props.variant === "annotated" && props.markerStyle === "plate" && !!markerParts.value.number);
+const hasMarker = computed(() => hasChipMarker.value || hasPlateMarker.value);
+const hasTileCode = computed(() => props.variant === "tile" && !!props.marker);
+const hasLeader = computed(() => hasMarker.value);
 
 const cls = computed(() => {
   return [
     "q-card",
     `q-card-${props.variant}`,
-    props.dashed ? "q-card-dashed" : "",
     props.hoverable ? "q-card-hoverable" : "",
     hasMedia.value ? "q-card-with-media" : "",
-    hasMarker.value && props.markerStyle !== "none" ? `q-card-marker-${props.markerStyle}` : "",
-    props.leader ? "q-card-with-leader" : "",
+    hasMarker.value ? `q-card-marker-${props.markerStyle}` : "",
   ].filter(Boolean).join(" ");
 });
 </script>
 
 <template>
   <div :class="cls">
-    <div v-if="hasMarker" class="q-card-marker">{{ marker }}</div>
-    <div v-if="leader" class="q-card-leader-line"></div>
+    <div v-if="hasChipMarker" class="q-card-marker">{{ marker }}</div>
+    <div v-else-if="hasPlateMarker" class="q-card-spec-plate">
+      <span class="q-card-spec-number">{{ markerParts.number }}</span>
+      <span v-if="markerParts.type" class="q-card-spec-type">{{ markerParts.type }}</span>
+    </div>
+    <div v-if="hasLeader" class="q-card-leader-line"></div>
+    <div v-if="hasTileCode" class="q-card-tile-code">{{ marker }}</div>
 
     <div v-if="hasMedia" class="q-card-media">
       <slot name="media"></slot>
@@ -92,7 +102,9 @@ const cls = computed(() => {
     background-color 0.18s ease,
     box-shadow 0.18s ease;
 
-  &.q-card-default {
+  &.q-card-default,
+  &.q-card-dashed,
+  &.q-card-annotated {
     min-height: 210px;
   }
 
@@ -141,6 +153,19 @@ const cls = computed(() => {
 }
 
 .q-card-leader-line {
+  display: none;
+}
+
+.q-card-spec-plate {
+  display: none;
+}
+
+.q-card-spec-number,
+.q-card-spec-type {
+  display: none;
+}
+
+.q-card-tile-code {
   display: none;
 }
 
@@ -210,12 +235,17 @@ body[data-theme="warm"] .q-card {
   --q-card-radius: 2px;
   --q-card-border-width: 1px;
 
-  &.q-card-default.q-card-hoverable:hover {
+  &.q-card-default.q-card-hoverable:hover,
+  &.q-card-annotated.q-card-hoverable:hover {
     box-shadow: 0 4px 20px color-mix(in srgb, var(--q-card-accent-soft) 42%, transparent);
   }
 
   &.q-card-default::before,
-  &.q-card-default::after {
+  &.q-card-default::after,
+  &.q-card-dashed::before,
+  &.q-card-dashed::after,
+  &.q-card-annotated::before,
+  &.q-card-annotated::after {
     content: "";
     position: absolute;
     width: 12px;
@@ -225,14 +255,18 @@ body[data-theme="warm"] .q-card {
     pointer-events: none;
   }
 
-  &.q-card-default::before {
+  &.q-card-default::before,
+  &.q-card-dashed::before,
+  &.q-card-annotated::before {
     top: -1px;
     left: -1px;
     border-right: 0;
     border-bottom: 0;
   }
 
-  &.q-card-default::after {
+  &.q-card-default::after,
+  &.q-card-dashed::after,
+  &.q-card-annotated::after {
     right: -1px;
     bottom: -1px;
     border-left: 0;
@@ -240,7 +274,11 @@ body[data-theme="warm"] .q-card {
   }
 
   &.q-card-default.q-card-hoverable:hover::before,
-  &.q-card-default.q-card-hoverable:hover::after {
+  &.q-card-default.q-card-hoverable:hover::after,
+  &.q-card-dashed.q-card-hoverable:hover::before,
+  &.q-card-dashed.q-card-hoverable:hover::after,
+  &.q-card-annotated.q-card-hoverable:hover::before,
+  &.q-card-annotated.q-card-hoverable:hover::after {
     width: 16px;
     height: 16px;
   }
@@ -249,11 +287,15 @@ body[data-theme="warm"] .q-card {
     background: transparent;
   }
 
-  &.q-card-default.q-card-dashed {
-    padding-top: calc(var(--q-card-padding) + 22px);
+  &.q-card-annotated {
+    overflow: visible;
   }
 
-  &.q-card-default.q-card-dashed.q-card-hoverable:hover {
+  &.q-card-annotated.q-card-marker-plate {
+    padding-top: calc(var(--q-card-padding) + 10px);
+  }
+
+  &.q-card-dashed.q-card-hoverable:hover {
     background: var(--q-card-muted-bg);
     border-style: solid;
     box-shadow: none;
@@ -266,7 +308,7 @@ body[data-theme="warm"] .q-card {
     -webkit-backdrop-filter: blur(4px);
   }
 
-  &.q-card-tile .q-card-marker {
+  &.q-card-tile .q-card-tile-code {
     top: 4px;
     left: 6px;
     padding: 0;
@@ -283,25 +325,37 @@ body[data-theme="warm"] .q-card {
     box-shadow: none;
   }
 
-  &.q-card-tile.q-card-hoverable:hover .q-card-marker {
+  &.q-card-tile.q-card-hoverable:hover .q-card-tile-code {
     opacity: 1;
   }
 
-  &.q-card-with-leader {
-    overflow: visible;
-  }
-
-  &.q-card-marker-plate .q-card-marker {
+  &.q-card-marker-plate .q-card-spec-plate {
     top: -1px;
     left: 20px;
-    transform: translateY(-50%);
-    padding: 0 10px;
-    min-height: 20px;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0 0.55rem;
     background: var(--q-card-marker-bg);
   }
 
+  &.q-card-marker-plate .q-card-spec-number {
+    padding: 2px 6px;
+    background: var(--q-card-marker-color);
+    color: var(--q-card-marker-bg);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  &.q-card-marker-plate .q-card-spec-type {
+    color: var(--q-card-marker-color);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+  }
+
   &.q-card-marker-chip .q-card-marker {
-    top: -10px;
+    top: -7px;
     left: 20px;
     transform: none;
     padding: 0 6px;
@@ -311,7 +365,15 @@ body[data-theme="warm"] .q-card {
 }
 
 body[data-theme="morph"] .q-card-marker,
-body[data-theme="warm"] .q-card-marker {
+body[data-theme="morph"] .q-card-spec-plate,
+body[data-theme="morph"] .q-card-spec-number,
+body[data-theme="morph"] .q-card-spec-type,
+body[data-theme="morph"] .q-card-tile-code,
+body[data-theme="warm"] .q-card-marker,
+body[data-theme="warm"] .q-card-spec-plate,
+body[data-theme="warm"] .q-card-spec-number,
+body[data-theme="warm"] .q-card-spec-type,
+body[data-theme="warm"] .q-card-tile-code {
   display: block;
   position: absolute;
   z-index: 2;
@@ -321,6 +383,24 @@ body[data-theme="warm"] .q-card-marker {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--q-card-marker-color);
+}
+
+body[data-theme="morph"] .q-card-spec-plate,
+body[data-theme="warm"] .q-card-spec-plate {
+  display: flex;
+  position: absolute;
+  z-index: 2;
+}
+
+body[data-theme="morph"] .q-card-spec-number,
+body[data-theme="morph"] .q-card-spec-type,
+body[data-theme="warm"] .q-card-spec-number,
+body[data-theme="warm"] .q-card-spec-type {
+  display: block;
+  position: static;
+  font-family: var(--q-font-mono);
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 body[data-theme="morph"] .q-card-leader-line,
@@ -364,8 +444,8 @@ body[data-theme="warm"] .q-card-eyebrow::before {
 }
 
 @media (max-width: 640px) {
-  body[data-theme="morph"] .q-card.q-card-with-leader,
-  body[data-theme="warm"] .q-card.q-card-with-leader {
+  body[data-theme="morph"] .q-card.q-card-annotated,
+  body[data-theme="warm"] .q-card.q-card-annotated {
     overflow: hidden;
   }
 

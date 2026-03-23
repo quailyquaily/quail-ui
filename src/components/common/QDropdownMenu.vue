@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref, watch, type Ref } from "vue";
+import { computed, nextTick, onMounted, onUnmounted, ref, watch, type Ref } from "vue";
 import { closePopupMenu, onPopupClose, debounce } from "../../util";
 import { useSlots } from 'vue'
 
@@ -62,6 +62,7 @@ const expanded = ref(false);
 const selectedItem: Ref<any> = ref(null);
 const menuWrapper: Ref<any> = ref(null);
 const scrollArea: Ref<any> = ref(null);
+const filterInput: Ref<any> = ref(null);
 const scrollAreaCls = ref("");
 const filterText = ref("");
 
@@ -207,6 +208,21 @@ function handlePopupClose() {
   expanded.value = false;
 }
 
+function focusFilterField() {
+  if (!expanded.value || !props.useFilter || !useDialogFlag.value) {
+    return;
+  }
+
+  nextTick(() => {
+    requestAnimationFrame(() => {
+      const input =
+        filterInput.value?.$el?.querySelector("input") ??
+        filterInput.value?.querySelector?.("input");
+      input?.focus();
+    });
+  });
+}
+
 watch(
   () => props.initialItem,
   () => {
@@ -215,6 +231,12 @@ watch(
     }
   }
 );
+
+watch(expanded, (isExpanded) => {
+  if (isExpanded) {
+    focusFilterField();
+  }
+});
 
 let cleanupPopupClose: (() => void) | null = null;
 
@@ -272,10 +294,15 @@ onUnmounted(() => {
       <q-dialog v-if="useDialogFlag" v-model="expanded" no-frame>
         <div class="q-menu-popup-body">
           <div v-if="props.useFilter" class="filter-area">
-            <input type="text" class="filter-input text-field" placeholder="Filter" v-model="filterText" />
+            <QInput
+              ref="filterInput"
+              v-model="filterText"
+              class="filter-input"
+              placeholder="Filter"
+            />
           </div>
           <div class="scroll-area" :class="scrollAreaCls" ref="scrollArea" :style="{ height: props.scrollHeight, maxHeight: props.scrollHeight }">
-            <q-menu v-if="filteredItems" :items="filteredItems" :focused-index="focusedIndex" @action="menuItemClick" persistent no-frame no-shadow></q-menu>
+            <q-menu v-if="filteredItems.length > 0" :items="filteredItems" :focused-index="focusedIndex" @action="menuItemClick" persistent no-frame no-shadow></q-menu>
             <div v-else class="empty-hint flow place-center" v-text="emptyHit"></div>
           </div>
         </div>
@@ -393,6 +420,10 @@ onUnmounted(() => {
 
   .filter-area {
     padding: 1rem 1rem 0.5rem 1rem;
+
+    :deep(.q-input) {
+      width: 100%;
+    }
   }
   .scroll-area {
     overflow-y: scroll;

@@ -669,12 +669,14 @@ All exported common components are listed in [`src/components/common/index.ts`](
 
 - Source: [`src/components/common/QCard.vue`](../src/components/common/QCard.vue)
 - Demo: [`src/app/home/card.vue`](../src/app/home/card.vue)
-- Props: `variant`, `dashed`, `hoverable`, `eyebrow`, `title`, `subtitle`, `marker`, `markerStyle`, `leader`
+- Props: `variant`, `hoverable`, `eyebrow`, `title`, `subtitle`, `marker`, `markerStyle`
 - Slots: `media`, `header`, default, `footer`
 - Notes:
-  - `variant`: `default` or `tile`
-  - `markerStyle`: `none`, `plate`, `chip`
-  - Morph theme adds stronger marker and leader styling.
+  - `variant`: `default`, `dashed`, `annotated`, or `tile`
+  - `marker` is used by `annotated` for the annotation label and by `tile` for the corner code
+  - `markerStyle`: `plate` or `chip`, only used by `annotated`
+  - `markerStyle="plate"` splits `marker` on `/` into a spec number and spec type
+  - Morph theme adds stronger annotation marker, leader line, and tile code styling.
 
 #### `QMediaFrame`
 

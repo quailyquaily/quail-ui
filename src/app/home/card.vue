@@ -42,9 +42,7 @@
           <div class="comparison-panel">
             <div class="state-label q-text-caption">Static</div>
             <QCard
-              dashed
-              marker="A-02 / OUTLINE"
-              marker-style="plate"
+              variant="dashed"
               eyebrow="Draft"
               title="Dashed surface for softer emphasis."
               subtitle="The same layout can move into a lighter state without becoming a separate component."
@@ -58,10 +56,8 @@
           <div class="comparison-panel">
             <div class="state-label q-text-caption">Hoverable</div>
             <QCard
-              dashed
+              variant="dashed"
               hoverable
-              marker="A-02 / OUTLINE"
-              marker-style="plate"
               eyebrow="Draft"
               title="Dashed surface for softer emphasis."
               subtitle="The same layout can move into a lighter state without becoming a separate component."
@@ -78,9 +74,9 @@
         <div class="group-label q-text-caption q-c-dark-3">Annotated</div>
         <div class="comparison-grid">
           <div class="comparison-panel">
-            <div class="state-label q-text-caption">Static</div>
+            <div class="state-label q-text-caption">Chip</div>
             <QCard
-              leader
+              variant="annotated"
               marker="AN-14"
               marker-style="chip"
               eyebrow="Annotation"
@@ -94,15 +90,15 @@
           </div>
 
           <div class="comparison-panel">
-            <div class="state-label q-text-caption">Hoverable</div>
+            <div class="state-label q-text-caption">Plate + Hoverable</div>
             <QCard
+              variant="annotated"
               hoverable
-              leader
-              marker="AN-14"
-              marker-style="chip"
+              marker="AN-22 / REVIEW"
+              marker-style="plate"
               eyebrow="Annotation"
-              title="Marker and leader are morph-only enhancements."
-              subtitle="They stay out of the way in light and dark, but can add diagrammatic rhythm inside the morph theme."
+              title="Annotated cards can switch marker shapes."
+              subtitle="Use chip or plate markers for different annotation densities while keeping the same base card structure."
             >
               <div class="q-text-body-text">
                 Use it for side commentary, process notes, or supporting context that needs a directional cue in Morph.

@@ -16,7 +16,7 @@ body[data-theme="warm"] {
   --q-c-red-light: #c06a80;
   --q-c-green: #3f6d6e;
   --q-c-green-light: #5a8788;
-  --q-bg-paper: #f3f7fb;
+  --q-bg-paper: rgb(246, 250, 255);
   --q-bg-white: #fbfdff;
   --q-bg-light: #edf3f8;
   --q-bg-light-2: #e5edf5;
@@ -575,7 +575,7 @@ body[data-theme="warm"] {
   }
 
   .q-dialog {
-    background-color: rgba(247, 247, 247, 0.97) !important;
+    background-color: white !important;
     border: 1px solid rgba(0, 0, 0, 0.16) !important;
     border-radius: 2px !important;
   }
@@ -621,7 +621,7 @@ body[data-theme="warm"] {
   .q-menu {
     border: 1px solid rgba(40, 78, 120, 0.16) !important;
     border-radius: 2px !important;
-    background: rgba(246, 250, 253, 0.98) !important;
+    background: #fff !important;
     box-shadow:
       0 1px rgba(255, 255, 255, 0.85) inset,
       0 10px 24px rgba(24, 46, 72, 0.12) !important;

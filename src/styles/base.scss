@@ -414,11 +414,11 @@ body[data-theme="warm"] {
   --q-button-primary-bg: var(--q-c-blue-dark);
   --q-button-primary-border: rgba(33, 68, 107, 0.7);
   --q-button-primary-shadow:
-    0 1px rgba(255, 255, 255, 0.88) inset,
+    0 1px rgba(255, 255, 255, 0.2) inset,
     0 0px 4px rgba(24, 46, 72, 0.05);
   --q-button-primary-hover-shadow:
-    0 1px rgba(255, 255, 255, 0.92) inset,
-    0 0px 8px rgba(24, 46, 72, 0.07);
+    0 1px rgba(255, 255, 255, 0.2) inset,
+    0 2px 6px rgba(24, 46, 72, 0.2);
   --q-button-highlight-bg: var(--q-c-orange);
   --q-button-highlight-border: var(--q-c-orange-dark);
   --q-button-highlight-hover-bg: var(--q-c-orange-light);
@@ -428,13 +428,13 @@ body[data-theme="warm"] {
   --q-button-outlined-bg: rgba(255, 255, 255, 0.64);
   --q-button-outlined-text: rgba(22, 35, 52, 0.9);
   --q-button-outlined-shadow:
-    0 1px rgba(255, 255, 255, 0.88) inset,
+    0 1px rgba(255, 255, 255, 0.2) inset,
     0 0px 4px rgba(24, 46, 72, 0.05);
   --q-button-outlined-hover-border: rgba(40, 78, 120, 0.36);
   --q-button-outlined-hover-bg: rgba(255, 255, 255, 0.78);
   --q-button-outlined-hover-shadow:
-    0 1px rgba(255, 255, 255, 0.92) inset,
-    0 0px 8px rgba(24, 46, 72, 0.07);
+    0 1px rgba(255, 255, 255, 0.2) inset,
+    0 2px 6px rgba(24, 46, 72, 0.2);
   --q-button-outlined-backdrop-filter: blur(12px);
   --q-button-outlined-webkit-backdrop-filter: blur(12px);
   --q-button-plain-text: var(--q-c-dark-2);

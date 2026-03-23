@@ -132,18 +132,31 @@ const wrapperStyle = computed(() => {
 
 <style lang="scss">
 .q-collapse-item {
+  position: relative;
+  transition:
+    background-color 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+
   &:not(:last-child):not(.ghost) {
-    border-bottom: 1px solid var(--q-c-dark-4);
+    border-bottom: 1px solid var(--q-collapse-border-color);
   }
 
   &.ghost {
-    margin-bottom: 4px;
+    margin-bottom: 8px;
+    border: 1px solid var(--q-collapse-border-color);
     border-radius: var(--q-radius-md);
     overflow: hidden;
+    background: var(--q-collapse-shell-bg);
 
     &:last-child {
       margin-bottom: 0;
     }
+  }
+
+  &.active:not(.ghost) {
+    z-index: 1;
+    box-shadow: var(--q-collapse-item-shadow);
   }
 
   &.disabled {
@@ -156,13 +169,14 @@ const wrapperStyle = computed(() => {
   // Sizes
   &.q-collapse-item-sm {
     .q-collapse-item-header {
-      padding: 8px 12px;
+      min-height: 44px;
+      padding: 10px 12px;
     }
     .q-collapse-item-title {
       font-size: 0.8125rem;
     }
     .q-collapse-item-content {
-      padding: 8px 12px;
+      padding: 10px 12px 12px;
       font-size: 0.8125rem;
     }
     .q-collapse-item-arrow .icon {
@@ -173,26 +187,28 @@ const wrapperStyle = computed(() => {
 
   &.q-collapse-item-md {
     .q-collapse-item-header {
-      padding: 12px 16px;
+      min-height: 56px;
+      padding: 14px 16px;
     }
     .q-collapse-item-title {
       font-size: 0.9375rem;
     }
     .q-collapse-item-content {
-      padding: 12px 16px;
+      padding: 14px 16px 16px;
       font-size: 0.875rem;
     }
   }
 
   &.q-collapse-item-lg {
     .q-collapse-item-header {
-      padding: 16px 20px;
+      min-height: 64px;
+      padding: 18px 20px;
     }
     .q-collapse-item-title {
       font-size: 1rem;
     }
     .q-collapse-item-content {
-      padding: 16px 20px;
+      padding: 18px 20px 20px;
       font-size: 0.9375rem;
     }
     .q-collapse-item-arrow .icon {
@@ -208,10 +224,30 @@ const wrapperStyle = computed(() => {
   gap: 12px;
   cursor: pointer;
   user-select: none;
-  transition: background-color 0.2s ease;
+  position: relative;
+  min-height: 56px;
+  background-color: var(--q-collapse-header-bg);
+  transition:
+    background-color 0.22s ease,
+    color 0.22s ease;
 
   &:hover:not(.disabled) {
-    background-color: var(--q-c-dark-5);
+    background-color: var(--q-collapse-header-hover-bg);
+  }
+
+  &.active {
+    background-color: var(--q-collapse-header-active-bg);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--q-collapse-header-active-accent) 24%, transparent);
+    }
   }
 }
 
@@ -220,11 +256,17 @@ const wrapperStyle = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--q-collapse-border-color) 72%, transparent);
+  background: var(--q-collapse-icon-bg);
+  color: var(--q-collapse-icon-color);
 
   .icon {
     width: 18px;
     height: 18px;
-    opacity: 0.7;
+    opacity: 1;
   }
 }
 
@@ -234,14 +276,15 @@ const wrapperStyle = computed(() => {
 }
 
 .q-collapse-item-title {
-  font-weight: 500;
+  color: var(--q-collapse-title-color);
+  font-weight: 600;
   line-height: 1.4;
 }
 
 .q-collapse-item-subtitle {
   margin-top: 2px;
   font-size: 0.8125rem;
-  color: var(--q-c-dark-3);
+  color: var(--q-collapse-subtitle-color);
   line-height: 1.4;
 }
 
@@ -254,11 +297,17 @@ const wrapperStyle = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 6px;
+  color: var(--q-collapse-arrow-color);
+  opacity: 0.72;
+  transition:
+    color 0.22s ease,
+    opacity 0.22s ease;
 
   .icon {
     width: 16px;
     height: 16px;
-    color: var(--q-c-dark-3);
+    color: currentColor;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     &.rotated {
@@ -267,26 +316,41 @@ const wrapperStyle = computed(() => {
   }
 }
 
+.q-collapse-item-header:hover:not(.disabled) .q-collapse-item-arrow,
+.q-collapse-item-header.active .q-collapse-item-arrow {
+  opacity: 1;
+  color: var(--q-collapse-arrow-active-color);
+}
+
 .q-collapse-item-content-wrapper {
   overflow: hidden;
   transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .q-collapse-item-content {
+  position: relative;
   line-height: 1.6;
-  color: var(--q-c-dark-1);
-  background-color: var(--q-bg-light-float);
-  border-top: 1px solid var(--q-c-dark-5);
+  color: var(--q-collapse-body-color);
+  background-color: var(--q-collapse-content-bg);
+  border-top: 1px solid var(--q-collapse-content-border);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: color-mix(in srgb, var(--q-collapse-header-active-accent) 10%, transparent);
+  }
 }
 
-// Ghost mode - no content background
 .q-collapse-item.ghost {
   .q-collapse-item-header {
-    background-color: var(--q-c-dark-5);
-    border-radius: var(--q-radius-md);
+    background-color: var(--q-collapse-header-bg);
 
     &:hover:not(.disabled) {
-      background-color: var(--q-c-dark-5);
+      background-color: var(--q-collapse-header-hover-bg);
     }
   }
 
@@ -295,57 +359,12 @@ const wrapperStyle = computed(() => {
   }
 
   .q-collapse-item-content {
-    background-color: transparent;
-    border-left: 1px solid var(--q-c-dark-4);
-    margin-left: 16px;
-    padding-left: 14px;
+    background-color: var(--q-collapse-content-bg);
+    border-top: 1px dashed var(--q-collapse-content-border);
+    border-left: 0;
+    margin-left: 0;
+    border-radius: 0 0 var(--q-radius-md) var(--q-radius-md);
   }
 }
 
-// Dark mode
-.dark {
-  .q-collapse-item {
-    &:not(:last-child):not(.ghost) {
-      border-bottom-color: var(--q-c-light-4);
-    }
-  }
-
-  .q-collapse-item-header {
-    color: var(--q-c-light);
-    background: var(--q-bg-dark-2);
-
-    &:hover:not(.disabled) {
-      background-color: var(--q-c-light-5);
-    }
-  }
-
-  .q-collapse-item-subtitle {
-    color: var(--q-c-light-3);
-  }
-
-  .q-collapse-item-arrow .icon {
-    color: var(--q-c-light-3);
-  }
-
-  .q-collapse-item-content {
-    color: var(--q-c-light-2);
-    background-color: transparent;
-    border-top: 1px solid var(--q-c-light-5);
-  }
-
-  .q-collapse-item.ghost {
-    .q-collapse-item-header {
-      background-color: var(--q-c-light-5);
-
-      &:hover:not(.disabled) {
-        background-color: var(--q-c-light-4);
-      }
-    }
-
-    .q-collapse-item-content {
-      background-color: transparent;
-      border-left-color: var(--q-c-light-4);
-    }
-  }
-}
 </style>

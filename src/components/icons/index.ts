@@ -51,6 +51,7 @@ import QIconUnorderedList from "./QIconUnorderedList.vue";
 import QIconBookOpen from "./QIconBookOpen.vue";
 import QIconCheckHeart from "./QIconCheckHeart.vue";
 import QIconCompass from "./QIconCompass.vue";
+import QIconDice from "./QIconDice.vue";
 import QIconClockRewind from "./QIconClockRewind.vue";
 import QIconMessageChatSquare from "./QIconMessageChatSquare.vue";
 import QIconPaperclip from "./QIconPaperclip.vue";
@@ -182,6 +183,7 @@ export {
   QIconBookOpen,
   QIconCheckHeart,
   QIconCompass,
+  QIconDice,
   QIconClockRewind,
   QIconMessageChatSquare,
   QIconPaperclip,

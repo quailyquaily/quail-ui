@@ -521,31 +521,58 @@ body[data-theme="warm"] {
 
   /* QCollapse/QCollapseItem override */
   .q-collapse.q-collapse-bordered {
-    border: 1px solid rgba(0, 0, 0, 0.16) !important;
+    border: 1px solid rgba(40, 78, 120, 0.16) !important;
     border-radius: 2px !important;
+    background: rgba(255, 255, 255, 0.8) !important;
   }
 
   .q-collapse-item:not(:last-child):not(.ghost) {
-    border-bottom-color: rgba(0, 0, 0, 0.16) !important;
+    border-bottom-color: rgba(40, 78, 120, 0.16) !important;
   }
 
-  .q-collapse-item-header:hover:not(.disabled) {
-    background-color: rgba(96, 96, 96, 0.1) !important;
+  .q-collapse-item-header {
+    background-color: rgba(255, 255, 255, 0.68) !important;
+  }
+
+  .q-collapse-item-header:hover:not(.disabled),
+  .q-collapse-item-header.active {
+    background-color: rgba(246, 250, 255, 0.96) !important;
   }
 
   .q-collapse-item-subtitle,
-  .q-collapse-item-arrow .icon {
-    color: #6a6a6a !important;
+  .q-collapse-item-arrow {
+    color: var(--q-c-blue) !important;
+  }
+
+  .q-collapse-item-header.active::before,
+  .q-collapse-item-content::before {
+    background: rgba(66, 111, 158, 0.22) !important;
+  }
+
+  .q-collapse-item-icon {
+    border-radius: 2px !important;
+    border-color: rgba(40, 78, 120, 0.16) !important;
+    background: rgba(255, 255, 255, 0.76) !important;
+  }
+
+  .q-collapse-item-header:hover:not(.disabled) .q-collapse-item-arrow,
+  .q-collapse-item-header.active .q-collapse-item-arrow {
+    color: var(--q-c-secondary) !important;
   }
 
   .q-collapse-item-content {
-    background-color: rgba(255, 255, 255, 0.72) !important;
-    border-top-color: rgba(0, 0, 0, 0.14) !important;
+    background-color: rgba(255, 255, 255, 0.86) !important;
+    border-top-color: rgba(40, 78, 120, 0.14) !important;
+  }
+
+  .q-collapse-item.ghost {
+    border: 1px dashed rgba(40, 78, 120, 0.16) !important;
+    border-radius: 2px !important;
   }
 
   .q-collapse-item.ghost .q-collapse-item-header {
     border-radius: 2px !important;
-    background-color: rgba(96, 96, 96, 0.1) !important;
+    background-color: rgba(255, 255, 255, 0.66) !important;
   }
 
   .q-collapse-item.ghost.active .q-collapse-item-header {
@@ -553,7 +580,7 @@ body[data-theme="warm"] {
   }
 
   .q-collapse-item.ghost .q-collapse-item-content {
-    border-left-color: rgba(0, 0, 0, 0.16) !important;
+    border-top-color: rgba(40, 78, 120, 0.16) !important;
   }
 
   /* QDatetimePicker override */

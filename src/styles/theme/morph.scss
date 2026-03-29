@@ -21,16 +21,16 @@ body[data-theme="warm"] {
   --q-bg-light: #edf3f8;
   --q-bg-light-2: #e5edf5;
   --q-bg-light-float: #f6f9fc;
-  --morph-bg-grid-major-line: rgba(26, 75, 140, 0.064);
-  --morph-bg-grid-minor-line: rgba(26, 75, 140, 0.032);
+  --morph-bg-grid-major-line: rgba(26, 75, 140, 0.04);
+  --morph-bg-grid-minor-line: rgba(26, 75, 140, 0.018);
   --morph-bg-grid-image:
     linear-gradient(var(--morph-bg-grid-major-line) 0.5px, transparent 1px),
-    linear-gradient(90deg, var(--morph-bg-grid-major-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--morph-bg-grid-major-line) 0.5px, transparent 1px),
     linear-gradient(var(--morph-bg-grid-minor-line) 0.5px, transparent 0.5px),
     linear-gradient(90deg, var(--morph-bg-grid-minor-line) 0.5px, transparent 0.5px);
   --morph-bg-grid-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
 
-  // Match the style-lab blueprint grid exactly so the theme surface stays consistent.
+  // Align the theme canvas with the current Mister Morph light-surface grid.
   background-color: var(--q-bg-paper);
   background-image: var(--morph-bg-grid-image);
   background-size: var(--morph-bg-grid-size);

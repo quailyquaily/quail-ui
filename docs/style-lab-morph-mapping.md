@@ -1,5 +1,7 @@
 # `style-lab/style.css` 与 Quail UI 现有体系映射
 
+> 注：这份文档主要记录旧的 `style-lab` 来源映射。2026-03 之后，Morph 的当前 canonical 设计基线应以 `mistermorph-website/docs/design_impl.md` 为准；Quail UI 对应的同步结论见 [`docs/feat/morph-theme-sync-2026-03.md`](./feat/morph-theme-sync-2026-03.md)。
+
 ## 对照范围
 
 - 来源样式: `style-lab/style.css`

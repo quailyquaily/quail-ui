@@ -257,7 +257,7 @@ onUnmounted(() => {
 
 <template>
   <div class="q-dropdown-menu">
-    <div class="q-dropdown-menu-inner narrow-view">
+    <div class="q-dropdown-menu-inner">
       <div class="q-dropdown-menu-action touchable" :class="actionCls" @click.stop="toggle">
         <div v-if="props.loading" class="ocean">
           <div class="wave"></div>

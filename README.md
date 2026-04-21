@@ -140,4 +140,4 @@ For legacy usage, dark mode still works by toggling the `.dark` class on `<body>
 
 ## License
 
-MIT
+Apache-2.0
